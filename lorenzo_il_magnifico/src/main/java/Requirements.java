@@ -1,5 +1,5 @@
 /**
  * Created by starivore on 5/7/17.
  */
-public interface interf1 {
+public class Requirements {
 }

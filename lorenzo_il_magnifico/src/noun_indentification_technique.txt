@@ -1,0 +1,57 @@
+Before starting with the Class diagram we had identify all the classes.
+This was done using the method of "Noun Identification Technique" explained in the book "UsingUML - Perdita Stevens".
+By using the same book as a reference we proceed with building the CRC Cards Diagram and afterwards the Class Diagram.
+
+Strong Candidates: (tab indicates inheritance, while in the parenthesis we have some of the attributes)
+------------------------------------------------------------------------------------------------
+-Player (Points points, Resources res, PersonalBoard personalBoard, LeaderCard leaderCards[4])
+-Resources  (woods, stones, servants, coins)
+-Points (victory, military, faith)
+-Card
+	-DevelopmentCard (Period period, Resources cost, ImmediateEffect immediateEffect, PermanentEffect permanentEffect)
+		-Territory
+		-Building
+		-Character
+		-Venture (Resources alternativeCost)
+	-LeaderCard (Requirements requirements, SpecialAbility specialAbility)
+-Requirements
+-SpecialAbility
+	-OncePerRoundAbility (Action action)
+	-PermanentAbility (Action action)
+-ImmediateEffect (Resources resources, Points points, Action bonusAction)
+-PermanentEffect
+-Action
+	-ProductionAction
+	-HarvestAction
+-FamilyMember (color, Dice dice)
+	-NeutralFamilyMember
+-Dice
+-TheGame (Period period, playersNumber)
+	- AdvancedGame (PersonalBonusTile customBonusTile)
+-Period (Round round)
+-Round (Phase phase)
+-Phase
+	-RoundSetup
+	-Action
+	-VaticanReport
+	-EndOfRound
+-Board (ActionSpace spaces, TheMarket market, TheCouncilPalace coincilPalace, Track tracks[])
+-PersonalBoard  (DevelopmentCard cards)
+-PersonalBonusTile
+	-CustomPersonalBonusTile
+-Deck (Card cards[])
+-Tower (Card cards[])
+-ExcommunicationTile (Period period)
+-CoveringTiles
+-ExcommunicationCubes
+-MarkerDiscs
+-Track (MarkerDiscs markerDiscs)
+	-VictoryPointsTrack
+	-MilitaryPointsTrack
+	-FaithPointsTrack
+	-TurnOrderTrack
+-ActionSpace (DevelopmentCard card, Resources bonus, FamilyMember familyMember)
+-TheMarket
+-TheCouncilPalace
+-CouncilPrivilege
+-EndOfGame

@@ -3,85 +3,387 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="201.5" y="90.0">a</node>
-    <node x="108.75" y="288.0">b</node>
-    <node x="459.0" y="4.5">interf1</node>
-    <node x="302.75" y="300.0">c</node>
-    <node x="27.0" y="676.0">class2</node>
-    <node x="245.0" y="4.5">interf3</node>
-    <node x="617.0" y="195.0">Class1</node>
-    <node x="352.0" y="4.5">interf2</node>
-    <node x="138.0" y="4.5">interf4</node>
+    <node x="1199.3745295698914" y="660.0">Venture</node>
+    <node x="3600.0" y="660.0">OncePerRoundAbility</node>
+    <node x="3529.4293682795687" y="490.0">Requirements</node>
+    <node x="843.3252016129022" y="797.0">Board</node>
+    <node x="0.0" y="965.0">ExcommunicationCubes</node>
+    <node x="3332.0" y="648.5">LeaderCard</node>
+    <node x="1622.0" y="671.5">Territory</node>
+    <node x="2467.103696236558" y="797.0">Player</node>
+    <node x="1968.0" y="671.5">Character</node>
+    <node x="500.9795026881711" y="671.5">NeutralFamilyMember</node>
+    <node x="3362.333333333333" y="490.0">SpecialAbility</node>
+    <node x="2505.075201612902" y="297.0">Period</node>
+    <node x="2525.5" y="660.0">AdvancedGame</node>
+    <node x="3375.1253360215046" y="308.5">ProductionAction</node>
+    <node x="1489.4450268817204" y="274.0">ImmediateEffect</node>
+    <node x="2996.3128360215046" y="308.5">Card</node>
+    <node x="550.9795026881711" y="467.0">FamilyMember</node>
+    <node x="584.0" y="965.0">EndOfGame</node>
+    <node x="3540.1253360215046" y="308.5">HarvestAction</node>
+    <node x="2459.0" y="478.5">ExcommunicationTile</node>
+    <node x="2834.0" y="478.5">Tower</node>
+    <node x="1293.5" y="81.0">Resources</node>
+    <node x="1611.0493279569891" y="444.0">DevelopmentCard</node>
+    <node x="1156.5" y="127.0">RoundSetup</node>
+    <node x="1507.0" y="671.5">Building</node>
+    <node x="3414.924327956989" y="127.0">Action</node>
+    <node x="2501.5" y="0.0">Phase</node>
+    <node x="312.4795026881711" y="490.0">MarkerDiscs</node>
+    <node x="1017.5" y="127.0">EndOfRound</node>
+    <node x="2225.0" y="671.5">CustomPersonalBonusTile</node>
+    <node x="1741.0" y="660.0">PersonalBoard</node>
+    <node x="173.0" y="843.0">TurnOrderTrack</node>
+    <node x="413.0" y="965.0">CoveringTiles</node>
+    <node x="2986.1253360215046" y="92.5">Points</node>
+    <node x="229.0" y="965.0">CouncilPrivilege</node>
+    <node x="0.0" y="843.0">VictoryPointsTrack</node>
+    <node x="2648.0" y="467.0">TheGame</node>
+    <node x="2094.0" y="671.5">TheMarket</node>
+    <node x="2472.5" y="115.5">Round</node>
+    <node x="587.2700268817202" y="843.0">MilitaryPointsTrack</node>
+    <node x="1737.4450268817204" y="308.5">PermanentEffect</node>
+    <node x="769.3745295698914" y="671.5">TheCouncilPalace</node>
+    <node x="3519.924327956989" y="127.0">VaticanReport</node>
+    <node x="3166.0" y="660.0">PermanentAbility</node>
+    <node x="589.4795026881711" y="308.5">Dice</node>
+    <node x="333.0" y="843.0">FaithPointsTrack</node>
+    <node x="2994.0" y="478.5">Deck</node>
+    <node x="938.3745295698914" y="637.0">ActionSpace</node>
+    <node x="2285.0" y="490.0">PersonalBonusTile</node>
+    <node x="264.9795026881711" y="660.0">Track</node>
   </nodes>
-  <notes>
-    <note x="0.0" y="0.0">
-      <node>a</node>
-      <value>Just for test,\nTODO:delete</value>
-      <edge>
-        <point x="-69.6" y="-74.0" />
-        <point x="218.9" y="70.0" />
-        <point x="59.0" y="70.0" />
-        <point x="0.0" y="20.0" />
-      </edge>
-    </note>
-    <note x="0.0" y="481.0">
-      <node>class2</node>
-      <value>Responsibilities \n-resp1\n-resp2\n-ecc\n\nCollaborators\n-collab1\n-collab2\n-ecc</value>
-      <edge>
-        <point x="0.0" y="-15.5" />
-        <point x="0.0" y="72.5" />
-      </edge>
-    </note>
-    <note x="591.0" y="0.0">
-      <node>Class1</node>
-      <value>Responsibilities \n-resp1\n-resp2\n-ecc\n\nCollaborators\n-collab1\n-collab2\n-ecc</value>
-      <edge>
-        <point x="0.0" y="-15.5" />
-        <point x="0.0" y="72.5" />
-      </edge>
-    </note>
-  </notes>
+  <notes />
   <edges>
-    <edge source="a" target="interf2">
-      <point x="34.80000000000001" y="-74.0" />
-      <point x="323.3" y="60.0" />
-      <point x="395.5" y="60.0" />
+    <edge source="Venture" target="DevelopmentCard">
+      <point x="54.25" y="-27.0" />
+      <point x="1362.1245295698914" y="597.0" />
+      <point x="1662.5493279569891" y="597.0" />
+      <point x="-51.5" y="61.5" />
+    </edge>
+    <edge source="Deck" target="Card">
+      <point x="0.0" y="-27.0" />
+      <point x="3064.0" y="424.0" />
+      <point x="3044.4378360215046" y="424.0" />
+      <point x="9.625" y="15.5" />
+    </edge>
+    <edge source="HarvestAction" target="Action">
+      <point x="0.0" y="-15.5" />
+      <point x="3604.6253360215046" y="254.0" />
+      <point x="3474.424327956989" y="254.0" />
+      <point x="17.0" y="15.5" />
+    </edge>
+    <edge source="Territory" target="DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1671.5" y="617.0" />
+      <point x="1731.215994623656" y="617.0" />
+      <point x="17.166666666666742" y="61.5" />
+    </edge>
+    <edge source="DevelopmentCard" target="Period">
+      <point x="41.200000000000045" y="-61.5" />
+      <point x="1755.2493279569892" y="404.0" />
+      <point x="2528.7418682795687" y="404.0" />
+      <point x="-47.333333333333485" y="27.0" />
+    </edge>
+    <edge source="DevelopmentCard" target="Card">
+      <point x="82.40000000000009" y="-61.5" />
+      <point x="1796.4493279569892" y="414.0" />
+      <point x="3005.9378360215046" y="414.0" />
+      <point x="-28.875" y="15.5" />
+    </edge>
+    <edge source="ImmediateEffect" target="Action">
+      <point x="76.0" y="-50.0" />
+      <point x="1679.4450268817204" y="244.0" />
+      <point x="3423.424327956989" y="244.0" />
+      <point x="-34.0" y="15.5" />
+    </edge>
+    <edge source="AdvancedGame" target="PersonalBonusTile">
+      <point x="-68.5" y="-27.0" />
+      <point x="2594.0" y="617.0" />
+      <point x="2400.5" y="617.0" />
+      <point x="38.5" y="15.5" />
+    </edge>
+    <edge source="ActionSpace" target="FamilyMember">
+      <point x="-80.33333333333326" y="-50.0" />
+      <point x="978.5411962365581" y="617.0" />
+      <point x="664.9795026881711" y="617.0" />
+      <point x="38.0" y="38.5" />
+    </edge>
+    <edge source="ActionSpace" target="Resources">
+      <point x="0.0" y="-50.0" />
+      <point x="1058.8745295698914" y="244.0" />
+      <point x="1311.9" y="244.0" />
+      <point x="-73.59999999999991" y="61.5" />
+    </edge>
+    <edge source="Building" target="DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1554.5" y="607.0" />
+      <point x="1696.8826612903224" y="607.0" />
+      <point x="-17.166666666666742" y="61.5" />
+    </edge>
+    <edge source="Board" target="Track">
+      <point x="-90.75" y="-61.5" />
+      <point x="873.5752016129022" y="767.0" />
+      <point x="459.3795026881712" y="767.0" />
+      <point x="86.39999999999998" y="27.0" />
+    </edge>
+    <edge source="RoundSetup" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="1215.0" y="61.0" />
+      <point x="2526.7" y="61.0" />
+      <point x="-16.800000000000182" y="15.5" />
+    </edge>
+    <edge source="FamilyMember" target="Dice">
+      <point x="0.0" y="-38.5" />
       <point x="0.0" y="15.5" />
     </edge>
-    <edge source="a" target="interf1">
-      <point x="69.60000000000002" y="-74.0" />
-      <point x="358.1" y="70.0" />
-      <point x="502.5" y="70.0" />
+    <edge source="ActionSpace" target="DevelopmentCard">
+      <point x="80.33333333333326" y="-50.0" />
+      <point x="1139.2078629032246" y="587.0" />
+      <point x="1628.215994623656" y="587.0" />
+      <point x="-85.83333333333326" y="61.5" />
+    </edge>
+    <edge source="PermanentAbility" target="Action">
+      <point x="-36.5" y="-27.0" />
+      <point x="3202.5" y="254.0" />
+      <point x="3440.424327956989" y="254.0" />
+      <point x="-17.0" y="15.5" />
+    </edge>
+    <edge source="AdvancedGame" target="TheGame">
+      <point x="68.5" y="-27.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="Player" target="Resources">
+      <point x="-75.75" y="-61.5" />
+      <point x="2492.353696236558" y="767.0" />
+      <point x="1426.8745295698914" y="767.0" />
+      <point x="1426.8745295698914" y="254.0" />
+      <point x="1385.5" y="254.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="Tower" target="Card">
+      <point x="0.0" y="-27.0" />
+      <point x="2904.0" y="424.0" />
+      <point x="3025.1878360215046" y="424.0" />
+      <point x="-9.625" y="15.5" />
+    </edge>
+    <edge source="MilitaryPointsTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="665.7700268817202" y="777.0" />
+      <point x="416.17950268817117" y="777.0" />
+      <point x="43.19999999999999" y="27.0" />
+    </edge>
+    <edge source="VaticanReport" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="3583.924327956989" y="51.0" />
+      <point x="2577.1" y="51.0" />
+      <point x="33.59999999999991" y="15.5" />
+    </edge>
+    <edge source="ExcommunicationTile" target="Period">
+      <point x="0.0" y="-27.0" />
+      <point x="2543.5" y="404.0" />
+      <point x="2576.075201612902" y="404.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="PermanentAbility" target="SpecialAbility">
+      <point x="36.5" y="-27.0" />
+      <point x="3275.5" y="617.0" />
+      <point x="3383.0" y="617.0" />
+      <point x="-41.333333333333485" y="15.5" />
+    </edge>
+    <edge source="Track" target="MarkerDiscs">
+      <point x="0.0" y="-27.0" />
       <point x="0.0" y="15.5" />
     </edge>
-    <edge source="a" target="interf4">
-      <point x="-34.80000000000001" y="-74.0" />
-      <point x="253.7" y="60.0" />
-      <point x="181.5" y="60.0" />
+    <edge source="Player" target="Points">
+      <point x="25.25" y="-61.5" />
+      <point x="2593.353696236558" y="767.0" />
+      <point x="3155.5" y="767.0" />
+      <point x="3155.5" y="234.0" />
+      <point x="3109.8753360215046" y="234.0" />
+      <point x="41.25" y="50.0" />
+    </edge>
+    <edge source="FaithPointsTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="404.0" y="777.0" />
+      <point x="372.9795026881711" y="777.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="OncePerRoundAbility" target="Action">
+      <point x="41.75" y="-27.0" />
+      <point x="3725.25" y="244.0" />
+      <point x="3491.424327956989" y="244.0" />
+      <point x="34.0" y="15.5" />
+    </edge>
+    <edge source="CustomPersonalBonusTile" target="PersonalBonusTile">
+      <point x="0.0" y="-15.5" />
+      <point x="-38.5" y="15.5" />
+    </edge>
+    <edge source="DevelopmentCard" target="PermanentEffect">
+      <point x="0.0" y="-61.5" />
+      <point x="1714.0493279569891" y="394.0" />
+      <point x="1809.4450268817204" y="394.0" />
       <point x="0.0" y="15.5" />
     </edge>
-    <edge source="a" target="interf3">
-      <point x="0.0" y="-74.0" />
+    <edge source="Board" target="ActionSpace">
+      <point x="30.25" y="-61.5" />
+      <point x="994.5752016129022" y="767.0" />
+      <point x="1058.8745295698914" y="767.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="DevelopmentCard" target="ImmediateEffect">
+      <point x="-41.200000000000045" y="-61.5" />
+      <point x="1672.849327956989" y="414.0" />
+      <point x="1603.4450268817204" y="414.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="LeaderCard" target="Requirements">
+      <point x="82.66666666666652" y="-38.5" />
+      <point x="3538.6666666666665" y="617.0" />
+      <point x="3593.4293682795687" y="617.0" />
       <point x="0.0" y="15.5" />
     </edge>
-    <edge source="c" target="a">
-      <point x="0.0" y="-62.0" />
-      <point x="381.25" y="263.0" />
-      <point x="332.0" y="263.0" />
-      <point x="43.5" y="74.0" />
+    <edge source="PersonalBoard" target="DevelopmentCard">
+      <point x="0.0" y="-27.0" />
+      <point x="1844.5" y="617.0" />
+      <point x="1765.5493279569891" y="617.0" />
+      <point x="51.5" y="61.5" />
     </edge>
-    <edge source="b" target="a">
-      <point x="0.0" y="-74.0" />
-      <point x="195.75" y="263.0" />
-      <point x="245.0" y="263.0" />
-      <point x="-43.5" y="74.0" />
+    <edge source="Action" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="3457.424327956989" y="61.0" />
+      <point x="2560.3" y="61.0" />
+      <point x="16.800000000000182" y="15.5" />
+    </edge>
+    <edge source="Period" target="Round">
+      <point x="0.0" y="-27.0" />
+      <point x="2576.075201612902" y="224.0" />
+      <point x="2543.5" y="224.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="TurnOrderTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="243.0" y="777.0" />
+      <point x="329.7795026881711" y="777.0" />
+      <point x="-43.19999999999999" y="27.0" />
+    </edge>
+    <edge source="OncePerRoundAbility" target="SpecialAbility">
+      <point x="-41.75" y="-27.0" />
+      <point x="3641.75" y="607.0" />
+      <point x="3465.666666666667" y="607.0" />
+      <point x="41.333333333333485" y="15.5" />
+    </edge>
+    <edge source="Character" target="DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="2021.0" y="607.0" />
+      <point x="1799.8826612903224" y="607.0" />
+      <point x="85.83333333333326" y="61.5" />
+    </edge>
+    <edge source="EndOfRound" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="1077.0" y="51.0" />
+      <point x="2509.9" y="51.0" />
+      <point x="-33.59999999999991" y="15.5" />
+    </edge>
+    <edge source="Board" target="TheCouncilPalace">
+      <point x="-30.25" y="-61.5" />
+      <point x="934.0752016129022" y="757.0" />
+      <point x="843.8745295698914" y="757.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Player" target="LeaderCard">
+      <point x="75.75" y="-61.5" />
+      <point x="2643.853696236558" y="777.0" />
+      <point x="3456.0" y="777.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="ProductionAction" target="Action">
+      <point x="0.0" y="-15.5" />
+      <point x="3447.6253360215046" y="254.0" />
+      <point x="3457.424327956989" y="254.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ImmediateEffect" target="Resources">
+      <point x="-76.0" y="-50.0" />
+      <point x="1527.4450268817204" y="234.0" />
+      <point x="1459.1" y="234.0" />
+      <point x="73.59999999999991" y="61.5" />
+    </edge>
+    <edge source="LeaderCard" target="Card">
+      <point x="-82.66666666666652" y="-38.5" />
+      <point x="3373.3333333333335" y="607.0" />
+      <point x="3144.5" y="607.0" />
+      <point x="3144.5" y="414.0" />
+      <point x="3063.6878360215046" y="414.0" />
+      <point x="28.875" y="15.5" />
+    </edge>
+    <edge source="NeutralFamilyMember" target="FamilyMember">
+      <point x="0.0" y="-15.5" />
+      <point x="-38.0" y="38.5" />
+    </edge>
+    <edge source="VictoryPointsTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="76.5" y="767.0" />
+      <point x="286.57950268817103" y="767.0" />
+      <point x="-86.39999999999998" y="27.0" />
+    </edge>
+    <edge source="LeaderCard" target="SpecialAbility">
+      <point x="0.0" y="-38.5" />
+      <point x="3456.0" y="617.0" />
+      <point x="3424.333333333333" y="617.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Player" target="PersonalBoard">
+      <point x="-25.25" y="-61.5" />
+      <point x="2542.853696236558" y="757.0" />
+      <point x="1844.5" y="757.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="DevelopmentCard" target="Resources">
+      <point x="-82.40000000000009" y="-61.5" />
+      <point x="1631.649327956989" y="424.0" />
+      <point x="1478.9450268817204" y="424.0" />
+      <point x="1478.9450268817204" y="244.0" />
+      <point x="1422.3" y="244.0" />
+      <point x="36.799999999999955" y="61.5" />
+    </edge>
+    <edge source="Venture" target="Resources">
+      <point x="-54.25" y="-27.0" />
+      <point x="1253.6245295698914" y="254.0" />
+      <point x="1348.7" y="254.0" />
+      <point x="-36.799999999999955" y="61.5" />
+    </edge>
+    <edge source="Round" target="Phase">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Board" target="TheMarket">
+      <point x="90.75" y="-61.5" />
+      <point x="1055.0752016129022" y="777.0" />
+      <point x="2149.5" y="777.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="TheGame" target="Period">
+      <point x="0.0" y="-38.5" />
+      <point x="2731.0" y="404.0" />
+      <point x="2623.4085349462357" y="404.0" />
+      <point x="47.333333333333485" y="27.0" />
+    </edge>
+    <edge source="ImmediateEffect" target="Points">
+      <point x="0.0" y="-50.0" />
+      <point x="1603.4450268817204" y="234.0" />
+      <point x="3027.3753360215046" y="234.0" />
+      <point x="-41.25" y="50.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="365.0" y="353.5" />
+  <settings layout="Hierarchic Group" zoom="0.4346448376023237" x="1883.5000000000002" y="498.0" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
+    <Category>Inner Classes</Category>
     <Category>Constructors</Category>
+    <Category>Properties</Category>
     <Category>Methods</Category>
   </Categories>
   <SCOPE>All</SCOPE>
