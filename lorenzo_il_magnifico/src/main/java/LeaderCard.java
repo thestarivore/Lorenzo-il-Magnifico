@@ -4,4 +4,5 @@
 public class LeaderCard extends Card{
     private Requirements requirements;
     private SpecialAbility specialAbility;
+    private String characterName;
 }
