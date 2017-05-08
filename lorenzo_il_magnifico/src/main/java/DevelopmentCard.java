@@ -6,4 +6,20 @@ public class DevelopmentCard extends Card{
     private Resources cost;
     private ImmediateEffect immediateEffect;
     private PermanentEffect permanentEffect;
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public Resources getCost() {
+        return cost;
+    }
+
+    public ImmediateEffect getImmediateEffect() {
+        return immediateEffect;
+    }
+
+    public PermanentEffect getPermanentEffect() {
+        return permanentEffect;
+    }
 }
