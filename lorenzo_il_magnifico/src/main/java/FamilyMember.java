@@ -6,4 +6,20 @@ import java.awt.*;
 public class FamilyMember {
     private Color color;
     private Dice dice;
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Dice getDice() {
+        return dice;
+    }
+
+    public void setDice(Dice dice) {
+        this.dice = dice;
+    }
 }

@@ -22,4 +22,20 @@ public class DevelopmentCard extends Card{
     public PermanentEffect getPermanentEffect() {
         return permanentEffect;
     }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public void setCost(Resources cost) {
+        this.cost = cost;
+    }
+
+    public void setImmediateEffect(ImmediateEffect immediateEffect) {
+        this.immediateEffect = immediateEffect;
+    }
+
+    public void setPermanentEffect(PermanentEffect permanentEffect) {
+        this.permanentEffect = permanentEffect;
+    }
 }

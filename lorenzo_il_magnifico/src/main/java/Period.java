@@ -3,4 +3,12 @@
  */
 public class Period {
     private Round round;
+
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
+    }
 }

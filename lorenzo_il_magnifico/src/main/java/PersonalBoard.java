@@ -3,4 +3,12 @@
  */
 public class PersonalBoard {
     private DevelopmentCard cards;
+
+    public DevelopmentCard getCards() {
+        return cards;
+    }
+
+    public void setCards(DevelopmentCard cards) {
+        this.cards = cards;
+    }
 }

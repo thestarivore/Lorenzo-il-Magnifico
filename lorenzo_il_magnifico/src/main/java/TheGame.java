@@ -12,4 +12,12 @@ public class TheGame {
     public int getPlayersNumber() {
         return playersNumber;
     }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public void setPlayersNumber(int playersNumber) {
+        this.playersNumber = playersNumber;
+    }
 }
