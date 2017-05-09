@@ -35,7 +35,7 @@ Strong Candidates: (tab indicates inheritance, while in the parenthesis we have 
 	-Action
 	-VaticanReport
 	-EndOfRound
--Board (ActionSpace spaces, TheMarket market, TheCouncilPalace coincilPalace, Track tracks[])
+-Board (ActionSpace spaces, TheMarket market, TheCouncilPalace councilPalace, Track tracks[])
 -PersonalBoard  (DevelopmentCard cards)
 -PersonalBonusTile
 	-CustomPersonalBonusTile
