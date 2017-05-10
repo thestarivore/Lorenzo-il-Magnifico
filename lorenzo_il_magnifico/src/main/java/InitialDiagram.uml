@@ -3,255 +3,237 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1588.8340476190463" y="792.0">Venture</node>
-    <node x="502.7499999999998" y="792.0">OncePerRoundAbility</node>
-    <node x="308.5" y="603.0">Requirements</node>
-    <node x="2457.7541666666657" y="991.0">Board</node>
-    <node x="0.0" y="1175.0">ExcommunicationCubes</node>
-    <node x="201.60464285714306" y="770.0">LeaderCard</node>
-    <node x="1226.9999999999998" y="803.0">Territory</node>
-    <node x="778.5041666666658" y="969.0">Player</node>
-    <node x="1347.9999999999998" y="803.0">Character</node>
-    <node x="3513.8340476190465" y="803.0">NeutralFamilyMember</node>
-    <node x="489.75" y="603.0">SpecialAbility</node>
-    <node x="3068.654642857143" y="416.0">Period</node>
-    <node x="2741.8340476190465" y="792.0">AdvancedGame</node>
-    <node x="449.60464285714306" y="427.0">ProductionAction</node>
-    <node x="946.6291666666658" y="394.0">ImmediateEffect</node>
-    <node x="110.74238095237956" y="427.0">Card</node>
-    <node x="3498.8340476190465" y="581.0">FamilyMember</node>
-    <node x="607.0" y="1175.0">EndOfGame</node>
-    <node x="293.60464285714306" y="427.0">HarvestAction</node>
-    <node x="3184.108333333333" y="592.0">ExcommunicationTile</node>
-    <node x="159.5" y="592.0">Tower</node>
-    <node x="1546.6627380952364" y="217.0">Resources</node>
-    <node x="1242.1132142857134" y="559.0">DevelopmentCard</node>
-    <node x="1108.9999999999998" y="803.0">Building</node>
-    <node x="463.11273809523664" y="261.0">RoundSetup</node>
-    <node x="607.1127380952364" y="261.0">Action</node>
-    <node x="586.1132142857136" y="128.0">Phase</node>
-    <node x="1863.3340476190463" y="603.0">MarkerDiscs</node>
-    <node x="3220.154642857143" y="261.0">EndOfRound</node>
-    <node x="2335.834047619046" y="803.0">CustomPersonalBonusTile</node>
-    <node x="2209.6460714285695" y="1035.0">TurnOrderTrack</node>
-    <node x="889.9999999999998" y="792.0">PersonalBoard</node>
-    <node x="431.0" y="1175.0">CoveringTiles</node>
-    <node x="888.1590476190461" y="228.0">Points</node>
-    <node x="1383.4213095238097" y="1035.0">VictoryPointsTrack</node>
-    <node x="241.0" y="1175.0">CouncilPrivilege</node>
-    <node x="3038.8340476190465" y="792.0">Lobby</node>
-    <node x="2968.0713095238098" y="581.0">TheGame</node>
-    <node x="3212.8340476190465" y="803.0">TheMarket</node>
-    <node x="3070.154642857143" y="250.0">Round</node>
-    <node x="1568.4213095238097" y="1035.0">MilitaryPointsTrack</node>
-    <node x="1164.1708333333324" y="427.0">PermanentEffect</node>
-    <node x="2565.8340476190465" y="803.0">TheCouncilPalace</node>
-    <node x="308.11273809523664" y="261.0">VaticanReport</node>
-    <node x="700.7499999999998" y="792.0">PermanentAbility</node>
-    <node x="3418.8340476190465" y="405.0">Dice</node>
-    <node x="1934.1632142857134" y="1035.0">FaithPointsTrack</node>
-    <node x="10.5" y="592.0">Deck</node>
-    <node x="2047.8340476190463" y="770.0">ActionSpace</node>
-    <node x="2599.358333333333" y="603.0">PersonalBonusTile</node>
-    <node x="1821.8340476190463" y="792.0">Track</node>
+    <node x="597.0" y="308.0">Venture</node>
+    <node x="933.0" y="1118.0">OncePerRoundAbility</node>
+    <node x="1305.0" y="1413.0">Requirements</node>
+    <node x="1186.5" y="814.0">Board</node>
+    <node x="509.0" y="1413.0">ExcommunicationCubes</node>
+    <node x="1068.75" y="146.5">LeaderCard</node>
+    <node x="1059.0" y="319.5">Territory</node>
+    <node x="164.0" y="465.0">Player</node>
+    <node x="933.0" y="319.5">Character</node>
+    <node x="965.5" y="911.0">NeutralFamilyMember</node>
+    <node x="1042.75" y="1037.0">SpecialAbility</node>
+    <node x="1458.0" y="1256.0">Period</node>
+    <node x="662.5" y="911.0">AdvancedGame</node>
+    <node x="0.0" y="961.0">ProductionAction</node>
+    <node x="511.0" y="1256.0">ImmediateEffect</node>
+    <node x="1117.0" y="27.0">Card</node>
+    <node x="337.0" y="1512.0">EndOfGame</node>
+    <node x="986.5" y="784.0">FamilyMember</node>
+    <node x="165.0" y="961.0">HarvestAction</node>
+    <node x="1048.0" y="1256.0">ExcommunicationTile</node>
+    <node x="171.0" y="1413.0">Tower</node>
+    <node x="1311.0" y="1037.0">Resources</node>
+    <node x="802.75" y="135.0">DevelopmentCard</node>
+    <node x="213.5" y="880.0">RoundSetup</node>
+    <node x="818.0" y="319.5">Building</node>
+    <node x="108.5" y="880.0">Action</node>
+    <node x="299.0" y="799.0">Phase</node>
+    <node x="171.0" y="1512.0">MarkerDiscs</node>
+    <node x="350.5" y="880.0">EndOfRound</node>
+    <node x="0.0" y="1337.0">CustomPersonalBonusTile</node>
+    <node x="0.0" y="1157.0">PersonalBoard</node>
+    <node x="235.99999999999994" y="1141.0">TurnOrderTrack</node>
+    <node x="0.0" y="1512.0">CoveringTiles</node>
+    <node x="728.0" y="1256.0">Points</node>
+    <node x="735.0" y="1141.0">VictoryPointsTrack</node>
+    <node x="1121.0" y="1413.0">CouncilPrivilege</node>
+    <node x="1262.0" y="1256.0">Lobby</node>
+    <node x="712.0" y="784.0">TheGame</node>
+    <node x="500.0" y="1512.0">TheMarket</node>
+    <node x="0.0" y="1413.0">Round</node>
+    <node x="395.99999999999994" y="1141.0">MilitaryPointsTrack</node>
+    <node x="932.0" y="1413.0">PermanentEffect</node>
+    <node x="738.0" y="1413.0">TheCouncilPalace</node>
+    <node x="489.5" y="880.0">VaticanReport</node>
+    <node x="1120.0" y="1118.0">PermanentAbility</node>
+    <node x="887.0" y="1256.0">Dice</node>
+    <node x="573.0" y="1141.0">FaithPointsTrack</node>
+    <node x="340.0" y="1413.0">Deck</node>
+    <node x="21.5" y="1256.0">PersonalBonusTile</node>
+    <node x="242.0" y="1256.0">ActionSpace</node>
+    <node x="459.24999999999994" y="1037.0">Track</node>
   </nodes>
   <notes>
-    <note x="49.60464285714306" y="736.0">
+    <note x="53.0" y="0.0">
       <node>Player</node>
-      <value>COLLABORATIONS\n-Board\n-TheGame\n-Track\n-PersonalBoard\n-Phase\n-FamilyMember\n-Points\n-Card</value>
+      <value>RESPONSABILITY\n-Chooses a color and receives:  Personal Board,  Personal Bonus Tile, \nFamily Members, Excommunication Cubes, Marker Discs and resources;\n-Send/place family members to different action spaces; \n-Decide to spend servants;\n-At the beginning of each round, 3 dice are rolled(by the first player);\n-At the end of each period, players must show their faith;\n-Can decide to support or not to support the Church.\n-May perform one or more special actions without placing a Family Member;\n-Can decide to discard a Leader card from the hand(for a council privilege);\n-Play a Leader Card from your hand if it satisfy the Leader requirements;\n-Turn the Leader Card face down and resolve its “Once Per Round” Ability; \n\nCOLLABORATIONS\n-TheGame\n-Board\n-PersonalBoard\n-PersonalBonusTile\n-ExcommunicationTile\n-FamilyMember\n-Phase\n-FamilyMember\n-Points\n-Resources\n-Card\n-LeaderCard\n-DevelopmentCard</value>
       <edge>
-        <point x="-90.39999999999998" y="-80.5" />
-        <point x="801.1041666666658" y="949.0" />
-        <point x="115.60464285714306" y="949.0" />
-        <point x="0.0" y="81.5" />
+        <point x="0.0" y="-84.5" />
+        <point x="0.0" y="207.5" />
       </edge>
     </note>
-    <note x="3345.8340476190465" y="770.0">
+    <note x="1235.0" y="679.0">
       <node>Board</node>
       <value>COLLABORATIONS\n-TheGame\n-Player\n-DevelopmentCard\n-Dice</value>
       <edge>
-        <point x="94.40000000000009" y="-58.5" />
-        <point x="2670.1541666666662" y="949.0" />
-        <point x="3419.8340476190465" y="949.0" />
-        <point x="0.0" y="47.5" />
+        <point x="0.0" y="-61.5" />
+        <point x="0.0" y="42.5" />
       </edge>
     </note>
-    <note x="562.6132142857136" y="0.0">
+    <note x="282.0" y="679.0">
       <node>Phase</node>
       <value>COLLABORATIONS\n-Round\n-TheGame\n-Board</value>
       <edge>
-        <point x="0.0" y="-14.5" />
-        <point x="0.0" y="39.0" />
+        <point x="0.0" y="-15.5" />
+        <point x="0.0" y="35.0" />
       </edge>
     </note>
-    <note x="3578.8340476190465" y="411.0">
+    <note x="991.0" y="679.0">
       <node>FamilyMember</node>
       <value>COLLABORATIONS:\n-Player\n-Board</value>
       <edge>
-        <point x="35.0" y="-36.5" />
-        <point x="3603.8340476190465" y="539.0" />
-        <point x="3648.8340476190465" y="539.0" />
-        <point x="0.0" y="30.5" />
+        <point x="0.0" y="-38.5" />
+        <point x="0.0" y="27.5" />
       </edge>
     </note>
-    <note x="2902.8213095238098" y="411.0">
+    <note x="732.5" y="679.0">
       <node>TheGame</node>
       <value>COLLABORATIONS\n-Player\n-Lobby</value>
       <edge>
-        <point x="-38.5" y="-36.5" />
-        <point x="3006.5713095238098" y="519.0" />
-        <point x="2968.8213095238098" y="519.0" />
-        <point x="0.0" y="30.5" />
+        <point x="0.0" y="-38.5" />
+        <point x="0.0" y="27.5" />
       </edge>
     </note>
-    <note x="1335.1708333333324" y="394.0">
+    <note x="798.25" y="0.0">
       <node>DevelopmentCard</node>
       <value>COLLABORATIONS\n-Board\n-PersonalBoard\n-ImmediateEffect\n-PermanentEffect</value>
       <edge>
-        <point x="16.166666666666742" y="-58.5" />
-        <point x="1355.2798809523802" y="509.0" />
-        <point x="1409.1708333333324" y="509.0" />
-        <point x="0.0" y="47.5" />
+        <point x="-61.5" y="-61.5" />
+        <point x="0.0" y="42.5" />
       </edge>
     </note>
-    <note x="873.7499999999998" y="578.5">
+    <note x="36.5" y="1037.0">
       <node>PersonalBoard</node>
       <value>COLLABORATIONS\n-PersonalBonus\n-Action\n-Round</value>
       <edge>
-        <point x="-49.75" y="-25.5" />
-        <point x="0.0" y="39.0" />
+        <point x="0.0" y="-27.0" />
+        <point x="0.0" y="35.0" />
       </edge>
     </note>
   </notes>
   <edges>
-    <edge source="Venture" target="DevelopmentCard">
-      <point x="-53.25" y="-25.5" />
-      <point x="1642.0840476190463" y="706.0" />
-      <point x="1387.6132142857134" y="706.0" />
-      <point x="48.5" y="58.5" />
-    </edge>
-    <edge source="HarvestAction" target="Action">
-      <point x="0.0" y="-14.5" />
-      <point x="361.60464285714306" y="354.0" />
-      <point x="615.9127380952364" y="354.0" />
-      <point x="-35.200000000000045" y="14.5" />
-    </edge>
-    <edge source="Territory" target="DevelopmentCard">
-      <point x="0.0" y="-14.5" />
-      <point x="1277.4999999999998" y="716.0" />
-      <point x="1322.9465476190467" y="716.0" />
-      <point x="-16.166666666666742" y="58.5" />
-    </edge>
-    <edge source="DevelopmentCard" target="Card">
-      <point x="-80.83333333333326" y="-58.5" />
-      <point x="1258.2798809523802" y="529.0" />
-      <point x="178.11738095237956" y="529.0" />
-      <point x="28.875" y="14.5" />
-    </edge>
-    <edge source="Building" target="DevelopmentCard">
-      <point x="0.0" y="-14.5" />
-      <point x="1157.9999999999998" y="706.0" />
-      <point x="1290.6132142857134" y="706.0" />
-      <point x="-48.5" y="58.5" />
-    </edge>
-    <edge source="RoundSetup" target="Phase">
-      <point x="0.0" y="-14.5" />
-      <point x="525.1127380952366" y="197.0" />
-      <point x="611.6132142857136" y="197.0" />
-      <point x="-17.0" y="14.5" />
-    </edge>
-    <edge source="AdvancedGame" target="TheGame">
-      <point x="69.25" y="-25.5" />
-      <point x="2949.5840476190465" y="706.0" />
-      <point x="3006.5713095238098" y="706.0" />
-      <point x="-38.5" y="36.5" />
-    </edge>
-    <edge source="MilitaryPointsTrack" target="Track">
-      <point x="0.0" y="-14.5" />
-      <point x="1650.9213095238097" y="949.0" />
-      <point x="1883.6340476190462" y="949.0" />
-      <point x="-41.200000000000045" y="25.5" />
-    </edge>
-    <edge source="VaticanReport" target="Phase">
-      <point x="0.0" y="-14.5" />
-      <point x="375.61273809523664" y="187.0" />
-      <point x="594.6132142857136" y="187.0" />
-      <point x="-34.0" y="14.5" />
-    </edge>
-    <edge source="PermanentAbility" target="SpecialAbility">
-      <point x="-38.0" y="-25.5" />
-      <point x="738.7499999999998" y="706.0" />
-      <point x="597.25" y="706.0" />
-      <point x="43.0" y="14.5" />
-    </edge>
-    <edge source="FaithPointsTrack" target="Track">
-      <point x="0.0" y="-14.5" />
-      <point x="2009.6632142857134" y="949.0" />
-      <point x="1924.8340476190463" y="949.0" />
-      <point x="0.0" y="25.5" />
-    </edge>
-    <edge source="CustomPersonalBonusTile" target="PersonalBonusTile">
-      <point x="0.0" y="-14.5" />
-      <point x="2440.834047619046" y="706.0" />
-      <point x="2639.858333333333" y="706.0" />
-      <point x="-40.5" y="14.5" />
-    </edge>
-    <edge source="Action" target="Phase">
-      <point x="0.0" y="-14.5" />
-      <point x="651.1127380952364" y="197.0" />
-      <point x="628.6132142857136" y="197.0" />
-      <point x="0.0" y="14.5" />
-    </edge>
-    <edge source="TurnOrderTrack" target="Track">
-      <point x="0.0" y="-14.5" />
-      <point x="2282.6460714285695" y="939.0" />
-      <point x="1966.0340476190463" y="939.0" />
-      <point x="41.200000000000045" y="25.5" />
-    </edge>
-    <edge source="OncePerRoundAbility" target="SpecialAbility">
-      <point x="-44.5" y="-25.5" />
-      <point x="547.2499999999998" y="716.0" />
-      <point x="554.25" y="716.0" />
-      <point x="0.0" y="14.5" />
+    <edge source="EndOfRound" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="410.0" y="860.0" />
+      <point x="351.5" y="860.0" />
+      <point x="10.5" y="15.5" />
     </edge>
     <edge source="Character" target="DevelopmentCard">
-      <point x="0.0" y="-14.5" />
-      <point x="1401.9999999999998" y="716.0" />
-      <point x="1355.2798809523802" y="716.0" />
-      <point x="16.166666666666742" y="58.5" />
+      <point x="0.0" y="-15.5" />
+      <point x="986.0" y="283.0" />
+      <point x="956.5" y="283.0" />
+      <point x="30.75" y="61.5" />
     </edge>
-    <edge source="EndOfRound" target="Phase">
-      <point x="0.0" y="-14.5" />
-      <point x="3283.654642857143" y="177.0" />
-      <point x="662.6132142857136" y="177.0" />
-      <point x="34.0" y="14.5" />
+    <edge source="Venture" target="DevelopmentCard">
+      <point x="0.0" y="-27.0" />
+      <point x="697.5" y="283.0" />
+      <point x="833.5" y="283.0" />
+      <point x="-92.25" y="61.5" />
     </edge>
     <edge source="ProductionAction" target="Action">
-      <point x="0.0" y="-14.5" />
-      <point x="527.6046428571431" y="364.0" />
-      <point x="633.5127380952364" y="364.0" />
-      <point x="-17.600000000000023" y="14.5" />
+      <point x="0.0" y="-15.5" />
+      <point x="72.5" y="936.0" />
+      <point x="129.75" y="936.0" />
+      <point x="-21.25" y="15.5" />
+    </edge>
+    <edge source="AdvancedGame" target="TheGame">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="38.5" />
     </edge>
     <edge source="LeaderCard" target="Card">
-      <point x="-87.0" y="-47.5" />
-      <point x="245.10464285714306" y="716.0" />
-      <point x="0.0" y="716.0" />
-      <point x="0.0" y="529.0" />
-      <point x="120.36738095237956" y="529.0" />
-      <point x="-28.875" y="14.5" />
+      <point x="0.0" y="-50.0" />
+      <point x="19.25" y="15.5" />
+    </edge>
+    <edge source="HarvestAction" target="Action">
+      <point x="0.0" y="-15.5" />
+      <point x="229.5" y="936.0" />
+      <point x="172.25" y="936.0" />
+      <point x="21.25" y="15.5" />
     </edge>
     <edge source="NeutralFamilyMember" target="FamilyMember">
-      <point x="0.0" y="-14.5" />
-      <point x="35.0" y="36.5" />
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="MilitaryPointsTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="474.49999999999994" y="1121.0" />
+      <point x="534.25" y="1121.0" />
+      <point x="-25.0" y="27.0" />
     </edge>
     <edge source="VictoryPointsTrack" target="Track">
-      <point x="0.0" y="-14.5" />
-      <point x="1465.9213095238097" y="939.0" />
-      <point x="1842.4340476190462" y="939.0" />
-      <point x="-82.40000000000009" y="25.5" />
+      <point x="-5.6843418860808015E-14" y="-15.5" />
+      <point x="811.4999999999999" y="1111.0" />
+      <point x="634.25" y="1111.0" />
+      <point x="75.0" y="27.0" />
+    </edge>
+    <edge source="VaticanReport" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="553.5" y="850.0" />
+      <point x="372.5" y="850.0" />
+      <point x="31.5" y="15.5" />
+    </edge>
+    <edge source="Territory" target="DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1108.5" y="283.0" />
+      <point x="1018.0" y="283.0" />
+      <point x="92.25" y="61.5" />
+    </edge>
+    <edge source="PermanentAbility" target="SpecialAbility">
+      <point x="0.0" y="-27.0" />
+      <point x="1193.0" y="1093.0" />
+      <point x="1135.75" y="1093.0" />
+      <point x="31.0" y="15.5" />
+    </edge>
+    <edge source="DevelopmentCard" target="Card">
+      <point x="61.5" y="-61.5" />
+      <point x="987.25" y="110.0" />
+      <point x="1136.25" y="110.0" />
+      <point x="-19.25" y="15.5" />
+    </edge>
+    <edge source="Action" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="151.0" y="850.0" />
+      <point x="309.5" y="850.0" />
+      <point x="-31.5" y="15.5" />
+    </edge>
+    <edge source="Building" target="DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="865.5" y="283.0" />
+      <point x="895.0" y="283.0" />
+      <point x="-30.75" y="61.5" />
+    </edge>
+    <edge source="TurnOrderTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="305.99999999999994" y="1111.0" />
+      <point x="484.24999999999994" y="1111.0" />
+      <point x="-75.0" y="27.0" />
+    </edge>
+    <edge source="CustomPersonalBonusTile" target="PersonalBonusTile">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="RoundSetup" target="Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="272.0" y="860.0" />
+      <point x="330.5" y="860.0" />
+      <point x="-10.5" y="15.5" />
+    </edge>
+    <edge source="FaithPointsTrack" target="Track">
+      <point x="0.0" y="-15.5" />
+      <point x="644.0" y="1121.0" />
+      <point x="584.25" y="1121.0" />
+      <point x="25.0" y="27.0" />
+    </edge>
+    <edge source="OncePerRoundAbility" target="SpecialAbility">
+      <point x="0.0" y="-27.0" />
+      <point x="1016.5" y="1093.0" />
+      <point x="1073.75" y="1093.0" />
+      <point x="-31.0" y="15.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.6103868137148327" x="1588.1471271179782" y="-7.011309352239209" />
+  <settings layout="Hierarchic Group" zoom="0.6103868137148327" x="974.569545884335" y="613.7589559828763" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
