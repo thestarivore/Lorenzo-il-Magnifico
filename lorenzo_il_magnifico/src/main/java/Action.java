@@ -1,5 +1,5 @@
 /**
  * Created by starivore on 5/7/17.
  */
-public class Action extends Phase{
+public class Action extends Phase {
 }
