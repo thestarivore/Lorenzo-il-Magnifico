@@ -1,7 +1,8 @@
 /**
  * Created by starivore on 5/7/17.
  */
-public class DevelopmentCard extends Card{
+public class DevelopmentCard implements Card{
+    private String name;
     private Period period;
     private Resources cost;
     private ImmediateEffect immediateEffect;
@@ -37,5 +38,13 @@ public class DevelopmentCard extends Card{
 
     public void setPermanentEffect(PermanentEffect permanentEffect) {
         this.permanentEffect = permanentEffect;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

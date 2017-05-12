@@ -1,10 +1,10 @@
 /**
  * Created by starivore on 5/7/17.
  */
-public class LeaderCard extends Card{
+public class LeaderCard implements Card{
+    private String name;
     private Requirements requirements;
     private SpecialAbility specialAbility;
-    private String characterName;
 
     public Requirements getRequirements() {
         return requirements;
@@ -22,11 +22,11 @@ public class LeaderCard extends Card{
         this.specialAbility = specialAbility;
     }
 
-    public String getCharacterName() {
-        return characterName;
+    public String getName() {
+        return name;
     }
 
-    public void setCharacterName(String characterName) {
-        this.characterName = characterName;
+    public void setName(String name) {
+        this.name = name;
     }
 }
