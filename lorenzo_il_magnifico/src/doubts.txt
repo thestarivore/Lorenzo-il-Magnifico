@@ -1,0 +1,9 @@
+Qui scriviamo i nostri dubbi legati alla struttura dell'uml:
+ - le phase: nelle regole c'è scritto che ogni round è composto da 4 phase e vengono elencate:
+     "A - Round Setup
+      B - Actions
+      C - Vatican Report (only during round
+        2, 4, 6 at the end of a Period)
+      D - End of the Round"
+     ma le phase sono anche ogni turno in cui si gioca un familiare, infatti ogni round si giocano 4 familiari,
+     come si gestisce questa differenza? sono la stessa cosa?
