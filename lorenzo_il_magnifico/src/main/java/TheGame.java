@@ -4,6 +4,7 @@
 public class TheGame {
     private Period period;
     private int playersNumber;
+    private FileManager fileManager;
 
     public Period getPeriod() {
         return period;
