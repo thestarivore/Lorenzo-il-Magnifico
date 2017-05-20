@@ -1,0 +1,278 @@
+#DevelopmentCard
+RESPONSABILITY
+-Request for all, eccept for Territories, a cost that must be paied
+in order to take the card;
+-Offer an immediate effect and/or a permanent effect to the player;
+-Provide Victory points at the end of the game, in different
+ways though;
+
+COLLABORATIONS
+-TheGame
+-Player
+-Board
+-PersonalBoard
+-ImmediateEffect
+-PermanentEffect
+-Resources
+-ActionSpace
+
+Note:
+Are basically passive, Card class may be an Interface.
+
+
+
+#LeaderCard
+RESPONSABILITY
+-Request some Requirements in orther to be played;
+-Once played offer a special ability to be played(can be either
+Once Per Round or Permanent);
+-Offer the possibility to discard the leader in order to receive
+a Council Privilege.;
+
+COLLABORATIONS
+-Player
+-Requirements
+-CouncilPrivilege
+-SpecialAbility
+-OncePerRoundAbility
+-PermanentAbility
+
+
+
+#Player
+RESPONSABILITY
+-Choose a color;
+-Send/place family members to different action spaces and decide
+whether to spend servants or not;
+-Can decide to support or not to support the Church.
+-May perform one or more special actions without placing a Family Member;
+-Can decide to discard a Leader card from the hand(for a council privilege);
+-Play a Leader Card from your hand if it satisfy the Leader requirements;
+-Turn the Leader Card face down and resolve its “Once Per Round” Ability;
+
+COLLABORATIONS
+-TheGame
+-Board
+-PersonalBoard
+-PersonalBonusTile
+-ExcommunicationTile
+-FamilyMember
+-Phase
+-FamilyMember
+-Points
+-Resources
+-Card
+-LeaderCard
+-DevelopmentCard
+
+
+
+
+
+#TheGame
+RESPONSABILITY
+-Initial setup of the game, for any player give a Personal Board, a
+Personal Bonus Tile, Family Members, Excommunication Cubes,
+Marker Discs and resources;
+-Manage the game division into periods, rounds and phases;
+-Manage Boards, players and resources;
+
+COLLABORATIONS
+-Player
+-Board
+-PersonalBoard
+-CoveringTiles
+-CustomPersonalBonusTiles
+-ExcommunicationCubes
+-MarkerDiscs
+-Lobby
+
+
+
+
+#EndOfRound
+RESPONSABILITY
+-Clear the Board and prepar it for the new round;
+-Change the Turn Order following the order of the
+Family Members placed in the Council Palace;
+
+COLLABORATIONS
+-DevelopmentCard
+-TurnOrderTrack
+-FamilyMember
+-Board
+-Deck
+
+
+
+
+
+#Action
+RESPONSABILITY
+-Perform the corresponding action when a Family
+ Member is placed on an ActionSpace
+
+COLLABORATIONS
+-TurnOrderTrack
+-FamilyMember
+-Player
+
+
+
+
+#VaticanReport
+RESPONSABILITY
+-Verify the FaithPoints once every 2 rounds and excomunicate
+the players who didn't reached the threshold;
+-Make the player choose if he wants to support or not the church
+
+COLLABORATIONS
+-Player
+-ExcomunicationTile
+-Points
+-Round
+
+
+
+#RoundSetup
+RESPONSABILITY
+-Fill Towers with fresh Developmen Cards from the Deck;
+-Make the first player roll the new dice;
+
+COLLABORATIONS
+-Player
+-DevelopmentCard
+-Deck
+-Dice
+
+
+
+#Track
+RESPONSABILITY
+-Save the current position of each Player about
+ VictoryPointsTrack, FaithPointsTrack, TurnOrderTrack and
+ MilitaryPointsTrack.
+
+COLLABORATIONS
+-MarkerDiscs
+-Board
+-Round
+
+
+
+#ImmediateEffect
+RESPOSABILITY
+-Gives the player some immediate bonus
+-Gives the player the possibility to do some extra action
+
+COLLABORATIONS
+-Player
+-Cards
+-ActionSpace
+-Resources
+-Points
+
+
+
+#SpecialAbility
+RESPONSABILITY
+-Offer specialAbility (Permanent or OncePerRound)
+ for each LeaderCards.
+
+COLLABORATION
+-LeaderCard
+
+
+
+
+#ActionSpace
+RESPONSABILITY
+-Associate the corresponding action when a
+ FamilyMember is placed.
+-Give the extra-bonus of the ActionSpace.
+
+COLLABORATION
+-FamilyMember
+-Action
+
+
+#Round
+RESPONSABILITY
+-At the beginning of each round, fill the towers
+-At the end of the round players have to chenge the turn order
+-At the end of the round take all the faceup Development Cards from the board.
+COLLABORATIONS
+-Tower
+-Dice
+-Player
+-Cards
+-TurnOrderTrack
+-RoundSetup
+
+
+
+#FamilyMember
+RESPONSABILITY
+- Performs an action at the value of its
+corresponding die;
+
+COLLABORATIONS:
+-Player
+-Board
+-Action
+-Dice
+
+
+
+#PermanentEffect
+RESPOSABILITY
+-Gives the player some permanent bonus
+-Gives the player the possibility to do some extra action
+-It is possible to use it once a period or always during every round
+
+COLLABORATIONS
+-Player
+-Cards
+-ActionSpace
+-Resources
+-Points
+
+
+#Period
+RESPONSABILITY
+-At the end of each period, players must show their faith;
+-Check if it's the first or the second round
+
+COLLABORATIONS
+-Round
+-Player
+-DevelopmentCard
+-FaithPoitsTrack
+
+
+#Lobby
+RESPONSABILITY
+-Manage the game
+-Manage the communications between players
+
+COLLABORATIONS
+-TheGame
+-Server
+-Clients
+
+
+#Tower
+RESPONSABILITY
+-Each tower contains 4 card per turn
+COLLABORATIONS
+-DevelopmentCard
+-Round
+
+
+
+#EndOfGame
+RESPONSABILITY
+-Calculate each players final score(in Victory Points), and designate the winner.
+
+COLLABORATIONS
+-TheGame
