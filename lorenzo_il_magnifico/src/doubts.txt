@@ -7,3 +7,5 @@ Qui scriviamo i nostri dubbi legati alla struttura dell'uml:
       D - End of the Round"
      ma le phase sono anche ogni turno in cui si gioca un familiare, infatti ogni round si giocano 4 familiari,
      come si gestisce questa differenza? sono la stessa cosa?
+
+     #Solved: le quadro giocate dei 4 familiari devono stare dentro ad Actions;

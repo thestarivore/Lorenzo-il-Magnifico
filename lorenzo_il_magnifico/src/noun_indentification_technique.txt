@@ -4,54 +4,54 @@ By using the same book as a reference we proceed with building the CRC Cards Dia
 
 Strong Candidates: (tab indicates inheritance, while in the parenthesis we have some of the attributes)
 ------------------------------------------------------------------------------------------------
--Player (Points points, Resources res, PersonalBoard personalBoard, LeaderCard leaderCards[4])
--Resources  (woods, stones, servants, coins)
--Points (victory, military, faith)
--Card
-	-DevelopmentCard (Period period, Resources cost, ImmediateEffect immediateEffect, PermanentEffect permanentEffect)
-		-Territory
-		-Building
-		-Character
-		-Venture (Resources alternativeCost)
-	-LeaderCard (Requirements requirements, SpecialAbility specialAbility)
--Requirements
--SpecialAbility
-	-OncePerRoundAbility (Action action)
-	-PermanentAbility (Action action)
--ImmediateEffect (Resources resources, Points points, Action bonusAction)
--PermanentEffect
--Action
-	-ProductionAction
-	-HarvestAction
--FamilyMember (color, Dice dice)
-	-NeutralFamilyMember
--Dice
--TheGame (Period period, playersNumber)
-	- AdvancedGame (PersonalBonusTile customBonusTile)
--Period (Round round)
--Round (Phase phase)
--Phase
-	-RoundSetup
-	-Action
-	-VaticanReport
-	-EndOfRound
--Board (ActionSpace spaces, TheMarket market, TheCouncilPalace councilPalace, Track tracks[])
--PersonalBoard  (DevelopmentCard cards)
--PersonalBonusTile
-	-CustomPersonalBonusTile
--Deck (Card cards[])
--Tower (Card cards[])
--ExcommunicationTile (Period period)
--CoveringTiles
--ExcommunicationCubes
--MarkerDiscs
--Track (MarkerDiscs markerDiscs)
-	-VictoryPointsTrack
-	-MilitaryPointsTrack
-	-FaithPointsTrack
-	-TurnOrderTrack
--ActionSpace (DevelopmentCard card, Resources bonus, FamilyMember familyMember)
--TheMarket
--TheCouncilPalace
--CouncilPrivilege
--EndOfGame
+-controllers.Player (models.Points points, models.Resources res, views.board.PersonalBoard personalBoard, views.cards.LeaderCard leaderCards[4])
+-models.Resources  (woods, stones, servants, coins)
+-models.Points (victory, military, faith)
+-views.cards.Card
+	-views.cards.DevelopmentCard (controllers.game_course.Period period, models.Resources cost, controllers.effects.ImmediateEffect immediateEffect, controllers.effects.PermanentEffect permanentEffect)
+		-views.cards.Territory
+		-views.cards.Building
+		-views.cards.Character
+		-views.cards.Venture (models.Resources alternativeCost)
+	-views.cards.LeaderCard (models.Requirements requirements, controllers.ability.SpecialAbility specialAbility)
+-models.Requirements
+-controllers.ability.SpecialAbility
+	-controllers.ability.OncePerRoundAbility (controllers.game_course.phases.Action action)
+	-controllers.ability.PermanentAbility (controllers.game_course.phases.Action action)
+-controllers.effects.ImmediateEffect (models.Resources resources, models.Points points, controllers.game_course.phases.Action bonusAction)
+-controllers.effects.PermanentEffect
+-controllers.game_course.phases.Action
+	-controllers.game_course.ProductionAction
+	-controllers.game_course.HarvestAction
+-views.board.FamilyMember (color, views.board.Dice dice)
+	-views.board.NeutralFamilyMember
+-views.board.Dice
+-game.TheGame (controllers.game_course.Period period, playersNumber)
+	- game.AdvancedGame (views.board.PersonalBonusTile customBonusTile)
+-controllers.game_course.Period (controllers.game_course.Round round)
+-controllers.game_course.Round (controllers.game_course.phases.Phase phase)
+-controllers.game_course.phases.Phase
+	-controllers.game_course.phases.RoundSetup
+	-controllers.game_course.phases.Action
+	-controllers.game_course.phases.VaticanReport
+	-controllers.game_course.phases.EndOfRound
+-views.board.Board (views.board.ActionSpace spaces, views.board.TheMarket market, views.board.TheCouncilPalace councilPalace, views.board.trackers.Track tracks[])
+-views.board.PersonalBoard  (views.cards.DevelopmentCard cards)
+-views.board.PersonalBonusTile
+	-views.board.CustomPersonalBonusTile
+-views.cards.Deck (views.cards.Card cards[])
+-views.board.Tower (views.cards.Card cards[])
+-views.board.ExcommunicationTile (controllers.game_course.Period period)
+-views.board.CoveringTiles
+-views.board.ExcommunicationCubes
+-views.board.MarkerDiscs
+-views.board.trackers.Track (views.board.MarkerDiscs markerDiscs)
+	-views.board.trackers.VictoryPointsTrack
+	-views.board.trackers.MilitaryPointsTrack
+	-views.board.trackers.FaithPointsTrack
+	-views.board.trackers.TurnOrderTrack
+-views.board.ActionSpace (views.cards.DevelopmentCard card, models.Resources bonus, views.board.FamilyMember familyMember)
+-views.board.TheMarket
+-views.board.TheCouncilPalace
+-models.CouncilPrivilege
+-controllers.game_course.EndOfGame
