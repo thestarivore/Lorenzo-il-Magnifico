@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1891.4900458978757" y="127.0">controllers.game_course.phases.VaticanReport</node>
+    <node x="2383.1560671256448" y="287.0">views.board.NeutralFamilyMember</node>
+    <node x="2358.0" y="856.0">views.board.PersonalBonusTile</node>
+    <node x="627.0" y="1707.0">views.board.CoveringTiles</node>
+    <node x="0.0" y="1707.0">views.board.ExcommunicationTile</node>
+    <node x="833.75" y="490.0">views.cards.Deck</node>
+    <node x="977.75" y="490.0">views.board.Tower</node>
+    <node x="1347.75" y="684.5">views.cards.Character</node>
+    <node x="2882.0" y="856.0">views.board.trackers.TurnOrderTrack</node>
+    <node x="684.75" y="684.5">models.Requirements</node>
+    <node x="2178.490045897876" y="127.0">controllers.game_course.phases.RoundSetup</node>
+    <node x="3042.0" y="856.0">views.board.trackers.FaithPointsTrack</node>
+    <node x="1588.75" y="673.0">views.cards.Venture</node>
+    <node x="885.375" y="287.0">views.cards.Card</node>
+    <node x="1302.0833333333333" y="444.0">views.cards.DevelopmentCard</node>
+    <node x="2261.1560671256448" y="478.5">views.board.FamilyMember</node>
+    <node x="1881.1491035570855" y="1584.0">game.Lobby</node>
+    <node x="1122.75" y="844.5">views.board.PersonalBoard</node>
+    <node x="431.0" y="844.5">controllers.ability.OncePerRoundAbility</node>
+    <node x="983.0241035570857" y="983.0">controllers.Player</node>
+    <node x="443.0" y="1707.0">models.CouncilPrivilege</node>
+    <node x="1702.4900458978757" y="81.0">models.Resources</node>
+    <node x="2039.4900458978757" y="127.0">controllers.game_course.phases.EndOfRound</node>
+    <node x="798.0" y="1707.0">controllers.game_course.EndOfGame</node>
+    <node x="2227.1560671256448" y="275.5">views.board.Dice</node>
+    <node x="265.0" y="844.5">controllers.ability.PermanentAbility</node>
+    <node x="1979.75" y="650.0">views.board.ActionSpace</node>
+    <node x="2365.565770223752" y="1584.0">game.AdvancedGame</node>
+    <node x="1810.75" y="684.5">views.board.TheCouncilPalace</node>
+    <node x="2077.815770223752" y="810.0">views.board.Board</node>
+    <node x="1281.1317125645423" y="92.5">models.Points</node>
+    <node x="1473.75" y="684.5">views.cards.Building</node>
+    <node x="2089.815770223752" y="1005.5">views.GameView</node>
+    <node x="0.0" y="287.0">controllers.game_course.Period</node>
+    <node x="2709.0" y="856.0">views.board.trackers.VictoryPointsTrack</node>
+    <node x="1448.732436890419" y="264.0">controllers.effects.ImmediateEffect</node>
+    <node x="2311.815770223752" y="1052.0">views.board.CustomPersonalBonusTile</node>
+    <node x="1590.1282702237522" y="1040.5">models.GameFacadeModel</node>
+    <node x="1962.982436890419" y="1202.0">controllers.GameController</node>
+    <node x="687.8266494549614" y="298.5">controllers.game_course.HarvestAction</node>
+    <node x="1284.732436890419" y="298.5">controllers.effects.PermanentEffect</node>
+    <node x="2682.7400458978755" y="501.5">views.board.MarkerDiscs</node>
+    <node x="214.0" y="1707.0">views.board.ExcommunicationCubes</node>
+    <node x="618.0" y="821.5">views.cards.LeaderCard</node>
+    <node x="2643.2400458978755" y="673.0">views.board.trackers.Track</node>
+    <node x="2532.0" y="856.0">views.board.trackers.MilitaryPointsTrack</node>
+    <node x="2263.75" y="684.5">views.board.TheMarket</node>
+    <node x="1913.4900458978757" y="0.0">controllers.game_course.phases.Phase</node>
+    <node x="1881.982436890419" y="1363.0">game.TheGame</node>
+    <node x="1228.75" y="684.5">views.cards.Territory</node>
+    <node x="146.0" y="298.5">controllers.game_course.ProductionAction</node>
+    <node x="0.0" y="115.5">controllers.game_course.Round</node>
+    <node x="555.7400458978757" y="127.0">controllers.game_course.phases.Action</node>
+    <node x="416.25" y="684.5">controllers.ability.SpecialAbility</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="views.cards.LeaderCard" target="views.cards.Card">
+      <point x="84.0" y="-50.0" />
+      <point x="828.0" y="790.0" />
+      <point x="823.25" y="790.0" />
+      <point x="823.25" y="414.0" />
+      <point x="900.75" y="414.0" />
+      <point x="-46.125" y="27.0" />
+    </edge>
+    <edge source="views.board.Board" target="views.board.ActionSpace">
+      <point x="-28.25" y="-61.5" />
+      <point x="2162.565770223752" y="790.0" />
+      <point x="2111.75" y="790.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="controllers.game_course.Period" target="controllers.game_course.Round">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="views.board.trackers.FaithPointsTrack" target="views.board.trackers.Track">
+      <point x="0.0" y="-15.5" />
+      <point x="3113.0" y="770.0" />
+      <point x="2823.2400458978755" y="770.0" />
+      <point x="80.0" y="27.0" />
+    </edge>
+    <edge source="views.board.Board" target="views.board.TheMarket">
+      <point x="28.25" y="-61.5" />
+      <point x="2219.065770223752" y="770.0" />
+      <point x="2319.25" y="770.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="views.board.FamilyMember" target="views.board.NeutralFamilyMember">
+      <point x="34.0" y="-38.5" />
+      <point x="2363.1560671256448" y="424.0" />
+      <point x="2471.1560671256448" y="424.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="views.cards.Venture" target="models.Resources">
+      <point x="50.25" y="-27.0" />
+      <point x="1739.5" y="244.0" />
+      <point x="1786.9900458978757" y="244.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="views.board.Tower" target="views.cards.Card">
+      <point x="0.0" y="-27.0" />
+      <point x="1039.75" y="424.0" />
+      <point x="962.25" y="424.0" />
+      <point x="15.375" y="27.0" />
+    </edge>
+    <edge source="game.AdvancedGame" target="game.TheGame">
+      <point x="-51.25" y="-39.0" />
+      <point x="2416.815770223752" y="1559.0" />
+      <point x="2113.6491035570853" y="1559.0" />
+      <point x="92.66666666666652" y="85.5" />
+    </edge>
+    <edge source="views.cards.Venture" target="views.cards.DevelopmentCard">
+      <point x="-50.25" y="-27.0" />
+      <point x="1639.0" y="620.0" />
+      <point x="1454.3333333333333" y="620.0" />
+      <point x="50.75" y="73.0" />
+    </edge>
+    <edge source="views.GameView" target="views.board.Board">
+      <point x="0.0" y="-62.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="game.TheGame" target="controllers.GameController">
+      <point x="0.0" y="-85.5" />
+      <point x="-58.0" y="50.5" />
+    </edge>
+    <edge source="controllers.GameController" target="models.GameFacadeModel">
+      <point x="-58.0" y="-50.5" />
+      <point x="2020.982436890419" y="1177.0" />
+      <point x="1766.794936890419" y="1177.0" />
+      <point x="70.66666666666674" y="27.0" />
+    </edge>
+    <edge source="controllers.ability.OncePerRoundAbility" target="controllers.game_course.phases.Action">
+      <point x="41.75" y="-27.0" />
+      <point x="556.25" y="790.0" />
+      <point x="550.75" y="790.0" />
+      <point x="550.75" y="244.0" />
+      <point x="598.2400458978757" y="244.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="views.cards.Character" target="views.cards.DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1400.75" y="630.0" />
+      <point x="1386.6666666666665" y="630.0" />
+      <point x="-16.916666666666742" y="73.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.Points">
+      <point x="-27.875" y="-84.5" />
+      <point x="1066.6491035570857" y="963.0" />
+      <point x="1112.25" y="963.0" />
+      <point x="1112.25" y="244.0" />
+      <point x="1315.3817125645423" y="244.0" />
+      <point x="-34.25" y="50.0" />
+    </edge>
+    <edge source="controllers.game_course.phases.EndOfRound" target="controllers.game_course.phases.Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="2098.9900458978755" y="61.0" />
+      <point x="1972.2900458978756" y="61.0" />
+      <point x="16.799999999999955" y="15.5" />
+    </edge>
+    <edge source="views.board.PersonalBoard" target="views.cards.DevelopmentCard">
+      <point x="0.0" y="-27.0" />
+      <point x="1218.25" y="620.0" />
+      <point x="1319.0" y="620.0" />
+      <point x="-84.58333333333326" y="73.0" />
+    </edge>
+    <edge source="controllers.GameController" target="views.GameView">
+      <point x="58.0" y="-50.5" />
+      <point x="2136.982436890419" y="1177.0" />
+      <point x="2123.4824368904187" y="1177.0" />
+      <point x="-67.33333333333348" y="62.0" />
+    </edge>
+    <edge source="views.board.Board" target="views.board.TheCouncilPalace">
+      <point x="-84.75" y="-61.5" />
+      <point x="2106.065770223752" y="790.0" />
+      <point x="1885.25" y="790.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="views.cards.Territory" target="views.cards.DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1278.25" y="630.0" />
+      <point x="1352.8333333333333" y="630.0" />
+      <point x="-50.75" y="73.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffect" target="models.Points">
+      <point x="0.0" y="-50.0" />
+      <point x="1531.732436890419" y="224.0" />
+      <point x="1383.8817125645423" y="224.0" />
+      <point x="34.25" y="50.0" />
+    </edge>
+    <edge source="views.cards.DevelopmentCard" target="controllers.game_course.Period">
+      <point x="-81.20000000000005" y="-73.0" />
+      <point x="1322.3833333333332" y="404.0" />
+      <point x="94.5" y="404.0" />
+      <point x="31.5" y="27.0" />
+    </edge>
+    <edge source="views.cards.DevelopmentCard" target="controllers.effects.ImmediateEffect">
+      <point x="40.59999999999991" y="-73.0" />
+      <point x="1444.1833333333332" y="414.0" />
+      <point x="1531.732436890419" y="414.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="views.board.trackers.VictoryPointsTrack" target="views.board.trackers.Track">
+      <point x="0.0" y="-15.5" />
+      <point x="2785.5" y="790.0" />
+      <point x="2743.2400458978755" y="790.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="views.board.FamilyMember" target="views.board.Dice">
+      <point x="-34.0" y="-38.5" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="views.cards.DevelopmentCard" target="controllers.effects.PermanentEffect">
+      <point x="0.0" y="-73.0" />
+      <point x="1403.5833333333333" y="384.0" />
+      <point x="1356.732436890419" y="384.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="controllers.ability.PermanentAbility" target="controllers.game_course.phases.Action">
+      <point x="-36.5" y="-27.0" />
+      <point x="301.5" y="234.0" />
+      <point x="581.2400458978757" y="234.0" />
+      <point x="-17.0" y="15.5" />
+    </edge>
+    <edge source="controllers.game_course.ProductionAction" target="controllers.game_course.phases.Action">
+      <point x="0.0" y="-15.5" />
+      <point x="218.5" y="224.0" />
+      <point x="564.2400458978757" y="224.0" />
+      <point x="-34.0" y="15.5" />
+    </edge>
+    <edge source="views.GameView" target="views.board.PersonalBoard">
+      <point x="-67.33333333333348" y="-62.0" />
+      <point x="2123.4824368904187" y="953.0" />
+      <point x="1266.0" y="953.0" />
+      <point x="47.75" y="27.0" />
+    </edge>
+    <edge source="controllers.Player" target="views.cards.LeaderCard">
+      <point x="-83.625" y="-84.5" />
+      <point x="1010.8991035570857" y="963.0" />
+      <point x="744.0" y="963.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="views.cards.LeaderCard" target="models.Requirements">
+      <point x="0.0" y="-50.0" />
+      <point x="744.0" y="790.0" />
+      <point x="748.75" y="790.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="views.board.ActionSpace" target="views.board.FamilyMember">
+      <point x="88.0" y="-50.0" />
+      <point x="2199.75" y="630.0" />
+      <point x="2329.1560671256448" y="630.0" />
+      <point x="0.0" y="38.5" />
+    </edge>
+    <edge source="controllers.ability.PermanentAbility" target="controllers.ability.SpecialAbility">
+      <point x="36.5" y="-27.0" />
+      <point x="374.5" y="790.0" />
+      <point x="436.91666666666674" y="790.0" />
+      <point x="-41.333333333333314" y="15.5" />
+    </edge>
+    <edge source="views.board.ActionSpace" target="models.Resources">
+      <point x="0.0" y="-50.0" />
+      <point x="2111.75" y="630.0" />
+      <point x="2087.065770223752" y="630.0" />
+      <point x="2087.065770223752" y="244.0" />
+      <point x="1854.5900458978756" y="244.0" />
+      <point x="67.59999999999991" y="61.5" />
+    </edge>
+    <edge source="views.GameView" target="views.board.PersonalBonusTile">
+      <point x="67.33333333333348" y="-62.0" />
+      <point x="2258.1491035570857" y="963.0" />
+      <point x="2383.6666666666665" y="963.0" />
+      <point x="-51.333333333333485" y="15.5" />
+    </edge>
+    <edge source="views.cards.Building" target="views.cards.DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1521.25" y="630.0" />
+      <point x="1420.5" y="630.0" />
+      <point x="16.916666666666742" y="73.0" />
+    </edge>
+    <edge source="views.board.ActionSpace" target="views.cards.DevelopmentCard">
+      <point x="-88.0" y="-50.0" />
+      <point x="2023.75" y="610.0" />
+      <point x="1488.1666666666665" y="610.0" />
+      <point x="84.58333333333326" y="73.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffect" target="models.Resources">
+      <point x="55.33333333333326" y="-50.0" />
+      <point x="1587.0657702237522" y="224.0" />
+      <point x="1719.3900458978758" y="224.0" />
+      <point x="-67.59999999999991" y="61.5" />
+    </edge>
+    <edge source="controllers.game_course.phases.Action" target="controllers.game_course.phases.Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="598.2400458978757" y="61.0" />
+      <point x="1938.6900458978757" y="61.0" />
+      <point x="-16.799999999999955" y="15.5" />
+    </edge>
+    <edge source="views.board.Board" target="views.board.trackers.Track">
+      <point x="84.75" y="-61.5" />
+      <point x="2275.565770223752" y="780.0" />
+      <point x="2663.2400458978755" y="780.0" />
+      <point x="-80.0" y="27.0" />
+    </edge>
+    <edge source="game.TheGame" target="views.GameView">
+      <point x="119.14285714285734" y="-85.5" />
+      <point x="2140.125294033276" y="1343.0" />
+      <point x="2230.565770223752" y="1343.0" />
+      <point x="2230.565770223752" y="1177.0" />
+      <point x="2258.1491035570857" y="1177.0" />
+      <point x="67.33333333333348" y="62.0" />
+    </edge>
+    <edge source="controllers.ability.OncePerRoundAbility" target="controllers.ability.SpecialAbility">
+      <point x="-41.75" y="-27.0" />
+      <point x="472.75" y="790.0" />
+      <point x="478.25" y="790.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="controllers.game_course.phases.RoundSetup" target="controllers.game_course.phases.Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="2236.990045897876" y="51.0" />
+      <point x="1989.0900458978756" y="51.0" />
+      <point x="33.59999999999991" y="15.5" />
+    </edge>
+    <edge source="controllers.Player" target="views.board.PersonalBoard">
+      <point x="27.875" y="-84.5" />
+      <point x="1122.3991035570857" y="963.0" />
+      <point x="1170.5" y="963.0" />
+      <point x="-47.75" y="27.0" />
+    </edge>
+    <edge source="game.Lobby" target="game.TheGame">
+      <point x="46.75" y="-39.0" />
+      <point x="0.0" y="85.5" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffect" target="controllers.game_course.phases.Action">
+      <point x="-55.33333333333326" y="-50.0" />
+      <point x="1476.3991035570857" y="234.0" />
+      <point x="632.2400458978757" y="234.0" />
+      <point x="34.0" y="15.5" />
+    </edge>
+    <edge source="views.cards.LeaderCard" target="controllers.ability.SpecialAbility">
+      <point x="-84.0" y="-50.0" />
+      <point x="660.0" y="780.0" />
+      <point x="519.5833333333334" y="780.0" />
+      <point x="41.33333333333337" y="15.5" />
+    </edge>
+    <edge source="game.TheGame" target="controllers.game_course.Period">
+      <point x="-119.14285714285711" y="-85.5" />
+      <point x="1901.8395797475619" y="1343.0" />
+      <point x="31.5" y="1343.0" />
+      <point x="-31.5" y="27.0" />
+    </edge>
+    <edge source="controllers.game_course.phases.VaticanReport" target="controllers.game_course.phases.Phase">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="views.board.trackers.MilitaryPointsTrack" target="views.board.trackers.Track">
+      <point x="0.0" y="-15.5" />
+      <point x="2610.5" y="790.0" />
+      <point x="2703.2400458978755" y="790.0" />
+      <point x="-40.0" y="27.0" />
+    </edge>
+    <edge source="game.TheGame" target="models.GameFacadeModel">
+      <point x="-79.42857142857156" y="-85.5" />
+      <point x="1941.5538654618474" y="1333.0" />
+      <point x="1656.3782702237522" y="1333.0" />
+      <point x="1656.3782702237522" y="1177.0" />
+      <point x="1625.4616035570855" y="1177.0" />
+      <point x="-70.66666666666674" y="27.0" />
+    </edge>
+    <edge source="views.board.trackers.Track" target="views.board.MarkerDiscs">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="game.AdvancedGame" target="views.board.PersonalBonusTile">
+      <point x="51.25" y="-39.0" />
+      <point x="2519.315770223752" y="963.0" />
+      <point x="2486.3333333333335" y="963.0" />
+      <point x="51.333333333333485" y="15.5" />
+    </edge>
+    <edge source="views.board.CustomPersonalBonusTile" target="views.board.PersonalBonusTile">
+      <point x="0.0" y="-15.5" />
+      <point x="2410.315770223752" y="963.0" />
+      <point x="2435.0" y="963.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="controllers.game_course.Round" target="controllers.game_course.phases.Phase">
+      <point x="0.0" y="-27.0" />
+      <point x="63.0" y="51.0" />
+      <point x="1921.8900458978758" y="51.0" />
+      <point x="-33.59999999999991" y="15.5" />
+    </edge>
+    <edge source="views.cards.DevelopmentCard" target="models.Resources">
+      <point x="81.20000000000005" y="-73.0" />
+      <point x="1484.7833333333333" y="424.0" />
+      <point x="1625.232436890419" y="424.0" />
+      <point x="1625.232436890419" y="234.0" />
+      <point x="1753.1900458978757" y="234.0" />
+      <point x="-33.799999999999955" y="61.5" />
+    </edge>
+    <edge source="controllers.game_course.HarvestAction" target="controllers.game_course.phases.Action">
+      <point x="0.0" y="-15.5" />
+      <point x="752.3266494549614" y="244.0" />
+      <point x="615.2400458978757" y="244.0" />
+      <point x="17.0" y="15.5" />
+    </edge>
+    <edge source="views.board.trackers.TurnOrderTrack" target="views.board.trackers.Track">
+      <point x="0.0" y="-15.5" />
+      <point x="2952.0" y="780.0" />
+      <point x="2783.2400458978755" y="780.0" />
+      <point x="40.0" y="27.0" />
+    </edge>
+    <edge source="views.cards.DevelopmentCard" target="views.cards.Card">
+      <point x="-40.59999999999991" y="-73.0" />
+      <point x="1362.9833333333333" y="394.0" />
+      <point x="993.0" y="394.0" />
+      <point x="46.125" y="27.0" />
+    </edge>
+    <edge source="views.cards.Deck" target="views.cards.Card">
+      <point x="0.0" y="-27.0" />
+      <point x="895.75" y="424.0" />
+      <point x="931.5" y="424.0" />
+      <point x="-15.375" y="27.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.Resources">
+      <point x="83.625" y="-84.5" />
+      <point x="1178.1491035570857" y="963.0" />
+      <point x="1800.25" y="963.0" />
+      <point x="1800.25" y="244.0" />
+      <point x="1820.7900458978756" y="244.0" />
+      <point x="33.799999999999955" y="61.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4731585518102372" x="1592.0" y="880.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
