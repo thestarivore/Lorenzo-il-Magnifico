@@ -1,7 +1,7 @@
 package game;
 
-import Network.Client.ClientInterface;
-import Network.Server.ServerInterface;
+import network.client.ClientInterface;
+import network.server.ServerInterface;
 import controllers.GameController;
 import controllers.game_course.Period;
 import models.GameFacadeModel;
