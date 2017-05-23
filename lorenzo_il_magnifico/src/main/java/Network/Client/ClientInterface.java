@@ -1,4 +1,4 @@
-package Network.Client;
+package network.client;
 
 /**
  * Created by Mattia on 22/05/2017.
