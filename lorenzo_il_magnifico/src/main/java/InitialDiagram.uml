@@ -4,11 +4,11 @@
   <OriginalElement />
   <nodes>
     <node x="883.25" y="925.0">controllers.game_course.phases.VaticanReport</node>
-    <node x="1357.5" y="1740.0">views.board.PersonalBonusTile</node>
     <node x="1842.0" y="1127.5">views.board.NeutralFamilyMember</node>
+    <node x="1357.5" y="1740.0">views.board.PersonalBonusTile</node>
     <node x="1656.0" y="1909.0">views.board.CoveringTiles</node>
-    <node x="493.0" y="1909.0">views.board.ExcommunicationTile</node>
     <node x="707.0" y="1909.0">views.cards.Deck</node>
+    <node x="493.0" y="1909.0">views.board.ExcommunicationTile</node>
     <node x="1445.0" y="1572.0">views.board.Tower</node>
     <node x="649.625" y="552.5">views.cards.Character</node>
     <node x="1793.9999999999998" y="989.0">views.board.trackers.TurnOrderTrack</node>
@@ -23,8 +23,8 @@
     <node x="1992.0" y="1277.0">views.board.FamilyMember</node>
     <node x="73.5" y="1617.0">game.Lobby</node>
     <node x="257.0" y="1909.0">views.board.PersonalBoard</node>
-    <node x="750.0" y="1821.0">network.server.SocketServer</node>
     <node x="473.75" y="1313.0">controllers.ability.OncePerRoundAbility</node>
+    <node x="750.0" y="1821.0">network.server.SocketServer</node>
     <node x="1863.5" y="420.0">controllers.Player</node>
     <node x="1299.0" y="1909.0">models.CouncilPrivilege</node>
     <node x="585.0" y="1740.0">models.Resources</node>
@@ -38,14 +38,14 @@
     <node x="1105.0" y="1909.0">views.board.TheCouncilPalace</node>
     <node x="1106.75" y="1740.0">network.client.ClientInterface</node>
     <node x="311.0" y="1740.0">views.board.Board</node>
-    <node x="1970.0" y="1740.0">models.Points</node>
     <node x="1115.625" y="552.5">views.cards.Building</node>
+    <node x="1970.0" y="1740.0">models.Points</node>
     <node x="0.0" y="1740.0">views.GameView</node>
     <node x="1050.0" y="1632.0">controllers.game_course.Period</node>
     <node x="2130.9999999999995" y="989.0">views.board.trackers.VictoryPointsTrack</node>
     <node x="123.5" y="1292.0">controllers.effects.ImmediateEffect</node>
-    <node x="1048.0" y="1821.0">network.client.SocketClient</node>
     <node x="1336.0" y="1821.0">views.board.CustomPersonalBonusTile</node>
+    <node x="1048.0" y="1821.0">network.client.SocketClient</node>
     <node x="0.0" y="1909.0">models.GameFacadeModel</node>
     <node x="1578.0" y="1740.0">controllers.GameController</node>
     <node x="527.5" y="1006.0">controllers.game_course.HarvestAction</node>
@@ -58,8 +58,8 @@
     <node x="1993.0" y="1909.0">views.board.TheMarket</node>
     <node x="752.0" y="762.0">controllers.game_course.phases.Phase</node>
     <node x="125.5" y="300.0">game.TheGame</node>
-    <node x="676.5" y="1006.0">controllers.game_course.ProductionAction</node>
     <node x="775.625" y="552.5">views.cards.Territory</node>
+    <node x="676.5" y="1006.0">controllers.game_course.ProductionAction</node>
     <node x="1451.0" y="1307.0">controllers.game_course.Round</node>
     <node x="628.0" y="925.0">controllers.game_course.phases.Action</node>
     <node x="583.5" y="1232.0">controllers.ability.SpecialAbility</node>
@@ -235,6 +235,18 @@
       <point x="1135.25" y="320.0" />
       <point x="30.75" y="27.0" />
     </edge>
+    <edge source="views.cards.Building" target="views.cards.DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="1163.125" y="516.0" />
+      <point x="1002.375" y="516.0" />
+      <point x="92.25" y="73.0" />
+    </edge>
+    <edge source="controllers.game_course.phases.Action" target="controllers.game_course.phases.Phase">
+      <point x="21.25" y="-15.5" />
+      <point x="691.75" y="905.0" />
+      <point x="783.5" y="905.0" />
+      <point x="-10.5" y="15.5" />
+    </edge>
     <edge source="views.board.trackers.FaithPointsTrack" target="views.board.trackers.Track">
       <point x="0.0" y="-15.5" />
       <point x="2375.0" y="959.0" />
@@ -247,6 +259,12 @@
       <point x="1930.0" y="1252.0" />
       <point x="0.0" y="27.0" />
     </edge>
+    <edge source="controllers.ability.OncePerRoundAbility" target="controllers.ability.SpecialAbility">
+      <point x="0.0" y="-27.0" />
+      <point x="557.25" y="1288.0" />
+      <point x="614.5" y="1288.0" />
+      <point x="-31.0" y="15.5" />
+    </edge>
     <edge source="game.AdvancedGame" target="game.TheGame">
       <point x="0.0" y="-39.0" />
       <point x="0.0" y="108.5" />
@@ -256,6 +274,12 @@
       <point x="995.125" y="516.0" />
       <point x="940.875" y="516.0" />
       <point x="30.75" y="73.0" />
+    </edge>
+    <edge source="controllers.game_course.phases.RoundSetup" target="controllers.game_course.phases.Phase">
+      <point x="-29.25" y="-15.5" />
+      <point x="1488.0" y="895.0" />
+      <point x="825.5" y="895.0" />
+      <point x="31.5" y="15.5" />
     </edge>
     <edge source="views.cards.Character" target="views.cards.DevelopmentCard">
       <point x="0.0" y="-15.5" />
@@ -269,72 +293,6 @@
       <point x="762.5" y="895.0" />
       <point x="-31.5" y="15.5" />
     </edge>
-    <edge source="views.cards.Territory" target="views.cards.DevelopmentCard">
-      <point x="0.0" y="-15.5" />
-      <point x="825.125" y="516.0" />
-      <point x="879.375" y="516.0" />
-      <point x="-30.75" y="73.0" />
-    </edge>
-    <edge source="network.client.RMIClient" target="network.client.ClientInterface">
-      <point x="0.0" y="-15.5" />
-      <point x="1239.0" y="1796.0" />
-      <point x="1206.5" y="1796.0" />
-      <point x="33.25" y="15.5" />
-    </edge>
-    <edge source="network.server.RMIServer" target="network.server.ServerInterface">
-      <point x="0.0" y="-15.5" />
-      <point x="948.5" y="1796.0" />
-      <point x="914.75" y="1796.0" />
-      <point x="34.5" y="15.5" />
-    </edge>
-    <edge source="views.board.trackers.VictoryPointsTrack" target="views.board.trackers.Track">
-      <point x="0.0" y="-15.5" />
-      <point x="2207.4999999999995" y="969.0" />
-      <point x="2144.9999999999995" y="969.0" />
-      <point x="25.0" y="27.0" />
-    </edge>
-    <edge source="network.client.SocketClient" target="network.client.ClientInterface">
-      <point x="0.0" y="-15.5" />
-      <point x="1107.5" y="1796.0" />
-      <point x="1140.0" y="1796.0" />
-      <point x="-33.25" y="15.5" />
-    </edge>
-    <edge source="controllers.game_course.ProductionAction" target="controllers.game_course.phases.Action">
-      <point x="0.0" y="-15.5" />
-      <point x="749.0" y="981.0" />
-      <point x="691.75" y="981.0" />
-      <point x="21.25" y="15.5" />
-    </edge>
-    <edge source="controllers.ability.PermanentAbility" target="controllers.ability.SpecialAbility">
-      <point x="0.0" y="-27.0" />
-      <point x="733.75" y="1288.0" />
-      <point x="676.5" y="1288.0" />
-      <point x="31.0" y="15.5" />
-    </edge>
-    <edge source="views.cards.Building" target="views.cards.DevelopmentCard">
-      <point x="0.0" y="-15.5" />
-      <point x="1163.125" y="516.0" />
-      <point x="1002.375" y="516.0" />
-      <point x="92.25" y="73.0" />
-    </edge>
-    <edge source="controllers.game_course.phases.Action" target="controllers.game_course.phases.Phase">
-      <point x="21.25" y="-15.5" />
-      <point x="691.75" y="905.0" />
-      <point x="783.5" y="905.0" />
-      <point x="-10.5" y="15.5" />
-    </edge>
-    <edge source="controllers.ability.OncePerRoundAbility" target="controllers.ability.SpecialAbility">
-      <point x="0.0" y="-27.0" />
-      <point x="557.25" y="1288.0" />
-      <point x="614.5" y="1288.0" />
-      <point x="-31.0" y="15.5" />
-    </edge>
-    <edge source="controllers.game_course.phases.RoundSetup" target="controllers.game_course.phases.Phase">
-      <point x="-29.25" y="-15.5" />
-      <point x="1488.0" y="895.0" />
-      <point x="825.5" y="895.0" />
-      <point x="31.5" y="15.5" />
-    </edge>
     <edge source="controllers.game_course.phases.VaticanReport" target="controllers.game_course.phases.Phase">
       <point x="-32.0" y="-15.5" />
       <point x="915.25" y="905.0" />
@@ -347,9 +305,27 @@
       <point x="2094.9999999999995" y="969.0" />
       <point x="-25.0" y="27.0" />
     </edge>
+    <edge source="network.client.RMIClient" target="network.client.ClientInterface">
+      <point x="0.0" y="-15.5" />
+      <point x="1239.0" y="1796.0" />
+      <point x="1206.5" y="1796.0" />
+      <point x="33.25" y="15.5" />
+    </edge>
+    <edge source="views.cards.Territory" target="views.cards.DevelopmentCard">
+      <point x="0.0" y="-15.5" />
+      <point x="825.125" y="516.0" />
+      <point x="879.375" y="516.0" />
+      <point x="-30.75" y="73.0" />
+    </edge>
     <edge source="views.board.CustomPersonalBonusTile" target="views.board.PersonalBonusTile">
       <point x="0.0" y="-15.5" />
       <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="network.server.RMIServer" target="network.server.ServerInterface">
+      <point x="0.0" y="-15.5" />
+      <point x="948.5" y="1796.0" />
+      <point x="914.75" y="1796.0" />
+      <point x="34.5" y="15.5" />
     </edge>
     <edge source="network.server.SocketServer" target="network.server.ServerInterface">
       <point x="0.0" y="-15.5" />
@@ -363,11 +339,23 @@
       <point x="649.25" y="981.0" />
       <point x="-21.25" y="15.5" />
     </edge>
+    <edge source="views.board.trackers.VictoryPointsTrack" target="views.board.trackers.Track">
+      <point x="0.0" y="-15.5" />
+      <point x="2207.4999999999995" y="969.0" />
+      <point x="2144.9999999999995" y="969.0" />
+      <point x="25.0" y="27.0" />
+    </edge>
     <edge source="views.board.trackers.TurnOrderTrack" target="views.board.trackers.Track">
       <point x="0.0" y="-15.5" />
       <point x="1863.9999999999998" y="959.0" />
       <point x="2044.9999999999995" y="959.0" />
       <point x="-75.0" y="27.0" />
+    </edge>
+    <edge source="network.client.SocketClient" target="network.client.ClientInterface">
+      <point x="0.0" y="-15.5" />
+      <point x="1107.5" y="1796.0" />
+      <point x="1140.0" y="1796.0" />
+      <point x="-33.25" y="15.5" />
     </edge>
     <edge source="views.cards.DevelopmentCard" target="views.cards.Card">
       <point x="61.5" y="-73.0" />
@@ -375,8 +363,20 @@
       <point x="1073.75" y="320.0" />
       <point x="-30.75" y="27.0" />
     </edge>
+    <edge source="controllers.game_course.ProductionAction" target="controllers.game_course.phases.Action">
+      <point x="0.0" y="-15.5" />
+      <point x="749.0" y="981.0" />
+      <point x="691.75" y="981.0" />
+      <point x="21.25" y="15.5" />
+    </edge>
+    <edge source="controllers.ability.PermanentAbility" target="controllers.ability.SpecialAbility">
+      <point x="0.0" y="-27.0" />
+      <point x="733.75" y="1288.0" />
+      <point x="676.5" y="1288.0" />
+      <point x="31.0" y="15.5" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="1635.0" y="1847.5" />
+  <settings layout="Hierarchic Group" zoom="0.3857753141271046" x="1760.6152648925781" y="1837.4144439697266" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
