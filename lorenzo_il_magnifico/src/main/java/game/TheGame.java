@@ -1,5 +1,7 @@
 package game;
 
+import network.client.ClientInterface;
+import network.server.ServerInterface;
 import controllers.GameController;
 import controllers.game_course.Period;
 import models.GameFacadeModel;
@@ -15,6 +17,9 @@ public class TheGame {
     private GameView        theView         = new GameView();
     private GameFacadeModel theModel        = new GameFacadeModel();
     private GameController  theController   = new GameController(theView,theModel);
+
+    private ClientInterface client;
+    private ServerInterface server;
 
     public TheGame(int numberOfPlayer) {
         theModel        = new GameFacadeModel();

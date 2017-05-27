@@ -3,191 +3,386 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="205.42857142857142" y="480.0">controllers.game_course.phases.VaticanReport</node>
-    <node x="506.5" y="817.0">views.board.PersonalBonusTile</node>
-    <node x="654.4285714285714" y="399.0">views.board.NeutralFamilyMember</node>
-    <node x="546.0" y="1229.0">views.board.CoveringTiles</node>
-    <node x="0.0" y="1130.0">views.board.ExcommunicationTile</node>
-    <node x="556.0" y="1130.0">views.cards.Deck</node>
-    <node x="725.0" y="1130.0">views.board.Tower</node>
-    <node x="455.0" y="311.5">views.cards.Character</node>
-    <node x="512.0" y="741.0">views.board.trackers.TurnOrderTrack</node>
-    <node x="373.0" y="1229.0">models.Requirements</node>
-    <node x="492.42857142857144" y="480.0">controllers.game_course.phases.RoundSetup</node>
-    <node x="176.99999999999997" y="741.0">views.board.trackers.FaithPointsTrack</node>
-    <node x="233.99999999999997" y="300.0">views.cards.Venture</node>
-    <node x="311.75" y="0.0">views.cards.Card</node>
-    <node x="147.99999999999997" y="104.0">views.cards.DevelopmentCard</node>
-    <node x="674.4285714285714" y="503.0">views.board.FamilyMember</node>
-    <node x="393.0" y="985.0">game.Lobby</node>
-    <node x="1063.0" y="985.0">views.board.PersonalBoard</node>
-    <node x="697.0" y="718.0">controllers.ability.OncePerRoundAbility</node>
-    <node x="875.4285714285714" y="399.0">controllers.Player</node>
-    <node x="189.0" y="1229.0">models.CouncilPrivilege</node>
-    <node x="271.0" y="817.0">models.Resources</node>
-    <node x="353.42857142857144" y="480.0">controllers.game_course.phases.EndOfRound</node>
-    <node x="883.0" y="1229.0">controllers.game_course.EndOfGame</node>
-    <node x="625.0" y="985.0">views.board.Dice</node>
-    <node x="884.0" y="718.0">controllers.ability.PermanentAbility</node>
-    <node x="1004.0" y="817.0">views.board.ActionSpace</node>
-    <node x="704.5" y="221.0">game.AdvancedGame</node>
-    <node x="1123.0" y="1130.0">views.board.TheCouncilPalace</node>
-    <node x="0.0" y="817.0">views.board.Board</node>
-    <node x="0.0" y="311.5">views.cards.Building</node>
-    <node x="211.0" y="985.0">models.Points</node>
-    <node x="214.0" y="1130.0">controllers.game_course.Period</node>
-    <node x="1075.0" y="637.0">views.GameView</node>
-    <node x="339.0" y="741.0">views.board.trackers.VictoryPointsTrack</node>
-    <node x="0.0" y="985.0">controllers.effects.ImmediateEffect</node>
-    <node x="485.0" y="898.0">views.board.CustomPersonalBonusTile</node>
-    <node x="806.0" y="985.0">models.GameFacadeModel</node>
-    <node x="727.0" y="817.0">controllers.GameController</node>
-    <node x="0.0" y="561.0">controllers.game_course.HarvestAction</node>
-    <node x="0.0" y="1229.0">controllers.effects.PermanentEffect</node>
-    <node x="717.0" y="1229.0">views.board.MarkerDiscs</node>
-    <node x="894.0" y="1130.0">views.board.ExcommunicationCubes</node>
-    <node x="371.0" y="127.0">views.cards.LeaderCard</node>
-    <node x="231.74999999999997" y="637.0">views.board.trackers.Track</node>
-    <node x="0.0" y="741.0">views.board.trackers.MilitaryPointsTrack</node>
-    <node x="1046.0" y="1229.0">views.board.TheMarket</node>
-    <node x="299.25" y="399.0">controllers.game_course.phases.Phase</node>
-    <node x="668.0" y="0.0">game.TheGame</node>
-    <node x="149.0" y="561.0">controllers.game_course.ProductionAction</node>
-    <node x="114.99999999999997" y="311.5">views.cards.Territory</node>
-    <node x="385.0" y="1130.0">controllers.game_course.Round</node>
-    <node x="100.42857142857144" y="480.0">controllers.game_course.phases.Action</node>
-    <node x="806.75" y="637.0">controllers.ability.SpecialAbility</node>
+    <node x="993.1875" y="967.0">controllers.game_course.phases.VaticanReport</node>
+    <node x="401.0" y="1567.5">views.board.NeutralFamilyMember</node>
+    <node x="2453.0" y="1849.0">views.board.PersonalBonusTile</node>
+    <node x="2386.0" y="2091.0">views.board.CoveringTiles</node>
+    <node x="1168.0" y="2091.0">views.board.ExcommunicationTile</node>
+    <node x="1393.0" y="2091.0">views.cards.Deck</node>
+    <node x="88.5" y="1994.0">views.board.Tower</node>
+    <node x="1397.0" y="584.0">views.cards.Character</node>
+    <node x="0.0" y="1437.0">views.board.trackers.TurnOrderTrack</node>
+    <node x="2207.0" y="2091.0">models.Requirements</node>
+    <node x="1642.5" y="967.0">controllers.game_course.phases.RoundSetup</node>
+    <node x="1527.0" y="573.0">views.cards.Venture</node>
+    <node x="355.0" y="1437.0">views.board.trackers.FaithPointsTrack</node>
+    <node x="1850.0" y="140.5">views.cards.Card</node>
+    <node x="1877.5" y="1849.0">network.server.ServerInterface</node>
+    <node x="1619.25" y="383.0">views.cards.DevelopmentCard</node>
+    <node x="1823.0" y="1929.0">network.server.RMIServer</node>
+    <node x="561.5" y="1725.0">views.board.FamilyMember</node>
+    <node x="1679.0" y="1708.0">game.Lobby</node>
+    <node x="922.0" y="2091.0">views.board.PersonalBoard</node>
+    <node x="1954.0" y="1929.0">network.server.SocketServer</node>
+    <node x="1972.5" y="1364.0">controllers.ability.OncePerRoundAbility</node>
+    <node x="801.0" y="468.0">controllers.Player</node>
+    <node x="2015.0" y="2091.0">models.CouncilPrivilege</node>
+    <node x="1602.0" y="1849.0">models.Resources</node>
+    <node x="173.75" y="967.0">controllers.game_course.phases.EndOfRound</node>
+    <node x="625.0" y="1994.0">controllers.game_course.EndOfGame</node>
+    <node x="472.0" y="2091.0">views.board.Dice</node>
+    <node x="2172.5" y="1364.0">controllers.ability.PermanentAbility</node>
+    <node x="2130.0" y="1929.0">network.client.RMIClient</node>
+    <node x="43.0" y="1708.0">views.board.ActionSpace</node>
+    <node x="170.0" y="590.0">game.AdvancedGame</node>
+    <node x="1812.0" y="2091.0">views.board.TheCouncilPalace</node>
+    <node x="2182.5" y="1849.0">network.client.ClientInterface</node>
+    <node x="1319.0" y="1849.0">views.board.Board</node>
+    <node x="1762.0" y="584.0">views.cards.Building</node>
+    <node x="285.0" y="2091.0">models.Points</node>
+    <node x="2172.5" y="1725.0">controllers.game_course.Period</node>
+    <node x="1066.0" y="1849.0">views.GameView</node>
+    <node x="168.0" y="1437.0">views.board.trackers.VictoryPointsTrack</node>
+    <node x="890.0" y="1352.0">controllers.effects.ImmediateEffect</node>
+    <node x="2429.0" y="1929.0">views.board.CustomPersonalBonusTile</node>
+    <node x="2257.0" y="1929.0">network.client.SocketClient</node>
+    <node x="659.0" y="2091.0">models.GameFacadeModel</node>
+    <node x="0.0" y="2091.0">controllers.GameController</node>
+    <node x="602.3125" y="1047.0">controllers.game_course.HarvestAction</node>
+    <node x="1193.5" y="1759.0">controllers.effects.PermanentEffect</node>
+    <node x="0.0" y="2233.0">views.board.MarkerDiscs</node>
+    <node x="1569.0" y="2091.0">views.board.ExcommunicationCubes</node>
+    <node x="2002.5" y="405.0">views.cards.LeaderCard</node>
+    <node x="237.5" y="1335.0">views.board.trackers.Track</node>
+    <node x="528.0" y="1437.0">views.board.trackers.MilitaryPointsTrack</node>
+    <node x="170.0" y="2233.0">views.board.TheMarket</node>
+    <node x="848.0" y="793.5">controllers.game_course.phases.Phase</node>
+    <node x="114.5" y="332.0">game.TheGame</node>
+    <node x="1882.0" y="584.0">views.cards.Territory</node>
+    <node x="760.3125" y="1047.0">controllers.game_course.ProductionAction</node>
+    <node x="1517.0" y="1369.0">controllers.game_course.Round</node>
+    <node x="710.3125" y="967.0">controllers.game_course.phases.Action</node>
+    <node x="2090.5" y="1284.0">controllers.ability.SpecialAbility</node>
   </nodes>
-  <notes />
+  <notes>
+    <note x="955.0" y="718.5">
+      <node>controllers.game_course.phases.VaticanReport</node>
+      <value>RESPONSABILITY\n-Verify the FaithPoints once every 2 rounds and excomunicate\nthe players who didn't reached the threshold;\n-Make the player choose if he wants to support or not the church\n\nCOLLABORATIONS\n-Player\n-ExcomunicationTile\n-Points\n-Round</value>
+      <edge>
+        <point x="34.25" y="-15.0" />
+        <point x="1095.9375" y="947.0" />
+        <point x="1221.0" y="947.0" />
+        <point x="0.0" y="90.0" />
+      </edge>
+    </note>
+    <note x="1274.0" y="0.0">
+      <node>views.cards.DevelopmentCard</node>
+      <value>RESPONSABILITY\n-Request for all, eccept for Territories, a cost that must be paied\nin order to take the card;\n-Offer an immediate effect and/or a permanent effect to the player;\n-Provide Victory points at the end of the game, in different\nways though;\n\nCOLLABORATIONS\n-TheGame\n-Player\n-Board\n-PersonalBoard\n-ImmediateEffect\n-PermanentEffect\n-Resources\n-ActionSpace\n\nNote:\nAre basically passive, Card class may be an Interface.</value>
+      <edge>
+        <point x="-52.0" y="-70.0" />
+        <point x="1671.25" y="358.0" />
+        <point x="1552.0" y="358.0" />
+        <point x="0.0" y="166.5" />
+      </edge>
+    </note>
+    <note x="988.0" y="1512.0">
+      <node>controllers.effects.PermanentEffect</node>
+      <value>RESPOSABILITY\n-Gives the player some permanent bonus\n-Gives the player the possibility to do some extra action\n-It is possible to use it once a period or always during every round\n\nCOLLABORATIONS\n-Player\n-Cards\n-ActionSpace\n-Resources\n-Points</value>
+      <edge>
+        <point x="0.0" y="-15.0" />
+        <point x="0.0" y="98.5" />
+      </edge>
+    </note>
+    <note x="603.0" y="1512.0">
+      <node>views.board.FamilyMember</node>
+      <value>RESPONSABILITY\n- Performs an action at the value of its\ncorresponding die;\n\nCOLLABORATIONS:\n-Player\n-Board\n-Action\n-Dice</value>
+      <edge>
+        <point x="35.5" y="-37.0" />
+        <point x="668.0" y="1700.0" />
+        <point x="773.0" y="1700.0" />
+        <point x="0.0" y="81.5" />
+      </edge>
+    </note>
+    <note x="2008.125" y="42.5">
+      <node>views.cards.LeaderCard</node>
+      <value>RESPONSABILITY\n-Request some Requirements in orther to be played;\n-Once played offer a special ability to be played(can be either\nOnce Per Round or Permanent);\n-Offer the possibility to discard the leader in order to receive\na Council Privilege.;\n\nCOLLABORATIONS\n-Player\n-Requirements\n-CouncilPrivilege\n-SpecialAbility\n-OncePerRoundAbility\n-PermanentAbility</value>
+      <edge>
+        <point x="65.75" y="-48.0" />
+        <point x="2199.75" y="358.0" />
+        <point x="2274.125" y="358.0" />
+        <point x="0.0" y="124.0" />
+      </edge>
+    </note>
+    <note x="1597.0" y="1512.0">
+      <node>game.Lobby</node>
+      <value>RESPONSABILITY\n-Manage the game\n-Manage the communications between players\n\nCOLLABORATIONS\n-TheGame\n-Server\n-Clients</value>
+      <edge>
+        <point x="0.0" y="-37.5" />
+        <point x="0.0" y="73.0" />
+      </edge>
+    </note>
+    <note x="0.0" y="1849.0">
+      <node>views.board.Tower</node>
+      <value>RESPONSABILITY\n-Each tower contains 4 card per turn\nCOLLABORATIONS\n-DevelopmentCard\n-Round</value>
+      <edge>
+        <point x="0.0" y="-26.0" />
+        <point x="0.0" y="47.5" />
+      </edge>
+    </note>
+    <note x="103.5" y="1122.0">
+      <node>views.board.trackers.Track</node>
+      <value>RESPONSABILITY\n-Save the current position of each Player about\n VictoryPointsTrack, FaithPointsTrack, TurnOrderTrack and\n MilitaryPointsTrack.\n\nCOLLABORATIONS\n-MarkerDiscs\n-Board\n-Round</value>
+      <edge>
+        <point x="0.0" y="-26.0" />
+        <point x="0.0" y="81.5" />
+      </edge>
+    </note>
+    <note x="601.0" y="0.0">
+      <node>controllers.Player</node>
+      <value>RESPONSABILITY\n-Choose a color;\n-Send/place family members to different action spaces and decide\nwhether to spend servants or not;\n-Can decide to support or not to support the Church.\n-May perform one or more special actions without placing a Family Member;\n-Can decide to discard a Leader card from the hand(for a council privilege);\n-Play a Leader Card from your hand if it satisfy the Leader requirements;\n-Turn the Leader Card face down and resolve its “Once Per Round” Ability;\n\nCOLLABORATIONS\n-TheGame\n-Board\n-PersonalBoard\n-PersonalBonusTile\n-ExcommunicationTile\n-FamilyMember\n-Phase\n-FamilyMember\n-Points\n-Resources\n-Card\n-LeaderCard\n-DevelopmentCard</value>
+      <edge>
+        <point x="0.0" y="-81.0" />
+        <point x="0.0" y="209.0" />
+      </edge>
+    </note>
+    <note x="0.0" y="710.0">
+      <node>controllers.game_course.phases.EndOfRound</node>
+      <value>RESPONSABILITY\n-Clear the Board and prepar it for the new round;\n-Change the Turn Order following the order of the\nFamily Members placed in the Council Palace;\n\nCOLLABORATIONS\n-DevelopmentCard\n-TurnOrderTrack\n-FamilyMember\n-Board\n-Deck</value>
+      <edge>
+        <point x="-32.25" y="-15.0" />
+        <point x="0.0" y="98.5" />
+      </edge>
+    </note>
+    <note x="353.0" y="1849.0">
+      <node>controllers.game_course.EndOfGame</node>
+      <value>RESPONSABILITY\n-Calculate each players final score(in Victory Points), and designate the winner.\n\nCOLLABORATIONS\n-TheGame</value>
+      <edge>
+        <point x="0.0" y="-15.0" />
+        <point x="0.0" y="47.5" />
+      </edge>
+    </note>
+    <note x="0.0" y="0.0">
+      <node>game.TheGame</node>
+      <value>RESPONSABILITY\n-Initial setup of the game, for any player give a Personal Board, a\nPersonal Bonus Tile, Family Members, Excommunication Cubes,\nMarker Discs and resources;\n-Manage the game division into periods, rounds and phases;\n-Manage Boards, players and resources;\n\nCOLLABORATIONS\n-Player\n-Board\n-PersonalBoard\n-CoveringTiles\n-CustomPersonalBonusTiles\n-ExcommunicationCubes\n-MarkerDiscs\n-Lobby</value>
+      <edge>
+        <point x="0.0" y="-104.0" />
+        <point x="0.0" y="141.0" />
+      </edge>
+    </note>
+    <note x="1998.0" y="1512.0">
+      <node>controllers.game_course.Period</node>
+      <value>RESPONSABILITY\n-At the end of each period, players must show their faith;\n-Check if it's the first or the second round\n\nCOLLABORATIONS\n-Round\n-Player\n-DevelopmentCard\n-FaithPoitsTrack</value>
+      <edge>
+        <point x="0.0" y="-26.0" />
+        <point x="0.0" y="81.5" />
+      </edge>
+    </note>
+    <note x="1261.0" y="1122.0">
+      <node>controllers.game_course.Round</node>
+      <value>RESPONSABILITY\n-At the beginning of each round, fill the towers\n-At the end of the round players have to chenge the turn order\n-At the end of the round take all the faceup Development Cards from the board.\nCOLLABORATIONS\n-Tower\n-Dice\n-Player\n-Cards\n-TurnOrderTrack\n-RoundSetup</value>
+      <edge>
+        <point x="0.0" y="-26.0" />
+        <point x="0.0" y="98.5" />
+      </edge>
+    </note>
+    <note x="431.99999999999994" y="735.5">
+      <node>controllers.game_course.phases.Action</node>
+      <value>RESPONSABILITY\n-Perform the corresponding action when a Family\n Member is placed on an ActionSpace\n\nCOLLABORATIONS\n-TurnOrderTrack\n-FamilyMember\n-Player</value>
+      <edge>
+        <point x="-22.5" y="-15.0" />
+        <point x="732.8125" y="927.0" />
+        <point x="630.0" y="927.0" />
+        <point x="0.0" y="73.0" />
+      </edge>
+    </note>
+    <note x="740.0" y="1122.0">
+      <node>controllers.effects.ImmediateEffect</node>
+      <value>RESPOSABILITY\n-Gives the player some immediate bonus\n-Gives the player the possibility to do some extra action\n\nCOLLABORATIONS\n-Player\n-Cards\n-ActionSpace\n-Resources\n-Points</value>
+      <edge>
+        <point x="0.0" y="-48.0" />
+        <point x="0.0" y="90.0" />
+      </edge>
+    </note>
+    <note x="1507.0" y="727.0">
+      <node>controllers.game_course.phases.RoundSetup</node>
+      <value>RESPONSABILITY\n-Fill Towers with fresh Developmen Cards from the Deck;\n-Make the first player roll the new dice;\n\nCOLLABORATIONS\n-Player\n-DevelopmentCard\n-Deck\n-Dice</value>
+      <edge>
+        <point x="31.5" y="-15.0" />
+        <point x="0.0" y="81.5" />
+      </edge>
+    </note>
+    <note x="0.0" y="1512.0">
+      <node>views.board.ActionSpace</node>
+      <value>RESPONSABILITY\n-Associate the corresponding action when a\n FamilyMember is placed.\n-Give the extra-bonus of the ActionSpace.\n\nCOLLABORATION\n-FamilyMember\n-Action</value>
+      <edge>
+        <point x="0.0" y="-48.0" />
+        <point x="0.0" y="73.0" />
+      </edge>
+    </note>
+    <note x="1950.0" y="1122.0">
+      <node>controllers.ability.SpecialAbility</node>
+      <value>RESPONSABILITY\n-Offer specialAbility (Permanent or OncePerRound)\n for each LeaderCards.\n\nCOLLABORATION\n-LeaderCard</value>
+      <edge>
+        <point x="0.0" y="-15.0" />
+        <point x="0.0" y="56.0" />
+      </edge>
+    </note>
+  </notes>
   <edges>
     <edge source="views.cards.LeaderCard" target="views.cards.Card">
-      <point x="0.0" y="-50.0" />
-      <point x="497.0" y="79.0" />
-      <point x="404.0" y="79.0" />
-      <point x="30.75" y="27.0" />
+      <point x="-65.75" y="-48.0" />
+      <point x="2068.25" y="358.0" />
+      <point x="1946.0" y="358.0" />
+      <point x="32.0" y="26.0" />
     </edge>
     <edge source="views.board.trackers.FaithPointsTrack" target="views.board.trackers.Track">
-      <point x="0.0" y="-15.5" />
-      <point x="247.99999999999997" y="721.0" />
-      <point x="306.75" y="721.0" />
-      <point x="-25.0" y="27.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="431.5" y="1417.0" />
+      <point x="367.5" y="1417.0" />
+      <point x="26.0" y="26.0" />
     </edge>
     <edge source="views.board.FamilyMember" target="views.board.NeutralFamilyMember">
-      <point x="0.0" y="-38.5" />
-      <point x="0.0" y="27.0" />
+      <point x="-35.5" y="-37.0" />
+      <point x="597.0" y="1700.0" />
+      <point x="492.0" y="1700.0" />
+      <point x="0.0" y="26.0" />
     </edge>
     <edge source="game.AdvancedGame" target="game.TheGame">
-      <point x="0.0" y="-39.0" />
-      <point x="0.0" y="85.5" />
+      <point x="0.0" y="-37.5" />
+      <point x="0.0" y="104.0" />
     </edge>
     <edge source="views.cards.Venture" target="views.cards.DevelopmentCard">
-      <point x="0.0" y="-27.0" />
-      <point x="334.5" y="280.0" />
-      <point x="274.875" y="280.0" />
-      <point x="25.375" y="73.0" />
+      <point x="0.0" y="-26.0" />
+      <point x="1634.5" y="553.0" />
+      <point x="1697.25" y="553.0" />
+      <point x="-26.0" y="70.0" />
     </edge>
     <edge source="views.cards.Character" target="views.cards.DevelopmentCard">
-      <point x="0.0" y="-15.5" />
-      <point x="508.0" y="270.0" />
-      <point x="325.625" y="270.0" />
-      <point x="76.125" y="73.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="1452.0" y="543.0" />
+      <point x="1645.25" y="543.0" />
+      <point x="-78.0" y="70.0" />
     </edge>
     <edge source="controllers.game_course.phases.EndOfRound" target="controllers.game_course.phases.Phase">
-      <point x="0.0" y="-15.5" />
-      <point x="412.92857142857144" y="460.0" />
-      <point x="351.75" y="460.0" />
-      <point x="10.5" y="15.5" />
+      <point x="32.25" y="-15.0" />
+      <point x="270.5" y="937.0" />
+      <point x="858.875" y="937.0" />
+      <point x="-32.625" y="15.0" />
     </edge>
     <edge source="views.cards.Territory" target="views.cards.DevelopmentCard">
-      <point x="0.0" y="-15.5" />
-      <point x="164.49999999999997" y="280.0" />
-      <point x="224.12499999999997" y="280.0" />
-      <point x="-25.375" y="73.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="1933.5" y="543.0" />
+      <point x="1801.25" y="543.0" />
+      <point x="78.0" y="70.0" />
+    </edge>
+    <edge source="network.client.RMIClient" target="network.client.ClientInterface">
+      <point x="0.0" y="-15.0" />
+      <point x="2183.5" y="1904.0" />
+      <point x="2217.25" y="1904.0" />
+      <point x="-34.75" y="15.0" />
+    </edge>
+    <edge source="network.server.RMIServer" target="network.server.ServerInterface">
+      <point x="0.0" y="-15.0" />
+      <point x="1878.5" y="1904.0" />
+      <point x="1913.25" y="1904.0" />
+      <point x="-35.75" y="15.0" />
     </edge>
     <edge source="views.board.trackers.VictoryPointsTrack" target="views.board.trackers.Track">
-      <point x="0.0" y="-15.5" />
-      <point x="415.5" y="721.0" />
-      <point x="356.75" y="721.0" />
-      <point x="25.0" y="27.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="251.5" y="1417.0" />
+      <point x="315.5" y="1417.0" />
+      <point x="-26.0" y="26.0" />
+    </edge>
+    <edge source="network.client.SocketClient" target="network.client.ClientInterface">
+      <point x="0.0" y="-15.0" />
+      <point x="2320.5" y="1904.0" />
+      <point x="2286.75" y="1904.0" />
+      <point x="34.75" y="15.0" />
     </edge>
     <edge source="controllers.game_course.ProductionAction" target="controllers.game_course.phases.Action">
-      <point x="0.0" y="-15.5" />
-      <point x="221.5" y="536.0" />
-      <point x="164.17857142857144" y="536.0" />
-      <point x="21.25" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="839.3125" y="1022.0" />
+      <point x="777.8125" y="1022.0" />
+      <point x="22.5" y="15.0" />
     </edge>
     <edge source="controllers.ability.PermanentAbility" target="controllers.ability.SpecialAbility">
-      <point x="0.0" y="-27.0" />
-      <point x="957.0" y="693.0" />
-      <point x="899.75" y="693.0" />
-      <point x="31.0" y="15.5" />
+      <point x="0.0" y="-26.0" />
+      <point x="2249.5" y="1339.0" />
+      <point x="2188.75" y="1339.0" />
+      <point x="32.75" y="15.0" />
     </edge>
     <edge source="views.cards.Building" target="views.cards.DevelopmentCard">
-      <point x="0.0" y="-15.5" />
-      <point x="47.5" y="270.0" />
-      <point x="173.37499999999997" y="270.0" />
-      <point x="-76.125" y="73.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="1812.0" y="553.0" />
+      <point x="1749.25" y="553.0" />
+      <point x="26.0" y="70.0" />
     </edge>
     <edge source="controllers.game_course.phases.Action" target="controllers.game_course.phases.Phase">
-      <point x="0.0" y="-15.5" />
-      <point x="142.92857142857144" y="450.0" />
-      <point x="309.75" y="450.0" />
-      <point x="-31.5" y="15.5" />
+      <point x="22.5" y="-15.0" />
+      <point x="777.8125" y="947.0" />
+      <point x="880.625" y="947.0" />
+      <point x="-10.875" y="15.0" />
     </edge>
     <edge source="controllers.ability.OncePerRoundAbility" target="controllers.ability.SpecialAbility">
-      <point x="0.0" y="-27.0" />
-      <point x="780.5" y="693.0" />
-      <point x="837.75" y="693.0" />
-      <point x="-31.0" y="15.5" />
+      <point x="0.0" y="-26.0" />
+      <point x="2062.5" y="1339.0" />
+      <point x="2123.25" y="1339.0" />
+      <point x="-32.75" y="15.0" />
     </edge>
     <edge source="controllers.game_course.phases.RoundSetup" target="controllers.game_course.phases.Phase">
-      <point x="0.0" y="-15.5" />
-      <point x="550.9285714285714" y="450.0" />
-      <point x="372.75" y="450.0" />
-      <point x="31.5" y="15.5" />
+      <point x="-31.5" y="-15.0" />
+      <point x="1674.0" y="937.0" />
+      <point x="924.125" y="937.0" />
+      <point x="32.625" y="15.0" />
     </edge>
     <edge source="controllers.game_course.phases.VaticanReport" target="controllers.game_course.phases.Phase">
-      <point x="0.0" y="-15.5" />
-      <point x="269.42857142857144" y="460.0" />
-      <point x="330.75" y="460.0" />
-      <point x="-10.5" y="15.5" />
+      <point x="-34.25" y="-15.0" />
+      <point x="1027.4375" y="947.0" />
+      <point x="902.375" y="947.0" />
+      <point x="10.875" y="15.0" />
     </edge>
     <edge source="views.board.trackers.MilitaryPointsTrack" target="views.board.trackers.Track">
-      <point x="0.0" y="-15.5" />
-      <point x="78.5" y="711.0" />
-      <point x="256.75" y="711.0" />
-      <point x="-75.0" y="27.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="611.5" y="1407.0" />
+      <point x="419.5" y="1407.0" />
+      <point x="78.0" y="26.0" />
     </edge>
     <edge source="views.board.CustomPersonalBonusTile" target="views.board.PersonalBonusTile">
-      <point x="0.0" y="-15.5" />
-      <point x="0.0" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="controllers.game_course.HarvestAction" target="controllers.game_course.phases.Action">
-      <point x="0.0" y="-15.5" />
-      <point x="64.5" y="536.0" />
-      <point x="121.67857142857144" y="536.0" />
-      <point x="-21.25" y="15.5" />
+      <point x="0.0" y="-15.0" />
+      <point x="671.3125" y="1022.0" />
+      <point x="732.8125" y="1022.0" />
+      <point x="-22.5" y="15.0" />
+    </edge>
+    <edge source="network.server.SocketServer" target="network.server.ServerInterface">
+      <point x="0.0" y="-15.0" />
+      <point x="2019.5" y="1904.0" />
+      <point x="1984.75" y="1904.0" />
+      <point x="35.75" y="15.0" />
     </edge>
     <edge source="views.board.trackers.TurnOrderTrack" target="views.board.trackers.Track">
-      <point x="0.0" y="-15.5" />
-      <point x="582.0" y="711.0" />
-      <point x="406.75" y="711.0" />
-      <point x="75.0" y="27.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="74.0" y="1407.0" />
+      <point x="263.5" y="1407.0" />
+      <point x="-78.0" y="26.0" />
     </edge>
     <edge source="views.cards.DevelopmentCard" target="views.cards.Card">
-      <point x="0.0" y="-73.0" />
-      <point x="249.49999999999997" y="79.0" />
-      <point x="342.5" y="79.0" />
-      <point x="-30.75" y="27.0" />
+      <point x="52.0" y="-70.0" />
+      <point x="1775.25" y="358.0" />
+      <point x="1882.0" y="358.0" />
+      <point x="-32.0" y="26.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.684375" x="638.5" y="630.0" />
+  <settings layout="Hierarchic Group" zoom="0.21206471635603558" x="1068.6232737905184" y="506.0465101484827" />
   <SelectedNodes />
   <Categories>
-    <Category>Fields</Category>
-    <Category>Inner Classes</Category>
     <Category>Constructors</Category>
     <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
