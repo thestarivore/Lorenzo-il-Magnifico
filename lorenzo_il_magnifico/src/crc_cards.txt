@@ -23,7 +23,7 @@ Are basically passive, Card class may be an Interface.
 
 #LeaderCard
 RESPONSABILITY
--Request some Requirements in orther to be played;
+-Request some Requirements in order to be played;
 -Once played offer a special ability to be played(can be either
 Once Per Round or Permanent);
 -Offer the possibility to discard the leader in order to receive
@@ -136,7 +136,7 @@ COLLABORATIONS
 
 #RoundSetup
 RESPONSABILITY
--Fill Towers with fresh Developmen Cards from the Deck;
+-Fill Towers with fresh Development Cards from the Deck;
 -Make the first player roll the new dice;
 
 COLLABORATIONS
@@ -144,6 +144,7 @@ COLLABORATIONS
 -DevelopmentCard
 -Deck
 -Dice
+-Tower
 
 
 
