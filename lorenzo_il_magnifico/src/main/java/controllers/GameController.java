@@ -2,6 +2,10 @@ package controllers;
 
 import models.GameFacadeModel;
 import views.GameView;
+import views.board.FamilyMember;
+import views.board.NeutralFamilyMember;
+
+import java.util.ArrayList;
 
 /**
  * Created by starivore on 5/20/17.
@@ -20,4 +24,5 @@ public class GameController {
         this.gameView = gameView;
         this.facadeModel = facadeModel;
     }
+
 }

@@ -1,6 +1,8 @@
 package views.board;
 
 import models.Resources;
+import utility.Constants;
+import views.cards.Card;
 import views.cards.DevelopmentCard;
 
 /**
@@ -9,7 +11,14 @@ import views.cards.DevelopmentCard;
 public class ActionSpace {
     private DevelopmentCard card;
     private Resources bonus;
-    private FamilyMember familyMember;
+    private NeutralFamilyMember familyMember;
+    private int flag = 0;
+
+    public ActionSpace() {
+        this.card = new DevelopmentCard();
+        this.bonus = new Resources();
+        this.familyMember = new FamilyMember();
+    }
 
     public DevelopmentCard getCard() {
         return card;
@@ -27,12 +36,20 @@ public class ActionSpace {
         this.bonus = bonus;
     }
 
-    public FamilyMember getFamilyMember() {
+    public NeutralFamilyMember getFamilyMember() {
         return familyMember;
     }
 
-    public void setFamilyMember(FamilyMember familyMember) {
+    public void setFamilyMember(NeutralFamilyMember familyMember) {
         this.familyMember = familyMember;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag() {
+        this.flag = 1;
     }
 
 

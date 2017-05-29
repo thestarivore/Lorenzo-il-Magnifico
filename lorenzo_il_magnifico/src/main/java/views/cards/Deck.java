@@ -4,13 +4,19 @@ package views.cards;
  * Created by starivore on 5/7/17.
  */
 public class Deck {
-    private Card cards[];
+    private DevelopmentCard cards[];
 
-    public Card[] getCards() {
+
+
+    public DevelopmentCard[] getCards() {
         return cards;
     }
 
-    public void setCards(Card[] cards) {
+    public DevelopmentCard getCardFromDeck() {
+        return this.cards[0];
+    }
+
+    public void setCards(DevelopmentCard[] cards) {
         this.cards = cards;
     }
 }

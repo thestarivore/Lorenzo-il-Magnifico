@@ -1,11 +1,17 @@
 package game;
 
+import controllers.Player;
 import network.client.ClientInterface;
 import network.server.ServerInterface;
 import controllers.GameController;
 import controllers.game_course.Period;
 import models.GameFacadeModel;
 import views.GameView;
+import views.board.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * Created by starivore on 5/7/17.
@@ -13,6 +19,8 @@ import views.GameView;
 public class TheGame {
     private Period period;
     private int numberOfPlayer;
+    private List<Player> players;
+    private Board board;
 
     private GameView        theView         = new GameView();
     private GameFacadeModel theModel        = new GameFacadeModel();
@@ -26,7 +34,12 @@ public class TheGame {
         theView         = new GameView();
         theController   = new GameController(theView,theModel);
         this.numberOfPlayer = numberOfPlayer;
-    }
+        this.players = new ArrayList<Player>();
+        this.board = new Board(numberOfPlayer);
+        }
+
+
+
 
     public Period getPeriod() {
         return period;
@@ -43,4 +56,18 @@ public class TheGame {
     public void setNumberOfPlayer(int numberOfPlayer) {
         this.numberOfPlayer = numberOfPlayer;
     }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+
+
+
 }
+
+

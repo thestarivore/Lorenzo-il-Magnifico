@@ -8,6 +8,10 @@ import views.board.MarkerDiscs;
 public class Track {
     private MarkerDiscs markerDiscs;
 
+    public Track(){
+
+    }
+
     public MarkerDiscs getMarkerDiscs() {
         return markerDiscs;
     }
