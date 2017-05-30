@@ -14,8 +14,8 @@ public class Lobby {
         this.games = games;
     }
 
-    static public void main(){
-        int numberOfPlayer = 2; //must be asked
+    public static void main(String[] args){
+        int numberOfPlayer = 4; //must be asked
 
         games = new TheGame(numberOfPlayer);
     }

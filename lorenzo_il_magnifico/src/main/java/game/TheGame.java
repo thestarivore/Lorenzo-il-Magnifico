@@ -1,13 +1,13 @@
 package game;
 
+import controllers.GameFacadeController;
 import controllers.Player;
 import network.client.ClientInterface;
 import network.server.ServerInterface;
-import controllers.GameController;
 import controllers.game_course.Period;
 import models.GameFacadeModel;
 import views.GameView;
-import views.board.*;
+import models.board.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +22,9 @@ public class TheGame {
     private List<Player> players;
     private Board board;
 
-    private GameView        theView         = new GameView();
-    private GameFacadeModel theModel        = new GameFacadeModel();
-    private GameController  theController   = new GameController(theView,theModel);
+    private GameView                theView;
+    private GameFacadeModel         theModel;
+    private GameFacadeController    theController;
 
     private ClientInterface client;
     private ServerInterface server;
@@ -32,11 +32,11 @@ public class TheGame {
     public TheGame(int numberOfPlayer) {
         theModel        = new GameFacadeModel();
         theView         = new GameView();
-        theController   = new GameController(theView,theModel);
+        theController   = new GameFacadeController(theView,theModel);
         this.numberOfPlayer = numberOfPlayer;
         this.players = new ArrayList<Player>();
         this.board = new Board(numberOfPlayer);
-        }
+    }
 
 
 

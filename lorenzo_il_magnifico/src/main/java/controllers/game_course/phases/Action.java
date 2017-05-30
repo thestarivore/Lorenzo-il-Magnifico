@@ -1,7 +1,7 @@
 package controllers.game_course.phases;
 
 import game.TheGame;
-import views.board.NeutralFamilyMember;
+import models.board.NeutralFamilyMember;
 
 /**
  * Created by starivore on 5/7/17.

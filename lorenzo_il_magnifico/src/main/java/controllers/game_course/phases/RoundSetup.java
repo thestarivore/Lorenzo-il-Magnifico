@@ -1,11 +1,10 @@
 package controllers.game_course.phases;
 
 import utility.Constants;
-import views.board.Board;
-import views.board.Dice;
-import views.board.Tower;
-import views.cards.Card;
-import views.cards.DevelopmentCard;
+import models.board.Board;
+import models.board.Dice;
+import models.board.Tower;
+import models.cards.DevelopmentCard;
 
 /**
  * Created by starivore on 5/7/17.

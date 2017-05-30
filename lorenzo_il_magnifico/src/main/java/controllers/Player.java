@@ -3,9 +3,8 @@ package controllers;
 
 import models.Points;
 import utility.Constants;
-import views.board.*;
-import views.board.trackers.TurnOrderTrack;
-import views.cards.LeaderCard;
+import models.board.*;
+import models.cards.LeaderCard;
 import models.Resources;
 
 
