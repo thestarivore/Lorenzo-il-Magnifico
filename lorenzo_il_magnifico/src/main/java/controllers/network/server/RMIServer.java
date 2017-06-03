@@ -1,4 +1,4 @@
-package network.server;
+package controllers.network.server;
 
 /**
  * Created by Mattia on 22/05/2017.

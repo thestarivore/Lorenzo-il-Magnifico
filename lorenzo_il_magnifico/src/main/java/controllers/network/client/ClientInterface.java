@@ -1,4 +1,4 @@
-package network.client;
+package controllers.network.client;
 
 /**
  * Created by Mattia on 22/05/2017.
