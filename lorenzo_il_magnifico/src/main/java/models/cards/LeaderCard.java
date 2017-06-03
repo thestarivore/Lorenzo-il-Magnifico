@@ -11,6 +11,8 @@ public class LeaderCard implements Card {
     private Requirements requirements;
     private SpecialAbility specialAbility;
 
+    LeaderCard leaderCard = new LeaderCard();
+
     public Requirements getRequirements() {
         return requirements;
     }

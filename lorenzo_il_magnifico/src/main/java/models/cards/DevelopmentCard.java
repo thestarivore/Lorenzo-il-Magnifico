@@ -16,6 +16,8 @@ public class DevelopmentCard implements Card {
     private ImmediateEffect immediateEffect;
     private PermanentEffect permanentEffect;
 
+    DevelopmentCard developmentCard = new DevelopmentCard();
+
     public Period getPeriod() {
         return period;
     }
