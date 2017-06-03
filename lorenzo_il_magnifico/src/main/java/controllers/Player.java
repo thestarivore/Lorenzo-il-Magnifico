@@ -1,9 +1,12 @@
 package controllers;
 
+
 import models.Points;
-import views.cards.LeaderCard;
-import views.board.PersonalBoard;
+import utility.Constants;
+import models.board.*;
+import models.cards.LeaderCard;
 import models.Resources;
+
 
 import java.awt.*;
 
@@ -15,8 +18,32 @@ public class Player {
     private Points points;
     private Resources res;
     private PersonalBoard personalBoard;
-    private LeaderCard leaderCards[];
+    private LeaderCard[] leaderCards;
     private Color color;
+    private PersonalBonusTile personalBonusTile;
+    private NeutralFamilyMember[] familyMember;
+    private MarkerDiscs markerDiscs;
+    private ExcommunicationCubes excommunicationCubes;
+    private int turnOrder;
+
+    public Player(String name,int turnOrder){
+        this.name = name;
+        this.points = new Points();
+        this.res = new Resources(turnOrder);
+        this.personalBoard = new PersonalBoard();
+        this.personalBonusTile = new PersonalBonusTile();
+        this.leaderCards = new LeaderCard[Constants.FIXED_LEADER_CARDS];
+        this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER];
+        this.markerDiscs = new MarkerDiscs();
+        this.excommunicationCubes = new ExcommunicationCubes();
+        this.turnOrder=turnOrder;
+
+    }
+
+
+
+
+
 
     public String getName() {
         return name;
@@ -65,4 +92,24 @@ public class Player {
     public void setColor(Color color) {
         this.color = color;
     }
+
+    public PersonalBonusTile getPersonaBonusTile() { return personalBonusTile; }
+
+    public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {this.personalBonusTile=personalBonusTile; }
+
+    public NeutralFamilyMember[] getFamilyMember() { return familyMember; }
+
+    public void setFamilyMember(FamilyMember[] familyMember) {this.familyMember=familyMember; }
+
+    public MarkerDiscs getMarkerDiscs() { return markerDiscs; }
+
+    public void setMarkerDiscs(MarkerDiscs markerDiscs){ this.markerDiscs=markerDiscs; }
+
+    public ExcommunicationCubes getExcommunicationCubes() { return excommunicationCubes; }
+
+    public void setExcommunicationCubes(ExcommunicationCubes excommunicationCubes) { this.excommunicationCubes=excommunicationCubes; }
+
+
 }
+
+

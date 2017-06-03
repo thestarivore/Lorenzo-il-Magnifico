@@ -1,8 +1,10 @@
 package views;
 
-import views.board.Board;
-import views.board.PersonalBoard;
-import views.board.PersonalBonusTile;
+import models.board.Board;
+import models.board.PersonalBoard;
+import models.board.PersonalBonusTile;
+
+import java.util.Scanner;
 
 /**
  * Created by starivore on 5/20/17.
@@ -15,11 +17,12 @@ import views.board.PersonalBonusTile;
  * information entered by the user to whomever needs it.
  */
 public class GameView {
-    private Board board;
-    private PersonalBoard personalBoard;
-    private PersonalBonusTile personalBonusTile;
+
 
     public GameView() {
+        printLine("***********************");
+        printLine(" Lorenzo il Magnifico");
+        printLine("***********************");
 
         /*
             Here we initialize all the graphical parts.
@@ -27,27 +30,32 @@ public class GameView {
          */
     }
 
-    public Board getBoard() {
-        return board;
+    /**
+     * Get action from the player
+     * @return String with the action done by the player
+     */
+    public String getAction(){
+        printLine("Insert Action:");
+        return getLine();
     }
 
-    public void setBoard(Board board) {
-        this.board = board;
+    /**
+     * Print Line to the coonsole. A newline is added at the end of the line.
+     * @param line String of th eline to be printed
+     */
+    private void printLine(String line){
+        System.out.println(line);
     }
 
-    public PersonalBoard getPersonalBoard() {
-        return personalBoard;
+    /**
+     * Get Input line from console
+     * @return String of the input line
+     */
+    private String getLine(){
+        Scanner input;
+
+        input = new Scanner(System.in);
+        return input.nextLine();
     }
 
-    public void setPersonalBoard(PersonalBoard personalBoard) {
-        this.personalBoard = personalBoard;
-    }
-
-    public PersonalBonusTile getPersonalBonusTile() {
-        return personalBonusTile;
-    }
-
-    public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {
-        this.personalBonusTile = personalBonusTile;
-    }
 }

@@ -1,6 +1,6 @@
 package game;
 
-import views.board.PersonalBonusTile;
+import models.board.PersonalBonusTile;
 
 /**
  * Created by starivore on 5/7/17.
