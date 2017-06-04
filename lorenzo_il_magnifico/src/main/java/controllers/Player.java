@@ -9,6 +9,7 @@ import models.Resources;
 
 
 import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by starivore on 5/7/17.
@@ -18,7 +19,7 @@ public class Player {
     private Points points;
     private Resources res;
     private PersonalBoard personalBoard;
-    private LeaderCard[] leaderCards;
+    private ArrayList<LeaderCard> leaderCards  = new ArrayList<>();;
     private Color color;
     private PersonalBonusTile personalBonusTile;
     private NeutralFamilyMember[] familyMember;
@@ -32,7 +33,6 @@ public class Player {
         this.res = new Resources(turnOrder);
         this.personalBoard = new PersonalBoard();
         this.personalBonusTile = new PersonalBonusTile();
-        this.leaderCards = new LeaderCard[Constants.FIXED_LEADER_CARDS];
         this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER];
         this.markerDiscs = new MarkerDiscs();
         this.excommunicationCubes = new ExcommunicationCubes();
@@ -76,14 +76,6 @@ public class Player {
 
     public void setPersonalBoard(PersonalBoard personalBoard) {
         this.personalBoard = personalBoard;
-    }
-
-    public LeaderCard[] getLeaderCards() {
-        return leaderCards;
-    }
-
-    public void setLeaderCards(LeaderCard[] leaderCards) {
-        this.leaderCards = leaderCards;
     }
 
     public Color getColor() {

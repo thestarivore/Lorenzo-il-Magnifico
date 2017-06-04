@@ -4,18 +4,27 @@ import java.io.Reader;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.Scanner;
-
+import controllers.Player;
 import com.google.gson.Gson;
+import models.cards.Deck;
 import models.cards.DevelopmentCard;
 import models.cards.LeaderCard;
-
+import java.util.ArrayList;
 /**
  * Created by starivore on 5/16/17.
  */
 
 public class FileManager {
+    private Deck deck;
+    private DevelopmentCard developmentCard;
+    private LeaderCard leaderCard;
 
-    public static void main(String[] args) {
+    DevelopmentCard developmentCard = new DevelopmentCard();
+    LeaderCard leaderCard = new LeaderCard();
+    Deck deck = new Deck();
+
+
+    public Deck CreateDeck(Deck deck){
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         System.out.println("Enter a path: ");
         final String fileName = reader.nextLine();
@@ -32,12 +41,13 @@ public class FileManager {
 
             // Convert JSON to Java Object
             DevelopmentCard developmentCard = gson.fromJson(fileReader, DevelopmentCard.class);
-            System.out.println(developmentCard);
-
+            deck.developmentCards.add(developmentCard);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return deck;
 
     }
 

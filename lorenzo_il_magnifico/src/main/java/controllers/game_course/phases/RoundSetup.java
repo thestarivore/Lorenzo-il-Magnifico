@@ -6,6 +6,8 @@ import models.board.Dice;
 import models.board.Tower;
 import models.cards.DevelopmentCard;
 
+import java.util.ArrayList;
+
 /**
  * Created by starivore on 5/7/17.
  */
@@ -41,14 +43,12 @@ public class RoundSetup implements Phase {
 
     public Tower fillTower(Tower tower){
 
-        DevelopmentCard[] cards;
-        cards = new DevelopmentCard[Constants.FIXED_TOWER_CARDS];
-        for (int i=0 ; i< Constants.FIXED_TOWER_CARDS ; i++)
-            cards[i]=tower.getDeck().getCardFromDeck();
-        for (int i=0 ; i<Constants.FIXED_TOWER_CARDS ; i++)
-            tower.getSpace(i).setCard(cards[i]);
-        return tower;
+        ArrayList<DevelopmentCard> cards = new ArrayList<>();
+        for (int i=0 ; i< Constants.FIXED_TOWER_CARDS ; i++) {
+            cards.add(new DevelopmentCard());
+        }
 
+        return tower;
     }
 
 
