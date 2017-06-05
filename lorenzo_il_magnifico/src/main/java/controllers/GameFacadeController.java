@@ -2,10 +2,19 @@ package controllers;
 
 import controllers.network.client.SocketClient;
 import controllers.network.server.SocketServer;
+import controllers.game_course.Period;
+import controllers.game_course.phases.Action;
+import controllers.game_course.phases.RoundSetup;
+import controllers.game_course.phases.VaticanReport;
+import game.TheGame;
 import models.GameFacadeModel;
+import models.board.FamilyMember;
+import models.board.NeutralFamilyMember;
 import views.GameView;
 
 import java.io.IOException;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * Created by starivore on 5/20/17.
@@ -17,12 +26,19 @@ import java.io.IOException;
  * between the View and Model
  */
 public class GameFacadeController {
-    private GameView gameView;
-    private GameFacadeModel facadeModel;
+    private TheGame theGame;
+    private Period period;
+    private Action action;
+    private VaticanReport vaticanReport;
+    private RoundSetup roundSetup;
+    private String playerTurn;
 
-    public GameFacadeController(GameView gameView, GameFacadeModel facadeModel) {
-        this.gameView = gameView;
-        this.facadeModel = facadeModel;
+    public GameFacadeController(TheGame theGame) {
+        this.theGame = theGame;
+        this.period = theGame.getPeriod();
+        this.action = new Action();
+        this.vaticanReport = new VaticanReport();
+        this.roundSetup = new RoundSetup();
 
         //Create and Start Server Thread
         ServerTask serverTask = new ServerTask();
@@ -80,5 +96,57 @@ public class GameFacadeController {
     }
 
 }
+
+
+    public NeutralFamilyMember selectFamilyMember(Player player) {
+
+        int type = parseInt(theGame.getTheView().getFamilyMember(player));
+
+
+
+        return player.getFamilyMember(type);
+
+    }
+
+
+
+
+
+
+
+
+    public boolean chooseAction(Player player) {
+        boolean valid = false;
+
+        String message = theGame.getTheView().getAction();
+        if (("Place").equalsIgnoreCase(message)) {
+
+            String where = theGame.getTheView().getWhereAction();
+            if (("TowerSpace").equalsIgnoreCase(where)) {
+                int tower = parseInt(theGame.getTheView().getTowerActionSpace());
+                int space = parseInt(theGame.getTheView().getActionSpace());
+                NeutralFamilyMember familyMember = selectFamilyMember(player);
+                action.placeFamilyMemberOnActionSpace(tower,space,familyMember);
+            }
+
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
 
 

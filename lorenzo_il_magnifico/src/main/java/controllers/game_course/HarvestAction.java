@@ -15,11 +15,5 @@ public class HarvestAction extends Action {
         return result;
     }
 
-    public boolean checkFreeActionSpace() {
-        boolean free = false;
-        if (super.game.getBoard().getHarvestArea().getSingleSpace().getFlag() == 0)
-            return true;
-        return false;
 
-    }
 }

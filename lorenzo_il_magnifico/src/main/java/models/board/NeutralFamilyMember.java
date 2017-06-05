@@ -5,6 +5,12 @@ package models.board;
  */
 public class NeutralFamilyMember{
     private int value;
+    private boolean isUsed;
+
+    public NeutralFamilyMember() {
+        this.value = 0;
+        this.isUsed = false;
+    }
 
     public int getValue() {
         return value;
@@ -12,5 +18,13 @@ public class NeutralFamilyMember{
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public boolean getUsed() {
+        return isUsed;
+    }
+
+    public void setUsed() {
+        this.isUsed = true;
     }
 }

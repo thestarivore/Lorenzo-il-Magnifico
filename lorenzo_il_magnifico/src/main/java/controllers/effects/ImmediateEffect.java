@@ -12,6 +12,12 @@ public class ImmediateEffect {
     private Points points;
     private Action bonusAction;
 
+    public ImmediateEffect() {
+        this.resources = new Resources();
+        this.points = new Points();
+        this.bonusAction = new Action();
+    }
+
     public Resources getResources() {
         return resources;
     }

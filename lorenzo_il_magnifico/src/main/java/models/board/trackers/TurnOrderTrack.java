@@ -8,10 +8,10 @@ import game.Lobby;
  */
 public class TurnOrderTrack extends Track {
 
-    private String[] turnOrder;
+    private int[] turnOrder;
     private Lobby lobby;
 
-    public String[] getTurnOrder(){ return this.turnOrder; }
+    public int[] getTurnOrder(){ return this.turnOrder; }
 
     public int turnOrderToInt(String[] turnOrder, String name){
         int numberOfPlayer = lobby.getGames().getNumberOfPlayer();

@@ -15,6 +15,9 @@ public class Tower {
     public Tower(){
         this.deck= new Deck();
         this.space = new ActionSpace[Constants.FIXED_TOWER_CARDS];
+        for (int i=0; i<Constants.FIXED_TOWER_CARDS; i++)
+            this.space[i] = new ActionSpace();
+
     }
 
     public Deck getDeck() { return deck; }

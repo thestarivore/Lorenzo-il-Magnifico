@@ -10,6 +10,11 @@ public class Dice {
     private Color color;
     private int number;
 
+    public Dice() {
+        this.color = null;
+        this.number = 0;
+    }
+
     public int rollDice(int min , int max){
         Random rand= new Random();
         this.number=rand.nextInt((max-min)+1)+min;
@@ -20,8 +25,18 @@ public class Dice {
         return color;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColor(int i) {
+        switch(i) {
+            case 0:
+                this.color = Color.BLACK;
+                break;
+            case 1:
+                this.color = Color.ORANGE;
+                break;
+            default:
+                this.color = Color.WHITE;
+                break;
+        }
     }
 
     public int getNumber() {

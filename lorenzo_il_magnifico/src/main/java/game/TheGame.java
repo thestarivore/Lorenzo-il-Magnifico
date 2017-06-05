@@ -21,6 +21,8 @@ public class TheGame {
     private int numberOfPlayer;
     private List<Player> players;
     private Board board;
+    private int playerIDTurn;
+    private Color[] colorAvailable;
 
     private GameView                theView;
     private GameFacadeModel         theModel;
@@ -32,13 +34,21 @@ public class TheGame {
     public TheGame(int numberOfPlayer) {
         theModel        = new GameFacadeModel();
         theView         = new GameView();
-        theController   = new GameFacadeController(theView,theModel);
+        theController   = new GameFacadeController(this);
         this.numberOfPlayer = numberOfPlayer;
         this.players = new ArrayList<Player>();
         this.board = new Board(numberOfPlayer);
+        this.period = new Period();
+
     }
 
+    public void setPlayer(Player player) {
+        this.players.add(player);
+    }
 
+    public Player getPlayer(int i) {
+       return this.players.get(i);
+    }
 
 
     public Period getPeriod() {
@@ -65,6 +75,17 @@ public class TheGame {
         this.board = board;
     }
 
+    public GameFacadeController getTheController() {
+        return theController;
+    }
+
+    public GameView getTheView() {
+        return theView;
+    }
+
+    public GameFacadeModel getTheModel() {
+        return theModel;
+    }
 
 
 

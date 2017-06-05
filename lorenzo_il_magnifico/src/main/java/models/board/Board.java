@@ -15,16 +15,24 @@ public class Board {
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
 
-    public Board(int numberOfplayer){
+    public Board(int numberOfPlayer){
         this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
-        this.market = new TheMarket(numberOfplayer);
+        for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)
+            this.tower[i] = new Tower();
+
+        this.market = new TheMarket(numberOfPlayer);
         this.councilPalace = new TheCouncilPalace();
         this.tracks = new Track[Constants.FIXED_NUM_OF_TRACK];
+        for (int i=0; i<Constants.FIXED_NUM_OF_TRACK; i++)
+            this.tracks[i] = new Track();
+
         this.dice = new Dice[Constants.FIXED_NUM_OF_DICE];
-        /*dice[0].setColor(Color.black);
-        dice[1].setColor(Color.orange);
-        dice[2].setColor(Color.white);*/
-        this.harvestArea = new HarvestArea(numberOfplayer);
+        for (int i=0 ; i<Constants.FIXED_NUM_OF_DICE ; i++) {
+            this.dice[i]=new Dice();
+            this.dice[i].setColor(i);
+        }
+
+        this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea();
 
     }

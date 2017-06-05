@@ -16,24 +16,23 @@ public class RoundSetup implements Phase {
     private Dice[] dice;
 
 
-    public RoundSetup() {
 
-        this.tower = new Tower();
-        this.dice = new Dice[Constants.FIXED_NUM_OF_DICE];
+    public boolean initializeRound(Board board){
+        boolean endRoundSetup = false;
 
-    }
+        while(!endRoundSetup) {
+            for (int i = 0; i < Constants.FIXED_NUM_OF_TOWER; i++) {
+                tower = board.getTower(i);
+                fillTower(tower);
+            }
 
-    public void initializeRound(Board board){
-
-        for (int i=0 ; i<Constants.FIXED_NUM_OF_TOWER ; i++) {
-            tower = board.getTower(i);
-            fillTower(this.tower);
+            dice = board.getDice();
+            for (int i = 0; i < Constants.FIXED_NUM_OF_DICE; i++)
+                dice[i].rollDice(Constants.FIXED_MIN_DICE, Constants.FIXED_MAX_DICE);
+            endRoundSetup = true;
         }
 
-        dice = board.getDice();
-        for (int i=0 ; i<Constants.FIXED_NUM_OF_DICE ; i++)
-            dice[i].rollDice(Constants.FIXED_MIN_DICE , Constants.FIXED_MAX_DICE);
-
+        return endRoundSetup;
     }
 
 
@@ -41,14 +40,18 @@ public class RoundSetup implements Phase {
 
 
 
-    public Tower fillTower(Tower tower){
+    public void fillTower(Tower tower){
 
-        ArrayList<DevelopmentCard> cards = new ArrayList<>();
+        DevelopmentCard[] cards;
+        cards = new DevelopmentCard[Constants.FIXED_TOWER_CARDS];
         for (int i=0 ; i< Constants.FIXED_TOWER_CARDS ; i++) {
-            cards.add(new DevelopmentCard());
+            cards[i] = new DevelopmentCard();
+            cards[i] = tower.getDeck().getCardFromDeck();
         }
 
-        return tower;
+        for (int i=0 ; i<Constants.FIXED_TOWER_CARDS ; i++)
+            tower.getSpace(i).setCard(cards[i]);
+
     }
 
 

@@ -10,10 +10,12 @@ import models.Resources;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by starivore on 5/7/17.
  */
+
 public class Player {
     private String name;
     private Points points;
@@ -26,6 +28,7 @@ public class Player {
     private MarkerDiscs markerDiscs;
     private ExcommunicationCubes excommunicationCubes;
     private int turnOrder;
+    private int player_ID;
 
     public Player(String name,int turnOrder){
         this.name = name;
@@ -78,6 +81,14 @@ public class Player {
         this.personalBoard = personalBoard;
     }
 
+    public LeaderCard[] getLeaderCards() {
+        return leaderCards;
+    }
+
+    public void setLeaderCards(LeaderCard[] leaderCards) {
+        this.leaderCards = leaderCards;
+    }
+
     public Color getColor() {
         return color;
     }
@@ -90,9 +101,9 @@ public class Player {
 
     public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {this.personalBonusTile=personalBonusTile; }
 
-    public NeutralFamilyMember[] getFamilyMember() { return familyMember; }
+    public NeutralFamilyMember getFamilyMember(int i) { return familyMember[i]; }
 
-    public void setFamilyMember(FamilyMember[] familyMember) {this.familyMember=familyMember; }
+    public void setFamilyMember(FamilyMember familyMember, int i) {this.familyMember[i]=familyMember; }
 
     public MarkerDiscs getMarkerDiscs() { return markerDiscs; }
 

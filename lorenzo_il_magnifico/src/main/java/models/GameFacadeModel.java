@@ -1,5 +1,9 @@
 package models;
 
+import models.board.ActionSpace;
+import models.board.Board;
+import models.board.Dice;
+import models.board.NeutralFamilyMember;
 import models.data_persistence.FileManager;
 
 /**
@@ -12,7 +16,12 @@ import models.data_persistence.FileManager;
  * It doesn't know the View exists
  */
 public class GameFacadeModel {
-    private FileManager fileManager;
+    private Board board;
+    private ActionSpace space;
+    private Dice dice;
+    private NeutralFamilyMember familyMember;
+
+
 
 
 }

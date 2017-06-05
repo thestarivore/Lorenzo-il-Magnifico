@@ -1,8 +1,13 @@
 package views;
 
+import controllers.Player;
+import game.TheGame;
 import models.board.Board;
 import models.board.PersonalBoard;
 import models.board.PersonalBonusTile;
+import models.cards.Card;
+import models.cards.DevelopmentCard;
+import utility.Constants;
 
 import java.util.Scanner;
 
@@ -39,9 +44,75 @@ public class GameView {
         return getLine();
     }
 
+    public String getWhereAction() {
+        printLine("Where do you want to place Family Member?");
+        return getLine();
+    }
+
+    public String getTowerActionSpace() {
+        printLine("Choose Tower");
+        return getLine();
+
+    }
+
+    public String getActionSpace() {
+        printLine("Choose space");
+        return getLine();
+    }
+
+
+    public String getFamilyMember(Player player) {
+
+
+        boolean valid = false;
+        String read;
+        printLine("Select Family Member");
+        do {
+            read = getLine();
+            if (("0").equals(read) || ("1").equals(read) || ("2").equals(read) || ("3").equals(read))
+                valid = true;
+        } while(!valid);
+
+        return read;
+    }
+
+    public String getServant(Player player) {
+        return "ciao";
+    }
+
+    public void printAvailableFamilyMember(Player player) {
+        for (int i=0; i<Constants.FIXED_FAMILYMEMBER; i++)
+            if (!player.getFamilyMember(i).getUsed()) {
+                printLine("Family Member " + i);
+                System.out.println(player.getFamilyMember(i).getValue());
+            }
+    }
+
+
+    public void printBoard(Board board) {
+        for (int i=0; i< Constants.FIXED_NUM_OF_TOWER; i++) {
+            printLine("Tower " + (i+1) + ":");
+            for (int j = 0; j < Constants.FIXED_TOWER_CARDS; j++) {
+                printCard(board.getTower(i).getSpace(j).getCard());
+
+            }
+        }
+
+    }
+
+    public void printCard(DevelopmentCard card) {
+        printLine(card.getName());
+        System.out.println(card.getPeriod());
+    }
+
+    public void printPlayer(Player player) {
+        printLine(player.getName());
+        System.out.println(player.getRes());
+    }
+
     /**
-     * Print Line to the coonsole. A newline is added at the end of the line.
-     * @param line String of th eline to be printed
+     * Print Line to the console. A newline is added at the end of the line.
+     * @param line String of the line to be printed
      */
     private void printLine(String line){
         System.out.println(line);
@@ -57,5 +128,10 @@ public class GameView {
         input = new Scanner(System.in);
         return input.nextLine();
     }
+
+
+
+
+
 
 }

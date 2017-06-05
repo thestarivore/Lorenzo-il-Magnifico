@@ -26,7 +26,7 @@ public class Action implements Phase {
     }
 
     public boolean checkFreeActionSpace(int tower, int floor) {
-        if (game.getBoard().getTower(tower).getSpace(floor).getFlag() == 0)
+        if (!(game.getBoard().getTower(tower).getSpace(floor).getOccupied()))
             return true;
         return false;
     }

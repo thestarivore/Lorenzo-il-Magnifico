@@ -10,12 +10,13 @@ public class ActionSpace {
     private DevelopmentCard card;
     private Resources bonus;
     private NeutralFamilyMember familyMember;
-    private int flag = 0;
+    private boolean isOccupied;
 
     public ActionSpace() {
         this.card = new DevelopmentCard();
         this.bonus = new Resources();
         this.familyMember = new FamilyMember();
+        this.isOccupied = false;
     }
 
     public DevelopmentCard getCard() {
@@ -42,13 +43,14 @@ public class ActionSpace {
         this.familyMember = familyMember;
     }
 
-    public int getFlag() {
-        return flag;
+    public boolean getOccupied() {
+        return isOccupied;
     }
 
-    public void setFlag() {
-        this.flag = 1;
+    public void setOccupied() {
+        this.isOccupied = true;
     }
+
 
 
 }
