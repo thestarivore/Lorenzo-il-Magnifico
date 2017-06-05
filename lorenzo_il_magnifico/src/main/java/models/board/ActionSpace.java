@@ -10,6 +10,7 @@ public class ActionSpace {
     private DevelopmentCard card;
     private Resources bonus;
     private NeutralFamilyMember familyMember;
+    private int diceCost;
     private boolean isOccupied;
 
     public ActionSpace() {
@@ -41,6 +42,14 @@ public class ActionSpace {
 
     public void setFamilyMember(NeutralFamilyMember familyMember) {
         this.familyMember = familyMember;
+    }
+
+    public int getDiceCost() {
+        return diceCost;
+    }
+
+    public void setDiceCost(int diceCost) {
+        this.diceCost = diceCost;
     }
 
     public boolean getOccupied() {

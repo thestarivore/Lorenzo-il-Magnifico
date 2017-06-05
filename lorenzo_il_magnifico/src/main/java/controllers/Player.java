@@ -9,8 +9,8 @@ import models.Resources;
 
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by starivore on 5/7/17.
@@ -81,13 +81,10 @@ public class Player {
         this.personalBoard = personalBoard;
     }
 
-    public LeaderCard[] getLeaderCards() {
+    public List<LeaderCard> getLeaderCards() {
         return leaderCards;
     }
 
-    public void setLeaderCards(LeaderCard[] leaderCards) {
-        this.leaderCards = leaderCards;
-    }
 
     public Color getColor() {
         return color;

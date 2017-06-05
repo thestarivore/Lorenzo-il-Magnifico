@@ -95,17 +95,23 @@ public class GameFacadeController {
         }
     }
 
-}
 
 
     public NeutralFamilyMember selectFamilyMember(Player player) {
 
         int type = parseInt(theGame.getTheView().getFamilyMember(player));
-
-
+        int servant = theGame.getTheView().getServant(player);
 
         return player.getFamilyMember(type);
 
+    }
+
+    public boolean checkFamilyMemberChoice(NeutralFamilyMember familyMember, int tower, int space) {
+        boolean valid = false;
+        if (familyMember.getValue() >= theGame.getBoard().getTower(tower).getSpace(space).getDiceCost())
+            valid = true;
+
+        return valid;
     }
 
 
@@ -120,13 +126,19 @@ public class GameFacadeController {
 
         String message = theGame.getTheView().getAction();
         if (("Place").equalsIgnoreCase(message)) {
-
             String where = theGame.getTheView().getWhereAction();
             if (("TowerSpace").equalsIgnoreCase(where)) {
                 int tower = parseInt(theGame.getTheView().getTowerActionSpace());
                 int space = parseInt(theGame.getTheView().getActionSpace());
-                NeutralFamilyMember familyMember = selectFamilyMember(player);
-                action.placeFamilyMemberOnActionSpace(tower,space,familyMember);
+
+                while (!(valid)) {
+                    NeutralFamilyMember familyMember = selectFamilyMember(player);
+
+                    if (checkFamilyMemberChoice(familyMember, tower, space)) {
+                        action.placeFamilyMemberOnActionSpace(tower, space, familyMember);
+                        valid = true;
+                    }
+                }
             }
 
         }

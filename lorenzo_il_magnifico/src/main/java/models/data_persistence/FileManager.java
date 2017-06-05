@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import controllers.Player;
 import com.google.gson.Gson;
+import models.board.FamilyMember;
 import models.cards.Deck;
 import models.cards.DevelopmentCard;
 import models.cards.LeaderCard;
@@ -19,9 +20,11 @@ public class FileManager {
     private DevelopmentCard developmentCard;
     private LeaderCard leaderCard;
 
-    DevelopmentCard developmentCard = new DevelopmentCard();
-    LeaderCard leaderCard = new LeaderCard();
-    Deck deck = new Deck();
+    public FileManager() {
+        DevelopmentCard developmentCard = new DevelopmentCard();
+        LeaderCard leaderCard = new LeaderCard();
+        Deck deck = new Deck();
+    }
 
 
     public Deck CreateDeck(Deck deck){

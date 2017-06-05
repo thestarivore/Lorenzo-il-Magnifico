@@ -11,6 +11,8 @@ import utility.Constants;
 
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 /**
  * Created by starivore on 5/20/17.
  *
@@ -63,21 +65,47 @@ public class GameView {
 
     public String getFamilyMember(Player player) {
 
-
         boolean valid = false;
-        String read;
+        String read = "";
         printLine("Select Family Member");
-        do {
+        read = getLine();
+        while ((("0").equals(read) || ("1").equals(read) || ("2").equals(read) || ("3").equals(read)) && player.getFamilyMember(parseInt(read)).getUsed()) {
+            printLine("Not Valid");
             read = getLine();
-            if (("0").equals(read) || ("1").equals(read) || ("2").equals(read) || ("3").equals(read))
-                valid = true;
-        } while(!valid);
+        }
 
         return read;
+
     }
 
-    public String getServant(Player player) {
-        return "ciao";
+
+    public int getServant(Player player) {
+
+        boolean valid = false;
+        int numberOfServant = 0;
+        String str  = "";
+        printLine("Do you want to add Servant? [Y/N]");
+        str = getLine();
+        while (str.equalsIgnoreCase("y") || str.equalsIgnoreCase("n")) {
+            printLine("[Y/N]");
+            str = getLine();
+        }
+
+        if (("n").equalsIgnoreCase(str))
+            return numberOfServant;
+
+        else {
+            Scanner input = new Scanner(System.in);
+            printLine("Select Servant");
+            numberOfServant = input.nextInt();
+            while (numberOfServant > player.getRes().getServants()) {
+                printLine("Input exceed number of Servant");
+                numberOfServant = input.nextInt();
+            }
+
+        }
+
+        return numberOfServant;
     }
 
     public void printAvailableFamilyMember(Player player) {
