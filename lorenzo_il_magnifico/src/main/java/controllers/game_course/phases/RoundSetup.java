@@ -50,7 +50,7 @@ public class RoundSetup implements Phase {
         }
 
         for (int i=0 ; i<Constants.FIXED_TOWER_CARDS ; i++)
-            tower.getSpace(i).setCard(cards[i]);
+            tower.getActionSpace(i).setCard(cards[i]);
 
     }
 

@@ -9,14 +9,14 @@ import models.cards.Deck;
  */
 public class Tower {
     private Deck deck;
-    private ActionSpace[] space;
+    private ActionSpace[] actionSpaces;
 
 
     public Tower(){
         this.deck= new Deck();
-        this.space = new ActionSpace[Constants.FIXED_TOWER_CARDS];
+        this.actionSpaces = new ActionSpace[Constants.FIXED_TOWER_CARDS];
         for (int i=0; i<Constants.FIXED_TOWER_CARDS; i++)
-            this.space[i] = new ActionSpace();
+            this.actionSpaces[i] = new ActionSpace();
 
     }
 
@@ -26,12 +26,12 @@ public class Tower {
         this.deck = deck;
     }
 
-    public ActionSpace getSpace(int i) {
-        return space[i];
+    public ActionSpace getActionSpace(int i) {
+        return actionSpaces[i];
     }
 
-    public void setSpace(ActionSpace space , int i){
-        this.space[i] = space;
+    public void setActionSpace(ActionSpace actionSpace , int i){
+        this.actionSpaces[i] = actionSpace;
     }
 
 

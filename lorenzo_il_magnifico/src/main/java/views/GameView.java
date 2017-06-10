@@ -24,7 +24,7 @@ import static java.lang.Integer.parseInt;
  * information entered by the user to whomever needs it.
  */
 public class GameView {
-
+    public static final int FIXED_TOWER_CARDS = 4;
 
     public GameView() {
         printLine("***********************");
@@ -121,7 +121,7 @@ public class GameView {
         for (int i=0; i< Constants.FIXED_NUM_OF_TOWER; i++) {
             printLine("Tower " + (i+1) + ":");
             for (int j = 0; j < Constants.FIXED_TOWER_CARDS; j++) {
-                printCard(board.getTower(i).getSpace(j).getCard());
+                printCard(board.getTower(i).getActionSpace(j).getCard());
 
             }
         }

@@ -18,7 +18,7 @@ public class Action implements Phase {
         boolean free = false;
         free = checkFreeActionSpace(tower, floor);
         if(free) {
-           game.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
+           game.getBoard().getTower(tower).getActionSpace(floor).setFamilyMember(famMember);
         }
 
         return free;
@@ -26,7 +26,7 @@ public class Action implements Phase {
     }
 
     public boolean checkFreeActionSpace(int tower, int floor) {
-        if (!(game.getBoard().getTower(tower).getSpace(floor).getOccupied()))
+        if (!(game.getBoard().getTower(tower).getActionSpace(floor).getOccupied()))
             return true;
         return false;
     }

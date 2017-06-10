@@ -11,6 +11,8 @@ public class Resources {
     private int servants;
     private int coins;
 
+    public static final int FIXED_MIN_COINS = 4;
+
     public Resources(){
     }
 
@@ -18,7 +20,7 @@ public class Resources {
         this.woods=2;
         this.stones=2;
         this.servants=2;
-        this.coins= Constants.FIXED_MIN_COINS+turnOrder;
+        this.coins= FIXED_MIN_COINS+turnOrder;
 
     }
 

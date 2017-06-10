@@ -33,6 +33,8 @@ public class GameFacadeController {
     private RoundSetup roundSetup;
     private String playerTurn;
 
+    public static final int FIXED_TOWER_CARDS = 4;
+
     public GameFacadeController(TheGame theGame) {
         this.theGame = theGame;
         this.period = theGame.getPeriod();
@@ -108,7 +110,7 @@ public class GameFacadeController {
 
     public boolean checkFamilyMemberChoice(NeutralFamilyMember familyMember, int tower, int space) {
         boolean valid = false;
-        if (familyMember.getValue() >= theGame.getBoard().getTower(tower).getSpace(space).getDiceCost())
+        if (familyMember.getValue() >= theGame.getBoard().getTower(tower).getActionSpace(space).getDiceCost())
             valid = true;
 
         return valid;
