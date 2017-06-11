@@ -1,9 +1,11 @@
 package models.cards;
 
 
+import controllers.Player;
 import controllers.effects.ImmediateEffect;
 import controllers.game_course.Period;
 import controllers.effects.PermanentEffect;
+import models.Points;
 import models.Resources;
 
 /**
@@ -13,11 +15,15 @@ public class DevelopmentCard implements Card {
     private String name;
     private Period period;
     private Resources cost;
+    private Points pointsReq;
+    private Points pointsCost;
     private ImmediateEffect immediateEffect;
     private PermanentEffect permanentEffect;
 
     public DevelopmentCard() {
+        this.name  = "prova";
     }
+
 
     public Period getPeriod() {
         return period;
@@ -43,6 +49,14 @@ public class DevelopmentCard implements Card {
         this.cost = cost;
     }
 
+    public Points getPointsReq() {
+        return pointsReq;
+    }
+
+    public void setPointsCost(Points points) {
+        this.pointsReq = points;
+    }
+
     public void setImmediateEffect(ImmediateEffect immediateEffect) {
         this.immediateEffect = immediateEffect;
     }
@@ -57,5 +71,13 @@ public class DevelopmentCard implements Card {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void removeRes(Player player) {
+        player.getRes().removeResources(cost);
+    }
+
+    public void removePoints(Player player) {
+        player.getPoints().removePoints(pointsCost);
     }
 }

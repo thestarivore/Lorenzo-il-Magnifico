@@ -27,9 +27,20 @@ public class MainGame {
 
         }
 
-        game.getPlayer(0).getFamilyMember(1).setUsed();
-        game.getTheView().printAvailableFamilyMember(game.getPlayer(0));
-        game.getTheView().printBoard(game.getBoard());
+        int period = game.getPeriod().getRound().getNumberOfRound();
+        if (period == 1)
+            game.getTheController().getRoundSetup().initializeRound(game.getTheModel().getBoard());
+
+
+        int playerTurn = game.getPlayerTurn();
+        for (int i=0; i< game.getNumberOfPlayer();i++)
+            if (playerTurn == game.getPlayer(i).getID())
+                game.getTheController().chooseAction(game.getPlayer(i));
+
+
+
+
+
 
 
     }

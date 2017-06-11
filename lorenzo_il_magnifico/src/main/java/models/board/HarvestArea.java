@@ -28,7 +28,11 @@ public class HarvestArea {
         return multipleSpace;
     }
 
-    public void setMultipleSpace(List<ActionSpace> multipleSpace) {
-        this.multipleSpace = multipleSpace;
+    public ActionSpace getMultipleSingleSpace(int i) {
+        return multipleSpace.get(i);
+    }
+
+    public void addMultipleSpace(ActionSpace singleSpace) {
+        this.multipleSpace.add(singleSpace);
     }
 }

@@ -7,7 +7,7 @@ import models.board.trackers.Track;
  * Created by starivore on 5/7/17.
  */
 public class Board {
-    private Tower[] towers;
+    private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;
     private Track[] tracks;
@@ -16,9 +16,9 @@ public class Board {
     private ProductionArea productionArea;
 
     public Board(int numberOfPlayer){
-        this.towers = new Tower[Constants.FIXED_NUM_OF_TOWER];
+        this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
         for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)
-            this.towers[i] = new Tower();
+            this.tower[i] = new Tower(i);
 
         this.market = new TheMarket(numberOfPlayer);
         this.councilPalace = new TheCouncilPalace();
@@ -33,16 +33,16 @@ public class Board {
         }
 
         this.harvestArea = new HarvestArea(numberOfPlayer);
-        this.productionArea = new ProductionArea();
+        this.productionArea = new ProductionArea(numberOfPlayer);
 
     }
 
     public Tower getTower(int i) {
-        return towers[i];
+        return tower[i];
     }
 
     public void setTower(Tower tower, int i) {
-        this.towers[i] = tower;
+        this.tower[i] = tower;
     }
 
     public TheMarket getMarket() {

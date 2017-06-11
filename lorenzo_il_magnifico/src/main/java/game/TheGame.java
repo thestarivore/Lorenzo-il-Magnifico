@@ -23,7 +23,6 @@ public class TheGame {
     private List<Player> players;
     private Board board;
     private int playerIDTurn;
-    private Color[] colorAvailable;
 
     private GameView                theView;
     private GameFacadeModel         theModel;
@@ -33,14 +32,13 @@ public class TheGame {
     private ServerInterface server;
 
     public TheGame(int numberOfPlayer) {
-        theModel        = new GameFacadeModel();
-        theView         = new GameView();
-        theController   = new GameFacadeController(this);
         this.numberOfPlayer = numberOfPlayer;
         this.players = new ArrayList<Player>();
-        this.board = new Board(numberOfPlayer);
         this.period = new Period();
 
+        theModel        = new GameFacadeModel(numberOfPlayer);
+        theView         = new GameView();
+        theController   = new GameFacadeController(this);
     }
 
     public void setPlayer(Player player) {
@@ -68,13 +66,6 @@ public class TheGame {
         this.numberOfPlayer = numberOfPlayer;
     }
 
-    public Board getBoard() {
-        return board;
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
-    }
 
     public GameFacadeController getTheController() {
         return theController;
@@ -88,6 +79,18 @@ public class TheGame {
         return theModel;
     }
 
+    public int getPlayerTurn() {
+
+        int playerID = -1000;
+        for (int i=0; i<players.size(); i++) {
+            if (players.get(i).getMyTurn()) {
+                players.get(i).setMyTurn();
+                playerID = players.get(i).getID();
+                players.get(i + 1).setMyTurn();
+            }
+        }
+        return playerID;
+    }
 
 
 }

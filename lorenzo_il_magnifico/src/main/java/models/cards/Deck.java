@@ -25,6 +25,10 @@ public class Deck {
         return card;
     }
 
+    public void setCard (DevelopmentCard card) {
+        this.developmentCards.add(card);
+    }
+
     public void setDevelopmentCards (List<DevelopmentCard> developmentCards) {
         this.developmentCards = developmentCards;
     }

@@ -20,6 +20,10 @@ public class NeutralFamilyMember{
         this.value = value;
     }
 
+    public void addValue(int servantValue) {
+        this.value+=servantValue;
+    }
+
     public boolean getUsed() {
         return isUsed;
     }

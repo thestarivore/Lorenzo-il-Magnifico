@@ -1,6 +1,7 @@
 package views;
 
 import controllers.Player;
+import game.Lobby;
 import game.TheGame;
 import models.board.Board;
 import models.board.PersonalBoard;
@@ -24,7 +25,7 @@ import static java.lang.Integer.parseInt;
  * information entered by the user to whomever needs it.
  */
 public class GameView {
-    public static final int FIXED_TOWER_CARDS = 4;
+
 
     public GameView() {
         printLine("***********************");
@@ -46,6 +47,24 @@ public class GameView {
         return getLine();
     }
 
+    public String getColor(Lobby lobby) {
+        boolean correct = false;
+        printLine("Available Color:");
+        for (int i = 0; i < 4; i++)
+            printLine(lobby.getColorAvailable(i));
+        Scanner in = new Scanner(System.in);
+        String s = null;
+        while (!correct) {
+            printLine("Insert Color:");
+            s = in.nextLine();
+            for (int i = 0; i < 4; i++)
+                if (s.equalsIgnoreCase(lobby.getColorAvailable(i)))
+                    correct = true;
+        }
+        lobby.removeColor(s);
+        return s;
+    }
+
     public String getWhereAction() {
         printLine("Where do you want to place Family Member?");
         return getLine();
@@ -65,7 +84,6 @@ public class GameView {
 
     public String getFamilyMember(Player player) {
 
-        boolean valid = false;
         String read = "";
         printLine("Select Family Member");
         read = getLine();
@@ -81,12 +99,10 @@ public class GameView {
 
     public int getServant(Player player) {
 
-        boolean valid = false;
         int numberOfServant = 0;
-        String str  = "";
         printLine("Do you want to add Servant? [Y/N]");
-        str = getLine();
-        while (str.equalsIgnoreCase("y") || str.equalsIgnoreCase("n")) {
+        String str = getLine();
+        while (!(("y").equalsIgnoreCase(str)) && !(("n").equalsIgnoreCase(str))) {
             printLine("[Y/N]");
             str = getLine();
         }
@@ -121,7 +137,7 @@ public class GameView {
         for (int i=0; i< Constants.FIXED_NUM_OF_TOWER; i++) {
             printLine("Tower " + (i+1) + ":");
             for (int j = 0; j < Constants.FIXED_TOWER_CARDS; j++) {
-                printCard(board.getTower(i).getActionSpace(j).getCard());
+                printCard(board.getTower(i).getSpace(j).getCard());
 
             }
         }

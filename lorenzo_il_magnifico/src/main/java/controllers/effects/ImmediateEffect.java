@@ -1,5 +1,6 @@
 package controllers.effects;
 
+import controllers.Player;
 import controllers.game_course.phases.Action;
 import models.Points;
 import models.Resources;
@@ -11,11 +12,13 @@ public class ImmediateEffect {
     private Resources resources;
     private Points points;
     private Action bonusAction;
+    private boolean isBonus;
 
     public ImmediateEffect() {
         this.resources = new Resources();
         this.points = new Points();
         this.bonusAction = new Action();
+        this.isBonus = false;
     }
 
     public Resources getResources() {
@@ -40,5 +43,23 @@ public class ImmediateEffect {
 
     public void setBonusAction(Action bonusAction) {
         this.bonusAction = bonusAction;
+    }
+
+    public void addResources(Player player) {
+        player.getRes().addResources(resources);
+    }
+
+    public void addPoints(Player player) {
+        player.getPoints().addPoints(points);
+    }
+
+    public boolean getIsBonus() {
+        return isBonus;
+    }
+
+    public void setIsBonus() {
+        if (this.isBonus)
+            this.isBonus = false;
+        else this.isBonus = true;
     }
 }

@@ -14,6 +14,15 @@ public class Points {
         this.faith=0;
     }
 
+    public Points(int tower,int floor) {
+        this.victory = 0;
+        this.military = 0;
+        this.faith = 0;
+        if (tower == 3)
+            if(floor > 2)
+                this.military = floor -2;
+    }
+
     public int getVictory() {
         return victory;
     }
@@ -36,6 +45,26 @@ public class Points {
 
     public void setFaith(int faith) {
         this.faith = faith;
+    }
+
+    public void addPoints(Points points) {
+        this.victory += points.getVictory();
+        this.military += points.getMilitary();
+        this.faith += points.getFaith();
+    }
+
+    public void removePoints(Points points) {
+        this.victory -= points.getVictory();
+        this.military -= points.getMilitary();
+        this.faith -= points.getFaith();
+    }
+
+    public boolean pointsIsGreater(Points points){
+        if (this.victory >= points.getVictory())
+            if (this.military >= points.getMilitary())
+                if (this.faith >= points.getFaith())
+                    return true;
+        return false;
     }
 
 

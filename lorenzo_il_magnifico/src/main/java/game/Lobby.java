@@ -26,28 +26,27 @@ public class Lobby {
         this.games = games;
     }
 
-    public String chooseColor(Player player) {
-        boolean correct = false;
-        System.out.println("Available Color:");
-        for (int i = 0; i < 4; i++)
-            System.out.println(colorAvailable[i]);
-        Scanner in = new Scanner(System.in);
-        String s = null;
-        while (!correct) {
-            System.out.println("Insert Color:");
-            s = in.nextLine();
-            for (int i = 0; i < 4; i++)
-                if (s.equalsIgnoreCase(colorAvailable[i]))
-                    correct = true;
-        }
-        removeColor(s);
-        return s;
+    public boolean chooseColor(Player player) {
+        String color = games.getTheView().getColor(this);
+        if ("red".equalsIgnoreCase(color))
+            player.setColor(Color.RED);
+        if ("yellow".equalsIgnoreCase(color))
+            player.setColor(Color.YELLOW);
+        if ("blue".equalsIgnoreCase(color))
+            player.setColor(Color.BLUE);
+        if ("green".equalsIgnoreCase(color))
+            player.setColor(Color.GREEN);
+        return true;
     }
 
     public void removeColor(String color) {
         for (int i=0; i < 4; i++)
             if (color.equalsIgnoreCase(colorAvailable[i]))
                 colorAvailable[i]= "-";
+    }
+
+    public String getColorAvailable(int i) {
+        return colorAvailable[i];
     }
 
 

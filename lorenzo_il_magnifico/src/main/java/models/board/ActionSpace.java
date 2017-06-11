@@ -1,5 +1,7 @@
 package models.board;
 
+import controllers.Player;
+import models.Points;
 import models.Resources;
 import models.cards.DevelopmentCard;
 
@@ -8,16 +10,39 @@ import models.cards.DevelopmentCard;
  */
 public class ActionSpace {
     private DevelopmentCard card;
-    private Resources bonus;
-    private NeutralFamilyMember familyMember;
+    private Resources bonusRes;
+    private Points bonusPoints;
+    private NeutralFamilyMember neutralFamilyMember;
+    private FamilyMember familyMember;
     private int diceCost;
     private boolean isOccupied;
 
     public ActionSpace() {
-        this.card = new DevelopmentCard();
-        this.bonus = new Resources();
         this.familyMember = new FamilyMember();
         this.isOccupied = false;
+        this.diceCost = 1;
+    }
+
+    public ActionSpace(int tower, int floor) {
+        this.card = new DevelopmentCard();
+        this.bonusRes = new Resources(tower , floor);
+        this.bonusPoints = new Points(tower, floor);
+
+        switch (floor){
+            case 0:
+                this.diceCost = 1;
+                break;
+            case 1:
+                this.diceCost = 3;
+                break;
+            case 2:
+                this.diceCost = 5;
+                break;
+            case 3:
+                this.diceCost = 7;
+                break;
+        }
+
     }
 
     public DevelopmentCard getCard() {
@@ -29,18 +54,26 @@ public class ActionSpace {
     }
 
     public Resources getBonus() {
-        return bonus;
+        return bonusRes;
     }
 
     public void setBonus(Resources bonus) {
-        this.bonus = bonus;
+        this.bonusRes = bonus;
     }
 
-    public NeutralFamilyMember getFamilyMember() {
+    public NeutralFamilyMember getNeutralFamilyMember() {
+        return neutralFamilyMember;
+    }
+
+    public void setNeutralFamilyMember(NeutralFamilyMember familyMember) {
+        this.neutralFamilyMember = familyMember;
+    }
+
+    public FamilyMember getFamilyMember() {
         return familyMember;
     }
 
-    public void setFamilyMember(NeutralFamilyMember familyMember) {
+    public void setFamilyMember(FamilyMember familyMember) {
         this.familyMember = familyMember;
     }
 
@@ -58,6 +91,17 @@ public class ActionSpace {
 
     public void setOccupied() {
         this.isOccupied = true;
+    }
+
+    public boolean checkBonus() {
+        if ((this.bonusRes.getWoods() != 0) || (this.bonusRes.getStones() != 0) || (this.bonusRes.getCoins() != 0) || (this.bonusPoints.getMilitary() != 0))
+            return true;
+        return false;
+    }
+
+    public void addBonus(Player player) {
+        player.getRes().addResources(this.bonusRes);
+        player.getPoints().addPoints(this.bonusPoints);
     }
 
 

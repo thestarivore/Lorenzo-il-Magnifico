@@ -1,56 +1,73 @@
 package models.board;
 
-import utility.Constants;
-import models.cards.Building;
+import models.cards.DevelopmentCard;
 
-import models.cards.Territory;
-import models.cards.Venture;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by starivore on 5/7/17.
  */
 public class PersonalBoard {
-    private Building[] building;
-    private Character[] character;
-    private Territory[] territory;
-    private Venture[] venture;
+    private List<DevelopmentCard> buildings;
+    private List<DevelopmentCard> characters;
+    private List<DevelopmentCard> territories;
+    private List<DevelopmentCard> ventures;
 
-    public PersonalBoard(){
-        this.building = new Building[Constants.FIXED_MAX_OF_DEV_CARD];
-        this.character = new Character[Constants.FIXED_MAX_OF_DEV_CARD];
-        this.territory = new Territory[Constants.FIXED_MAX_OF_DEV_CARD];
-        this.venture = new Venture[Constants.FIXED_MAX_OF_DEV_CARD];
+    public PersonalBoard() {
+
+        this.buildings = new ArrayList<DevelopmentCard>();
+        this.characters = new ArrayList<DevelopmentCard>();
+        this.territories = new ArrayList<DevelopmentCard>();
+        this.ventures = new ArrayList<DevelopmentCard>();
+
     }
 
-    public Building getBuilding(int i) {
-        return building[i];
+    public List<DevelopmentCard> getBuildings() {
+        return buildings;
     }
 
-    public void setBuilding(Building building , int i) {
-        this.building[i] = building;
+    public List<DevelopmentCard> getCharacters() {
+        return characters;
     }
 
-    public Character getCharacter(int i) {
-        return character[i];
+    public List<DevelopmentCard> getTerritories() {
+        return territories;
     }
 
-    public void setCharacter(Character character , int i) {
-        this.character[i] = character;
+    public List<DevelopmentCard> getVentures() {
+        return ventures;
     }
 
-    public Territory getTerritory(int i) {
-        return territory[i];
+    public DevelopmentCard getBuilding(int i) {
+        return buildings.get(i);
     }
 
-    public void setTerritory(Territory territory , int i) {
-        this.territory[i] = territory;
+    public void setBuilding(DevelopmentCard building , int i) {
+        this.buildings.set(i, building);
     }
 
-    public Venture getVenture(int i) {
-        return venture[i];
+    public DevelopmentCard getCharacter(int i) {
+        return characters.get(i);
     }
 
-    public void setVenture(Venture venture , int i) {
-        this.venture[i] = venture;
+    public void setCharacter(DevelopmentCard character , int i) {
+        this.characters.set(i, character);
+    }
+
+    public DevelopmentCard getTerritory(int i) {
+        return territories.get(i);
+    }
+
+    public void setTerritory(DevelopmentCard territory , int i) {
+        this.territories.set(i, territory);
+    }
+
+    public DevelopmentCard getVenture(int i) {
+        return ventures.get(i);
+    }
+
+    public void setVenture(DevelopmentCard venture , int i) {
+        this.ventures.set(i, venture);
     }
 }

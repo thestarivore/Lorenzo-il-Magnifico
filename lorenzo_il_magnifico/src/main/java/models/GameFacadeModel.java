@@ -17,10 +17,19 @@ import models.data_persistence.FileManager;
  */
 public class GameFacadeModel {
     private Board board;
-    private ActionSpace space;
-    private Dice dice;
-    private NeutralFamilyMember familyMember;
 
+
+    public GameFacadeModel (int numberOfPlayer) {
+        this.board = new Board(numberOfPlayer);
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
 
 
 
