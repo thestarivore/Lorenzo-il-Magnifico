@@ -39,6 +39,7 @@ public class Lobby {
         return true;
     }
 
+
     public void removeColor(String color) {
         for (int i=0; i < 4; i++)
             if (color.equalsIgnoreCase(colorAvailable[i]))

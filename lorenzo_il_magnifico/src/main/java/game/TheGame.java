@@ -43,6 +43,7 @@ public class TheGame {
 
     public void setPlayer(Player player) {
         this.players.add(player);
+        ;
     }
 
     public Player getPlayer(int i) {
