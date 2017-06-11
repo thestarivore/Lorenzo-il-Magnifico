@@ -1,4 +1,4 @@
-package controllers.network.download;
+package game.network.download;
 
 import java.io.Serializable;
 

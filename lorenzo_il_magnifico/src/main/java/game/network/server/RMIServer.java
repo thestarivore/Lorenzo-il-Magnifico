@@ -1,7 +1,7 @@
-package controllers.network.server;
+package game.network.server;
 
 
-import controllers.network.download.Pair;
+import game.network.download.Pair;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -11,7 +11,7 @@ import java.rmi.registry.Registry;
 /**
  * Created by starivore on 6/4/17.
  */
-public class RMIServer {
+public class RMIServer implements ServerInterface{
     public static void main(String[] args)
             throws RemoteException, AlreadyBoundException {
         //System.setProperty("java.security.policy", "server.policy");
@@ -33,4 +33,8 @@ public class RMIServer {
         System.out.println("Waiting for invocations from clients...");
     }
 
+    @Override
+    public void sendCmdToClient(String cmd) {
+
+    }
 }

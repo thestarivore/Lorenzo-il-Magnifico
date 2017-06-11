@@ -2,24 +2,18 @@ package controllers;
 
 import controllers.game_course.HarvestAction;
 import controllers.game_course.ProductionAction;
-import controllers.game_course.Round;
-import controllers.network.client.SocketClient;
-import controllers.network.server.SocketServer;
 import controllers.game_course.Period;
 import controllers.game_course.phases.Action;
 import controllers.game_course.phases.RoundSetup;
 import controllers.game_course.phases.VaticanReport;
-import game.TheGame;
+import game.network.server.SocketServer;
 import models.GameFacadeModel;
 import models.Points;
 import models.Resources;
 import models.board.FamilyMember;
 import models.board.NeutralFamilyMember;
 import models.cards.DevelopmentCard;
-import models.cards.Territory;
-import views.GameView;
-
-import java.io.IOException;
+import views.ExternalGameView;
 
 import static java.lang.Integer.parseInt;
 
@@ -34,8 +28,8 @@ import static java.lang.Integer.parseInt;
  */
 
 public class GameFacadeController {
-    private GameFacadeModel model;
-    private GameView view;
+    private GameFacadeModel facadeModel;
+    private ExternalGameView externalGameView;
     private Period period;
     private Action action;
     private HarvestAction harvestAction;
@@ -44,66 +38,26 @@ public class GameFacadeController {
     private RoundSetup roundSetup;
     private Player playerTurn;
 
-    public GameFacadeController(TheGame theGame) {
-        this.model = theGame.getTheModel();
-        this.view = theGame.getTheView();
-        this.period = theGame.getPeriod();
-        this.action = new Action(model);
-        this.harvestAction = new HarvestAction(model);
-        this.productionAction = new ProductionAction(model);
+    public GameFacadeController(ExternalGameView externalGameView, GameFacadeModel facadeModel, Period period) {
+        this.externalGameView = externalGameView;
+        this.facadeModel = facadeModel;
+        this.period = period;
+        this.action = new Action(this.facadeModel);
+        this.harvestAction = new HarvestAction(this.facadeModel);
+        this.productionAction = new ProductionAction(this.facadeModel);
         this.vaticanReport = new VaticanReport();
         this.roundSetup = new RoundSetup();
 
-
-
-        //TODO: togliere, solo un esempio di utilizzo view
-        //String str = gameView.getAction();
-        //System.out.println("Action from player is: " + str);
+        //Show welcome Message
+        SocketServer server = SocketServer.getInstance(1338);   //TODO: implementare get instance anche senza numero porta, tanto c'è ne solo uno
+        externalGameView.showWelcomeMessage(server);
     }
 
-    /**
-     * Server Task
-     */
-    static class ServerTask implements Runnable
-    {
-        public void run()
-        {
-            //Get an istance of the Server
-            SocketServer server = SocketServer.getInstance(1338);
-            try {
-                server.startServer();
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
-            }
-        }
-    }
-
-    /**
-     * Client Task
-     */
-    static class ClientTask implements Runnable
-    {
-        public void run()
-        {
-
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            //Get an istance of the Client
-            SocketClient client = SocketClient.getInstance("127.0.0.1", 1338);
-            try {
-                client.startClient();
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
-            }
-        }
-    }
+/*
 
     public NeutralFamilyMember selectNeutralFamilyMember(Player player) {
 
-        int servant = view.getServant(player);
+        int servant = externalGameView.getServant(player);
         player.getNeutralFamilyMember().addValue(servant);
 
         return player.getNeutralFamilyMember();
@@ -113,7 +67,7 @@ public class GameFacadeController {
 
     public FamilyMember selectFamilyMember(Player player, int type) {
 
-        int servant = view.getServant(player);
+        int servant = externalGameView.getServant(player);
         player.getFamilyMember(type).addValue(servant);
 
         return player.getFamilyMember(type);
@@ -122,7 +76,7 @@ public class GameFacadeController {
 
     public boolean checkFamilyMemberTowerChoice(NeutralFamilyMember familyMember, int tower, int space) {
         boolean valid = false;
-        if (familyMember.getValue() >= model.getBoard().getTower(tower).getSpace(space).getDiceCost())
+        if (familyMember.getValue() >= facadeModel.getBoard().getTower(tower).getSpace(space).getDiceCost())
             valid = true;
 
         return valid;
@@ -135,20 +89,12 @@ public class GameFacadeController {
         return valid;
     }
 
-
-
-
-
-
-
-
-
     public boolean chooseAction(Player player) {
         boolean check;
-        String message = view.getAction();
+        String message = externalGameView.getAction();
         if (("Place").equalsIgnoreCase(message)) {
 
-            String where = view.getWhereAction();
+            String where = externalGameView.getWhereAction();
             if (("Tower").equalsIgnoreCase(where)) {
                 check = towerActionChoice(player);
                 return check;
@@ -177,11 +123,11 @@ public class GameFacadeController {
         boolean valid = false;
         boolean check = false;
 
-        int tower = parseInt(view.getTowerActionSpace());
-        int space = parseInt(view.getActionSpace());
+        int tower = parseInt(externalGameView.getTowerActionSpace());
+        int space = parseInt(externalGameView.getActionSpace());
 
         while (!(valid)) {
-            int type = parseInt(view.getFamilyMember(player));
+            int type = parseInt(externalGameView.getFamilyMember(player));
             if (type < 1) {
                 check = neutralFamMemberAction(player, tower, space);
                 valid = check;
@@ -202,8 +148,8 @@ public class GameFacadeController {
 
         if (checkFamilyMemberTowerChoice(neutralFamilyMember, tower, space))
             check = action.placeNeutralFamilyMemberOnTower(tower, space, neutralFamilyMember, player);
-        if (check && model.getBoard().getTower(tower).getSpace(space).checkBonus())
-                model.getBoard().getTower(tower).getSpace(space).addBonus(player);
+        if (check && facadeModel.getBoard().getTower(tower).getSpace(space).checkBonus())
+                facadeModel.getBoard().getTower(tower).getSpace(space).addBonus(player);
 
         return check;
 
@@ -215,8 +161,8 @@ public class GameFacadeController {
         FamilyMember familyMember = selectFamilyMember(player, type);
         if (checkFamilyMemberTowerChoice(familyMember,tower,space))
             check = action.placeFamilyMemberOnTower(tower, space, familyMember,player);
-        if (check && model.getBoard().getTower(tower).getSpace(space).checkBonus())
-            model.getBoard().getTower(tower).getSpace(space).addBonus(player);
+        if (check && facadeModel.getBoard().getTower(tower).getSpace(space).checkBonus())
+            facadeModel.getBoard().getTower(tower).getSpace(space).addBonus(player);
 
         return check;
 
@@ -271,10 +217,10 @@ public class GameFacadeController {
 
 
         boolean valid;
-        Resources res = model.getBoard().getTower(tower).getSpace(space).getBonus();
+        Resources res = facadeModel.getBoard().getTower(tower).getSpace(space).getBonus();
         player.getRes().addResources(res);
 
-        DevelopmentCard devCard = model.getBoard().getTower(tower).getSpace(space).getCard();
+        DevelopmentCard devCard = facadeModel.getBoard().getTower(tower).getSpace(space).getCard();
 
         valid = checkCardRequest(player,devCard);
 
@@ -340,7 +286,7 @@ public class GameFacadeController {
     }
 
 
-
+*/
 
 
 

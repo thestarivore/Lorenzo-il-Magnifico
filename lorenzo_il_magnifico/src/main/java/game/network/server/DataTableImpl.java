@@ -1,8 +1,8 @@
-package controllers.network.server;
+package game.network.server;
 
 
-import controllers.network.download.DataTable;
-import controllers.network.download.Pair;
+import game.network.download.DataTable;
+import game.network.download.Pair;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

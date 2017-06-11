@@ -1,8 +1,9 @@
-package controllers.network.client;
+package game.network.client;
 
 
-import controllers.network.download.DataTable;
-import controllers.network.download.Pair;
+import game.network.download.DataTable;
+import game.network.download.Pair;
+import game.network.server.ServerInterface;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -16,7 +17,7 @@ import java.util.Enumeration;
 /**
  * Created by starivore on 6/4/17.
  */
-public class RMIClient {
+public class RMIClient implements ServerInterface{
     public static void main(String[] args)
             throws NamingException, RemoteException, NotBoundException {
         //System.setProperty("java.security.policy", "client.policy");
@@ -46,5 +47,10 @@ public class RMIClient {
             System.out.println("Value: " + p.getValue());
             l.remove(0);
         }
+    }
+
+    @Override
+    public void sendCmdToClient(String cmd) {
+
     }
 }

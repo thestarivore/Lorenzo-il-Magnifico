@@ -8,7 +8,7 @@ RMI STEP BY STEP:
 - move to directory src/main/java
 - mvn archetype:generate -DgroupId=rmi -DartifactId=rmi_test -DinteractiveMode=false
 - ritorna dove c'è pom.xml
-- mvn exec:java -Dexec.mainClass="controllers.network.download.NanoHttpdApp"      //or just start from ide
+- mvn exec:java -Dexec.mainClass="game.network.download.NanoHttpdApp"      //or just start from ide
 - prova http://localhost:8080/ sul browser
 - go in root	/target/classes
 

@@ -1,18 +1,21 @@
-package controllers.network.server;
+package game.network.server;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * Created by Mattia on 22/05/2017.
  */
-public class SocketServer implements ServerInterface {
+public class SocketServer implements ServerInterface, Runnable{
     private int port;
     private ServerSocket serverSocket;
     private static SocketServer ourInstance = null;
+    private static List<String> cmdList;
 
     /**
      * Get Istance of the Server, creat a new one if none is present
@@ -20,8 +23,10 @@ public class SocketServer implements ServerInterface {
      * @return the instance of the server socket
      */
     public static SocketServer getInstance(int port) {
-        if(ourInstance == null)
+        if(ourInstance == null) {
             ourInstance = new SocketServer(port);
+            cmdList = new ArrayList<String>();
+        }
 
         return ourInstance;
     }
@@ -38,7 +43,7 @@ public class SocketServer implements ServerInterface {
      * Start Socket Server communication manager
      * @throws IOException
      */
-    public void startServer() throws IOException {
+    private void startServer() throws IOException {
         // apro una porta TCP
         serverSocket = new ServerSocket(port);
         System.out.println("Server socket ready on port: " + port);
@@ -54,6 +59,17 @@ public class SocketServer implements ServerInterface {
 
         // leggo e scrivo nella connessione finche' non ricevo "quit”
         while (true) {
+            /*
+                Command management(FIFO list)
+                Send a cmd when available.
+             */
+            boolean cmdToSend = !cmdList.isEmpty();
+            if(cmdToSend){
+                out.println(cmdList.remove(0));
+                out.flush();
+            }
+
+            //Log code
             String line = in.nextLine();
             if (line.equals("quit")) {
                 break;
@@ -71,4 +87,22 @@ public class SocketServer implements ServerInterface {
         serverSocket.close();
     }
 
+    /**
+     * Thread Execution method
+     */
+    public void run() {
+        try {
+            startServer();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    /**
+     * Send Command to the client
+     * @param cmd
+     */
+    public void sendCmdToClient(String cmd){
+        cmdList.add(cmd);
+    }
 }

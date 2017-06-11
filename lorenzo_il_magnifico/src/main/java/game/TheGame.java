@@ -2,14 +2,15 @@ package game;
 
 import controllers.GameFacadeController;
 import controllers.Player;
-import controllers.network.client.ClientInterface;
-import controllers.network.server.ServerInterface;
+
 import controllers.game_course.Period;
 import models.GameFacadeModel;
+import game.network.client.ClientInterface;
+import game.network.server.ServerInterface;
+import views.ExternalGameView;
 import views.GameView;
 import models.board.*;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class TheGame {
     private Board board;
     private int playerIDTurn;
 
-    private GameView                theView;
+    private ExternalGameView        theExternalView;
     private GameFacadeModel         theModel;
     private GameFacadeController    theController;
 
@@ -37,8 +38,8 @@ public class TheGame {
         this.period = new Period();
 
         theModel        = new GameFacadeModel(numberOfPlayer);
-        theView         = new GameView();
-        theController   = new GameFacadeController(this);
+        theExternalView = new ExternalGameView();
+        theController   = new GameFacadeController(theExternalView, theModel, period);
     }
 
     public void setPlayer(Player player) {
@@ -72,9 +73,6 @@ public class TheGame {
         return theController;
     }
 
-    public GameView getTheView() {
-        return theView;
-    }
 
     public GameFacadeModel getTheModel() {
         return theModel;

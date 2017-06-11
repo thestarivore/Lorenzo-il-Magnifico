@@ -1,9 +1,8 @@
-package controllers.network.download;
+package game.network.download;
 
 
 import fi.iki.elonen.NanoHTTPD;
 
-import javax.xml.ws.Response;
 import java.io.IOException;
 import java.util.Map;
 
