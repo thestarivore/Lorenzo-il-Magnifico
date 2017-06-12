@@ -9,9 +9,9 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
- * Created by starivore on 6/3/17.
+ * Created by Eduard Chirica on 6/3/17.
  */
-public class SocketClient implements ClientInterface, Runnable{
+public class SocketClient implements ClientInterface{
     private String ip;
     private int port;
     private GameView gameView;
@@ -45,7 +45,7 @@ public class SocketClient implements ClientInterface, Runnable{
      * Start Socket Client communication manager
      * @throws IOException
      */
-    public void startClient() throws IOException {
+    private void startClient() throws IOException {
         Socket socket = new Socket(ip, port);
         System.out.println("Connection established");
         Scanner socketIn = new Scanner(socket.getInputStream());
@@ -89,6 +89,10 @@ public class SocketClient implements ClientInterface, Runnable{
         }
     }
 
+    /**
+     * Get the GameView instance
+     * @param gameView
+     */
     public void setGameView(GameView gameView) {
         this.gameView = gameView;
     }

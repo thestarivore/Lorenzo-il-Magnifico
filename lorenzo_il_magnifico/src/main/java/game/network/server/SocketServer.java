@@ -11,7 +11,7 @@ import java.util.Scanner;
 /**
  * Created by Mattia on 22/05/2017.
  */
-public class SocketServer implements ServerInterface, Runnable{
+public class SocketServer implements ServerInterface{
     private int port;
     private ServerSocket serverSocket;
     private static SocketServer ourInstance = null;

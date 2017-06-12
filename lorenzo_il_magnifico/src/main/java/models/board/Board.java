@@ -4,7 +4,7 @@ import utility.Constants;
 import models.board.trackers.Track;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class Board {
     private Tower[] tower;

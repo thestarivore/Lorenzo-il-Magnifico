@@ -18,7 +18,7 @@ import views.ExternalGameView;
 import static java.lang.Integer.parseInt;
 
 /**
- * Created by starivore on 5/20/17.
+ * Created by Eduard Chirica on 5/20/17.
  *
  * This is the Controller
  * from the MVC pattern(Model View Controller)

@@ -3,7 +3,7 @@ package game.network.download;
 import java.io.Serializable;
 
 /**
- * Created by starivore on 6/7/17.
+ * Created by Eduard Chirica on 6/7/17.
  */
 public class Pair implements Serializable {
     private String key;

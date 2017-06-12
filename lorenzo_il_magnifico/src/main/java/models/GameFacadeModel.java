@@ -7,7 +7,7 @@ import models.board.NeutralFamilyMember;
 
 
 /**
- * Created by starivore on 5/20/17.
+ * Created by Eduard Chirica on 5/20/17.
  *
  * This is the Model
  * from the MVC pattern(Model View Controller)

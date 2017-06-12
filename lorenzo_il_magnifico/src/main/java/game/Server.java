@@ -1,12 +1,13 @@
 package game;
 
 import game.network.client.SocketClient;
+import game.network.server.RMIServer;
 import game.network.server.SocketServer;
 
 import java.io.IOException;
 
 /**
- * Created by starivore on 6/11/17.
+ * Created by Eduard Chirica on 6/11/17.
  */
 public class Server {
     private static Lobby lobby;
@@ -22,15 +23,17 @@ public class Server {
     public static void main(String[] args){
         lobby = new Lobby();
 
-        // Get/Create an instance of the Server
+        // Get/Create an instance of the Socket Server
         // Create and start the thread
-        SocketServer server = SocketServer.getInstance(PORT);
-        Thread serverThread = new Thread(server);
-        serverThread.start();
+        SocketServer socketServer = SocketServer.getInstance(PORT);
+        Thread socketServerThread = new Thread(socketServer);
+        socketServerThread.start();
 
-
-
-        //TODO: Also start the RMI Server, since they will run in parallel
+        // Get/Create an instance of the RMI Server
+        // Create and start the thread
+        RMIServer rmiServer = RMIServer.getInstance();
+        Thread rmiServerThread = new Thread(rmiServer);
+        rmiServerThread.start();
 
     }
 

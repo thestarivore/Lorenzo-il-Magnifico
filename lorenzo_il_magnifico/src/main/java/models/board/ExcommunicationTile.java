@@ -3,7 +3,7 @@ package models.board;
 import controllers.game_course.Period;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class ExcommunicationTile {
     private Period period;

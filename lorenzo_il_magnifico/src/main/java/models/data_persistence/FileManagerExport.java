@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Created by starivore on 5/16/17.
+ * Created by Eduard Chirica on 5/16/17.
  */
 
 public class FileManagerExport{

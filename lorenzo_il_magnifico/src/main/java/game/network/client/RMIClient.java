@@ -4,22 +4,50 @@ package game.network.client;
 import game.network.download.DataTable;
 import game.network.download.Pair;
 import game.network.server.ServerInterface;
+import views.GameView;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NameClassPair;
 import javax.naming.NamingException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 /**
- * Created by starivore on 6/4/17.
+ * Created by Eduard Chirica on 6/4/17.
  */
-public class RMIClient implements ServerInterface{
-    public static void main(String[] args)
-            throws NamingException, RemoteException, NotBoundException {
+public class RMIClient implements ClientInterface{
+    private static RMIClient ourInstance = null;
+
+    /**
+     * Get Istance of the Client, creat a new one if none is present
+     * @return the instance of the client rmi
+     */
+    public static RMIClient getInstance() {
+        if(ourInstance == null)
+            ourInstance = new RMIClient();
+
+        return ourInstance;
+    }
+
+    /**
+     * RMI Client Constructor
+     */
+    public RMIClient() {
+    }
+
+    /**
+     * Start RMI Client communication manager
+     * @throws IOException
+     */
+    private void startClient() throws IOException, NamingException {
         //System.setProperty("java.security.policy", "client.policy");
         //System.setSecurityManager(new SecurityManager());
 
@@ -49,8 +77,29 @@ public class RMIClient implements ServerInterface{
         }
     }
 
-    @Override
-    public void sendCmdToClient(String cmd) {
-
+    /**
+     * Thread Execution method
+     */
+    public void run() {
+        try {
+            // Start Delay that ensures that the server is up(in case of not manual boot)
+            Thread.sleep(100);
+            // Start Client
+            startClient();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
     }
+
+    /**
+     * Get the GameView instance
+     * @param gameView
+     */
+    public void setGameView(GameView gameView) {
+    }
+
 }

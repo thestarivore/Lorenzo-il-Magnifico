@@ -8,7 +8,7 @@ import models.board.FamilyMember;
 import models.board.NeutralFamilyMember;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class ProductionAction extends Action {
 

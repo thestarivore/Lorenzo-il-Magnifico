@@ -6,7 +6,7 @@ import models.Points;
 import models.Resources;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class ImmediateEffect {
     private Resources resources;

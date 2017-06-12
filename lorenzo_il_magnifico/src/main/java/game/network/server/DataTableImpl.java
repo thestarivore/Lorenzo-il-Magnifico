@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by starivore on 6/4/17.
+ * Created by Eduard Chirica on 6/4/17.
  */
 public class DataTableImpl extends UnicastRemoteObject implements DataTable {
     private Map<String, Pair> pairs;

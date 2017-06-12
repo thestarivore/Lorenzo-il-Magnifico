@@ -6,7 +6,7 @@ import models.Resources;
 import models.cards.DevelopmentCard;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class ActionSpace {
     private DevelopmentCard card;

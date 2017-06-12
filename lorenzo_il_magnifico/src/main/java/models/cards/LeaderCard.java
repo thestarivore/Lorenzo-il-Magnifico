@@ -4,7 +4,7 @@ import models.Requirements;
 import controllers.ability.SpecialAbility;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class LeaderCard implements Card {
     private String name;

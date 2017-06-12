@@ -13,7 +13,7 @@ import models.cards.DevelopmentCard;
 import utility.Constants;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class Action implements Phase {
 

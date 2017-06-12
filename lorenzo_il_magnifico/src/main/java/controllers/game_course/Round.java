@@ -4,7 +4,7 @@ import controllers.game_course.phases.Phase;
 import controllers.game_course.phases.RoundSetup;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class Round {
     int numberOfRound;

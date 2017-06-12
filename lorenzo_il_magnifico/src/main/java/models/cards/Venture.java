@@ -3,7 +3,7 @@ package models.cards;
 import models.Resources;
 
 /**
- * Created by starivore on 5/7/17.
+ * Created by Eduard Chirica on 5/7/17.
  */
 public class Venture extends DevelopmentCard {
     private Resources alternativeCost;
