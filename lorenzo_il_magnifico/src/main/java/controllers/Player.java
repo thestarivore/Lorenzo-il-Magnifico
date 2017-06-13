@@ -98,6 +98,9 @@ public class Player {
         return leaderCards;
     }
 
+    public void setLeaderCards(ArrayList<LeaderCard> leaderCards) {
+        this.leaderCards = leaderCards;
+    }
 
     public Color getColor() {
         return color;

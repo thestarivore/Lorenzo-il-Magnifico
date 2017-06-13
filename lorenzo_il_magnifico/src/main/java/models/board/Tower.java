@@ -36,5 +36,4 @@ public class Tower {
         this.space[i] = space;
     }
 
-
 }

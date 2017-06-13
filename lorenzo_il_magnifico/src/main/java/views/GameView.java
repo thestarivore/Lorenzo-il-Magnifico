@@ -27,7 +27,7 @@ import static java.lang.Integer.parseInt;
  * information entered by the user to whomever needs it.
  */
 public class GameView {
-
+    private String map = new String;
 
     public GameView() {
         /*
@@ -246,6 +246,11 @@ public class GameView {
      */
     private void printLine(String line){
         System.out.println(line);
+    }
+
+    private void initMaps() {
+        map =
+
     }
 
 

@@ -61,6 +61,10 @@ public class DevelopmentCard implements Card {
         this.immediateEffect = immediateEffect;
     }
 
+    public Points getPointsCost() {
+        return pointsCost;
+    }
+
     public void setPermanentEffect(PermanentEffect permanentEffect) {
         this.permanentEffect = permanentEffect;
     }
