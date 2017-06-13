@@ -120,5 +120,10 @@ public class SocketServer implements ServerInterface{
         }
     }
 
+    @Override
+    public void sendCmdToClient(String cmd) {
+
+    }
+
 
 }
