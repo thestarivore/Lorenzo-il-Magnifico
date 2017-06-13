@@ -50,8 +50,8 @@ public class GameFacadeController {
         this.roundSetup = new RoundSetup();
 
         //Show welcome Message
-        SocketServer server = SocketServer.getInstance(1338);   //TODO: implementare get instance anche senza numero porta, tanto c'è ne solo uno
-        externalGameView.showWelcomeMessage(server);
+        //SocketServer server = SocketServer.getInstance(1338);   //TODO: implementare get instance anche senza numero porta, tanto c'è ne solo uno
+        //externalGameView.showWelcomeMessage(server);
     }
 
 

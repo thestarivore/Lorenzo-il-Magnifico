@@ -38,4 +38,13 @@ public class Server {
     }
 
 
+    /**
+     * A new Client was accepted, forward this event to the Lobby
+     * so that can manage this client as a new Player
+     */
+    public void newClientAccepted(){
+        lobby.newPlayerArrived();
+    }
+
+
 }

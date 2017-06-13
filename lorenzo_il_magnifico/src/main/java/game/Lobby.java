@@ -4,13 +4,14 @@ package game;
 import controllers.Player;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by Paolo on 08/05/17.
  */
 public class Lobby {
-    private static TheGame games;
+    private static ArrayList<TheGame> games;
     private String[] colorAvailable = {"RED", "BLUE", "YELLOW", "GREEN"};
 
     /**
@@ -19,12 +20,18 @@ public class Lobby {
     public Lobby() {
         int numberOfPlayer = 4; //must be asked
 
-        //For now just a static game and no rooms
+        //Rooms Creation
+        //Every Room is a TheGame instance
         //once a room works we can implement the multi-room system
-        games = new TheGame(numberOfPlayer);
+        games = new ArrayList<TheGame>();
+        games.add(new TheGame(numberOfPlayer));
+
     }
 
 
+    public void newPlayerArrived(){
+
+    }
 
 /*
     public boolean chooseColor(Player player) {
@@ -41,13 +48,7 @@ public class Lobby {
     }
 */
 
-    public TheGame getGames() {
-        return games;
-    }
 
-    public void setGames(TheGame games) {
-        this.games = games;
-    }
 
     public void removeColor(String color) {
         for (int i=0; i < 4; i++)
