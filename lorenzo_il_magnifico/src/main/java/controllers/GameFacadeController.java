@@ -13,6 +13,7 @@ import models.Resources;
 import models.board.FamilyMember;
 import models.board.NeutralFamilyMember;
 import models.cards.DevelopmentCard;
+import utility.Constants;
 import views.ExternalGameView;
 
 import static java.lang.Integer.parseInt;
@@ -53,27 +54,45 @@ public class GameFacadeController {
         externalGameView.showWelcomeMessage(server);
     }
 
-/*
 
+    /**
+     * Select the neutral family member and add servant if requested.
+     * @param player
+     * @return Neutral family member with value update.
+     */
     public NeutralFamilyMember selectNeutralFamilyMember(Player player) {
 
         int servant = externalGameView.getServant(player);
         player.getNeutralFamilyMember().addValue(servant);
+        player.getNeutralFamilyMember().setUsed();
 
         return player.getNeutralFamilyMember();
     }
 
 
-
+    /**
+     * Select the family member (not neutral) and add servant if requested.
+     * @param player
+     * @param type Type of family member
+     * @return family member with value update
+     */
     public FamilyMember selectFamilyMember(Player player, int type) {
 
         int servant = externalGameView.getServant(player);
         player.getFamilyMember(type).addValue(servant);
+        player.getFamilyMember(type).setUsed();
 
         return player.getFamilyMember(type);
 
     }
 
+    /**
+     * Check if neutral family member value is greater than tower space dice cost.
+     * @param familyMember
+     * @param tower
+     * @param space
+     * @return
+     */
     public boolean checkFamilyMemberTowerChoice(NeutralFamilyMember familyMember, int tower, int space) {
         boolean valid = false;
         if (familyMember.getValue() >= facadeModel.getBoard().getTower(tower).getSpace(space).getDiceCost())
@@ -82,6 +101,11 @@ public class GameFacadeController {
         return valid;
     }
 
+    /**
+     * Check if family member value is greater than 1.
+     * @param familyMember
+     * @return
+     */
     public boolean checkFamilyMemberChoice(NeutralFamilyMember familyMember) {
         boolean valid = false;
         if (familyMember.getValue() >= 1)
@@ -89,6 +113,11 @@ public class GameFacadeController {
         return valid;
     }
 
+    /**
+     * Choose action requested by player.
+     * @param player
+     * @return
+     */
     public boolean chooseAction(Player player) {
         boolean check;
         String message = externalGameView.getAction();
@@ -114,11 +143,18 @@ public class GameFacadeController {
                 check = councilActionChoice(player);
                 return check;
             }
+
+
         }
 
         return true;
     }
 
+    /**
+     * If tower choice, request to the player whitch family member use, and select the corresponding action.
+     * @param player
+     * @return
+     */
     public boolean towerActionChoice(Player player) {
         boolean valid = false;
         boolean check = false;
@@ -140,7 +176,13 @@ public class GameFacadeController {
         return check;
     }
 
-
+    /**
+     * If requirements are satisfied, place neutral family member on tower space and add the corresponding bonus to the player.
+     * @param player
+     * @param tower
+     * @param space
+     * @return
+     */
     public boolean neutralFamMemberAction(Player player, int tower, int space) {
 
         boolean check = false;
@@ -155,6 +197,14 @@ public class GameFacadeController {
 
     }
 
+    /**
+     * If requirements are satisfied, place family member on tower space and add the corresponding bonus to the player.
+     * @param player
+     * @param tower
+     * @param space
+     * @param type
+     * @return
+     */
     public boolean famMemberAction(Player player, int tower, int space, int type) {
 
         boolean check = false;
@@ -168,53 +218,114 @@ public class GameFacadeController {
 
     }
 
-
+    /**
+     * If harvest choice, request to the player whitch family member use, and select the corresponding action.
+     * @param player
+     * @return
+     */
     public boolean harvestActionChoice(Player player) {
         boolean valid = false;
 
-        while (!(valid)) {
-            NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+        int type = parseInt(externalGameView.getFamilyMember(player));
 
-            if (checkFamilyMemberChoice(familyMember)) {
-                harvestAction.placeNeutralFamilyMemberOnHarvestArea(familyMember);
-                valid = true;
+        while (!(valid)) {
+            if (type < 1) {
+                NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+                if (checkFamilyMemberChoice(familyMember)) {
+                    harvestAction.placeNeutralFamilyMemberOnHarvestArea(familyMember);
+                    valid = true;
+                }
+            }
+            else {
+                FamilyMember familyMember = selectFamilyMember(player,type);
+                if (checkFamilyMemberChoice(familyMember)) {
+                    harvestAction.placeFamilyMemberOnHarvestArea(familyMember);
+                    valid = true;
+                }
             }
         }
         return true;
     }
 
+    /**
+     * If production choice, request to the player whitch family member use, and select the corresponding action.
+     * @param player
+     * @return
+     */
     public boolean productionActionChoice(Player player) {
         boolean valid = false;
 
-        while(!(valid)) {
-            NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+        int type = parseInt(externalGameView.getFamilyMember(player));
 
-            if (checkFamilyMemberChoice(familyMember)) {
-                productionAction.placeNeutralFamilyMemberOnProductionArea(familyMember);
-                valid = true;
+        while(!(valid)) {
+            if (type < 1) {
+                NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+                if (checkFamilyMemberChoice(familyMember)) {
+                    productionAction.placeNeutralFamilyMemberOnProductionArea(familyMember);
+                    valid = true;
+                }
+            } else {
+                FamilyMember familyMember = selectFamilyMember(player, type);
+                if (checkFamilyMemberChoice(familyMember)) {
+                    productionAction.placeFamilyMemberOnProductionArea(familyMember);
+                    valid = true;
+                }
             }
         }
 
         return true;
     }
 
+    /**
+     * If council choice, request to the player whitch family member use, and select the corresponding action.
+     * @param player
+     * @return
+     */
     public boolean councilActionChoice(Player player) {
         boolean valid = false;
 
-        while (!(valid)) {
-            NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+        int type = parseInt(externalGameView.getFamilyMember(player));
 
-            if (checkFamilyMemberChoice(familyMember)){
-                action.placeNeutralFamilyMemberCouncilPalace(familyMember);
-                valid = true;
+        while (!(valid)) {
+            if (type < 1) {
+                NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+                if (checkFamilyMemberChoice(familyMember)) {
+                    action.placeNeutralFamilyMemberCouncilPalace(familyMember);
+                    valid = true;
+                }
+            } else {
+                FamilyMember familyMember = selectFamilyMember(player, type);
+                if (checkFamilyMemberChoice(familyMember)) {
+                    action.placeFamilyMemberCouncilPalace(familyMember);
+                    valid = true;
+                }
             }
         }
 
         return true;
     }
 
-    public boolean performTowerAction(Player player, int tower, int space) {
+    public void marketActionChoice(Player player) {
+        boolean valid = false;
+        int type = parseInt(externalGameView.getFamilyMember(player));
 
+        while (!(valid)) {
+            if (type < 1) {
+                NeutralFamilyMember familyMember = selectNeutralFamilyMember(player);
+                if (checkFamilyMemberChoice(familyMember)){
+                }
+            }
+        }
+    }
+
+    /**
+     * When family member is placed, this method perform all the corresponding action of this choice.
+     * @param player
+     * @param tower
+     * @param space
+     * @return
+     */
+    public boolean performTowerAction(Player player, int tower, int space) {
 
         boolean valid;
         Resources res = facadeModel.getBoard().getTower(tower).getSpace(space).getBonus();
@@ -248,12 +359,60 @@ public class GameFacadeController {
             devCard.getImmediateEffect().addPoints(player);
             devCard.getImmediateEffect().addResources(player);
 
+            int choice;
             if(devCard.getImmediateEffect().getIsBonus())
-                devCard.getImmediateEffect().getBonusAction().getCouncilPrivilege(1);
+                if(devCard.getImmediateEffect().getBonusAction().getCheckPrivilege()) {
+                    choice = externalGameView.getCouncilPrivilege();
+                    devCard.getImmediateEffect().getBonusAction().chooseCouncilPrivilege(choice);
+                }
+                else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
+                    takeBonusCard(player, devCard);
+
 
         }
 
        return valid;
+
+    }
+
+
+    /**
+     * If choosen card have bonus card in the Immediate effect, perform this action without place family member.
+     * @param player
+     * @param card
+     * @return
+     */
+    public boolean takeBonusCard(Player player, DevelopmentCard card) {
+        boolean valid = false;
+        int tower = -1000;
+        int space = -1000;
+
+        String cardType = card.getImmediateEffect().getBonusAction().getCard();
+
+        if ("all".equalsIgnoreCase(cardType))
+            tower = parseInt(externalGameView.getTowerActionSpace());
+
+
+        if ("territory".equalsIgnoreCase(cardType))
+            tower = 0;
+
+        if ("character".equalsIgnoreCase(cardType))
+            tower = 1;
+
+        if ("building".equalsIgnoreCase(cardType))
+            tower = 2;
+
+        if ("venture".equalsIgnoreCase(cardType))
+            tower = 3;
+
+        while (!valid) {
+            space = parseInt(externalGameView.getActionSpace());
+            valid = action.checkFreeActionSpace(tower,space);
+        }
+
+        valid = performTowerAction(player,tower,space);
+
+        return valid;
 
     }
 
@@ -284,11 +443,6 @@ public class GameFacadeController {
     public RoundSetup getRoundSetup() {
         return roundSetup;
     }
-
-
-*/
-
-
 
 
 }

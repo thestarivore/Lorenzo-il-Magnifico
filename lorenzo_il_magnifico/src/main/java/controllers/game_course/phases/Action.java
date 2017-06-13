@@ -79,7 +79,7 @@ public class Action implements Phase {
 
         boolean free;
         free = checkFreeActionSpace(tower, floor);
-        if(free && checkNoSameColorFamilyMember(tower, famMember))
+        if (free && checkNoSameColorFamilyMember(tower, famMember))
             for(int i = 0; i < Constants.FIXED_TOWER_CARDS; i++)
                 if (model.getBoard().getTower(tower).getSpace(i).getOccupied())
                     if (player.getRes().getCoins() >= 3) {
@@ -92,6 +92,34 @@ public class Action implements Phase {
         return free;
 
     }
+
+    public boolean placeNeutralFamilyMemberMarket(NeutralFamilyMember neutralFamilyMember, Player player, int space) {
+        boolean free;
+
+        free = checkFreeMarketSpace(space);
+
+        if (free)
+            model.getBoard().getMarket().getSpace(space).setNeutralFamilyMember(neutralFamilyMember);
+
+        return free;
+    }
+
+    public boolean placeFamilyMemberMarket(FamilyMember familyMember, Player player, int space){
+        boolean free;
+
+        free = checkFreeMarketSpace(space);
+
+        if (free)
+            model.getBoard().getMarket().getSpace(space).setFamilyMember(familyMember);
+
+        return free;
+    }
+
+
+    public boolean checkFreeMarketSpace(int space) {
+        return (!(model.getBoard().getMarket().getSpace(space).getOccupied()));
+    }
+
 
     public boolean checkFreeActionSpace(int tower, int floor) {
 
@@ -110,7 +138,7 @@ public class Action implements Phase {
     }
 
 
-    public CouncilPrivilege getCouncilPrivilege (int i) {
+    public CouncilPrivilege chooseCouncilPrivilege (int i) {
 
 
 
@@ -141,6 +169,7 @@ public class Action implements Phase {
 
     }
 
+
     public String getCard() {
         return cardType;
     }
@@ -159,6 +188,14 @@ public class Action implements Phase {
 
     public void setCheckCard() {
         this.checkCard = true;
+    }
+
+    public int getDiceCost() {
+        return diceCost;
+    }
+
+    public void setDiceCost(int diceCost) {
+        this.diceCost = diceCost;
     }
 
 

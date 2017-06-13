@@ -1,5 +1,7 @@
 package models.board;
 
+
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
@@ -17,5 +19,14 @@ public class TheMarket {
                 this.space = new ActionSpace[2];
                 break;
         }
+    }
+
+
+    public ActionSpace getSpace(int i) {
+        return space[i];
+    }
+
+    public void setSpace (ActionSpace space, int i) {
+        this.space[i] = space;
     }
 }

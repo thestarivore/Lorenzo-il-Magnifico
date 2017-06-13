@@ -27,7 +27,7 @@ import static java.lang.Integer.parseInt;
  * information entered by the user to whomever needs it.
  */
 public class GameView {
-    private String map = new String;
+
 
     public GameView() {
         /*
@@ -100,112 +100,6 @@ public class GameView {
         return getLine();
     }
 
-    public String getColor(Lobby lobby) {
-        boolean correct = false;
-        printLine("Available Color:");
-        for (int i = 0; i < 4; i++)
-            printLine(lobby.getColorAvailable(i));
-        Scanner in = new Scanner(System.in);
-        String s = null;
-        while (!correct) {
-            printLine("Insert Color:");
-            s = in.nextLine();
-            for (int i = 0; i < 4; i++)
-                if (s.equalsIgnoreCase(lobby.getColorAvailable(i)))
-                    correct = true;
-        }
-        lobby.removeColor(s);
-        return s;
-    }
-
-    public String getWhereAction() {
-        printLine("Where do you want to place Family Member?");
-        return getLine();
-    }
-
-    public String getTowerActionSpace() {
-        printLine("Choose Tower");
-        return getLine();
-
-    }
-
-    public String getActionSpace() {
-        printLine("Choose space");
-        return getLine();
-    }
-
-
-    public String getFamilyMember(Player player) {
-
-        String read = "";
-        printLine("Select Family Member");
-        read = getLine();
-        while ((("0").equals(read) || ("1").equals(read) || ("2").equals(read) || ("3").equals(read)) && player.getFamilyMember(parseInt(read)).getUsed()) {
-            printLine("Not Valid");
-            read = getLine();
-        }
-
-        return read;
-
-    }
-
-
-    public int getServant(Player player) {
-
-        int numberOfServant = 0;
-        printLine("Do you want to add Servant? [Y/N]");
-        String str = getLine();
-        while (!(("y").equalsIgnoreCase(str)) && !(("n").equalsIgnoreCase(str))) {
-            printLine("[Y/N]");
-            str = getLine();
-        }
-
-        if (("n").equalsIgnoreCase(str))
-            return numberOfServant;
-
-        else {
-            Scanner input = new Scanner(System.in);
-            printLine("Select Servant");
-            numberOfServant = input.nextInt();
-            while (numberOfServant > player.getRes().getServants()) {
-                printLine("Input exceed number of Servant");
-                numberOfServant = input.nextInt();
-            }
-
-        }
-
-        return numberOfServant;
-    }
-
-    public void printAvailableFamilyMember(Player player) {
-        for (int i=0; i<Constants.FIXED_FAMILYMEMBER; i++)
-            if (!player.getFamilyMember(i).getUsed()) {
-                printLine("Family Member " + i);
-                System.out.println(player.getFamilyMember(i).getValue());
-            }
-    }
-
-
-    public void printBoard(Board board) {
-        for (int i=0; i< Constants.FIXED_NUM_OF_TOWER; i++) {
-            printLine("Tower " + (i+1) + ":");
-            for (int j = 0; j < Constants.FIXED_TOWER_CARDS; j++) {
-                printCard(board.getTower(i).getSpace(j).getCard());
-
-            }
-        }
-
-    }
-
-    public void printCard(DevelopmentCard card) {
-        printLine(card.getName());
-        System.out.println(card.getPeriod());
-    }
-
-    public void printPlayer(Player player) {
-        printLine(player.getName());
-        System.out.println(player.getRes());
-    }
 
 
     /**
@@ -228,6 +122,8 @@ public class GameView {
         return line;
     }
 
+
+
     /**
      * Get Input line from console
      * @return String of the input line
@@ -246,11 +142,6 @@ public class GameView {
      */
     private void printLine(String line){
         System.out.println(line);
-    }
-
-    private void initMaps() {
-        map =
-
     }
 
 

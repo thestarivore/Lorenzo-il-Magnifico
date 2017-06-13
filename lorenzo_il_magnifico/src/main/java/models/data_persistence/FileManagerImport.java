@@ -17,9 +17,9 @@ import java.util.List;
 public class FileManagerImport {
 
     public ArrayList<DevelopmentCard> getDevelopmentCards() {
-
+        String dCardFile = null;
         Gson gson = new Gson();
-        try (Reader reader = new FileReader("/filename")) {
+        try (Reader reader = new FileReader(dCardFile)) {
             ArrayList<DevelopmentCard> developmentCards = gson.fromJson(reader, new TypeToken<ArrayList<DevelopmentCard>>() {
             }.getType());
         } catch (IOException e) {
