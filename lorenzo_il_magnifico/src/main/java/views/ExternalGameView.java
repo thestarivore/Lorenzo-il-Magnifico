@@ -23,7 +23,7 @@ public class ExternalGameView {
      * @param server
      */
     public void showWelcomeMessage(ServerInterface server) {
-        server.sendCmdToClient("WELCOME_CMD");                  //TODO: make a map for the protocols commands
+        //server.sendCmdToClient("WELCOME_CMD");                  //TODO: make a map for the protocols commands
     }
 
     /**

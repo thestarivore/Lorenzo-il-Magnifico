@@ -13,11 +13,11 @@ import java.util.Scanner;
 /**
  * Created by Mattia on 22/05/2017.
  */
-public class SocketServer implements ServerInterface, Protocol{
+public class SocketServer implements ServerInterface{
     private int port;
     private ServerSocket serverSocket;
     private static SocketServer ourInstance = null;
-    private static List<String> cmdList;
+
 
     /**
      * Get Istance of the Server, creat a new one if none is present
@@ -27,7 +27,6 @@ public class SocketServer implements ServerInterface, Protocol{
     public static SocketServer getInstance(int port) {
         if(ourInstance == null) {
             ourInstance = new SocketServer(port);
-            cmdList = new ArrayList<String>();
         }
 
         return ourInstance;
@@ -47,7 +46,7 @@ public class SocketServer implements ServerInterface, Protocol{
      */
     private void startServer() throws IOException {
         // apro una porta TCP
-        serverSocket = new ServerSocket(port);
+        /*serverSocket = new ServerSocket(port);
         System.out.println("Server socket ready on port: " + port);
 
         // resto in attesa di una connessione
@@ -65,7 +64,7 @@ public class SocketServer implements ServerInterface, Protocol{
                 Command management(FIFO list)
                 Send a cmd when available.
              */
-            boolean cmdToSend = !cmdList.isEmpty();
+          /*  boolean cmdToSend = !cmdList.isEmpty();
             if(cmdToSend){
                 out.println(cmdList.remove(0));
                 out.flush();
@@ -86,7 +85,28 @@ public class SocketServer implements ServerInterface, Protocol{
         in.close();
         out.close();
         socket.close();
-        serverSocket.close();
+        serverSocket.close();*/
+
+        ServerSocket serverSocket = null;
+        Socket socket = null;
+
+        try {
+            // apro una porta TCP
+            serverSocket = new ServerSocket(port);
+            System.out.println("Server socket ready on port: " + port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        while (true) {
+            try {
+                socket = serverSocket.accept();
+            } catch (IOException e) {
+                System.out.println("I/O error: " + e);
+            }
+            // new threa for a client
+            new ServerThread(socket).start();
+        }
     }
 
     /**
@@ -100,35 +120,5 @@ public class SocketServer implements ServerInterface, Protocol{
         }
     }
 
-    /**
-     * Send Command to the client
-     * @param cmd
-     */
-    public void sendCmdToClient(String cmd){
-        cmdList.add(cmd);
-    }
 
-
-
-    /**************************************************************
-     ****************** Protocol Commands *************************
-     **************************************************************/
-
-
-    /**
-     * Show Welcome Message on the client
-     * @param
-     */
-    @Override
-    public void showWelcomeMessage() {
-        sendCmdToClient("WELCOME_CMD");
-    }
-
-    /**
-     * Ask fro the login interface in the client
-     */
-    @Override
-    public void askForLoginMessage() {
-        sendCmdToClient("WELCOME_CMD");
-    }
 }

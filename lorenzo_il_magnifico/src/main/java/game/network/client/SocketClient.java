@@ -53,7 +53,7 @@ public class SocketClient implements ClientInterface{
         Scanner stdin = new Scanner(System.in);
         try {
             while (true) {
-                /*String inputLine = stdin.nextLine();
+                /*/String inputLine = stdin.nextLine();
                 socketOut.println(inputLine);
                 socketOut.flush();*/
 
