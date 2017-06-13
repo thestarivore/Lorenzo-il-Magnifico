@@ -7,9 +7,9 @@ import game.network.server.ServerInterface;
  */
 public interface Protocol {
 
-    public void showWelcomeMessage(ServerInterface server);
+    public void showWelcomeMessage();
 
-    public void askForLoginMessage(ServerInterface server);
+    public void askForLoginMessage();
 
     //ecc..
 }

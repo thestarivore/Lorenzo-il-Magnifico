@@ -3,6 +3,8 @@ package game.network.server;
 
 import game.network.download.Pair;
 import game.network.download.DataTable;
+import game.network.download.Protocol;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -18,7 +20,7 @@ import java.util.Scanner;
 /**
  * Created by Eduard Chirica on 6/4/17.
  */
-public class RMIServer implements ServerInterface{
+public class RMIServer implements ServerInterface, Protocol{
     private static RMIServer ourInstance = null;
 
     /**
@@ -82,5 +84,20 @@ public class RMIServer implements ServerInterface{
      */
     public void sendCmdToClient(String cmd){
         //Still to update
+    }
+
+
+    /**************************************************************
+     ****************** Protocol Commands *************************
+     **************************************************************/
+
+    @Override
+    public void showWelcomeMessage() {
+
+    }
+
+    @Override
+    public void askForLoginMessage() {
+
     }
 }

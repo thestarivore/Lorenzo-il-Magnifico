@@ -1,5 +1,7 @@
 package game.network.server;
 
+import game.network.download.Protocol;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -11,7 +13,7 @@ import java.util.Scanner;
 /**
  * Created by Mattia on 22/05/2017.
  */
-public class SocketServer implements ServerInterface{
+public class SocketServer implements ServerInterface, Protocol{
     private int port;
     private ServerSocket serverSocket;
     private static SocketServer ourInstance = null;
@@ -104,5 +106,29 @@ public class SocketServer implements ServerInterface{
      */
     public void sendCmdToClient(String cmd){
         cmdList.add(cmd);
+    }
+
+
+
+    /**************************************************************
+     ****************** Protocol Commands *************************
+     **************************************************************/
+
+
+    /**
+     * Show Welcome Message on the client
+     * @param
+     */
+    @Override
+    public void showWelcomeMessage() {
+        sendCmdToClient("WELCOME_CMD");
+    }
+
+    /**
+     * Ask fro the login interface in the client
+     */
+    @Override
+    public void askForLoginMessage() {
+        sendCmdToClient("WELCOME_CMD");
     }
 }

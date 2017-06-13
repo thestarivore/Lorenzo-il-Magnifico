@@ -6,8 +6,11 @@ import game.network.server.ServerInterface;
 /**
  * Created by Eduard Chirica on 6/11/17.
  */
-public class ExternalGameView implements Protocol {
+public class ExternalGameView {
     private ServerInterface server;
+
+
+    //TODO: vedere se serve o meno, per ora sembra inutile
 
     /**
      * Basic constructor
