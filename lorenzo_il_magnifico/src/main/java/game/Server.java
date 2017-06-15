@@ -1,5 +1,6 @@
 package game;
 
+import controllers.Player;
 import game.network.client.SocketClient;
 import game.network.server.RMIServer;
 import game.network.server.SocketServer;
@@ -25,7 +26,7 @@ public class Server {
 
         // Get/Create an instance of the Socket Server
         // Create and start the thread
-        SocketServer socketServer = SocketServer.getInstance(PORT);
+        SocketServer socketServer = SocketServer.getInstance(PORT, lobby);
         Thread socketServerThread = new Thread(socketServer);
         socketServerThread.start();
 
@@ -42,8 +43,8 @@ public class Server {
      * A new Client was accepted, forward this event to the Lobby
      * so that can manage this client as a new Player
      */
-    public void newClientAccepted(){
-        lobby.newPlayerArrived();
+    public void newClientAccepted(Player player){
+        lobby.newPlayerArrived(player);
     }
 
 

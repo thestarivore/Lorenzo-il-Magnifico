@@ -1,6 +1,7 @@
 package controllers;
 
 
+import game.network.server.ServerThread;
 import models.Points;
 import utility.Constants;
 import models.board.*;
@@ -31,8 +32,22 @@ public class Player {
     private ExcommunicationCubes excommunicationCubes;
     private int turnOrder;
     private boolean myTurn;
+    private ServerThread remoteClient;
 
-    public Player(String name,int turnOrder){
+    /**
+     * Basic Constructor
+     */
+    public Player() {
+    }
+
+    /**
+     * Constructor with remote client init
+     */
+    public Player(ServerThread serverThread) {
+        remoteClient = serverThread;
+    }
+
+    public Player(String name, int turnOrder){
         this.name = name;
         this.points = new Points();
         this.res = new Resources(turnOrder);
@@ -138,14 +153,8 @@ public class Player {
         return myTurn;
     }
 
-    public void setMyTurn() {
-        if (this.myTurn) {
-            this.myTurn = false;
-            return;
-        }
-
-        this.myTurn = true;
-
+    public void setMyTurn(boolean myTurn) {
+            this.myTurn = true;
     }
 }
 

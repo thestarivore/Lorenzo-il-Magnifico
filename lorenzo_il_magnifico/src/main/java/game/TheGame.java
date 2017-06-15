@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class TheGame {
     private Period period;
-    private int numberOfPlayer;
     private List<Player> players;
     private Board board;
     private int playerIDTurn;
@@ -32,23 +31,32 @@ public class TheGame {
     private ClientInterface client;
     private ServerInterface server;
 
-    public TheGame(int numberOfPlayer) {
-        this.numberOfPlayer = numberOfPlayer;
+    //Constants
+    public static final int MAXIMUM_PLAYERS_NUMBER = 4;
+
+    public TheGame() {
         this.players = new ArrayList<Player>();
         this.period = new Period();
 
-        theModel        = new GameFacadeModel(numberOfPlayer);
+        theModel        = new GameFacadeModel(getNumberOfPlayer());
         theExternalView = new ExternalGameView();
         theController   = new GameFacadeController(theExternalView, theModel, period);
     }
 
-    public void setPlayer(Player player) {
+    /**
+     * Adds a new player to the player list
+     * @param player
+     */
+    public void addPlayer(Player player) {
         this.players.add(player);
-        ;
     }
 
-    public Player getPlayer(int i) {
-       return this.players.get(i);
+    /**
+     * @param index
+     * @return player at index
+     */
+    public Player getPlayer(int index) {
+       return this.players.get(index);
     }
 
 
@@ -60,35 +68,40 @@ public class TheGame {
         this.period = period;
     }
 
+    /**
+     * @return integer of the current number of players in this game
+     */
     public int getNumberOfPlayer() {
-        return numberOfPlayer;
+        return players.size();
     }
 
-    public void setNumberOfPlayer(int numberOfPlayer) {
-        this.numberOfPlayer = numberOfPlayer;
-    }
-
-
+    /**
+     * Gets the instance of the Controller
+     * @return GameFacadeController class instance
+     */
     public GameFacadeController getTheController() {
         return theController;
     }
 
-
+    /**
+     * Gets the instance of the Model
+     * @return GameFacadeModel class instance
+     */
     public GameFacadeModel getTheModel() {
         return theModel;
     }
 
-    public int getPlayerTurn() {
 
-        int playerID = -1000;
-        for (int i=0; i<players.size(); i++) {
-            if (players.get(i).getMyTurn()) {
-                players.get(i).setMyTurn();
-                playerID = players.get(i).getID();
-                players.get(i + 1).setMyTurn();
-            }
-        }
-        return playerID;
+    /**
+     * Finds out whether the game is already full
+     * @return boolean "true" if the game is full, "false" otherwise
+     */
+    public boolean isGameFull(){
+        int currentPlayers = getNumberOfPlayer();
+        if(currentPlayers >= MAXIMUM_PLAYERS_NUMBER)
+            return true;
+        else
+            return false;
     }
 
 

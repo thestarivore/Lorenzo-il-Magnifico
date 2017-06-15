@@ -14,6 +14,9 @@ public class Lobby {
     private static ArrayList<TheGame> games;
     private String[] colorAvailable = {"RED", "BLUE", "YELLOW", "GREEN"};
 
+    //Constants
+    public static final int MAXIMUM_GAMES_NUMBER = 10;
+
     /**
      * Basic Constructor
      */
@@ -24,12 +27,25 @@ public class Lobby {
         //Every Room is a TheGame instance
         //once a room works we can implement the multi-room system
         games = new ArrayList<TheGame>();
-        games.add(new TheGame(numberOfPlayer));
+        games.add(new TheGame());
+
+        TheGame firstGame = games.get(0);
+
 
     }
 
 
-    public void newPlayerArrived(){
+    public void newPlayerArrived(Player player){
+        //Get last game in the list, because the others should be full
+        TheGame lastGame = games.get(games.size()-1);
+
+        //If game is not full add the new player to this game, else create a new game
+        if (lastGame.isGameFull() == false){
+            lastGame.addPlayer(player);
+        }
+        else{
+            games.add(new TheGame());
+        }
 
     }
 

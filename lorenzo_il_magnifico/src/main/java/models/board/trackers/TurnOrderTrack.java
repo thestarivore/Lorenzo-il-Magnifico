@@ -13,15 +13,4 @@ public class TurnOrderTrack extends Track {
 
     public int[] getTurnOrder(){ return this.turnOrder; }
 
-    public int turnOrderToInt(String[] turnOrder, String name){
-        int numberOfPlayer = lobby.getGames().getNumberOfPlayer();
-        for(int i=0 ; i<numberOfPlayer ; i++) {
-            if (turnOrder[i].equals(name))
-                return i;
-        }
-        return -10000;
-    }
-
-
-
 }

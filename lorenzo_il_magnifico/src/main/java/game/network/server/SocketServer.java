@@ -1,5 +1,7 @@
 package game.network.server;
 
+import controllers.Player;
+import game.Lobby;
 import game.network.download.Protocol;
 
 import java.io.IOException;
@@ -17,6 +19,7 @@ public class SocketServer implements ServerInterface{
     private int port;
     private ServerSocket serverSocket;
     private static SocketServer ourInstance = null;
+    private static Lobby lobby;
 
 
     /**
@@ -24,9 +27,10 @@ public class SocketServer implements ServerInterface{
      * @param port port address where is leastening for clients
      * @return the instance of the server socket
      */
-    public static SocketServer getInstance(int port) {
+    public static SocketServer getInstance(int port, Lobby lobbyInstance) {
         if(ourInstance == null) {
             ourInstance = new SocketServer(port);
+            lobby = lobbyInstance;
         }
 
         return ourInstance;
@@ -62,8 +66,17 @@ public class SocketServer implements ServerInterface{
             } catch (IOException e) {
                 System.out.println("I/O error: " + e);
             }
-            // new threa for a client
-            new ServerThread(socket).start();
+
+            // Create a new thread for a client
+            ServerThread serverThread = new ServerThread(socket);
+
+            // Create a new player associated to this client and add it
+            // to the game through the Lobby
+            Player newPlayer = new Player(serverThread);
+            lobby.newPlayerArrived(newPlayer);
+
+            //Start the connected client thread
+            serverThread.start();
         }
     }
 
