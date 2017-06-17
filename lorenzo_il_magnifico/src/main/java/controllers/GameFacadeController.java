@@ -12,9 +12,11 @@ import models.Points;
 import models.Resources;
 import models.board.FamilyMember;
 import models.board.NeutralFamilyMember;
+import models.cards.Deck;
 import models.cards.DevelopmentCard;
 import utility.Constants;
 import views.ExternalGameView;
+import models.data_persistence.FileManagerImport;
 
 import static java.lang.Integer.parseInt;
 
@@ -38,6 +40,8 @@ public class GameFacadeController {
     private VaticanReport vaticanReport;
     private RoundSetup roundSetup;
     private Player playerTurn;
+    private Deck deck;
+
 
     public GameFacadeController(ExternalGameView externalGameView, GameFacadeModel facadeModel, Period period) {
         this.externalGameView = externalGameView;
@@ -48,6 +52,7 @@ public class GameFacadeController {
         this.productionAction = new ProductionAction(this.facadeModel);
         this.vaticanReport = new VaticanReport();
         this.roundSetup = new RoundSetup();
+
 
         //Show welcome Message
         //SocketServer server = SocketServer.getInstance(1338);   //TODO: implementare get instance anche senza numero porta, tanto c'è ne solo uno
