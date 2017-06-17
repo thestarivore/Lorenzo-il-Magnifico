@@ -1,6 +1,7 @@
 package game;
 
 import controllers.Player;
+import controllers.RemotePlayer;
 import game.network.client.SocketClient;
 import game.network.server.RMIServer;
 import game.network.server.SocketServer;
@@ -44,7 +45,7 @@ public class Server {
      * A new Client was accepted, forward this event to the Lobby
      * so that can manage this client as a new Player
      */
-    public void newClientAccepted(Player player){
+    public void newClientAccepted(RemotePlayer player){
         lobby.newPlayerArrived(player);
     }
 

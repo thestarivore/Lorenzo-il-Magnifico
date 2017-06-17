@@ -3,6 +3,7 @@ package game;
 import controllers.GameFacadeController;
 import controllers.Player;
 
+import controllers.RemotePlayer;
 import controllers.game_course.Period;
 import models.GameFacadeModel;
 import game.network.client.ClientInterface;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 public class TheGame {
     private Period period;
-    private List<Player> players;
+    private List<RemotePlayer> players;
     private Board board;
     private int playerIDTurn;
 
@@ -35,7 +36,7 @@ public class TheGame {
     public static final int MAXIMUM_PLAYERS_NUMBER = 4;
 
     public TheGame() {
-        this.players = new ArrayList<Player>();
+        this.players = new ArrayList<RemotePlayer>();
         this.period = new Period();
 
         theModel        = new GameFacadeModel(getNumberOfPlayer());
@@ -47,7 +48,7 @@ public class TheGame {
      * Adds a new player to the player list
      * @param player
      */
-    public void addPlayer(Player player) {
+    public void addPlayer(RemotePlayer player) {
         this.players.add(player);
     }
 

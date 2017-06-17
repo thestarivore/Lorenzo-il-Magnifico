@@ -2,6 +2,7 @@ package game;
 
 
 import controllers.Player;
+import controllers.RemotePlayer;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class Lobby {
      * game, or create a new game if there is no place in the current one.
      * @param player Player istance of the player to add
      */
-    public void newPlayerArrived(Player player){
+    public void newPlayerArrived(RemotePlayer player){
         //Get last game in the list, because the others should be full
         TheGame lastGame = games.get(games.size()-1);
 
@@ -65,7 +66,6 @@ public class Lobby {
     public String getColorAvailable(int i) {
         return colorAvailable[i];
     }
-
 
 
 }

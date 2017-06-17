@@ -18,59 +18,64 @@ import java.util.List;
  */
 
 public class Player {
-    private String name;
-    private int ID;
-    private Points points;
-    private Resources res;
-    private PersonalBoard personalBoard;
-    private ArrayList<LeaderCard> leaderCards;
-    private Color color;
-    private PersonalBonusTile personalBonusTile;
-    private NeutralFamilyMember neutralFamilyMember;
-    private FamilyMember[] familyMember;
-    private MarkerDiscs markerDiscs;
-    private ExcommunicationCubes excommunicationCubes;
-    private int turnOrder;
-    private boolean myTurn;
-    private ServerThread remoteClient;
+    protected String name;
+    protected int ID;
+    protected Points points;
+    protected Resources res;
+    protected PersonalBoard personalBoard;
+    protected ArrayList<LeaderCard> leaderCards;
+    protected Color color;
+    protected PersonalBonusTile personalBonusTile;
+    protected NeutralFamilyMember neutralFamilyMember;
+    protected FamilyMember[] familyMember;
+    protected MarkerDiscs markerDiscs;
+    protected ExcommunicationCubes excommunicationCubes;
+    protected int turnOrder;
+    protected boolean myTurn;
+
+    /**
+     * Set the minimum number of character that the Player should have
+     */
+    public static final int PLAYER_NAME_MIN_CHARACTERS = 3;
 
     /**
      * Basic Constructor
      */
     public Player() {
+        this("");
     }
 
     /**
-     * Constructor with remote client init
+     * Constructor with Player's Name
+     * @param name
      */
-    public Player(ServerThread serverThread) {
-        remoteClient = serverThread;
-    }
-
-    public Player(String name, int turnOrder){
+    public Player(String name){
+        //Set passed name
         this.name = name;
+
+        //Create identification number
+        Random randomGenerator = new Random();
+        this.ID = randomGenerator.nextInt();
+
+        //Set all player's possessions
         this.points = new Points();
-        this.res = new Resources(turnOrder);
+        this.res = new Resources();
         this.personalBoard = new PersonalBoard();
         this.leaderCards = new ArrayList<LeaderCard>();
         this.personalBonusTile = new PersonalBonusTile();
+        this.markerDiscs = new MarkerDiscs();
+        this.excommunicationCubes = new ExcommunicationCubes();
 
+        //Create Family Members
         this.neutralFamilyMember = new NeutralFamilyMember();
         this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER-1];
         for (int i=0; i<Constants.FIXED_FAMILYMEMBER-1; i++)
             this.familyMember[i] = new FamilyMember();
 
-        this.markerDiscs = new MarkerDiscs();
-        this.excommunicationCubes = new ExcommunicationCubes();
-        this.turnOrder=turnOrder;
+        //Turn initialization
+        this.turnOrder = 0;
         this.myTurn = false;
-
     }
-
-
-
-
-
 
 
     public String getName() {
@@ -83,6 +88,10 @@ public class Player {
 
     public int getID() {
         return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public Points getPoints() {

@@ -1,6 +1,7 @@
 package game.network.server;
 
 import controllers.Player;
+import controllers.RemotePlayer;
 import game.Lobby;
 import game.network.download.Protocol;
 
@@ -72,7 +73,7 @@ public class SocketServer implements ServerInterface{
 
             // Create a new player associated to this client and add it
             // to the game through the Lobby
-            Player newPlayer = new Player(serverThread);
+            RemotePlayer newPlayer = new RemotePlayer(serverThread);
             lobby.newPlayerArrived(newPlayer);
 
             //Start the connected client thread

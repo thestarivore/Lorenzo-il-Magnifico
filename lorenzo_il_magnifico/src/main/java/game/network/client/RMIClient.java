@@ -1,6 +1,7 @@
 package game.network.client;
 
 
+import controllers.Player;
 import game.network.download.DataTable;
 import game.network.download.Pair;
 import game.network.server.ServerInterface;
@@ -15,6 +16,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.NoSuchElementException;
@@ -49,7 +51,7 @@ public class RMIClient implements ClientInterface{
      * Start RMI Client communication manager
      * @throws IOException
      */
-    private void startClient() throws IOException, NamingException {
+    private void startClient() throws IOException, NamingException, ServerNotActiveException {
         //System.setProperty("java.security.policy", "client.policy");
         //System.setSecurityManager(new SecurityManager());
 
@@ -64,11 +66,24 @@ public class RMIClient implements ClientInterface{
         String url = "rmi://localhost:"+ this.port + "/central_datatable";
         DataTable centralDataTable = (DataTable) namingContext.lookup(url);
 
+        //Test add new key from client to the server
+        centralDataTable.add("key5", new Pair("Value166", 9999));
+        centralDataTable.add("key6", new Pair("Value177", 8888));
+        centralDataTable.add("key7", new Pair("Value188", 7777));
+        centralDataTable.add("key8", new Pair("Value199", 6666));
+        centralDataTable.setInstance();
+
+
+        //Test get key and value (knowing the String key) from Server
         ArrayList<String> l=new ArrayList<String>();
         l.add("key1");
         l.add("key2");
         l.add("key3");
         l.add("key4");
+        l.add("key5");
+        l.add("key6");
+        l.add("key7");
+        l.add("key8");
 
         while(!l.isEmpty()) {
             Pair p = centralDataTable.getValue(l);
@@ -94,6 +109,8 @@ public class RMIClient implements ClientInterface{
             e.printStackTrace();
         } catch (NamingException e) {
             e.printStackTrace();
+        } catch (ServerNotActiveException e) {
+            e.printStackTrace();
         }
     }
 
@@ -102,6 +119,11 @@ public class RMIClient implements ClientInterface{
      * @param gameView
      */
     public void setGameView(GameView gameView) {
+    }
+
+    @Override
+    public void setPlayer(Player player) {
+
     }
 
 }

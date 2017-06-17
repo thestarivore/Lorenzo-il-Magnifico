@@ -2,6 +2,7 @@ package game.network.download;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
 import java.util.List;
 
 /**
@@ -9,4 +10,8 @@ import java.util.List;
  */
 public interface DataTable extends Remote {
     Pair getValue(List<String> keywords) throws RemoteException;
+
+    void add(String keyword, Pair pair) throws RemoteException;
+
+    void setInstance() throws RemoteException, ServerNotActiveException;
 }

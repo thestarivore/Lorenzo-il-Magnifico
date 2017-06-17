@@ -1,5 +1,6 @@
 package game.network.client;
 
+import controllers.Player;
 import views.GameView;
 
 import java.io.IOException;
@@ -15,8 +16,9 @@ public class SocketClient implements ClientInterface{
     private String ip;
     private int port;
     private GameView gameView;
+    private Player player;
 
-    private static SocketClient ourInstance = null;
+    private static SocketClient instance = null;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -25,10 +27,10 @@ public class SocketClient implements ClientInterface{
      * @return the instance of the client socket
      */
     public static SocketClient getInstance(String ip, int port) {
-        if(ourInstance == null)
-            ourInstance = new SocketClient(ip, port);
+        if(instance == null)
+            instance = new SocketClient(ip, port);
 
-        return ourInstance;
+        return instance;
     }
 
     /**
@@ -90,10 +92,18 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
-     * Get the GameView instance
+     * Set the GameView instance
      * @param gameView
      */
     public void setGameView(GameView gameView) {
         this.gameView = gameView;
+    }
+
+    /**
+     * Set the Player instance
+     * @param player
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

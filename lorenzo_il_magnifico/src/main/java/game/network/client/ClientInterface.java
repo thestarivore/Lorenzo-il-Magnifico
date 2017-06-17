@@ -1,5 +1,6 @@
 package game.network.client;
 
+import controllers.Player;
 import views.GameView;
 
 /**
@@ -17,4 +18,11 @@ public interface ClientInterface extends Runnable {
      * @param gameView
      */
     public void setGameView(GameView gameView);
+
+    /**
+     * Set the Player instance
+     * @param player
+     */
+    public void setPlayer(Player player);
+
 }
