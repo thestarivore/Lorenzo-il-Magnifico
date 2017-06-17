@@ -165,6 +165,12 @@ public class Player {
     public void setMyTurn(boolean myTurn) {
             this.myTurn = true;
     }
+
+    @Override
+    public String toString(){
+        return "Player name: "+this.name + "\n" + "Player Points:"+this.points + "\n" + this.res ;
+
+    }
 }
 
 

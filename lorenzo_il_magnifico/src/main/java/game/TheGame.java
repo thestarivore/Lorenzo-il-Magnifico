@@ -3,7 +3,6 @@ package game;
 import controllers.GameFacadeController;
 import controllers.Player;
 
-import controllers.RemotePlayer;
 import controllers.game_course.Period;
 import models.GameFacadeModel;
 import game.network.client.ClientInterface;
