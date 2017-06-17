@@ -21,15 +21,16 @@ import java.util.Scanner;
  * Created by Eduard Chirica on 6/4/17.
  */
 public class RMIServer implements ServerInterface, Protocol{
+    private int port;
     private static RMIServer ourInstance = null;
 
     /**
      * Get Istance of the Server, creat a new one if none is present
      * @return the instance of the server socket
      */
-    public static RMIServer getInstance() {
+    public static RMIServer getInstance(int port) {
         if(ourInstance == null) {
-            ourInstance = new RMIServer();
+            ourInstance = new RMIServer(port);
         }
 
         return ourInstance;
@@ -37,8 +38,11 @@ public class RMIServer implements ServerInterface, Protocol{
 
     /**
      * RMI Server Constructor
+     * @param port port where to listen to
      */
-    public RMIServer() {}
+    public RMIServer(int port) {
+        this.port = port;
+    }
 
     /**
      * Start RMI Server communication manager
@@ -47,6 +51,8 @@ public class RMIServer implements ServerInterface, Protocol{
     private void startServer() throws IOException, AlreadyBoundException {
         //System.setProperty("java.security.policy", "server.policy");
         //System.setSecurityManager(new SecurityManager());
+        //Create Local registry
+        Registry registry = LocateRegistry.createRegistry(port);
 
         System.out.println("Constructing server implementation...");
         DataTableImpl centralDataTable = new DataTableImpl(
@@ -59,7 +65,7 @@ public class RMIServer implements ServerInterface, Protocol{
         centralDataTable.add("key4", new Pair("Value4", 65.55));
 
         System.out.println("Binding server implementation to registry...");
-        Registry registry= LocateRegistry.getRegistry();
+        //Registry registry= LocateRegistry.getRegistry();
         registry.bind("central_datatable", centralDataTable);
 
         System.out.println("Waiting for invocations from clients...");

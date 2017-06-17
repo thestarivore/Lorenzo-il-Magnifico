@@ -35,6 +35,12 @@ public class Lobby {
     }
 
 
+    /**
+     * A new Client was accepted,
+     * Manage this client as a new Player and add it to the current
+     * game, or create a new game if there is no place in the current one.
+     * @param player Player istance of the player to add
+     */
     public void newPlayerArrived(Player player){
         //Get last game in the list, because the others should be full
         TheGame lastGame = games.get(games.size()-1);
@@ -48,22 +54,6 @@ public class Lobby {
         }
 
     }
-
-/*
-    public boolean chooseColor(Player player) {
-        String color = games.getTheView().getColor(this);
-        if ("red".equalsIgnoreCase(color))
-            player.setColor(Color.RED);
-        if ("yellow".equalsIgnoreCase(color))
-            player.setColor(Color.YELLOW);
-        if ("blue".equalsIgnoreCase(color))
-            player.setColor(Color.BLUE);
-        if ("green".equalsIgnoreCase(color))
-            player.setColor(Color.GREEN);
-        return true;
-    }
-*/
-
 
 
     public void removeColor(String color) {

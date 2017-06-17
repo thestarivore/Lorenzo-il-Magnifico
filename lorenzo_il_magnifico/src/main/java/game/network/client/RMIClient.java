@@ -24,15 +24,16 @@ import java.util.Scanner;
  * Created by Eduard Chirica on 6/4/17.
  */
 public class RMIClient implements ClientInterface{
+    private int port;
     private static RMIClient ourInstance = null;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
      * @return the instance of the client rmi
      */
-    public static RMIClient getInstance() {
+    public static RMIClient getInstance(int port) {
         if(ourInstance == null)
-            ourInstance = new RMIClient();
+            ourInstance = new RMIClient(port);
 
         return ourInstance;
     }
@@ -40,7 +41,8 @@ public class RMIClient implements ClientInterface{
     /**
      * RMI Client Constructor
      */
-    public RMIClient() {
+    public RMIClient(int port) {
+        this.port = port;
     }
 
     /**
@@ -54,12 +56,12 @@ public class RMIClient implements ClientInterface{
         Context namingContext = new InitialContext();
         System.out.print("RMI registry bindings: ");
         Enumeration<NameClassPair> e =
-                namingContext.list("rmi://localhost/");
+                namingContext.list("rmi://localhost:" + this.port);
 
         while (e.hasMoreElements())
             System.out.println(e.nextElement().getName());
 
-        String url = "rmi://localhost/central_datatable";
+        String url = "rmi://localhost:"+ this.port + "/central_datatable";
         DataTable centralDataTable = (DataTable) namingContext.lookup(url);
 
         ArrayList<String> l=new ArrayList<String>();

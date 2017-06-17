@@ -13,7 +13,8 @@ import java.io.IOException;
 public class Server {
     private static Lobby lobby;
 
-    private final static int PORT = 1338;
+    private final static int SOCKET_PORT = 1338;
+    private final static int RMI_PORT = 2112;
 
     /**
      * Server main entry point.
@@ -26,13 +27,13 @@ public class Server {
 
         // Get/Create an instance of the Socket Server
         // Create and start the thread
-        SocketServer socketServer = SocketServer.getInstance(PORT, lobby);
+        SocketServer socketServer = SocketServer.getInstance(SOCKET_PORT, lobby);
         Thread socketServerThread = new Thread(socketServer);
         socketServerThread.start();
 
         // Get/Create an instance of the RMI Server
         // Create and start the thread
-        RMIServer rmiServer = RMIServer.getInstance();
+        RMIServer rmiServer = RMIServer.getInstance(RMI_PORT);
         Thread rmiServerThread = new Thread(rmiServer);
         rmiServerThread.start();
 

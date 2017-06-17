@@ -12,11 +12,13 @@ import java.io.IOException;
  * Created by Eduard Chirica on 6/11/17.
  */
 public class Client {
-    private final static int            PORT = 1338;
-    private final static String         IP = "127.0.0.1";
     private static GameView             gameView = null;
     private static ClientInterface      client;
     private static Thread               clientThread;
+
+    private final static String     IP = "127.0.0.1";
+    private final static int        SOCKET_PORT = 1338;
+    private final static int        RMI_PORT = 2112;
 
     /**
      * Client main entry point.
@@ -63,9 +65,9 @@ public class Client {
         // Get/Create an instance of the Client
         // Create and start the thread
         if(protocol.equals("s"))
-            client = SocketClient.getInstance(IP, PORT);
+            client = SocketClient.getInstance(IP, SOCKET_PORT);
         else if(protocol.equals("r"))
-            client = RMIClient.getInstance();
+            client = RMIClient.getInstance(RMI_PORT);
 
         client.setGameView(gameView);
         clientThread = new Thread(client);
