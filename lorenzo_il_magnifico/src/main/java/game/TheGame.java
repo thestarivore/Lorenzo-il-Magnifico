@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class TheGame {
     private Period period;
-    private List<Player> players;
+    private ArrayList<Player> players;
     private Board board;
     private int playerIDTurn;
 
@@ -102,6 +102,11 @@ public class TheGame {
             return true;
         else
             return false;
+    }
+    public void printPlayersStatus(){
+        for(Player p : this.players){
+            System.out.println(p);
+        }
     }
 
 
