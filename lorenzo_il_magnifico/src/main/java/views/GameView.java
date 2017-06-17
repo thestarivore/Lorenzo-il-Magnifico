@@ -30,7 +30,7 @@ public class GameView {
 
     private TheGame game;
     public GameView() {
-        game.printPlayersStatus();
+        
         /*
             Here we initialize all the graphical parts.
             All listeners, must be passed to the Controller, witch will take action accordingly.
