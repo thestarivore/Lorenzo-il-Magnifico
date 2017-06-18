@@ -73,14 +73,6 @@ public class RMIServer implements ServerInterface{
         }
     }
 
-    /**
-     * Send Command to the client
-     * @param cmd
-     */
-    public void sendCmdToClient(String cmd){
-        //Still to update
-    }
-
 
     /**************************************************************
      ****************** Protocol Commands *************************

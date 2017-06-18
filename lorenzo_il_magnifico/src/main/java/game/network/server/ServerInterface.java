@@ -11,5 +11,5 @@ public interface ServerInterface extends Runnable{
      */
     public void run();
 
-    public void sendCmdToClient(String cmd);
+
 }

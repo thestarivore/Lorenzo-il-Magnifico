@@ -10,6 +10,7 @@ import models.cards.Card;
 import models.cards.DevelopmentCard;
 import utility.Constants;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -102,27 +103,55 @@ public class GameView {
         return getValidParameter(list);
     }
 
+    /**
+     * Ask for color choice and control if input is valid
+     * @return the color chosen
+     */
+    public int askColor(ArrayList<TheGame.COLORS> colors) {
+        String[] newColors = new String[TheGame.MAXIMUM_COLORS_NUMBER];
+        int i = 0;
+
+        //Fill the array with the color strings
+        for(i = 0; i < colors.size(); i++)
+            newColors[i] = colors.get(i).getColor();
+
+        //Fill the list is colors are missing
+        for(i = newColors.length; i < TheGame.MAXIMUM_COLORS_NUMBER; i++)
+            newColors[i] = "";
+
+        return askColor(newColors);
+    }
+
+    /**
+     * Ask for color choice and control if input is valid
+     * @return the color chosen
+     */
+    public int askColor(String[] colors) {
+        //Print the message
+        printLine("Choose your color("
+                + colors[0] + " - 0, "
+                + colors[1] + " - 1, "
+                + colors[2] + " - 2, "
+                + colors[3] + " - 3"
+                +"): ");
+
+        //List the available choices
+        ArrayList<String> list = new ArrayList<String>() {
+            {
+                add("0");
+                add("1");
+                add("2");
+                add("3");
+            }
+        };
+
+        //Return the user's choice
+        return Integer.parseInt(getValidParameter(list));
+    }
+
     /***************************************************************************************************************/
 
 
-    public String getColor(Lobby lobby) {
-
-        boolean correct = false;
-        printLine("Available Color:");
-        for (int i = 0; i < 4; i++)
-            printLine(lobby.getColorAvailable(i));
-        Scanner in = new Scanner(System.in);
-        String s = null;
-        while (!correct) {
-            printLine("Insert Color:");
-            s = in.nextLine();
-            for (int i = 0; i < 4; i++)
-                if (s.equalsIgnoreCase(lobby.getColorAvailable(i)))
-                    correct = true;
-        }
-        lobby.removeColor(s);
-        return s;
-    }
 
     public String getWhereAction() {
         printLine("Where do you want to place Family Member?");

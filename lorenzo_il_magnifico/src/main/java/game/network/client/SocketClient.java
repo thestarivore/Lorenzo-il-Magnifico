@@ -1,7 +1,8 @@
 package game.network.client;
 
 import controllers.Player;
-import game.network.download.ProtocolCommands;
+import game.TheGame;
+import game.network.protocol.ProtocolCommands;
 import views.GameView;
 
 import java.io.IOException;
@@ -61,31 +62,14 @@ public class SocketClient implements ClientInterface{
         Scanner stdin = new Scanner(System.in);
         try {
             while (true) {
-                /*/String inputLine = stdin.nextLine();
-                socketOut.println(inputLine);
-                socketOut.flush();*/
-
                 /*
                 Command management(FIFO list)
-                Send a cmd when available.
+                Send a cmd when available and wait for response.
                 */
-                boolean cmdToSend = !cmdList.isEmpty();
-                if(cmdToSend){
-                    socketOut.println(cmdList.remove(0));
-                    socketOut.flush();
-                }
+                communicationAutoma(socketIn, socketOut);
 
                 //Delay between a command and another
                 Thread.sleep(100);
-
-                //Log code
-               /* String line = socketIn.nextLine();
-                if (line.equals("quit")) {
-                    break;
-                } else {
-                    socketOut.println("Received: " + line);
-                    socketOut.flush();
-                }*/
             }
         } catch (NoSuchElementException e) {
             System.out.println("Connection closed");
@@ -131,9 +115,8 @@ public class SocketClient implements ClientInterface{
         this.player = player;
 
         //Send the player identification to the server
-        cmdList.add("PLAYER_IDENTIFICATION_CMD");
-        cmdList.add(player.getName());
-        cmdList.add(String.valueOf(player.getID()));
+        String cmd = ProtocolCommands.PLAYER_IDENTIFIACTION.getCommand(player.getName(), player.getID());
+        cmdList.add(cmd);
     }
 
     /**
@@ -145,7 +128,69 @@ public class SocketClient implements ClientInterface{
     }
 
 
+
     /**************************************************************
      ****************** Protocol Commands *************************
      **************************************************************/
+    /**
+     * Communication Automa Client Side.
+     * Command management(FIFO list),
+     * Send a cmd when available and wait for response.
+     * Will be executed every 100ms.
+     * @param in
+     * @param out
+     */
+    private void communicationAutoma(Scanner in, PrintWriter out){
+        boolean cmdToSend = !cmdList.isEmpty();
+
+        if(cmdToSend){
+            //Send CMD
+            out.println(cmdList.remove(0));
+            out.flush();
+
+            //Receive Ack or Response
+            String line = in.nextLine();
+
+            //ACK
+            if(ProtocolCommands.ACK.isThisCmd(line)){
+                manageAck();
+            }
+
+            //Color Selection
+            if(ProtocolCommands.SELECT_COLOR.isThisCmd(line)){
+                manageColorSelection(line);
+            }
+        }
+    }
+
+    /**
+     * Manage Acknowledgement
+     */
+    private void manageAck(){}
+
+    /**
+     * Manage Color Selection Command
+     * @param command
+     */
+    private void manageColorSelection(String command){
+        String[] newColors = new String[TheGame.MAXIMUM_COLORS_NUMBER];
+        int i = 0;
+
+        //Get the data from the command(all the arguments)
+        String[] data = ProtocolCommands.getDataFromCommand(command);
+
+        //Fill the array with the color strings
+        for(i = 0; i < data.length; i++)
+            newColors[i] = data[i];
+
+        //Fill the list is colors are missing
+        for(i = newColors.length; i < TheGame.MAXIMUM_COLORS_NUMBER; i++)
+            newColors[i] = "";
+
+        //Get user choice index (0-3)
+        int color_index = gameView.askColor(newColors);
+
+        //Send the selected color selection
+        sendCmdToClient(ProtocolCommands.COLOR_SELECTION.getCommand(data[color_index]));
+    }
 }

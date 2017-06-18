@@ -1,6 +1,7 @@
 package controllers;
 
-import game.network.server.ServerThread;
+import game.TheGame;
+import game.network.server.SocketServerThread;
 
 /**
  * Created by Eduard Chirica on 6/17/17.
@@ -12,7 +13,12 @@ public class RemotePlayer extends Player{
     /**
      * Remote Client Thread used to communicate with the socket server
      */
-    private ServerThread remoteClientThread;
+    private SocketServerThread remoteClientThread;
+
+    /**
+     * Game Reference, is the game where the player si currently sitting
+     */
+    private TheGame gameReference;
 
     /**
      * Basic Constructor
@@ -37,24 +43,32 @@ public class RemotePlayer extends Player{
     /**
      * Constructor with remote Client initialization
      */
-    public RemotePlayer(ServerThread serverThread) {
+    public RemotePlayer(SocketServerThread socketServerThread) {
         this();
-        remoteClientThread = serverThread;
+        remoteClientThread = socketServerThread;
     }
 
     /**
      * Constructor with remote Client initialization
      */
-    public RemotePlayer(String name, ServerThread serverThread) {
+    public RemotePlayer(String name, SocketServerThread socketServerThread) {
         this(name);
-        remoteClientThread = serverThread;
+        remoteClientThread = socketServerThread;
     }
 
     /**
      * Set the Remote Client Thread
      * @param remoteClient
      */
-    public void setRemoteClient(ServerThread remoteClient) {
+    public void setRemoteClient(SocketServerThread remoteClient) {
         this.remoteClientThread = remoteClient;
+    }
+
+    public TheGame getGameReference() {
+        return gameReference;
+    }
+
+    public void setGameReference(TheGame gameReference) {
+        this.gameReference = gameReference;
     }
 }
