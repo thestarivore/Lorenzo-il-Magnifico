@@ -8,8 +8,6 @@ import controllers.game_course.Period;
 import models.GameFacadeModel;
 import game.network.client.ClientInterface;
 import game.network.server.ServerInterface;
-import views.ExternalGameView;
-import views.GameView;
 import models.board.*;
 
 import java.util.ArrayList;
@@ -25,23 +23,57 @@ public class TheGame {
     private Board board;
     private int playerIDTurn;
 
-    private ExternalGameView        theExternalView;
     private GameFacadeModel         theModel;
     private GameFacadeController    theController;
 
     private ClientInterface client;
     private ServerInterface server;
 
+    private ArrayList<COLORS> colorAvailable;
+
     //Constants
     public static final int MAXIMUM_PLAYERS_NUMBER = 4;
+    public static final int MAXIMUM_COLORS_NUMBER = 4;
+    public enum COLORS{
+        RED("RED"),
+        BLUE("BLUE"),
+        YELLOW("YELLOW"),
+        GREEN ("GREEN"),
+        ;
+
+        String color;
+
+        /**
+         * Basic constructor
+         */
+        COLORS(String color) {
+            this.color = color;
+        }
+
+        /**
+         * Get color
+         * @return String of the color
+         */
+        public String getColor(){
+            return color;
+        }
+    }
+
 
     public TheGame() {
         this.players = new ArrayList<RemotePlayer>();
         this.period = new Period();
 
+        //Initialize the Model and the Controller
         theModel        = new GameFacadeModel(getNumberOfPlayer());
-        theExternalView = new ExternalGameView();
-        theController   = new GameFacadeController(theExternalView, theModel, period);
+        theController   = new GameFacadeController(theModel, period);
+
+        //Initialize collors available for players
+        colorAvailable = new ArrayList<COLORS>();
+        colorAvailable.add(COLORS.RED);
+        colorAvailable.add(COLORS.BLUE);
+        colorAvailable.add(COLORS.YELLOW);
+        colorAvailable.add(COLORS.GREEN);
     }
 
     /**
@@ -58,6 +90,23 @@ public class TheGame {
      */
     public Player getPlayer(int index) {
        return this.players.get(index);
+    }
+
+    /**
+     * Iterate through players and find the player with the passed id.
+     * If none has the required id, return null
+     * @param id
+     * @return Player with passed id
+     */
+    public Player getPlayerById(int id){
+        //Iterate Players
+        for (int i = 0; i < players.size(); i++) {
+            if(players.get(i).getID() == id)
+                return players.get(i);
+        }
+
+        //If nothing found return null
+        return null;
     }
 
 
@@ -165,7 +214,35 @@ public class TheGame {
         System.out.println("                                  |__________________|____________________|__________________|");
     }
 
+    /**
+     * Remove this color, as it's occupied by a player
+     * @param color
+     */
+    public void removeColor(COLORS color) {
+        colorAvailable.remove(color);
+    }
 
+    /**
+     * Get the String List of the available colors
+     * @return
+     */
+    public ArrayList<String> getAvailableColorsStrings(){
+        ArrayList<String> colors = new ArrayList<String>();
+
+        //Fill the list
+        for(int i = 0; i<colorAvailable.size(); i++)
+            colors.add(colorAvailable.get(i).getColor());
+
+        return colors;
+    }
+
+    /**
+     * Get the String List of the available colors
+     * @return
+     */
+    public ArrayList<COLORS> getAvailableColors() {
+        return colorAvailable;
+    }
 }
 
 

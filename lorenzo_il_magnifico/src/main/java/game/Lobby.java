@@ -13,7 +13,6 @@ import java.util.Scanner;
  */
 public class Lobby {
     private static ArrayList<TheGame> games;
-    private String[] colorAvailable = {"RED", "BLUE", "YELLOW", "GREEN"};
 
     //Constants
     public static final int MAXIMUM_GAMES_NUMBER = 10;
@@ -22,17 +21,14 @@ public class Lobby {
      * Basic Constructor
      */
     public Lobby() {
-        int numberOfPlayer = 4; //must be asked
-
         //Rooms Creation
         //Every Room is a TheGame instance
         //once a room works we can implement the multi-room system
         games = new ArrayList<TheGame>();
         games.add(new TheGame());
 
+        //Create the first room/game
         TheGame firstGame = games.get(0);
-
-
     }
 
 
@@ -48,7 +44,15 @@ public class Lobby {
 
         //If game is not full add the new player to this game, else create a new game
         if (lastGame.isGameFull() == false){
+            //Calculate and set player turn
+            int numberOfPlayers = lastGame.getNumberOfPlayer();
+            player.setTurnOrder(numberOfPlayers +1);
+
+            //Add the new arrived player to the game
             lastGame.addPlayer(player);
+
+            //Add a reference to the game at the player
+            player.setGameReference(lastGame);
         }
         else{
             games.add(new TheGame());
@@ -57,16 +61,11 @@ public class Lobby {
 
     }
 
-
-    public void removeColor(String color) {
-        for (int i=0; i < 4; i++)
-            if (color.equalsIgnoreCase(colorAvailable[i]))
-                colorAvailable[i]= "-";
+    /**
+     * Get games from the lobby
+     * @return
+     */
+    public ArrayList<TheGame> getGames() {
+        return games;
     }
-
-    public String getColorAvailable(int i) {
-        return colorAvailable[i];
-    }
-
-
 }

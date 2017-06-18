@@ -41,7 +41,6 @@ public class Client {
 
         //Start Client Communication
         startClientCommunication();
-
     }
 
     /**

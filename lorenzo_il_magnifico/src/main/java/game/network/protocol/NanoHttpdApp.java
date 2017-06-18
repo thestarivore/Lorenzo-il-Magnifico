@@ -1,4 +1,4 @@
-package game.network.download;
+package game.network.protocol;
 
 
 import fi.iki.elonen.NanoHTTPD;

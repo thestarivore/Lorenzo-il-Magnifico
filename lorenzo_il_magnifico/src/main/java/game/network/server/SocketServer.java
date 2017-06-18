@@ -1,17 +1,12 @@
 package game.network.server;
 
-import controllers.Player;
 import controllers.RemotePlayer;
 import game.Lobby;
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Mattia on 22/05/2017.
@@ -72,15 +67,15 @@ public class SocketServer implements ServerInterface{
             RemotePlayer newPlayer = new RemotePlayer();
 
             // Create a new thread for a client
-            ServerThread serverThread = new ServerThread(newPlayer, socket);
+            SocketServerThread socketServerThread = new SocketServerThread(newPlayer, socket);
 
             // Add the new player to the game through the Lobby, and
             // bind it's thread
-            newPlayer.setRemoteClient(serverThread);
+            newPlayer.setRemoteClient(socketServerThread);
             lobby.newPlayerArrived(newPlayer);
 
             //Start the connected client thread
-            serverThread.start();
+            socketServerThread.start();
         }
     }
 
@@ -93,11 +88,6 @@ public class SocketServer implements ServerInterface{
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-    }
-
-    @Override
-    public void sendCmdToClient(String cmd) {
-
     }
 
 

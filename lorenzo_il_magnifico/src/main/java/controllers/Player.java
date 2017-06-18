@@ -1,7 +1,7 @@
 package controllers;
 
 
-import game.network.server.ServerThread;
+import game.TheGame;
 import models.Points;
 import utility.Constants;
 import models.board.*;
@@ -24,7 +24,7 @@ public class Player {
     protected Resources res;
     protected PersonalBoard personalBoard;
     protected ArrayList<LeaderCard> leaderCards;
-    protected Color color;
+    protected TheGame.COLORS color;
     protected PersonalBonusTile personalBonusTile;
     protected NeutralFamilyMember neutralFamilyMember;
     protected FamilyMember[] familyMember;
@@ -126,11 +126,11 @@ public class Player {
         this.leaderCards = leaderCards;
     }
 
-    public Color getColor() {
+    public TheGame.COLORS getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(TheGame.COLORS color) {
         this.color = color;
     }
 
@@ -158,12 +158,20 @@ public class Player {
 
     public void setExcommunicationCubes(ExcommunicationCubes excommunicationCubes) { this.excommunicationCubes=excommunicationCubes; }
 
-    public boolean getMyTurn() {
+    public boolean isMyTurn() {
         return myTurn;
     }
 
     public void setMyTurn(boolean myTurn) {
             this.myTurn = true;
+    }
+
+    public int getTurnOrder() {
+        return turnOrder;
+    }
+
+    public void setTurnOrder(int turnOrder) {
+        this.turnOrder = turnOrder;
     }
 
     @Override
