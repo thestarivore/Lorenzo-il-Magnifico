@@ -1,4 +1,4 @@
-package game.network.download;
+package game.network.garbage;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

@@ -34,19 +34,10 @@ public class Server {
 
         // Get/Create an instance of the RMI Server
         // Create and start the thread
-        RMIServer rmiServer = RMIServer.getInstance(RMI_PORT);
+        RMIServer rmiServer = RMIServer.getInstance(RMI_PORT, lobby);
         Thread rmiServerThread = new Thread(rmiServer);
         rmiServerThread.start();
 
-    }
-
-
-    /**
-     * A new Client was accepted, forward this event to the Lobby
-     * so that can manage this client as a new Player
-     */
-    public void newClientAccepted(RemotePlayer player){
-        lobby.newPlayerArrived(player);
     }
 
 

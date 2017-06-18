@@ -2,9 +2,7 @@ package game.network.client;
 
 
 import controllers.Player;
-import game.network.download.DataTable;
-import game.network.download.Pair;
-import game.network.server.ServerInterface;
+import game.network.download.RMIProtocol;
 import views.GameView;
 
 import javax.naming.Context;
@@ -12,15 +10,8 @@ import javax.naming.InitialContext;
 import javax.naming.NameClassPair;
 import javax.naming.NamingException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.rmi.server.ServerNotActiveException;
-import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 /**
  * Created by Eduard Chirica on 6/4/17.
@@ -28,6 +19,8 @@ import java.util.Scanner;
 public class RMIClient implements ClientInterface{
     private int port;
     private static RMIClient ourInstance = null;
+    private GameView gameView;
+    private Player player;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -63,6 +56,7 @@ public class RMIClient implements ClientInterface{
         while (e.hasMoreElements())
             System.out.println(e.nextElement().getName());
 
+        /*
         String url = "rmi://localhost:"+ this.port + "/central_datatable";
         DataTable centralDataTable = (DataTable) namingContext.lookup(url);
 
@@ -91,7 +85,14 @@ public class RMIClient implements ClientInterface{
             System.out.println("Key: " + p.getKey());
             System.out.println("Value: " + p.getValue());
             l.remove(0);
-        }
+        }*/
+
+        //Connect to RMI Server
+        String url = "rmi://localhost:"+ this.port + "/rmi_protocol";
+        RMIProtocol rmiProtocol = (RMIProtocol) namingContext.lookup(url);
+
+        //Set a remote instance of this client on the server
+        rmiProtocol.setInstance(player.getName(), player.getID());
     }
 
     /**
@@ -114,16 +115,21 @@ public class RMIClient implements ClientInterface{
         }
     }
 
+
     /**
-     * Get the GameView instance
+     * Set the GameView instance
      * @param gameView
      */
     public void setGameView(GameView gameView) {
+        this.gameView = gameView;
     }
 
-    @Override
+    /**
+     * Set the Player instance
+     * @param player
+     */
     public void setPlayer(Player player) {
-
+        this.player = player;
     }
 
 }

@@ -1,8 +1,5 @@
-package game.network.server;
+package game.network.garbage;
 
-
-import game.network.download.DataTable;
-import game.network.download.Pair;
 
 import java.rmi.RemoteException;
 import java.rmi.server.ServerNotActiveException;

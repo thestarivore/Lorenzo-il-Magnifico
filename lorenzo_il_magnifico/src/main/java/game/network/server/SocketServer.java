@@ -3,7 +3,7 @@ package game.network.server;
 import controllers.Player;
 import controllers.RemotePlayer;
 import game.Lobby;
-import game.network.download.Protocol;
+
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -68,12 +68,15 @@ public class SocketServer implements ServerInterface{
                 System.out.println("I/O error: " + e);
             }
 
-            // Create a new thread for a client
-            ServerThread serverThread = new ServerThread(socket);
+            // Create a new player associated to this client and
+            RemotePlayer newPlayer = new RemotePlayer();
 
-            // Create a new player associated to this client and add it
-            // to the game through the Lobby
-            RemotePlayer newPlayer = new RemotePlayer(serverThread);
+            // Create a new thread for a client
+            ServerThread serverThread = new ServerThread(newPlayer, socket);
+
+            // Add the new player to the game through the Lobby, and
+            // bind it's thread
+            newPlayer.setRemoteClient(serverThread);
             lobby.newPlayerArrived(newPlayer);
 
             //Start the connected client thread

@@ -52,6 +52,7 @@ public class Lobby {
         }
         else{
             games.add(new TheGame());
+            newPlayerArrived(player);
         }
 
     }

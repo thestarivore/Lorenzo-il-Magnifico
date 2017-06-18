@@ -1,6 +1,7 @@
 package game.network.server;
 
-import game.network.download.Protocol;
+
+import controllers.RemotePlayer;
 import game.network.download.ProtocolCommands;
 
 import java.io.*;
@@ -12,17 +13,14 @@ import java.util.Scanner;
 /**
  * Created by Eduard Chirica on 6/13/17.
  */
-public class ServerThread extends Thread implements Protocol{
-
+public class ServerThread extends Thread{
+    private RemotePlayer remotePlayer;
     protected Socket socket;
-    private static List<String> cmdList;
 
-    public ServerThread(Socket clientSocket) {
+
+    public ServerThread(RemotePlayer remotePlayer, Socket clientSocket) {
+        this.remotePlayer = remotePlayer;
         this.socket = clientSocket;
-        cmdList = new ArrayList<String>();
-
-        //First welcome message
-        cmdList.add(ProtocolCommands.SHOW_WELCOME_MESSAGE.getCommand());
     }
 
     public void run() {
@@ -40,14 +38,17 @@ public class ServerThread extends Thread implements Protocol{
 
         // leggo e scrivo nella connessione finche' non ricevo "quit”
         while (true) {
-            /*
-                Command management(FIFO list)
-                Send a cmd when available.
-             */
-            boolean cmdToSend = !cmdList.isEmpty();
-            if(cmdToSend){
-                out.println(cmdList.remove(0));
-                out.flush();
+
+            String socketLine = in.nextLine();
+            System.out.println(socketLine);
+            if(socketLine.equals("PLAYER_IDENTIFICATION_CMD")) { //TODO: make a map for the protocol commands
+                //Get Name
+                String name = in.nextLine();
+                remotePlayer.setName(name);
+
+                //Get id
+                int id = Integer.parseInt(in.nextLine());
+                remotePlayer.setID(id);
             }
 
             //Log code
@@ -58,6 +59,7 @@ public class ServerThread extends Thread implements Protocol{
                 out.println("Received: " + line);
                 out.flush();
             }
+
         }
 
         // chiudo gli stream e il socket
@@ -72,35 +74,11 @@ public class ServerThread extends Thread implements Protocol{
     }
 
 
-    /**
-     * Send Command to the client
-     * @param cmd
-     */
-    public void sendCmdToClient(String cmd){
-        cmdList.add(cmd);
-    }
 
 
 
-    /**************************************************************
-     ****************** Protocol Commands *************************
-     **************************************************************/
 
 
-    /**
-     * Show Welcome Message on the client
-     * @param
-     */
-    @Override
-    public void showWelcomeMessage() {
-        sendCmdToClient("WELCOME_CMD");
-    }
 
-    /**
-     * Ask fro the login interface in the client
-     */
-    @Override
-    public void askForLoginMessage() {
-        sendCmdToClient("WELCOME_CMD");
-    }
+
 }

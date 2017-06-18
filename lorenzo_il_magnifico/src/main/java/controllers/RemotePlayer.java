@@ -12,13 +12,16 @@ public class RemotePlayer extends Player{
     /**
      * Remote Client Thread used to communicate with the socket server
      */
-    private ServerThread remoteClient;
+    private ServerThread remoteClientThread;
 
     /**
      * Basic Constructor
      */
     public RemotePlayer() {
         super();
+
+        //In a Remote Player the ID will be sent by the real client
+        setID(0);
     }
 
     /**
@@ -36,7 +39,7 @@ public class RemotePlayer extends Player{
      */
     public RemotePlayer(ServerThread serverThread) {
         this();
-        remoteClient = serverThread;
+        remoteClientThread = serverThread;
     }
 
     /**
@@ -44,6 +47,14 @@ public class RemotePlayer extends Player{
      */
     public RemotePlayer(String name, ServerThread serverThread) {
         this(name);
-        remoteClient = serverThread;
+        remoteClientThread = serverThread;
+    }
+
+    /**
+     * Set the Remote Client Thread
+     * @param remoteClient
+     */
+    public void setRemoteClient(ServerThread remoteClient) {
+        this.remoteClientThread = remoteClient;
     }
 }

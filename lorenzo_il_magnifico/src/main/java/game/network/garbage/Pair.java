@@ -1,4 +1,6 @@
-package game.network.download;
+package game.network.garbage;
+
+import game.network.garbage.DataTable;
 
 import java.io.Serializable;
 

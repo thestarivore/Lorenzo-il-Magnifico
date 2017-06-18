@@ -2,7 +2,7 @@ package views;
 
 import controllers.Player;
 import game.Lobby;
-import game.network.download.Protocol;
+
 import game.network.server.ServerInterface;
 import models.board.Board;
 import models.cards.DevelopmentCard;
@@ -15,7 +15,7 @@ import static java.lang.Integer.parseInt;
 /**
  * Created by Eduard Chirica on 6/11/17.
  */
-public class ExternalGameView implements Protocol {
+public class ExternalGameView{
     private ServerInterface server;
 
     /**
@@ -42,13 +42,4 @@ public class ExternalGameView implements Protocol {
 
 
 
-    @Override
-    public void showWelcomeMessage() {
-
-    }
-
-    @Override
-    public void askForLoginMessage() {
-
-    }
 }
