@@ -84,4 +84,8 @@ public class DevelopmentCard implements Card {
     public void removePoints(Player player) {
         player.getPoints().removePoints(pointsCost);
     }
+    @Override
+    public String toString(){
+        return "Card Name: " + this.name + "\n"+ "Card Cost: " + this.cost+"\n"+"Immediate Effect: "+this.immediateEffect+ "\n"+ "Permanent effect: " + this.permanentEffect;
+    }
 }
