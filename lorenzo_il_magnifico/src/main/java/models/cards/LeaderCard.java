@@ -36,5 +36,8 @@ public class LeaderCard implements Card {
         this.name = name;
     }
 
-
+    @Override
+    public String toString(){
+        return "Card Name: " + this.name + "\n"+ "Card Requirements: " + this.requirements+"\n"+"Special Ability: "+this.specialAbility ;
+    }
 }
