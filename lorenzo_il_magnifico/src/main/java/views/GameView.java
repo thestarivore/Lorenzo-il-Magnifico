@@ -314,6 +314,8 @@ public class GameView {
         System.out.println(line);
     }
 
-
+    private void Map(){
+        this.game.setMap();
+    }
 
 }
