@@ -1,9 +1,9 @@
 package game.network.client;
 
 
-import game.network.download.DataTable;
-import game.network.download.Pair;
-import game.network.server.ServerInterface;
+import controllers.Player;
+import game.TheGame;
+import game.network.protocol.RMIProtocol;
 import views.GameView;
 
 import javax.naming.Context;
@@ -11,28 +11,26 @@ import javax.naming.InitialContext;
 import javax.naming.NameClassPair;
 import javax.naming.NamingException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
+import java.rmi.server.ServerNotActiveException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
 
 /**
  * Created by Eduard Chirica on 6/4/17.
  */
 public class RMIClient implements ClientInterface{
+    private int port;
     private static RMIClient ourInstance = null;
+    private GameView gameView;
+    private Player player;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
      * @return the instance of the client rmi
      */
-    public static RMIClient getInstance() {
+    public static RMIClient getInstance(int port) {
         if(ourInstance == null)
-            ourInstance = new RMIClient();
+            ourInstance = new RMIClient(port);
 
         return ourInstance;
     }
@@ -40,41 +38,42 @@ public class RMIClient implements ClientInterface{
     /**
      * RMI Client Constructor
      */
-    public RMIClient() {
+    public RMIClient(int port) {
+        this.port = port;
     }
 
     /**
      * Start RMI Client communication manager
      * @throws IOException
      */
-    private void startClient() throws IOException, NamingException {
+    private void startClient() throws IOException, NamingException, ServerNotActiveException {
         //System.setProperty("java.security.policy", "client.policy");
         //System.setSecurityManager(new SecurityManager());
 
         Context namingContext = new InitialContext();
         System.out.print("RMI registry bindings: ");
         Enumeration<NameClassPair> e =
-                namingContext.list("rmi://localhost/");
+                namingContext.list("rmi://localhost:" + this.port);
 
         while (e.hasMoreElements())
             System.out.println(e.nextElement().getName());
 
-        String url = "rmi://localhost/central_datatable";
-        DataTable centralDataTable = (DataTable) namingContext.lookup(url);
+        //Connect to RMI Server
+        String url = "rmi://localhost:"+ this.port + "/rmi_protocol";
+        RMIProtocol rmiProtocol = (RMIProtocol) namingContext.lookup(url);
 
-        ArrayList<String> l=new ArrayList<String>();
-        l.add("key1");
-        l.add("key2");
-        l.add("key3");
-        l.add("key4");
+        //Set a remote instance of this client on the server
+        rmiProtocol.setInstance(player.getName(), player.getID());
 
-        while(!l.isEmpty()) {
-            Pair p = centralDataTable.getValue(l);
-            System.out.println(l.get(0));
-            System.out.println("Key: " + p.getKey());
-            System.out.println("Value: " + p.getValue());
-            l.remove(0);
-        }
+        //Ask colors to choose from
+        String[] colors = rmiProtocol.getAvailableColors(player.getID());
+
+        //Get index of the selected color
+        int colorIndex = gameView.askColor(colors);
+
+        //Send back to the server the selected color
+        rmiProtocol.setPlayerColor(player.getID(), colors[colorIndex]);
+
     }
 
     /**
@@ -92,14 +91,26 @@ public class RMIClient implements ClientInterface{
             e.printStackTrace();
         } catch (NamingException e) {
             e.printStackTrace();
+        } catch (ServerNotActiveException e) {
+            e.printStackTrace();
         }
     }
 
+
     /**
-     * Get the GameView instance
+     * Set the GameView instance
      * @param gameView
      */
     public void setGameView(GameView gameView) {
+        this.gameView = gameView;
+    }
+
+    /**
+     * Set the Player instance
+     * @param player
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
 }

@@ -1,10 +1,15 @@
 package game.network.client;
 
+import controllers.Player;
+import game.TheGame;
+import game.network.protocol.ProtocolCommands;
 import views.GameView;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -15,8 +20,10 @@ public class SocketClient implements ClientInterface{
     private String ip;
     private int port;
     private GameView gameView;
+    private Player player;
+    private List<String> cmdList;
 
-    private static SocketClient ourInstance = null;
+    private static SocketClient instance = null;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -25,10 +32,10 @@ public class SocketClient implements ClientInterface{
      * @return the instance of the client socket
      */
     public static SocketClient getInstance(String ip, int port) {
-        if(ourInstance == null)
-            ourInstance = new SocketClient(ip, port);
+        if(instance == null)
+            instance = new SocketClient(ip, port);
 
-        return ourInstance;
+        return instance;
     }
 
     /**
@@ -39,6 +46,7 @@ public class SocketClient implements ClientInterface{
     public SocketClient(String ip, int port) {
         this.ip = ip;
         this.port = port;
+        this.cmdList = new ArrayList<String>();
     }
 
     /**
@@ -48,23 +56,25 @@ public class SocketClient implements ClientInterface{
     private void startClient() throws IOException {
         Socket socket = new Socket(ip, port);
         System.out.println("Connection established");
+
         Scanner socketIn = new Scanner(socket.getInputStream());
         PrintWriter socketOut = new PrintWriter(socket.getOutputStream());
         Scanner stdin = new Scanner(System.in);
         try {
             while (true) {
-                /*/String inputLine = stdin.nextLine();
-                socketOut.println(inputLine);
-                socketOut.flush();*/
+                /*
+                Command management(FIFO list)
+                Send a cmd when available and wait for response.
+                */
+                communicationAutoma(socketIn, socketOut);
 
-                String socketLine = socketIn.nextLine();
-                System.out.println(socketLine);
-                if(socketLine.equals("WELCOME_CMD")) { //TODO: make a map for the protocol commands
-                    gameView.printWelcomeMessage();
-                }
+                //Delay between a command and another
+                Thread.sleep(100);
             }
         } catch (NoSuchElementException e) {
             System.out.println("Connection closed");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             stdin.close();
             socketIn.close();
@@ -90,10 +100,97 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
-     * Get the GameView instance
+     * Set the GameView instance
      * @param gameView
      */
     public void setGameView(GameView gameView) {
         this.gameView = gameView;
+    }
+
+    /**
+     * Set the Player instance
+     * @param player
+     */
+    public void setPlayer(Player player) {
+        this.player = player;
+
+        //Send the player identification to the server
+        String cmd = ProtocolCommands.PLAYER_IDENTIFIACTION.getCommand(player.getName(), player.getID());
+        cmdList.add(cmd);
+    }
+
+    /**
+     * Send Command to the client
+     * @param cmd
+     */
+    public void sendCmdToClient(String cmd){
+        cmdList.add(cmd);
+    }
+
+
+
+    /**************************************************************
+     ****************** Protocol Commands *************************
+     **************************************************************/
+    /**
+     * Communication Automa Client Side.
+     * Command management(FIFO list),
+     * Send a cmd when available and wait for response.
+     * Will be executed every 100ms.
+     * @param in
+     * @param out
+     */
+    private void communicationAutoma(Scanner in, PrintWriter out){
+        boolean cmdToSend = !cmdList.isEmpty();
+
+        if(cmdToSend){
+            //Send CMD
+            out.println(cmdList.remove(0));
+            out.flush();
+
+            //Receive Ack or Response
+            String line = in.nextLine();
+
+            //ACK
+            if(ProtocolCommands.ACK.isThisCmd(line)){
+                manageAck();
+            }
+
+            //Color Selection
+            if(ProtocolCommands.SELECT_COLOR.isThisCmd(line)){
+                manageColorSelection(line);
+            }
+        }
+    }
+
+    /**
+     * Manage Acknowledgement
+     */
+    private void manageAck(){}
+
+    /**
+     * Manage Color Selection Command
+     * @param command
+     */
+    private void manageColorSelection(String command){
+        String[] newColors = new String[TheGame.MAXIMUM_COLORS_NUMBER];
+        int i = 0;
+
+        //Get the data from the command(all the arguments)
+        String[] data = ProtocolCommands.getDataFromCommand(command);
+
+        //Fill the array with the color strings
+        for(i = 0; i < data.length; i++)
+            newColors[i] = data[i];
+
+        //Fill the list is colors are missing
+        for(i = newColors.length; i < TheGame.MAXIMUM_COLORS_NUMBER; i++)
+            newColors[i] = "";
+
+        //Get user choice index (0-3)
+        int color_index = gameView.askColor(newColors);
+
+        //Send the selected color selection
+        sendCmdToClient(ProtocolCommands.COLOR_SELECTION.getCommand(data[color_index]));
     }
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 
+import game.TheGame;
 import models.Points;
 import utility.Constants;
 import models.board.*;
@@ -17,37 +18,62 @@ import java.util.List;
  */
 
 public class Player {
-    private String name;
-    private int ID;
-    private Points points;
-    private Resources res;
-    private PersonalBoard personalBoard;
-    private ArrayList<LeaderCard> leaderCards;
-    private Color color;
-    private PersonalBonusTile personalBonusTile;
-    private NeutralFamilyMember[] familyMember;
-    private MarkerDiscs markerDiscs;
-    private ExcommunicationCubes excommunicationCubes;
-    private int turnOrder;
-    private boolean myTurn;
+    protected String name;
+    protected int ID;
+    protected Points points;
+    protected Resources res;
+    protected PersonalBoard personalBoard;
+    protected ArrayList<LeaderCard> leaderCards;
+    protected TheGame.COLORS color;
+    protected PersonalBonusTile personalBonusTile;
+    protected NeutralFamilyMember neutralFamilyMember;
+    protected FamilyMember[] familyMember;
+    protected MarkerDiscs markerDiscs;
+    protected ExcommunicationCubes excommunicationCubes;
+    protected int turnOrder;
+    protected boolean myTurn;
 
-    public Player(String name,int turnOrder){
+    /**
+     * Set the minimum number of character that the Player should have
+     */
+    public static final int PLAYER_NAME_MIN_CHARACTERS = 3;
+
+    /**
+     * Basic Constructor
+     */
+    public Player() {
+        this("");
+    }
+
+    /**
+     * Constructor with Player's Name
+     * @param name
+     */
+    public Player(String name){
+        //Set passed name
         this.name = name;
+
+        //Create identification number
+        Random randomGenerator = new Random();
+        this.ID = randomGenerator.nextInt();
+
+        //Set all player's possessions
         this.points = new Points();
-        this.res = new Resources(turnOrder);
+        this.res = new Resources();
         this.personalBoard = new PersonalBoard();
         this.leaderCards = new ArrayList<LeaderCard>();
         this.personalBonusTile = new PersonalBonusTile();
-
-        this.familyMember = new NeutralFamilyMember[Constants.FIXED_FAMILYMEMBER];
-
-        this.familyMember[0] = new NeutralFamilyMember();
-        for (int i=1; i<Constants.FIXED_FAMILYMEMBER-1; i++)
-            this.familyMember[i] = new FamilyMember();
-
         this.markerDiscs = new MarkerDiscs();
         this.excommunicationCubes = new ExcommunicationCubes();
-        this.turnOrder=turnOrder;
+
+        //Create Family Members
+        this.neutralFamilyMember = new NeutralFamilyMember();
+        this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER-1];
+        for (int i=0; i<Constants.FIXED_FAMILYMEMBER-1; i++)
+            this.familyMember[i] = new FamilyMember();
+
+        //Turn initialization
+        this.turnOrder = 0;
         this.myTurn = false;
 
     }
@@ -68,6 +94,10 @@ public class Player {
 
     public int getID() {
         return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public Points getPoints() {
@@ -102,11 +132,11 @@ public class Player {
         this.leaderCards = leaderCards;
     }
 
-    public Color getColor() {
+    public TheGame.COLORS getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(TheGame.COLORS color) {
         this.color = color;
     }
 
@@ -128,17 +158,25 @@ public class Player {
 
     public void setExcommunicationCubes(ExcommunicationCubes excommunicationCubes) { this.excommunicationCubes=excommunicationCubes; }
 
-    public boolean getMyTurn() {
+    public boolean isMyTurn() {
         return myTurn;
     }
 
-    public void setMyTurn() {
-        if (this.myTurn) {
-            this.myTurn = false;
-            return;
-        }
+    public void setMyTurn(boolean myTurn) {
+            this.myTurn = true;
+    }
 
-        this.myTurn = true;
+    public int getTurnOrder() {
+        return turnOrder;
+    }
+
+    public void setTurnOrder(int turnOrder) {
+        this.turnOrder = turnOrder;
+    }
+
+    @Override
+    public String toString(){
+        return "Player name: "+this.name + "\n" + "Player Points:"+this.points + "\n" + this.res ;
 
     }
 }

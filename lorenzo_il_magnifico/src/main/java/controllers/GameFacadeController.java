@@ -6,15 +6,12 @@ import controllers.game_course.Period;
 import controllers.game_course.phases.Action;
 import controllers.game_course.phases.RoundSetup;
 import controllers.game_course.phases.VaticanReport;
-import game.network.server.SocketServer;
 import models.GameFacadeModel;
 import models.Points;
 import models.Resources;
-import models.board.FamilyMember;
 import models.board.NeutralFamilyMember;
+import models.cards.Deck;
 import models.cards.DevelopmentCard;
-import utility.Constants;
-import views.ExternalGameView;
 
 import static java.lang.Integer.parseInt;
 
@@ -38,6 +35,7 @@ public class GameFacadeController {
     private VaticanReport vaticanReport;
     private RoundSetup roundSetup;
     private Player playerTurn;
+    private Deck deck;
 
     public GameFacadeController(ExternalGameView externalGameView, GameFacadeModel facadeModel, Period period) {
         this.externalGameView = externalGameView;
@@ -49,9 +47,7 @@ public class GameFacadeController {
         this.vaticanReport = new VaticanReport();
         this.roundSetup = new RoundSetup();
 
-        //Show welcome Message
-        SocketServer server = SocketServer.getInstance(1338);   //TODO: implementare get instance anche senza numero porta, tanto c'è ne solo uno
-        externalGameView.showWelcomeMessage(server);
+
     }
 
     /**

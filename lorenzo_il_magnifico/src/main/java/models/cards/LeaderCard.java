@@ -1,5 +1,5 @@
 package models.cards;
-
+import java.util.ArrayList;
 import models.Requirements;
 import controllers.ability.SpecialAbility;
 
@@ -11,7 +11,6 @@ public class LeaderCard implements Card {
     private Requirements requirements;
     private SpecialAbility specialAbility;
 
-    LeaderCard leaderCard = new LeaderCard();
 
     public Requirements getRequirements() {
         return requirements;
@@ -35,5 +34,10 @@ public class LeaderCard implements Card {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString(){
+        return "Card Name: " + this.name + "\n"+ "Card Requirements: " + this.requirements+"\n"+"Special Ability: "+this.specialAbility ;
     }
 }

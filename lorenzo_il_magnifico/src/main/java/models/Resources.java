@@ -94,5 +94,10 @@ public class Resources {
                     if (this.servants>= res.getServants())
                         return true;
         return false;
+
+    }
+    @Override
+    public String toString(){
+        return "Woods: "+this.woods + " Stones: "+this.stones+ " Coins: "+this.coins+ " Servants: "+this.servants;
     }
 }

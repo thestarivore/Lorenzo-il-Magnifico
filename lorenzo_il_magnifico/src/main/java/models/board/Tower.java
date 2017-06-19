@@ -1,21 +1,22 @@
 package models.board;
 
 
+import models.cards.DevelopmentCard;
 import utility.Constants;
-import models.cards.Deck;
+import models.cards.DevelopmentCardDeck;
 
 /**
  * Created by starivore on 5/7/17.
  */
 public class Tower {
-    private Deck deck;
+    private DevelopmentCardDeck deck;
     private ActionSpace[] space;
     private int numberOfTower;
     private boolean isEmpty;
 
 
     public Tower(int numberOfTower){
-        this.deck= new Deck();
+        this.deck= new DevelopmentCardDeck();
         this.numberOfTower = numberOfTower;
         this.space = new ActionSpace[Constants.FIXED_TOWER_CARDS];
         for (int i=0; i<Constants.FIXED_TOWER_CARDS; i++)
@@ -24,9 +25,9 @@ public class Tower {
 
     }
 
-    public Deck getDeck() { return deck; }
+    public DevelopmentCardDeck getDeck() { return deck; }
 
-    public void setDeck(Deck deck) {
+    public void setDeck(DevelopmentCardDeck deck) {
         this.deck = deck;
     }
 

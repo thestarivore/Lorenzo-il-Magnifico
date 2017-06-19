@@ -1,36 +1,33 @@
 package models.cards;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * Created by Eduard Chirica on 5/7/17.
+ * Created by cp18393 on 17/06/17.
  */
 public class Deck {
-    public List<DevelopmentCard> developmentCards;
+    private Card card;
+
+    public Deck(Card card) {
+        this.card = new Card() {
+            @Override
+            public String getName() {
+                return null;
+            }
+
+            @Override
+            public void setName(String name) {
+
+            }
+        };
 
 
-    public Deck() {
-        this.developmentCards = new ArrayList<DevelopmentCard>();
     }
+    public Deck(){}
 
-    public List<DevelopmentCard>  getDevelopmentCards() {
-        return developmentCards;
-    }
-
-    public DevelopmentCard getCardFromDeck() {
-        DevelopmentCard card = new DevelopmentCard();
-        card = developmentCards.get(0);
-        developmentCards.remove(0);
+    public Card getCard() {
         return card;
     }
 
-    public void setCard (DevelopmentCard card) {
-        this.developmentCards.add(card);
-    }
-
-    public void setDevelopmentCards (List<DevelopmentCard> developmentCards) {
-        this.developmentCards = developmentCards;
+    public void setCard(Card card) {
+        this.card = card;
     }
 }
-

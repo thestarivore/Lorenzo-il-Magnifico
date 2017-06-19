@@ -2,63 +2,70 @@ package game;
 
 
 import controllers.Player;
+import controllers.RemotePlayer;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * Created by Paolo on 08/05/17.
  */
 public class Lobby {
-    private static TheGame games;
-    private String[] colorAvailable = {"RED", "BLUE", "YELLOW", "GREEN"};
+    private static ArrayList<TheGame> games;
+
+    //Constants
+    public static final int MAXIMUM_GAMES_NUMBER = 10;
 
     /**
      * Basic Constructor
      */
     public Lobby() {
-        int numberOfPlayer = 4; //must be asked
-
-        //For now just a static game and no rooms
+        //Rooms Creation
+        //Every Room is a TheGame instance
         //once a room works we can implement the multi-room system
-        games = new TheGame(numberOfPlayer);
+        games = new ArrayList<TheGame>();
+        games.add(new TheGame());
+
+        //Create the first room/game
+        TheGame firstGame = games.get(0);
     }
 
 
+    /**
+     * A new Client was accepted,
+     * Manage this client as a new Player and add it to the current
+     * game, or create a new game if there is no place in the current one.
+     * @param player Player istance of the player to add
+     */
+    public void newPlayerArrived(RemotePlayer player){
+        //Get last game in the list, because the others should be full
+        TheGame lastGame = games.get(games.size()-1);
 
-/*
-    public boolean chooseColor(Player player) {
-        String color = games.getTheView().getColor(this);
-        if ("red".equalsIgnoreCase(color))
-            player.setColor(Color.RED);
-        if ("yellow".equalsIgnoreCase(color))
-            player.setColor(Color.YELLOW);
-        if ("blue".equalsIgnoreCase(color))
-            player.setColor(Color.BLUE);
-        if ("green".equalsIgnoreCase(color))
-            player.setColor(Color.GREEN);
-        return true;
+        //If game is not full add the new player to this game, else create a new game
+        if (lastGame.isGameFull() == false){
+            //Calculate and set player turn
+            int numberOfPlayers = lastGame.getNumberOfPlayer();
+            player.setTurnOrder(numberOfPlayers +1);
+
+            //Add the new arrived player to the game
+            lastGame.addPlayer(player);
+
+            //Add a reference to the game at the player
+            player.setGameReference(lastGame);
+        }
+        else{
+            games.add(new TheGame());
+            newPlayerArrived(player);
+        }
+
     }
-*/
 
-    public TheGame getGames() {
+    /**
+     * Get games from the lobby
+     * @return
+     */
+    public ArrayList<TheGame> getGames() {
         return games;
     }
-
-    public void setGames(TheGame games) {
-        this.games = games;
-    }
-
-    public void removeColor(String color) {
-        for (int i=0; i < 4; i++)
-            if (color.equalsIgnoreCase(colorAvailable[i]))
-                colorAvailable[i]= "-";
-    }
-
-    public String getColorAvailable(int i) {
-        return colorAvailable[i];
-    }
-
-
-
 }

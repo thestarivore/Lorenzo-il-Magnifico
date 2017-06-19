@@ -8,8 +8,8 @@ import models.board.PersonalBonusTile;
 public class AdvancedGame extends TheGame {
     private PersonalBonusTile customBonusTile;
 
-    public AdvancedGame(int numberOfPlayer) {
-        super(numberOfPlayer);
+    public AdvancedGame() {
+        super();
     }
 
     public PersonalBonusTile getCustomBonusTile() {
