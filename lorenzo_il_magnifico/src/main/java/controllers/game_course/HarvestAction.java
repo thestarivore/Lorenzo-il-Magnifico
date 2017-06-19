@@ -16,28 +16,9 @@ public class HarvestAction extends Action {
         super(model);
     }
 
-    public boolean placeNeutralFamilyMemberOnHarvestArea(NeutralFamilyMember neutralFamilyMember) {
-        boolean free;
-
-        free = checkFreeActionSpace();
-        if (free) {
-            model.getBoard().getHarvestArea().getSingleSpace().setNeutralFamilyMember(neutralFamilyMember);
-            return true;
-        }
-
-        ActionSpace singleSpace = new ActionSpace();
-        model.getBoard().getHarvestArea().addMultipleSpace(singleSpace);
-        int i = model.getBoard().getHarvestArea().getMultipleSpace().size();
-        model.getBoard().getHarvestArea().getMultipleSingleSpace(i).setNeutralFamilyMember(neutralFamilyMember);
-
-        int value = neutralFamilyMember.getValue();
-        neutralFamilyMember.setValue(value-3);
-
-        return false;
-    }
 
 
-    public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
+    public boolean placeFamilyMemberOnHarvestArea(NeutralFamilyMember famMember) {
         boolean free;
 
         free = checkFreeActionSpace();

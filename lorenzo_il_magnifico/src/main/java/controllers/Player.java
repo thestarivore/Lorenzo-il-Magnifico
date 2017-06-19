@@ -25,8 +25,7 @@ public class Player {
     private ArrayList<LeaderCard> leaderCards;
     private Color color;
     private PersonalBonusTile personalBonusTile;
-    private NeutralFamilyMember neutralFamilyMember;
-    private FamilyMember[] familyMember;
+    private NeutralFamilyMember[] familyMember;
     private MarkerDiscs markerDiscs;
     private ExcommunicationCubes excommunicationCubes;
     private int turnOrder;
@@ -40,9 +39,10 @@ public class Player {
         this.leaderCards = new ArrayList<LeaderCard>();
         this.personalBonusTile = new PersonalBonusTile();
 
-        this.neutralFamilyMember = new NeutralFamilyMember();
-        this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER-1];
-        for (int i=0; i<Constants.FIXED_FAMILYMEMBER-1; i++)
+        this.familyMember = new NeutralFamilyMember[Constants.FIXED_FAMILYMEMBER];
+
+        this.familyMember[0] = new NeutralFamilyMember();
+        for (int i=1; i<Constants.FIXED_FAMILYMEMBER-1; i++)
             this.familyMember[i] = new FamilyMember();
 
         this.markerDiscs = new MarkerDiscs();
@@ -114,16 +114,10 @@ public class Player {
 
     public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {this.personalBonusTile=personalBonusTile; }
 
-    public FamilyMember getFamilyMember(int i) { return familyMember[i]; }
+    public NeutralFamilyMember getFamilyMember(int i) { return familyMember[i]; }
 
-    public void setFamilyMember(FamilyMember familyMember, int i) {this.familyMember[i]=familyMember; }
-
-    public NeutralFamilyMember getNeutralFamilyMember() {
-        return neutralFamilyMember;
-    }
-
-    public void setNeutralFamilyMember(NeutralFamilyMember neutralFamilyMember) {
-        this.neutralFamilyMember = neutralFamilyMember;
+    public void setFamilyMember(FamilyMember familyMember, int i) {
+        this.familyMember[i]=familyMember;
     }
 
     public MarkerDiscs getMarkerDiscs() { return markerDiscs; }

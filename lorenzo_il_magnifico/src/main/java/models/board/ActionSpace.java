@@ -12,13 +12,11 @@ public class ActionSpace {
     private DevelopmentCard card;
     private Resources bonusRes;
     private Points bonusPoints;
-    private NeutralFamilyMember neutralFamilyMember;
-    private FamilyMember familyMember;
+    private NeutralFamilyMember familyMember;
     private int diceCost;
     private boolean isOccupied;
 
     public ActionSpace() {
-        this.familyMember = new FamilyMember();
         this.isOccupied = false;
         this.diceCost = 1;
     }
@@ -61,19 +59,11 @@ public class ActionSpace {
         this.bonusRes = bonus;
     }
 
-    public NeutralFamilyMember getNeutralFamilyMember() {
-        return neutralFamilyMember;
-    }
-
-    public void setNeutralFamilyMember(NeutralFamilyMember familyMember) {
-        this.neutralFamilyMember = familyMember;
-    }
-
-    public FamilyMember getFamilyMember() {
+    public NeutralFamilyMember getFamilyMember() {
         return familyMember;
     }
 
-    public void setFamilyMember(FamilyMember familyMember) {
+    public void setFamilyMember(NeutralFamilyMember familyMember) {
         this.familyMember = familyMember;
     }
 

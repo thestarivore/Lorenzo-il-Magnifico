@@ -36,24 +36,16 @@ public class Action implements Phase {
         this.model = model;
     }
 
-    public boolean placeNeutralFamilyMemberCouncilPalace(NeutralFamilyMember neutralFamilyMember) {
-        ActionSpace actionSpace = new ActionSpace();
-        model.getBoard().getCouncilPalace().addSpaces(actionSpace);
-        int space = model.getBoard().getCouncilPalace().getSpaces().size();
-        model.getBoard().getCouncilPalace().getSpace(space).setNeutralFamilyMember(neutralFamilyMember);
-        return true;
-    }
 
-    public boolean placeFamilyMemberCouncilPalace (FamilyMember familyMember) {
-        ActionSpace actionSpace = new ActionSpace();
-        model.getBoard().getCouncilPalace().addSpaces(actionSpace);
+    public boolean placeFamilyMemberCouncilPalace (NeutralFamilyMember familyMember) {
+        model.getBoard().getCouncilPalace().addSpaces();
         int space = model.getBoard().getCouncilPalace().getSpaces().size();
         model.getBoard().getCouncilPalace().getSpace(space).setFamilyMember(familyMember);
         return true;
     }
 
 
-    public boolean placeNeutralFamilyMemberOnTower (int tower, int floor, NeutralFamilyMember famMember, Player player) {
+    public boolean placeFamilyMemberOnTower (int tower, int floor, NeutralFamilyMember famMember, Player player) {
 
         boolean free;
         free = checkFreeActionSpace(tower, floor);
@@ -64,57 +56,23 @@ public class Action implements Phase {
                     player.getRes().setCoins(coins);
                     break;
                 }
-
-
-            model.getBoard().getTower(tower).getSpace(floor).setNeutralFamilyMember(famMember);
+                if (checkNoSameColorFamilyMember(tower,famMember))
+                    model.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
         }
         return free;
     }
 
 
-
-
-
-    public boolean placeFamilyMemberOnTower (int tower, int floor, FamilyMember famMember, Player player) {
-
-        boolean free;
-        free = checkFreeActionSpace(tower, floor);
-        if (free && checkNoSameColorFamilyMember(tower, famMember))
-            for(int i = 0; i < Constants.FIXED_TOWER_CARDS; i++)
-                if (model.getBoard().getTower(tower).getSpace(i).getOccupied())
-                    if (player.getRes().getCoins() >= 3) {
-                        int coins = player.getRes().getCoins() - 3;
-                        player.getRes().setCoins(coins);
-                        break;
-                    }
-
-        model.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
-        return free;
-
-    }
-
-    public boolean placeNeutralFamilyMemberMarket(NeutralFamilyMember neutralFamilyMember, Player player, int space) {
+    public boolean placeFamilyMemberMarket(NeutralFamilyMember neutralFamilyMember, Player player, int space) {
         boolean free;
 
         free = checkFreeMarketSpace(space);
 
         if (free)
-            model.getBoard().getMarket().getSpace(space).setNeutralFamilyMember(neutralFamilyMember);
+            model.getBoard().getMarket().getSpace(space).setFamilyMember(neutralFamilyMember);
 
         return free;
     }
-
-    public boolean placeFamilyMemberMarket(FamilyMember familyMember, Player player, int space){
-        boolean free;
-
-        free = checkFreeMarketSpace(space);
-
-        if (free)
-            model.getBoard().getMarket().getSpace(space).setFamilyMember(familyMember);
-
-        return free;
-    }
-
 
     public boolean checkFreeMarketSpace(int space) {
         return (!(model.getBoard().getMarket().getSpace(space).getOccupied()));
@@ -127,10 +85,10 @@ public class Action implements Phase {
 
     }
 
-    public boolean checkNoSameColorFamilyMember(int tower, FamilyMember famMember) {
+    public boolean checkNoSameColorFamilyMember(int tower, NeutralFamilyMember familyMember) {
         for (int i=0 ; i<Constants.FIXED_TOWER_CARDS; i++)
             if (!(checkFreeActionSpace(tower,i)))
-                if (famMember.getColor().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getColor()))
+                if (familyMember.getColor().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getColor()))
                     return false;
 
         return true;

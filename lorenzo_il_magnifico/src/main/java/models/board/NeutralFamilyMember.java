@@ -1,11 +1,14 @@
 package models.board;
 
+import java.awt.*;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class NeutralFamilyMember{
     private int value;
     private boolean isUsed;
+    private Color color;
 
     public NeutralFamilyMember() {
         this.value = 0;
@@ -30,5 +33,13 @@ public class NeutralFamilyMember{
 
     public void setUsed() {
         this.isUsed = true;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

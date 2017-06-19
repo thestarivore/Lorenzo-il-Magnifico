@@ -26,8 +26,8 @@ public class TheCouncilPalace {
         return spaces.get(i);
     }
 
-    public void addSpaces(ActionSpace space) {
-        this.spaces.add(space);
+    public void addSpaces() {
+        this.spaces.add(new ActionSpace());
     }
 
 
