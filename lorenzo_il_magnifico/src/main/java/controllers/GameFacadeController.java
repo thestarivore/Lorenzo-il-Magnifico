@@ -27,7 +27,6 @@ import static java.lang.Integer.parseInt;
 
 public class GameFacadeController {
     private GameFacadeModel facadeModel;
-    private ExternalGameView externalGameView;
     private Period period;
     private Action action;
     private HarvestAction harvestAction;
@@ -37,8 +36,7 @@ public class GameFacadeController {
     private Player playerTurn;
     private Deck deck;
 
-    public GameFacadeController(ExternalGameView externalGameView, GameFacadeModel facadeModel, Period period) {
-        this.externalGameView = externalGameView;
+    public GameFacadeController(GameFacadeModel facadeModel, Period period) {
         this.facadeModel = facadeModel;
         this.period = period;
         this.action = new Action(this.facadeModel);
@@ -50,12 +48,19 @@ public class GameFacadeController {
 
     }
 
+}
+
+
+/*
+
+
     /**
      * Select the family member and add servant if requested.
      * @param player
      * @param type Type of family member
      * @return family member with value update
      */
+/*
     public NeutralFamilyMember selectFamilyMember(Player player, int type) {
 
         int servant = externalGameView.getServant(player);
@@ -73,6 +78,7 @@ public class GameFacadeController {
      * @param space
      * @return
      */
+/*
     public boolean checkFamilyMemberTowerChoice(NeutralFamilyMember familyMember, int tower, int space) {
         boolean valid = false;
         if (familyMember.getValue() >= facadeModel.getBoard().getTower(tower).getSpace(space).getDiceCost())
@@ -86,6 +92,7 @@ public class GameFacadeController {
      * @param familyMember
      * @return
      */
+/*
     public boolean checkFamilyMemberChoice(NeutralFamilyMember familyMember) {
         boolean valid = false;
         if (familyMember.getValue() >= 1)
@@ -98,6 +105,7 @@ public class GameFacadeController {
      * @param player
      * @return
      */
+/*
     public boolean chooseAction(Player player) {
         boolean check;
         String message = externalGameView.getAction();
@@ -135,6 +143,7 @@ public class GameFacadeController {
      * @param player
      * @return
      */
+/*
     public boolean towerActionChoice(Player player) {
         boolean valid = false;
         boolean check = false;
@@ -159,6 +168,7 @@ public class GameFacadeController {
      * @param type
      * @return
      */
+/*
     public boolean familyMemberAction(Player player, int tower, int space, int type) {
 
         boolean check = false;
@@ -177,6 +187,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
+
+/*
     public boolean harvestActionChoice(Player player) {
         boolean valid = false;
 
@@ -198,6 +210,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
+
+/*
     public boolean productionActionChoice(Player player) {
         boolean valid = false;
 
@@ -220,6 +234,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
+
+/*
     public boolean councilActionChoice(Player player) {
         boolean valid = false;
 
@@ -256,6 +272,7 @@ public class GameFacadeController {
      * @param space
      * @return
      */
+/*
     public boolean performTowerAction(Player player, int tower, int space) {
 
         boolean valid;
@@ -313,6 +330,8 @@ public class GameFacadeController {
      * @param card
      * @return
      */
+
+/*
     public boolean takeBonusCard(Player player, DevelopmentCard card) {
         boolean valid = false;
         int tower = -1000;
@@ -380,3 +399,4 @@ public class GameFacadeController {
 
 
 
+*/
