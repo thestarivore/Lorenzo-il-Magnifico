@@ -74,8 +74,12 @@ public class SocketServerThread extends Thread{
         if (ProtocolCommands.COLOR_SELECTION.isThisCmd(cmd)) {
             manageColorSelection(cmd);
         }
-    }
 
+        //GET_GAME_UPDATES - "does the game need to be updated?"
+        if (ProtocolCommands.GET_GAME_UPDATES.isThisCmd(cmd)) {
+            manageGetGameUpdates(cmd);
+        }
+    }
 
 
     /****************************************************************************************
@@ -130,7 +134,6 @@ public class SocketServerThread extends Thread{
         out.flush();
     }
 
-
     /**
      * Manage COLOR_SELECTION command.
      * @param command String of the command received via socket
@@ -150,5 +153,19 @@ public class SocketServerThread extends Thread{
 
         //sk the remote player to pick a color
         sendAck();
+    }
+
+    /**
+     * Manage GET_GAME_UPDATES command
+     * @param command String of the command received via socket
+     */
+    private void manageGetGameUpdates(String command) {
+        //There should be no arguments here
+        //TODO: for now i don't check if something really changed on the board(i assume is always changes just for debug)
+        short itChanged = 1;
+
+        //Send the command back
+        out.println(ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged));
+        out.flush();
     }
 }

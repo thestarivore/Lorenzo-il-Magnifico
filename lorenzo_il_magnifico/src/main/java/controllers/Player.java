@@ -34,6 +34,11 @@ public class Player {
     protected boolean myTurn;
 
     /**
+     * Game Reference, is the game where the player si currently sitting
+     */
+    private TheGame gameReference;
+
+    /**
      * Set the minimum number of character that the Player should have
      */
     public static final int PLAYER_NAME_MIN_CHARACTERS = 3;
@@ -178,6 +183,22 @@ public class Player {
     public String toString(){
         return "Player name: "+this.name + "\n" + "Player Points:"+this.points + "\n" + this.res ;
 
+    }
+
+    /**
+     * Get the reference to the player's game.
+     * @return TheGame instance
+     */
+    public TheGame getGameReference() {
+        return gameReference;
+    }
+
+    /**
+     * Sets the reference of a game in the player
+     * @param gameReference
+     */
+    public void setGameReference(TheGame gameReference) {
+        this.gameReference = gameReference;
     }
 }
 

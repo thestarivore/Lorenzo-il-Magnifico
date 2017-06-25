@@ -16,11 +16,6 @@ public class RemotePlayer extends Player{
     private SocketServerThread remoteClientThread;
 
     /**
-     * Game Reference, is the game where the player si currently sitting
-     */
-    private TheGame gameReference;
-
-    /**
      * Basic Constructor
      */
     public RemotePlayer() {
@@ -64,11 +59,4 @@ public class RemotePlayer extends Player{
         this.remoteClientThread = remoteClient;
     }
 
-    public TheGame getGameReference() {
-        return gameReference;
-    }
-
-    public void setGameReference(TheGame gameReference) {
-        this.gameReference = gameReference;
-    }
 }

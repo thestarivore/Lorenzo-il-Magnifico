@@ -15,6 +15,8 @@ public class Board {
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
 
+    public final static int NUMBER_ACTION_SLOTS = 25;
+
     public Board(int numberOfPlayer){
         this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
         for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)

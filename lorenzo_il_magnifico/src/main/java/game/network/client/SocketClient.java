@@ -1,6 +1,7 @@
 package game.network.client;
 
 import controllers.Player;
+import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 import views.GameView;
@@ -120,6 +121,36 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
+     * Get Updates On the Board.
+     * That basically includes every thing that happens on the game.
+     */
+    @Override
+    public void getBoardUpdates() {
+        sendCmdToClient(ProtocolCommands.GET_GAME_UPDATES.getCommand());
+    }
+
+    /**
+     * Is my turn yet?
+     */
+    @Override
+    public void isMyTurn() {
+
+    }
+
+    /**
+     * Get update on the action slot indexed by the passed number
+     * @param currentActionSlot index of the current action slot to ask;
+     */
+    @Override
+    public void getActionSlotUpdate(int currentActionSlot) {
+
+    }
+
+
+    /**************************************************************
+     ****************** Protocol Commands *************************
+     **************************************************************/
+    /**
      * Send Command to the client
      * @param cmd
      */
@@ -127,11 +158,6 @@ public class SocketClient implements ClientInterface{
         cmdList.add(cmd);
     }
 
-
-
-    /**************************************************************
-     ****************** Protocol Commands *************************
-     **************************************************************/
     /**
      * Communication Automa Client Side.
      * Command management(FIFO list),
@@ -160,13 +186,20 @@ public class SocketClient implements ClientInterface{
             if(ProtocolCommands.SELECT_COLOR.isThisCmd(line)){
                 manageColorSelection(line);
             }
+
+            //Color Selection
+            if(ProtocolCommands.GAME_TO_UPDATE.isThisCmd(line)){
+                manageGameToUpdate(line);
+            }
         }
     }
 
     /**
      * Manage Acknowledgement
      */
-    private void manageAck(){}
+    private void manageAck(){
+        //TODO: nothing to manage for now
+    }
 
     /**
      * Manage Color Selection Command
@@ -193,4 +226,22 @@ public class SocketClient implements ClientInterface{
         //Send the selected color selection
         sendCmdToClient(ProtocolCommands.COLOR_SELECTION.getCommand(data[color_index]));
     }
+
+    /**
+     * Manage Game to Update Command.
+     * If the argument is "1" then start action slot update,
+     * els eif "0" ignore ad repeat the usual commands.
+     * @param command
+     */
+    private void manageGameToUpdate(String command) {
+        //Get the data from the command(all the arguments)
+        String[] data = ProtocolCommands.getDataFromCommand(command);
+
+        //Find out whether is there any change on the board
+        if(Integer.parseInt(data[0]) == 1)
+            Client.setFsmState(Client.FSMClient.ACTION_SLOT_UPDATE);
+        else if(Integer.parseInt(data[0]) == 0)
+            Client.setFsmState(Client.FSMClient.BOARD_UPDATES);
+    }
+
 }

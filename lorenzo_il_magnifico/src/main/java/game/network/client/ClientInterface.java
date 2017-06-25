@@ -25,4 +25,20 @@ public interface ClientInterface extends Runnable {
      */
     public void setPlayer(Player player);
 
+    /**
+     * Get Updates On the Board.
+     * That basically includes every thing that happens on the game.
+     */
+    public void getBoardUpdates();
+
+    /**
+     * Is my turn yet?
+     */
+    public void isMyTurn();
+
+    /**
+     * Get update on the action slot indexed by the passed number
+     * @param currentActionSlot index of the current action slot to ask;
+     */
+    public void getActionSlotUpdate(int currentActionSlot);
 }

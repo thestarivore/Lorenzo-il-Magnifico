@@ -7,10 +7,12 @@ public enum ProtocolCommands {
     //Client Side
     PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD[%s,%d]"),
     COLOR_SELECTION ("COLOR_SELECTION[%s]"),
+    GET_GAME_UPDATES("GET_GAME_UPDATES"),
 
     //Server Side
     ACK ("ACK"),
     SELECT_COLOR ("SELECT_COLOR[%s,%s,%s,%s]"),
+    GAME_TO_UPDATE("GAME_TO_UPDATE[%d]")
 
     ;//Ecc
 
