@@ -15,8 +15,50 @@ public class Board {
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
 
-    public final static int NUMBER_ACTION_SLOTS = 25;
+    /**
+     * Board Constants
+     */
+    public final static int NUMBER_ACTION_SPACES = 25;
+    //Complete list of the indexes of th Action Spaces
+    // First Tower
+    public final static int TOWER0_STORY0_INDEX = 0;
+    public final static int TOWER0_STORY1_INDEX = 1;
+    public final static int TOWER0_STORY2_INDEX = 2;
+    public final static int TOWER0_STORY3_INDEX = 3;
+    // Second Tower
+    public final static int TOWER1_STORY0_INDEX = 4;
+    public final static int TOWER1_STORY1_INDEX = 5;
+    public final static int TOWER1_STORY2_INDEX = 6;
+    public final static int TOWER1_STORY3_INDEX = 7;
+    // Third Tower
+    public final static int TOWER2_STORY0_INDEX = 8;
+    public final static int TOWER2_STORY1_INDEX = 9;
+    public final static int TOWER2_STORY2_INDEX = 10;
+    public final static int TOWER2_STORY3_INDEX = 11;
+    // Forth Tower
+    public final static int TOWER3_STORY0_INDEX = 12;
+    public final static int TOWER3_STORY1_INDEX = 13;
+    public final static int TOWER3_STORY2_INDEX = 14;
+    public final static int TOWER3_STORY3_INDEX = 15;
+    // The Council Palace
+    public final static int COUNCIL_PALACE_INDEX= 16;
+    // Harvest Area
+    public final static int HARVEST_INDEX       = 17;
+    public final static int MULTI_HARVEST_INDEX = 18;
+    // Production Area
+    public final static int PRODUCTION_INDEX    = 19;
+    public final static int MULTI_PRODUCTION_INDEX = 20;
+    // The Market
+    public final static int MARKET0_INDEX       = 21;
+    public final static int MARKET1_INDEX       = 22;
+    public final static int MARKET2_INDEX       = 23;
+    public final static int MARKET3_INDEX       = 24;
 
+
+    /**
+     * Board basic constructor
+     * @param numberOfPlayer
+     */
     public Board(int numberOfPlayer){
         this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
         for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)
@@ -34,9 +76,8 @@ public class Board {
             this.dice[i].setColor(i);
         }
 
-        this.harvestArea = new HarvestArea(numberOfPlayer);
+        this.harvestArea = new HarvestArea(1);
         this.productionArea = new ProductionArea(numberOfPlayer);
-
     }
 
     public Tower getTower(int i) {
@@ -85,5 +126,27 @@ public class Board {
 
     public void setProductionArea(ProductionArea productionArea) {
         this.productionArea = productionArea;
+    }
+
+    /**
+     * Get Board's Action Space by index.
+     * The way that action spaces are counted inside the Board is:
+     * - from 0 to 3    --> tower 0 (4 action spaces)
+     * - from 4 to 7    --> tower 1 (4 action spaces)
+     * - from 8 to 11   --> tower 2 (4 action spaces)
+     * - from 12 to 15  --> tower 3 (4 action spaces)
+     * - number 16      --> TheCouncilPalace
+     * - numbers 17, 18 --> HarvestArea and HarvestArea multi-player
+     * - numbers 19, 20 --> ProductionArea and ProductionArea multi-player
+     * - numbers 21, 22, 23, 24  --> The Market
+     * @param index of the action space to get
+     * @return ActionSpace instance variable
+     */
+    public ActionSpace getActionSpaceByIndex(int index){
+        ActionSpace actionSpace = null;
+
+        //TODO: complete this method, it should return the selected action space
+
+        return actionSpace;
     }
 }

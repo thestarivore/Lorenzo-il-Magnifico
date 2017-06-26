@@ -38,7 +38,7 @@ public interface ClientInterface extends Runnable {
 
     /**
      * Get update on the action slot indexed by the passed number
-     * @param currentActionSlot index of the current action slot to ask;
+     * @param currentActionSpace index of the current action slot to ask;
      */
-    public void getActionSlotUpdate(int currentActionSlot);
+    public void getActionSpaceUpdate(int currentActionSpace);
 }

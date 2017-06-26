@@ -126,7 +126,7 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public void getBoardUpdates() {
-        sendCmdToClient(ProtocolCommands.GET_GAME_UPDATES.getCommand());
+        sendCmdToClient(ProtocolCommands.ASK_GAME_UPDATES.getCommand());
     }
 
     /**
@@ -139,11 +139,11 @@ public class SocketClient implements ClientInterface{
 
     /**
      * Get update on the action slot indexed by the passed number
-     * @param currentActionSlot index of the current action slot to ask;
+     * @param currentActionSpace index of the current action slot to ask;
      */
     @Override
-    public void getActionSlotUpdate(int currentActionSlot) {
-
+    public void getActionSpaceUpdate(int currentActionSpace) {
+        sendCmdToClient(ProtocolCommands.ASK_ACTION_SPACE.getCommand(currentActionSpace));
     }
 
 
@@ -239,7 +239,7 @@ public class SocketClient implements ClientInterface{
 
         //Find out whether is there any change on the board
         if(Integer.parseInt(data[0]) == 1)
-            Client.setFsmState(Client.FSMClient.ACTION_SLOT_UPDATE);
+            Client.setFsmState(Client.FSMClient.ACTION_SPACE_UPDATE);
         else if(Integer.parseInt(data[0]) == 0)
             Client.setFsmState(Client.FSMClient.BOARD_UPDATES);
     }

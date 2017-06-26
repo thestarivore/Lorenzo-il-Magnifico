@@ -77,7 +77,7 @@ public class Client {
         TURN_UPDATE(1),
         CASE2(2),
         CASE3(3),
-        ACTION_SLOT_UPDATE(4);
+        ACTION_SPACE_UPDATE(4);
 
         int state;
 
@@ -105,7 +105,7 @@ public class Client {
     /**
      * The current action slot being updated from the server
      */
-    private static int currentActionSlot = 0;
+    private static int currentActionSpace = 0;
 
     /**
      * Client main entry point.
@@ -225,14 +225,14 @@ public class Client {
                         fsmState = FSMClient.BOARD_UPDATES;
                     }break;
 
-                    case ACTION_SLOT_UPDATE:{
-                        client.getActionSlotUpdate(currentActionSlot);
-                        if(currentActionSlot < Board.NUMBER_ACTION_SLOTS) {
-                            currentActionSlot++;
-                            fsmState = FSMClient.ACTION_SLOT_UPDATE;
+                    case ACTION_SPACE_UPDATE:{
+                        client.getActionSpaceUpdate(currentActionSpace);
+                        if(currentActionSpace < Board.NUMBER_ACTION_SPACES) {
+                            currentActionSpace++;
+                            fsmState = FSMClient.ACTION_SPACE_UPDATE;
                         }
                         else {
-                            currentActionSlot = 0;
+                            currentActionSpace = 0;
                             fsmState = FSMClient.TURN_UPDATE;
                         }
                     }break;

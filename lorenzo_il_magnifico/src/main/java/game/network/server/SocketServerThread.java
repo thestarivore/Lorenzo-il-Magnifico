@@ -4,6 +4,7 @@ package game.network.server;
 import controllers.RemotePlayer;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
+import models.board.Board;
 
 import java.io.*;
 import java.net.Socket;
@@ -75,9 +76,14 @@ public class SocketServerThread extends Thread{
             manageColorSelection(cmd);
         }
 
-        //GET_GAME_UPDATES - "does the game need to be updated?"
-        if (ProtocolCommands.GET_GAME_UPDATES.isThisCmd(cmd)) {
-            manageGetGameUpdates(cmd);
+        //ASK_GAME_UPDATES - "does the game need to be updated?"
+        if (ProtocolCommands.ASK_GAME_UPDATES.isThisCmd(cmd)) {
+            manageAskGameUpdates(cmd);
+        }
+
+        //ASK_ACTION_SPACE - "does the game need to be updated?"
+        if (ProtocolCommands.ASK_ACTION_SPACE.isThisCmd(cmd)) {
+            manageAskActionSpace(cmd);
         }
     }
 
@@ -156,10 +162,10 @@ public class SocketServerThread extends Thread{
     }
 
     /**
-     * Manage GET_GAME_UPDATES command
+     * Manage ASK_GAME_UPDATES command
      * @param command String of the command received via socket
      */
-    private void manageGetGameUpdates(String command) {
+    private void manageAskGameUpdates(String command) {
         //There should be no arguments here
         //TODO: for now i don't check if something really changed on the board(i assume is always changes just for debug)
         short itChanged = 1;
@@ -167,5 +173,22 @@ public class SocketServerThread extends Thread{
         //Send the command back
         out.println(ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged));
         out.flush();
+    }
+
+    /**
+     * Manage ASK_ACTION_SPACE command
+     * @param command String of the command received via socket
+     */
+    private void manageAskActionSpace(String command) {
+        //Get the data from the command(all the arguments)
+        String[] data = ProtocolCommands.getDataFromCommand(command);
+
+        //Get action's slot index from the arguments
+        int index = Integer.valueOf(data[0]);
+
+        //Get the game's board
+        Board board = remotePlayer.getGameReference().getTheController().getBoard();
+
+
     }
 }

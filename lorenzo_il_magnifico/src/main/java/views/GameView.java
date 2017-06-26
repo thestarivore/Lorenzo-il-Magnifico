@@ -4,6 +4,7 @@ import controllers.Player;
 import game.Lobby;
 import game.TheGame;
 import models.board.Board;
+import models.board.FamilyMember;
 import models.board.PersonalBoard;
 import models.board.PersonalBonusTile;
 import models.cards.Card;
@@ -226,7 +227,7 @@ public class GameView {
     }
 
     public void printAvailableFamilyMember(Player player) {
-        for (int i = 0; i< Constants.FIXED_FAMILYMEMBER; i++)
+        for (int i = 0; i< FamilyMember.FIXED_FAMILY_MEMBER; i++)
             if (!player.getFamilyMember(i).getUsed()) {
                 printLine("Family Member " + i);
                 System.out.println(player.getFamilyMember(i).getValue());

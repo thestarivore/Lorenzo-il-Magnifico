@@ -5,14 +5,16 @@ package game.network.protocol;
  */
 public enum ProtocolCommands {
     //Client Side
-    PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD[%s,%d]"),
-    COLOR_SELECTION ("COLOR_SELECTION[%s]"),
-    GET_GAME_UPDATES("GET_GAME_UPDATES"),
+    PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD[%s,%d]"),   // Name,Id
+    COLOR_SELECTION ("COLOR_SELECTION[%s]"),                      // Color
+    ASK_GAME_UPDATES("ASK_GAME_UPDATES"),
+    ASK_ACTION_SPACE("ASK_ACTION_SPACE"),
 
     //Server Side
     ACK ("ACK"),
-    SELECT_COLOR ("SELECT_COLOR[%s,%s,%s,%s]"),
-    GAME_TO_UPDATE("GAME_TO_UPDATE[%d]")
+    SELECT_COLOR ("SELECT_COLOR[%s,%s,%s,%s]"),                 // color1, color2, color3, color4
+    GAME_TO_UPDATE("GAME_TO_UPDATE[%d]"),                       // "1" = yes / "0" = no
+    SEND_ACTION_SPACE("SEND_ACTION_SPACE[%s,%s]"),                // familyMemberColor, playersColor
 
     ;//Ecc
 

@@ -34,6 +34,10 @@ public class TheGame {
     //Constants
     public static final int MAXIMUM_PLAYERS_NUMBER = 4;
     public static final int MAXIMUM_COLORS_NUMBER = 4;
+
+    /**
+     * Enum - Possible TheGame's colors constants.
+     */
     public enum COLORS{
         RED("RED"),
         BLUE("BLUE"),
