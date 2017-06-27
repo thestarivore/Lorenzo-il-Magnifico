@@ -88,7 +88,7 @@ public class Action implements Phase {
     public boolean checkNoSameColorFamilyMember(int tower, NeutralFamilyMember familyMember) {
         for (int i=0 ; i<Constants.FIXED_TOWER_CARDS; i++)
             if (!(checkFreeActionSpace(tower,i)))
-                if (familyMember.getColor().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getColor()))
+                if (familyMember.getFamilyMemberColors().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getFamilyMemberColors()))
                     return false;
 
         return true;

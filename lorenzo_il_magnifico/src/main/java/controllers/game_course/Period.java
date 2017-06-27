@@ -8,6 +8,7 @@ public class Period {
     private Round round;
 
     public Period() {
+        this.numberOfPeriod = 1;
         this.round = new Round();
     }
 

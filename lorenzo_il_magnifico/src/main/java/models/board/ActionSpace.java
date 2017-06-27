@@ -41,6 +41,8 @@ public class ActionSpace {
                 break;
         }
 
+        this.isOccupied = false;
+
     }
 
     public DevelopmentCard getCard() {

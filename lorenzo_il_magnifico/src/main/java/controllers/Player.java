@@ -67,10 +67,10 @@ public class Player {
         this.excommunicationCubes = new ExcommunicationCubes();
 
         //Create Family Members
-        this.neutralFamilyMember = new NeutralFamilyMember();
+        this.neutralFamilyMember = new NeutralFamilyMember(this.name, this.ID);
         this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER-1];
         for (int i=0; i<Constants.FIXED_FAMILYMEMBER-1; i++)
-            this.familyMember[i] = new FamilyMember();
+            this.familyMember[i] = new FamilyMember(this.name, this.ID, i);
 
         //Turn initialization
         this.turnOrder = 0;

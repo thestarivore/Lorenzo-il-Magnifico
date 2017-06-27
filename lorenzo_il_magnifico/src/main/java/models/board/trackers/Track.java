@@ -1,15 +1,18 @@
 package models.board.trackers;
 
+import controllers.Player;
 import models.board.MarkerDiscs;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class Track {
-    private MarkerDiscs markerDiscs;
+    protected MarkerDiscs markerDiscs;
+    protected String[] trackMarker;
 
-    public Track(){
 
+    public String[] getTrackMarker() {
+        return trackMarker;
     }
 
     public MarkerDiscs getMarkerDiscs() {

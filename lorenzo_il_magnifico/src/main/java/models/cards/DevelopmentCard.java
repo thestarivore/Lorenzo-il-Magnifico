@@ -19,9 +19,16 @@ public class DevelopmentCard implements Card {
     private Points pointsCost;
     private ImmediateEffect immediateEffect;
     private PermanentEffect permanentEffect;
+    private String description;
+
+    //Constant
+    public static final int MAX_DESCRIPTION_LENGTH = 75;
 
     public DevelopmentCard() {
         this.name  = "prova";
+        this.cost = new Resources(1);
+        this.pointsReq = new Points();
+        this.description = "ciao                                                                        ";
     }
 
 
@@ -84,6 +91,11 @@ public class DevelopmentCard implements Card {
     public void removePoints(Player player) {
         player.getPoints().removePoints(pointsCost);
     }
+
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString(){
         return "Card Name: " + this.name + "\n"+ "Card Cost: " + this.cost+"\n"+"Immediate Effect: "+this.immediateEffect+ "\n"+ "Permanent effect: " + this.permanentEffect;

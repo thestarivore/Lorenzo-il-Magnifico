@@ -11,6 +11,9 @@ public class Resources {
     private int servants;
     private int coins;
 
+    //Constants
+    public static final int FIXED_NUM_OF_RESOURCES = 4;
+
     public Resources(){
     }
 

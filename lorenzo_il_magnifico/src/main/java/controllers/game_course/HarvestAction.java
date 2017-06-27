@@ -27,8 +27,7 @@ public class HarvestAction extends Action {
             return true;
         }
 
-        ActionSpace singleSpace = new ActionSpace();
-        model.getBoard().getHarvestArea().addMultipleSpace(singleSpace);
+        model.getBoard().getHarvestArea().addMultipleSpace();
         int i = model.getBoard().getHarvestArea().getMultipleSpace().size();
         model.getBoard().getHarvestArea().getMultipleSingleSpace(i).setFamilyMember(famMember);
 

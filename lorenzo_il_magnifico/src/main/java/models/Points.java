@@ -8,6 +8,7 @@ public class Points {
     private int military;
     private int faith;
 
+
     public Points() {
         this.victory=0;
         this.military=0;

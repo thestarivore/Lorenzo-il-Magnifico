@@ -1,18 +1,53 @@
 package models.board;
 
-import java.awt.*;
-
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class NeutralFamilyMember{
-    private int value;
-    private boolean isUsed;
-    private Color color;
 
-    public NeutralFamilyMember() {
+    protected String playerName;
+    protected int playerID;
+    protected int value;
+    protected boolean isUsed;
+    protected FAMILYMEMBERCOLORS familyMemberColors;
+
+
+    public enum FAMILYMEMBERCOLORS {
+        NEUTRAL("NEUTRAL"),
+        ORANGE("ORANGE"),
+        WHITE("WHITE"),
+        BLACK("BLACK"),
+        ;
+
+        String color;
+
+        FAMILYMEMBERCOLORS(String color) {
+            this.color = color;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+
+    }
+
+    public NeutralFamilyMember(String playerName, int playerID) {
+
+        this.playerName = playerName;
+        this.playerID = playerID;
         this.value = 0;
         this.isUsed = false;
+        this.familyMemberColors = FAMILYMEMBERCOLORS.NEUTRAL;
+
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public int getPlayerID() {
+        return playerID;
     }
 
     public int getValue() {
@@ -35,11 +70,9 @@ public class NeutralFamilyMember{
         this.isUsed = true;
     }
 
-    public Color getColor() {
-        return color;
+    public FAMILYMEMBERCOLORS getFamilyMemberColors() {
+        return familyMemberColors;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
-    }
+
 }

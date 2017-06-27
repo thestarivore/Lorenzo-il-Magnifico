@@ -35,4 +35,5 @@ public class ProductionArea {
     public void addMultipleSpace(ActionSpace singleSpace) {
         this.multipleSpace.add(singleSpace);
     }
+
 }

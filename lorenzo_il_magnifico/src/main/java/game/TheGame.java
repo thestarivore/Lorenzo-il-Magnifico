@@ -68,7 +68,7 @@ public class TheGame {
         theModel        = new GameFacadeModel(getNumberOfPlayer());
         theController   = new GameFacadeController(theModel, period);
 
-        //Initialize collors available for players
+        //Initialize colors available for players
         colorAvailable = new ArrayList<COLORS>();
         colorAvailable.add(COLORS.RED);
         colorAvailable.add(COLORS.BLUE);
@@ -152,66 +152,6 @@ public class TheGame {
             return true;
         else
             return false;
-    }
-    public void setMap(){
-        System.out.println("       TOWER 1                                      TOWER 2                                      TOWER 3                                     TOWER 4");
-        System.out.println("___________________________________________________________________________________________________________________________________________________________");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |   ___7__               |                   |   ___7__               |                   |   ___7__               |                   |   ___7__");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |______|              |                   |  |______|              |                   |  |______|              |                   |  |______|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|___________________|                        |___________________|                        |___________________|                        |___________________|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |   ___5__               |                   |   ___5__               |                   |   ___5__               |                   |   ___5__");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |______|              |                   |  |______|              |                   |  |______|              |                   |  |______|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|___________________|                        |___________________|                        |___________________|                        |___________________|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |   ___3__               |                   |   ___3__               |                   |   ___3__               |                   |   ___3__");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |______|              |                   |  |______|              |                   |  |______|              |                   |  |______|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|___________________|                        |___________________|                        |___________________|                        |___________________|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|                   |   ___1__               |                   |   ___1__               |                   |   ___1__               |                   |   ___1__");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |      |              |                   |  |      |              |                   |  |      |              |                   |  |      |");
-        System.out.println("|                   |  |______|              |                   |  |______|              |                   |  |______|              |                   |  |______|");
-        System.out.println("|                   |                        |                   |                        |                   |                        |                   |");
-        System.out.println("|___________________|                        |___________________|                        |___________________|                        |___________________|");
-        System.out.println("\n");
-        System.out.println("\n");
-        System.out.println("                                   __________________________________________________________");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |                  |                    |                  |");
-        System.out.println("                                  |__________________|____________________|__________________|");
     }
 
     /**
