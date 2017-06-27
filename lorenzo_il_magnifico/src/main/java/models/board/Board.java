@@ -3,6 +3,8 @@ package models.board;
 import utility.Constants;
 import models.board.trackers.Track;
 
+import java.util.List;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
@@ -142,11 +144,55 @@ public class Board {
      * @param index of the action space to get
      * @return ActionSpace instance variable
      */
-    public ActionSpace getActionSpaceByIndex(int index){
-        ActionSpace actionSpace = null;
+    public List<ActionSpace> getActionSpacesByIndex(int index){
+        List<ActionSpace> actionSpaces = null;
 
-        //TODO: complete this method, it should return the selected action space
+        // from 0 to 3    --> tower 0 (4 action spaces)
+        if(index <= 3){
+            actionSpaces.add(tower[0].getSpace(index));
+        }
 
-        return actionSpace;
+        // from 4 to 7    --> tower 1 (4 action spaces)
+        else if(index >= 4 && index <= 7){
+            actionSpaces.add(tower[1].getSpace(index-4));
+        }
+
+        // from 8 to 11   --> tower 2 (4 action spaces)
+        else if(index >= 8 && index <= 11){
+            actionSpaces.add(tower[2].getSpace(index-8));
+        }
+
+        // from 12 to 15  --> tower 3 (4 action spaces)
+        else if(index >= 12 && index <= 15){
+            actionSpaces.add(tower[3].getSpace(index-12));
+        }
+
+        // number 16      --> TheCouncilPalace
+        else if(index == 16){
+            actionSpaces = councilPalace.getSpaces();
+        }
+
+        // numbers 17, 18 --> HarvestArea and HarvestArea multi-player
+        else if(index == 17){
+            actionSpaces.add(harvestArea.getSingleSpace());
+        }
+        else if(index == 18){
+            actionSpaces = harvestArea.getMultipleSpace();
+        }
+
+        // numbers 19, 20 --> ProductionArea and ProductionArea multi-player
+        else if(index == 19){
+            actionSpaces.add(productionArea.getSingleSpace());
+        }
+        else if(index == 20){
+            actionSpaces = productionArea.getMultipleSpace();
+        }
+
+        // numbers 21, 22, 23, 24  --> The Market
+        else if(index >= 21 && index <= 24){
+            actionSpaces.add(market.getSpace(index-21));
+        }
+
+        return actionSpaces;
     }
 }

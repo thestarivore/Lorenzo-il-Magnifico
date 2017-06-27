@@ -10,10 +10,14 @@ public class HarvestArea {
     private ActionSpace singleSpace;
     private List<ActionSpace> multipleSpace;
 
+    /**
+     * Harvest Area Action Space Constructor
+     * @param numberOfPlayer
+     */
     public HarvestArea(int numberOfPlayer) {
         this.singleSpace = new ActionSpace();
         if (numberOfPlayer > 2)
-        this.multipleSpace = new ArrayList<ActionSpace>();
+            this.multipleSpace = new ArrayList<ActionSpace>();
     }
 
     public ActionSpace getSingleSpace() {

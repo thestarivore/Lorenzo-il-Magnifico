@@ -9,7 +9,8 @@ import controllers.game_course.phases.VaticanReport;
 import models.GameFacadeModel;
 import models.Points;
 import models.Resources;
-import models.board.NeutralFamilyMember;
+import models.board.Board;
+import models.board.FamilyMember;
 import models.cards.Deck;
 import models.cards.DevelopmentCard;
 
@@ -47,6 +48,14 @@ public class GameFacadeController {
         this.roundSetup = new RoundSetup();
 
 
+    }
+
+    /**
+     * Get the Board instance from the Facade Model
+     * @return Board variable instance of the current game
+     */
+    public Board getBoard(){
+        return facadeModel.getBoard();
     }
 
 
@@ -88,7 +97,7 @@ public class GameFacadeController {
      * @param space
      * @return
      */
-    public boolean checkFamilyMemberTowerChoice(NeutralFamilyMember familyMember, int tower, int space) {
+    public boolean checkFamilyMemberTowerChoice(FamilyMember familyMember, int tower, int space) {
         boolean valid = false;
         if (familyMember.getValue() >= facadeModel.getBoard().getTower(tower).getSpace(space).getDiceCost())
             valid = true;
@@ -101,12 +110,14 @@ public class GameFacadeController {
      * @param familyMember
      * @return
      */
-    public boolean checkFamilyMemberChoice(NeutralFamilyMember familyMember) {
+    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
         boolean valid = false;
         if (familyMember.getValue() >= 1)
             valid = true;
         return valid;
     }
+
+
 
     /**
      * Choose action requested by player.
