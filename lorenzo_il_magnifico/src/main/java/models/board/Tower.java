@@ -14,7 +14,10 @@ public class Tower {
     private int numberOfTower;
     private boolean isEmpty;
 
-
+    /**
+     * Basic Constructor
+     * @param numberOfTower
+     */
     public Tower(int numberOfTower){
         this.deck= new DevelopmentCardDeck();
         this.numberOfTower = numberOfTower;

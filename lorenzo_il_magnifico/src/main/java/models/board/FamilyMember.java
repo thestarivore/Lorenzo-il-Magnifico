@@ -1,26 +1,57 @@
 package models.board;
 
+import game.TheGame;
+
+import java.awt.*;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class FamilyMember extends NeutralFamilyMember{
-
+public class FamilyMember {
+    private Dice.COLORS diceColor;
+    private TheGame.COLORS playerColor;
     private Dice dice;
 
-    public FamilyMember(String playerName, int playerID, int i) {
-        super(playerName, playerID);
+    public static final int FIXED_FAMILY_MEMBER = 4;
 
-        switch (i) {
-            case 0:
-                this.familyMemberColors = FAMILYMEMBERCOLORS.ORANGE;
-                break;
-            case 1:
-                this.familyMemberColors = FAMILYMEMBERCOLORS.WHITE;
-                break;
-            default:
-                this.familyMemberColors = FAMILYMEMBERCOLORS.BLACK;
-                break;
-        }
+    /**
+     * Basic constructor
+     */
+    public FamilyMember() {
+        this.value = 0;
+        this.isUsed = false;
+    }
+
+    /**
+     * Family Member constructor with colors.
+     * @param diceColor Dice.COLORS of the dice's color
+     * @param playerColor TheGame.COLORS of the player's color
+     */
+    public FamilyMember(Dice.COLORS diceColor, TheGame.COLORS playerColor) {
+        this.diceColor      = diceColor;
+        this.playerColor    = playerColor;
+        this.value  = 0;
+        this.isUsed = false;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public void addValue(int servantValue) {
+        this.value+=servantValue;
+    }
+
+    public boolean getUsed() {
+        return isUsed;
+    }
+
+    public void setUsed() {
+        this.isUsed = true;
     }
 
     public Dice getDice() {
@@ -31,4 +62,19 @@ public class FamilyMember extends NeutralFamilyMember{
         this.dice = dice;
     }
 
+    public Dice.COLORS getDiceColor() {
+        return diceColor;
+    }
+
+    public void setDiceColor(Dice.COLORS diceColor) {
+        this.diceColor = diceColor;
+    }
+
+    public TheGame.COLORS getPlayerColor() {
+        return playerColor;
+    }
+
+    public void setPlayerColor(TheGame.COLORS playerColor) {
+        this.playerColor = playerColor;
+    }
 }

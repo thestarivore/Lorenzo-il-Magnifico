@@ -10,6 +10,10 @@ public class ProductionArea {
     private ActionSpace singleSpace;
     private List<ActionSpace> multipleSpace;
 
+    /**
+     * Production Area Action Space Constructor
+     * @param numberOfPlayer
+     */
     public ProductionArea(int numberOfPlayer) {
         this.singleSpace = new ActionSpace();
         if (numberOfPlayer > 2)

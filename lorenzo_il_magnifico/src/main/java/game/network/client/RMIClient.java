@@ -113,4 +113,30 @@ public class RMIClient implements ClientInterface{
         this.player = player;
     }
 
+    /**
+     * Get Updates On the Board.
+     * That basically includes every thing that happens on the game.
+     */
+    @Override
+    public void getBoardUpdates() {
+
+    }
+
+    /**
+     * Is my turn yet?
+     */
+    @Override
+    public void isMyTurn() {
+
+    }
+
+    /**
+     * Get update on the action slot indexed by the passed number
+     * @param currentActionSpace index of the current action slot to ask;
+     */
+    @Override
+    public void getActionSpaceUpdate(int currentActionSpace) {
+
+    }
+
 }

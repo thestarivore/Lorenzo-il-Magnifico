@@ -3,11 +3,12 @@ package models.board;
 import utility.Constants;
 import models.board.trackers.Track;
 
+import java.util.List;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class Board {
-
     private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;
@@ -16,74 +17,48 @@ public class Board {
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
 
-    //Constants
-
-    /*public static final int TOWER_0_SPACE_0 = 0;
-    public static final int TOWER_0_SPACE_1 = 1;
-    public static final int TOWER_0_SPACE_2 = 2;
-    public static final int TOWER_0_SPACE_3 = 3;
-    public static final int TOWER_1_SPACE_0 = 4;
-    public static final int TOWER_1_SPACE_1 = 5;
-    public static final int TOWER_1_SPACE_2 = 6;
-    public static final int TOWER_1_SPACE_3 = 7;
-    public static final int TOWER_2_SPACE_0 = 8;
-    public static final int TOWER_2_SPACE_1 = 9;
-    public static final int TOWER_2_SPACE_2 = 10;
-    public static final int TOWER_2_SPACE_3 = 11;
-    public static final int TOWER_3_SPACE_0 = 12;
-    public static final int TOWER_3_SPACE_1 = 13;
-    public static final int TOWER_3_SPACE_2 = 14;
-    public static final int TOWER_3_SPACE_3 = 15;
-    public static final int COUNCIL_PALACE_SPACE = 16;
-    public static final int PRODUCTION_SINGLE_SPACE = 17;
-    public static final int PRODUCTION_MULTIPLE_SPACE = 18;
-    public static final int HARVEST_SINGLE_SPACE = 19;
-    public static final int HARVEST_MULTIPLE_SPACE = 20;
-    public static final int MARKET_SPACE_0 = 21;
-    public static final int MARKET_SPACE_1 = 22;
-    public static final int MARKET_SPACE_2 = 23;
-    public static final int MARKET_SPACE_3 = 24; */
-
-    public static final int FIXED_NUMBER_OF_TOWER = 4;
-    public static final int FIXED_NUMBER_OF_CARD = 4;
-
-    public enum BOARD_ACTION_SPACE {
-        TOWER_0_SPACE_0("0"),
-        TOWER_O_SPACE_1("1"),
-        TOWER_0_SPACE_2("2"),
-        TOWER_0_SPACE_3("3"),
-        TOWER_1_SPACE_0("4"),
-        TOWER_1_SPACE_1("5"),
-        TOWER_1_SPACE_2("6"),
-        TOWER_1_SPACE_3("7"),
-        TOWER_2_SPACE_0("8"),
-        TOWER_2_SPACE_1("9"),
-        TOWER_2_SPACE_2("10"),
-        TOWER_2_SPACE_3("11"),
-        TOWER_3_SPACE_0("12"),
-        TOWER_3_SPACE_1("13"),
-        TOWER_3_SPACE_2("14"),
-        TOWER_3_SPACE_3("15"),
-        COUNCIL_PALACE_SPACE("16"),
-        PRODUCTION_SINGLE_SPACE("17"),
-        PRODUCTION_MULTIPLE_SPACE("18"),
-        HARVEST_SINGLE_SPACE("19"),
-        HARVEST_MULTIPLE_SPACE("20"),
-        MARKET_SPACE_0("21"),
-        MARKET_SPACE_1("22"),
-        MARKET_SPACE_2("23"),
-        MARKET_SPACE_3("24");
-
-        String spaceNumber;
-
-        BOARD_ACTION_SPACE(String spaceNumber) {
-            this.spaceNumber = spaceNumber;
-        }
-    }
+    /**
+     * Board Constants
+     */
+    public final static int NUMBER_ACTION_SPACES = 25;
+    //Complete list of the indexes of th Action Spaces
+    // First Tower
+    public final static int TOWER0_STORY0_INDEX = 0;
+    public final static int TOWER0_STORY1_INDEX = 1;
+    public final static int TOWER0_STORY2_INDEX = 2;
+    public final static int TOWER0_STORY3_INDEX = 3;
+    // Second Tower
+    public final static int TOWER1_STORY0_INDEX = 4;
+    public final static int TOWER1_STORY1_INDEX = 5;
+    public final static int TOWER1_STORY2_INDEX = 6;
+    public final static int TOWER1_STORY3_INDEX = 7;
+    // Third Tower
+    public final static int TOWER2_STORY0_INDEX = 8;
+    public final static int TOWER2_STORY1_INDEX = 9;
+    public final static int TOWER2_STORY2_INDEX = 10;
+    public final static int TOWER2_STORY3_INDEX = 11;
+    // Forth Tower
+    public final static int TOWER3_STORY0_INDEX = 12;
+    public final static int TOWER3_STORY1_INDEX = 13;
+    public final static int TOWER3_STORY2_INDEX = 14;
+    public final static int TOWER3_STORY3_INDEX = 15;
+    // The Council Palace
+    public final static int COUNCIL_PALACE_INDEX= 16;
+    // Harvest Area
+    public final static int HARVEST_INDEX       = 17;
+    public final static int MULTI_HARVEST_INDEX = 18;
+    // Production Area
+    public final static int PRODUCTION_INDEX    = 19;
+    public final static int MULTI_PRODUCTION_INDEX = 20;
+    // The Market
+    public final static int MARKET0_INDEX       = 21;
+    public final static int MARKET1_INDEX       = 22;
+    public final static int MARKET2_INDEX       = 23;
+    public final static int MARKET3_INDEX       = 24;
 
 
     /**
-     * Constructor
+     * Board basic constructor
      * @param numberOfPlayer
      */
     public Board(int numberOfPlayer){
@@ -154,5 +129,71 @@ public class Board {
 
     public void setProductionArea(ProductionArea productionArea) {
         this.productionArea = productionArea;
+    }
+
+    /**
+     * Get Board's Action Space by index.
+     * The way that action spaces are counted inside the Board is:
+     * - from 0 to 3    --> tower 0 (4 action spaces)
+     * - from 4 to 7    --> tower 1 (4 action spaces)
+     * - from 8 to 11   --> tower 2 (4 action spaces)
+     * - from 12 to 15  --> tower 3 (4 action spaces)
+     * - number 16      --> TheCouncilPalace
+     * - numbers 17, 18 --> HarvestArea and HarvestArea multi-player
+     * - numbers 19, 20 --> ProductionArea and ProductionArea multi-player
+     * - numbers 21, 22, 23, 24  --> The Market
+     * @param index of the action space to get
+     * @return ActionSpace instance variable
+     */
+    public List<ActionSpace> getActionSpacesByIndex(int index){
+        List<ActionSpace> actionSpaces = null;
+
+        // from 0 to 3    --> tower 0 (4 action spaces)
+        if(index <= 3){
+            actionSpaces.add(tower[0].getSpace(index));
+        }
+
+        // from 4 to 7    --> tower 1 (4 action spaces)
+        else if(index >= 4 && index <= 7){
+            actionSpaces.add(tower[1].getSpace(index-4));
+        }
+
+        // from 8 to 11   --> tower 2 (4 action spaces)
+        else if(index >= 8 && index <= 11){
+            actionSpaces.add(tower[2].getSpace(index-8));
+        }
+
+        // from 12 to 15  --> tower 3 (4 action spaces)
+        else if(index >= 12 && index <= 15){
+            actionSpaces.add(tower[3].getSpace(index-12));
+        }
+
+        // number 16      --> TheCouncilPalace
+        else if(index == 16){
+            actionSpaces = councilPalace.getSpaces();
+        }
+
+        // numbers 17, 18 --> HarvestArea and HarvestArea multi-player
+        else if(index == 17){
+            actionSpaces.add(harvestArea.getSingleSpace());
+        }
+        else if(index == 18){
+            actionSpaces = harvestArea.getMultipleSpace();
+        }
+
+        // numbers 19, 20 --> ProductionArea and ProductionArea multi-player
+        else if(index == 19){
+            actionSpaces.add(productionArea.getSingleSpace());
+        }
+        else if(index == 20){
+            actionSpaces = productionArea.getMultipleSpace();
+        }
+
+        // numbers 21, 22, 23, 24  --> The Market
+        else if(index >= 21 && index <= 24){
+            actionSpaces.add(market.getSpace(index-21));
+        }
+
+        return actionSpaces;
     }
 }

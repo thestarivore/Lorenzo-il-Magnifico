@@ -14,6 +14,6 @@ public class Constants {
     public static final int FIXED_MIN_DICE = 1;
     public static final int FIXED_MAX_DICE = 6;
     public static final int FIXED_MAX_OF_DEV_CARD = 6;
-    public static final int FIXED_FAMILYMEMBER = 4;
+
 
 }

@@ -10,6 +10,39 @@ public class Dice {
     private Color color;
     private int number;
 
+    /**
+     * Enum - Possible Dice's colors constants.
+     * Actually the neuter dice does't exist, but there is one family
+     * member who is neuter and has no color.
+     */
+    public enum COLORS{
+        NEUTER("NEUTER"),
+        WHITE("WHITE"),
+        BLACK("BLACK"),
+        ORANGE ("ORANGE"),
+        ;
+
+        String color;
+
+        /**
+         * Basic constructor
+         */
+        COLORS(String color) {
+            this.color = color;
+        }
+
+        /**
+         * Get color
+         * @return String of the color
+         */
+        public String getColor(){
+            return color;
+        }
+    }
+
+    /**
+     * Basic Dice Constructor
+     */
     public Dice() {
         this.color = null;
         this.number = 0;

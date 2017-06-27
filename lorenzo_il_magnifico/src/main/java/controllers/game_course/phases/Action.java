@@ -60,6 +60,7 @@ public class Action implements Phase {
                     model.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
         }
         return free;
+
     }
 
 

@@ -12,15 +12,27 @@ public class ActionSpace {
     private DevelopmentCard card;
     private Resources bonusRes;
     private Points bonusPoints;
-    private NeutralFamilyMember familyMember;
+    private FamilyMember familyMember;
     private int diceCost;
     private boolean isOccupied;
 
+    /**
+     * Basic ActionSpace Constructor
+     */
     public ActionSpace() {
-        this.isOccupied = false;
-        this.diceCost = 1;
+        this.card           = null;
+        this.bonusRes       = null;
+        this.bonusPoints    = null;
+        this.familyMember   = null;
+        this.isOccupied     = false;
+        this.diceCost       = 1;
     }
 
+    /**
+     * ActionSpace Constructor especially designed for towers.
+     * @param tower
+     * @param floor
+     */
     public ActionSpace(int tower, int floor) {
         this.card = new DevelopmentCard();
         this.bonusRes = new Resources(tower , floor);
@@ -41,8 +53,6 @@ public class ActionSpace {
                 break;
         }
 
-        this.isOccupied = false;
-
     }
 
     public DevelopmentCard getCard() {
@@ -61,11 +71,11 @@ public class ActionSpace {
         this.bonusRes = bonus;
     }
 
-    public NeutralFamilyMember getFamilyMember() {
+    public FamilyMember getFamilyMember() {
         return familyMember;
     }
 
-    public void setFamilyMember(NeutralFamilyMember familyMember) {
+    public void setFamilyMember(FamilyMember familyMember) {
         this.familyMember = familyMember;
     }
 

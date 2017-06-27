@@ -1,6 +1,7 @@
 package views;
 
 import controllers.Player;
+import game.Lobby;
 import game.TheGame;
 import models.Points;
 import models.Resources;
@@ -8,6 +9,7 @@ import models.board.*;
 import models.cards.DevelopmentCard;
 import utility.Constants;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -235,7 +237,7 @@ public class GameView {
     }
 
     public void printAvailableFamilyMember(Player player) {
-        for (int i = 0; i< Constants.FIXED_FAMILYMEMBER; i++)
+        for (int i = 0; i< FamilyMember.FIXED_FAMILY_MEMBER; i++)
             if (!player.getFamilyMember(i).getUsed()) {
                 printLine("Family Member " + i);
                 System.out.println(player.getFamilyMember(i).getValue());
@@ -287,7 +289,7 @@ public class GameView {
         boolean longEnought = false;
         boolean validFirstChar = false;
 
-        do {
+        do{
             //Get line
             line = getLine();
 
@@ -302,7 +304,7 @@ public class GameView {
             if(!longEnought){
                 printLine("Please choose a valid Name[3 or more characters]: ");
             }
-        } while(!longEnought);
+        }while(!longEnought);
         return line;
     }
 
@@ -316,7 +318,7 @@ public class GameView {
         String line = "";
         boolean validChoice = false;
 
-        do {
+        do{
             //Get line
             line = getLine();
 
@@ -327,7 +329,7 @@ public class GameView {
             if(!validChoice){
                 printLine("Please choose a valid string, try again:");
             }
-        } while(!validChoice);
+        }while(!validChoice);
         return line;
     }
 
@@ -542,7 +544,7 @@ public class GameView {
     }
 
 
-    
+
     /**
      * Print updated Harvest or Production action spaces to the console.
      * @param singleSpace
@@ -704,7 +706,7 @@ public class GameView {
 
     }
 
-    
+
     /**
      * Format string of Bonus Tower spaces.
      * @param s
@@ -719,7 +721,7 @@ public class GameView {
     }
 
 
-    
+
     /**
      * Format Tower card request.
      * @param res

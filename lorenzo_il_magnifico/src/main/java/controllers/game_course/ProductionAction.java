@@ -1,11 +1,9 @@
 package controllers.game_course;
 
 import controllers.game_course.phases.Action;
-import game.TheGame;
 import models.GameFacadeModel;
 import models.board.ActionSpace;
 import models.board.FamilyMember;
-import models.board.NeutralFamilyMember;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -16,8 +14,7 @@ public class ProductionAction extends Action {
         super(model);
     }
 
-
-    public boolean placeFamilyMemberOnProductionArea(NeutralFamilyMember famMember){
+    public boolean placeFamilyMemberOnProductionArea(FamilyMember famMember){
         boolean free;
 
         free = checkFreeActionSpace();

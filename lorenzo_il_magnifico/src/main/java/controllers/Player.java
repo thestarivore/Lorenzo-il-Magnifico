@@ -34,6 +34,11 @@ public class Player {
     protected boolean myTurn;
 
     /**
+     * Game Reference, is the game where the player si currently sitting
+     */
+    private TheGame gameReference;
+
+    /**
      * Set the minimum number of character that the Player should have
      */
     public static final int PLAYER_NAME_MIN_CHARACTERS = 3;
@@ -67,21 +72,16 @@ public class Player {
         this.excommunicationCubes = new ExcommunicationCubes();
 
         //Create Family Members
-        this.neutralFamilyMember = new NeutralFamilyMember(this.name, this.ID);
-        this.familyMember = new FamilyMember[Constants.FIXED_FAMILYMEMBER-1];
-        for (int i=0; i<Constants.FIXED_FAMILYMEMBER-1; i++)
-            this.familyMember[i] = new FamilyMember(this.name, this.ID, i);
+        this.familyMember = new FamilyMember[FamilyMember.FIXED_FAMILY_MEMBER];
+        this.familyMember[0] = new FamilyMember(Dice.COLORS.NEUTER, this.color);
+        this.familyMember[1] = new FamilyMember(Dice.COLORS.BLACK, this.color);
+        this.familyMember[2] = new FamilyMember(Dice.COLORS.ORANGE, this.color);
+        this.familyMember[3] = new FamilyMember(Dice.COLORS.WHITE, this.color);
 
         //Turn initialization
         this.turnOrder = 0;
         this.myTurn = false;
-
     }
-
-
-
-
-
 
 
     public String getName() {
@@ -146,8 +146,14 @@ public class Player {
 
     public NeutralFamilyMember getFamilyMember(int i) { return familyMember[i]; }
 
-    public void setFamilyMember(FamilyMember familyMember, int i) {
-        this.familyMember[i]=familyMember;
+    public void setFamilyMember(FamilyMember familyMember, int i) {this.familyMember[i]=familyMember; }
+
+    public NeutralFamilyMember getNeutralFamilyMember() {
+        return neutralFamilyMember;
+    }
+
+    public void setNeutralFamilyMember(NeutralFamilyMember neutralFamilyMember) {
+        this.neutralFamilyMember = neutralFamilyMember;
     }
 
     public MarkerDiscs getMarkerDiscs() { return markerDiscs; }
@@ -178,6 +184,22 @@ public class Player {
     public String toString(){
         return "Player name: "+this.name + "\n" + "Player Points:"+this.points + "\n" + this.res ;
 
+    }
+
+    /**
+     * Get the reference to the player's game.
+     * @return TheGame instance
+     */
+    public TheGame getGameReference() {
+        return gameReference;
+    }
+
+    /**
+     * Sets the reference of a game in the player
+     * @param gameReference
+     */
+    public void setGameReference(TheGame gameReference) {
+        this.gameReference = gameReference;
     }
 }
 
