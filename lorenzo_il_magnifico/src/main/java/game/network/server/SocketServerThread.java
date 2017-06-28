@@ -1,6 +1,7 @@
 package game.network.server;
 
 
+import controllers.Player;
 import controllers.RemotePlayer;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
@@ -9,7 +10,6 @@ import models.board.Board;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by Eduard Chirica on 6/13/17.
@@ -17,10 +17,8 @@ import java.util.Scanner;
 public class SocketServerThread extends Thread{
     private RemotePlayer remotePlayer;
     protected Socket socket;
-    //private Scanner in;
-    //private PrintWriter out;
-    ObjectInputStream in;
-    ObjectOutputStream out;
+    private ObjectInputStream in;
+    private ObjectOutputStream out;
 
 
     public SocketServerThread(RemotePlayer remotePlayer, Socket clientSocket) {
@@ -33,16 +31,12 @@ public class SocketServerThread extends Thread{
         out = null;
 
         try {
-            // apro gli stream di input e output per leggere e scrivere
-            // nella connessione appena ricevuta
-            //in = new Scanner(socket.getInputStream());
-            //out = new PrintWriter(socket.getOutputStream());
+            //Open Input/Output Streams and start listening for receiving Objects
+            //Server should just respond to client requests.
             out = new ObjectOutputStream(socket.getOutputStream());
             in = new ObjectInputStream(socket.getInputStream());
 
-
-
-            // leggo e scrivo nella connessione finche' non ricevo "quit”
+            // Communication automata, manages communication
             while (true) {
                 communicationAutoma();
             }
@@ -73,30 +67,28 @@ public class SocketServerThread extends Thread{
      * Wait for commands and response accordingly.
      */
     private void communicationAutoma() throws IOException, ClassNotFoundException {
-        //Receive from Client
-        //String cmd = in.nextLine();
+        //Receive command String from Client
         String cmd = (String) in.readObject();
 
+        //Receive Object parameter from Client
+        Object obj = (Object) in.readObject();
 
         //PLAYER_IDENTIFIACTION
         if (ProtocolCommands.PLAYER_IDENTIFIACTION.isThisCmd(cmd)) {
-            managePlayerIdentification(cmd);
+            managePlayerIdentification(cmd, obj);
         }
 
         //COLOR_SELECTION
         if (ProtocolCommands.COLOR_SELECTION.isThisCmd(cmd)) {
-            manageColorSelection(cmd);
+            manageColorSelection(cmd, obj);
         }
 
-        //ASK_GAME_UPDATES - "does the game need to be updated?"
-        if (ProtocolCommands.ASK_GAME_UPDATES.isThisCmd(cmd)) {
-            manageAskGameUpdates(cmd);
+        //ASK_BOARD_UPDATES - "does the game need to be updated?"
+        if (ProtocolCommands.ASK_BOARD_UPDATES.isThisCmd(cmd)) {
+            manageAskBoardUpdates(cmd, obj);
         }
 
-        //ASK_ACTION_SPACE - "does the game need to be updated?"
-        if (ProtocolCommands.ASK_ACTION_SPACE.isThisCmd(cmd)) {
-            manageAskActionSpace(cmd);
-        }
+
     }
 
 
@@ -107,17 +99,20 @@ public class SocketServerThread extends Thread{
     /**
      * Manage PLAYER_IDENTIFIACTION command.
      * @param command String of the command received via socket
+     * @param obj
      */
-    private void managePlayerIdentification(String command) throws IOException {
+    private void managePlayerIdentification(String command, Object obj) throws IOException {
         //Get the data from the command(all the arguments)
-        String[] data = ProtocolCommands.getDataFromCommand(command);
+        //String[] data = ProtocolCommands.getDataFromCommand(command);
+
+        //Get Player from Object
+        Player player = (Player) obj;
 
         //Get Name
-        remotePlayer.setName(data[0]);
+        remotePlayer.setName(player.getName());
 
         //Get id
-        int id = Integer.parseInt(data[1]);
-        remotePlayer.setID(id);
+        remotePlayer.setID(player.getID());
 
         //sk the remote player to pick a color
         askPlayerColor();
@@ -130,6 +125,9 @@ public class SocketServerThread extends Thread{
     private void sendAck() throws IOException {
         //out.println(ProtocolCommands.ACK.getCommand());
         String sendCmd = ProtocolCommands.ACK.getCommand();
+
+        //One send for the command and one for the object(which will not be use in this case)
+        out.writeObject(sendCmd);
         out.writeObject(sendCmd);
         out.flush();
     }
@@ -151,25 +149,31 @@ public class SocketServerThread extends Thread{
                 colors.get(2),
                 colors.get(3))
         );*/
-        String sendCmd = ProtocolCommands.SELECT_COLOR.getCommand(
+        /*String sendCmd = ProtocolCommands.SELECT_COLOR.getCommand(
                 colors.get(0),
                 colors.get(1),
                 colors.get(2),
-                colors.get(3));
-        out.writeObject(sendCmd);
+                colors.get(3));*/
+        //Send SELECT_COLOR command
+        out.writeObject(new String(ProtocolCommands.SELECT_COLOR.getCommand()));
+
+        //Send the colors to choose from(arraylist of strings)
+        out.writeObject(colors);
         out.flush();
     }
 
     /**
      * Manage COLOR_SELECTION command.
      * @param command String of the command received via socket
+     * @param obj
      */
-    private void manageColorSelection(String command) throws IOException {
+    private void manageColorSelection(String command, Object obj) throws IOException {
         //Get the data from the command(all the arguments)
-        String[] data = ProtocolCommands.getDataFromCommand(command);
+        //String[] data = ProtocolCommands.getDataFromCommand(command);
 
         //Get Color
-        TheGame.COLORS color = TheGame.COLORS.valueOf(data[0]);
+        String selectedColor = obj.toString();
+        TheGame.COLORS color = TheGame.COLORS.valueOf(selectedColor);
 
         //Select players color
         remotePlayer.setColor(color);
@@ -182,35 +186,18 @@ public class SocketServerThread extends Thread{
     }
 
     /**
-     * Manage ASK_GAME_UPDATES command
+     * Manage ASK_BOARD_UPDATES command
      * @param command String of the command received via socket
+     * @param obj
      */
-    private void manageAskGameUpdates(String command) throws IOException {
+    private void manageAskBoardUpdates(String command, Object obj) throws IOException {
         //There should be no arguments here
-        //TODO: for now i don't check if something really changed on the board(i assume is always changes just for debug)
-        short itChanged = 1;
 
-        //Send the command back
-        //out.println(ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged));
-        String sendCmd = ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged);
-        out.writeObject(sendCmd);
+        //Send the UPDATED_BOARD command back + the updated board
+        out.writeObject(new String(ProtocolCommands.UPDATED_BOARD.getCommand()));
+        out.writeObject(remotePlayer.getGameReference().getTheController().getBoard());
         out.flush();
     }
 
-    /**
-     * Manage ASK_ACTION_SPACE command
-     * @param command String of the command received via socket
-     */
-    private void manageAskActionSpace(String command) {
-        //Get the data from the command(all the arguments)
-        String[] data = ProtocolCommands.getDataFromCommand(command);
 
-        //Get action's slot index from the arguments
-        int index = Integer.valueOf(data[0]);
-
-        //Get the game's board
-        Board board = remotePlayer.getGameReference().getTheController().getBoard();
-
-
-    }
 }

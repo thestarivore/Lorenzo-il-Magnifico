@@ -10,6 +10,7 @@ import models.Resources;
 
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.*;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * Created by Eduard Chirica on 5/7/17.
  */
 
-public class Player {
+public class Player implements Serializable{
     protected String name;
     protected int ID;
     protected Points points;

@@ -3,6 +3,7 @@ package models.board;
 import controllers.game_course.phases.Action;
 import game.TheGame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class TheCouncilPalace {
+public class TheCouncilPalace implements Serializable {
     private List<ActionSpace> spaces;
 
 

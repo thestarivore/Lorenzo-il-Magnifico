@@ -1,4 +1,5 @@
 package models.cards;
+import java.io.Serializable;
 import java.util.ArrayList;
 import models.Requirements;
 import controllers.ability.SpecialAbility;
@@ -6,7 +7,7 @@ import controllers.ability.SpecialAbility;
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class LeaderCard implements Card {
+public class LeaderCard implements Card, Serializable {
     private String name;
     private Requirements requirements;
     private SpecialAbility specialAbility;

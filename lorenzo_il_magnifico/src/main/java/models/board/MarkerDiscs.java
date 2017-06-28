@@ -1,9 +1,11 @@
 package models.board;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class MarkerDiscs {
+public class MarkerDiscs implements Serializable {
     private String player;
 
     public MarkerDiscs() {};

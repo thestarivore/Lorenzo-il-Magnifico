@@ -36,9 +36,4 @@ public interface ClientInterface extends Runnable {
      */
     public void isMyTurn();
 
-    /**
-     * Get update on the action slot indexed by the passed number
-     * @param currentActionSpace index of the current action slot to ask;
-     */
-    public void getActionSpaceUpdate(int currentActionSpace);
 }

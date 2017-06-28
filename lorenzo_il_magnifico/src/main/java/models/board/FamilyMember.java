@@ -3,11 +3,12 @@ package models.board;
 import game.TheGame;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class FamilyMember {
+public class FamilyMember implements Serializable {
     private Dice.COLORS diceColor;
     private TheGame.COLORS playerColor;
     private Dice dice;

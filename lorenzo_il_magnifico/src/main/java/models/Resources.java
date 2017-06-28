@@ -2,10 +2,12 @@ package models;
 
 import utility.Constants;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class Resources {
+public class Resources implements Serializable {
     private int woods;
     private int stones;
     private int servants;

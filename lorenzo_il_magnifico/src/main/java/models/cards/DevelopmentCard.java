@@ -8,10 +8,12 @@ import controllers.effects.PermanentEffect;
 import models.Points;
 import models.Resources;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class DevelopmentCard implements Card {
+public class DevelopmentCard implements Card, Serializable {
     private String name;
     private Period period;
     private Resources cost;

@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class Requirements {
+public class Requirements implements Serializable {
    private int numOfBuilding;
    private int numOfCharacter;
    private int numOfTerritory;

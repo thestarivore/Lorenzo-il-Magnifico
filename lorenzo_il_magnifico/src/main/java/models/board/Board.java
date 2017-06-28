@@ -3,12 +3,13 @@ package models.board;
 import utility.Constants;
 import models.board.trackers.Track;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class Board {
+public class Board implements Serializable {
     private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;

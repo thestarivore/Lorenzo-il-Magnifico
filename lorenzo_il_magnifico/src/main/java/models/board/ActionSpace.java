@@ -5,10 +5,12 @@ import models.Points;
 import models.Resources;
 import models.cards.DevelopmentCard;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class ActionSpace {
+public class ActionSpace implements Serializable {
     private DevelopmentCard card;
     private Resources bonusRes;
     private Points bonusPoints;

@@ -4,6 +4,8 @@ import controllers.Player;
 import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
+
+import models.board.Board;
 import views.GameView;
 
 import java.io.IOException;
@@ -22,6 +24,8 @@ public class SocketClient implements ClientInterface{
     private GameView gameView;
     private Player player;
     private List<String> cmdList;
+    private List<Object> cmdObjectList;
+    private Board oldBoard;
 
     private static SocketClient instance = null;
 
@@ -47,6 +51,7 @@ public class SocketClient implements ClientInterface{
         this.ip = ip;
         this.port = port;
         this.cmdList = new ArrayList<String>();
+        this.cmdObjectList = new ArrayList<Object>();
     }
 
     /**
@@ -57,11 +62,9 @@ public class SocketClient implements ClientInterface{
         Socket socket = new Socket(ip, port);
         System.out.println("Connection established");
 
-        //Scanner socketIn = new Scanner(socket.getInputStream());
-        //PrintWriter socketOut = new PrintWriter(socket.getOutputStream());
+        //Input/Output Streams
         ObjectOutputStream socketOut = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream socketIn = new ObjectInputStream(socket.getInputStream());
-
 
         Scanner stdin = new Scanner(System.in);
         try {
@@ -121,8 +124,11 @@ public class SocketClient implements ClientInterface{
         this.player = player;
 
         //Send the player identification to the server
-        String cmd = ProtocolCommands.PLAYER_IDENTIFIACTION.getCommand(player.getName(), player.getID());
+        //String cmd = ProtocolCommands.PLAYER_IDENTIFIACTION.getCommand(player.getName(), player.getID());
+        String cmd = ProtocolCommands.PLAYER_IDENTIFIACTION.getCommand();
         cmdList.add(cmd);
+        Object object = (Object) player;
+        cmdObjectList.add(object);
     }
 
     /**
@@ -131,7 +137,7 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public void getBoardUpdates() {
-        sendCmdToClient(ProtocolCommands.ASK_GAME_UPDATES.getCommand());
+        sendCmdToClient(ProtocolCommands.ASK_BOARD_UPDATES.getCommand(), new String("None"));
     }
 
     /**
@@ -142,25 +148,26 @@ public class SocketClient implements ClientInterface{
 
     }
 
-    /**
-     * Get update on the action slot indexed by the passed number
-     * @param currentActionSpace index of the current action slot to ask;
-     */
-    @Override
-    public void getActionSpaceUpdate(int currentActionSpace) {
-        sendCmdToClient(ProtocolCommands.ASK_ACTION_SPACE.getCommand(currentActionSpace));
-    }
-
 
     /**************************************************************
      ****************** Protocol Commands *************************
      **************************************************************/
     /**
      * Send Command to the client
-     * @param cmd
+     * @param cmd command String to send
      */
     public void sendCmdToClient(String cmd){
         cmdList.add(cmd);
+    }
+
+    /**
+     * Send Command and the object to the client
+     * @param cmd command String to send
+     * @param object object to send
+     */
+    public void sendCmdToClient(String cmd, Object object){
+        cmdList.add(cmd);
+        cmdObjectList.add(object);
     }
 
     /**
@@ -175,28 +182,34 @@ public class SocketClient implements ClientInterface{
         boolean cmdToSend = !cmdList.isEmpty();
 
         if(cmdToSend){
-            //Send CMD
+            //Send CMD String
             out.writeObject(new String(cmdList.remove(0)));
-            //out.println(cmdList.remove(0));
+
+            //Send CMD String
+            out.writeObject(cmdObjectList.remove(0));
+
+            //Flush streaming channel
             out.flush();
 
-            //Receive Ack or Response
-            //String line = in.nextLine();
+            //Receive Ack or Response String
             String line = (String) in.readObject();
 
-            //ACK
+            //Receive Ack or Response Object
+            Object obj = (Object) in.readObject();
+
+            //ACK, object is ignored here
             if(ProtocolCommands.ACK.isThisCmd(line)){
                 manageAck();
             }
 
             //Color Selection
             if(ProtocolCommands.SELECT_COLOR.isThisCmd(line)){
-                manageColorSelection(line);
+                manageColorSelection(line, obj);
             }
 
-            //Color Selection
-            if(ProtocolCommands.GAME_TO_UPDATE.isThisCmd(line)){
-                manageGameToUpdate(line);
+            //Board Update
+            if(ProtocolCommands.UPDATED_BOARD.isThisCmd(line)){
+                manageUpdatedBoard(line, obj);
             }
         }
     }
@@ -211,17 +224,21 @@ public class SocketClient implements ClientInterface{
     /**
      * Manage Color Selection Command
      * @param command
+     * @param obj
      */
-    private void manageColorSelection(String command){
+    private void manageColorSelection(String command, Object obj){
         String[] newColors = new String[TheGame.MAXIMUM_COLORS_NUMBER];
         int i = 0;
 
         //Get the data from the command(all the arguments)
-        String[] data = ProtocolCommands.getDataFromCommand(command);
+        //String[] data = ProtocolCommands.getDataFromCommand(command);
+
+        // Get list of colors from object
+        ArrayList<String> colors = (ArrayList<String>) obj;
 
         //Fill the array with the color strings
-        for(i = 0; i < data.length; i++)
-            newColors[i] = data[i];
+        for(i = 0; i < colors.size(); i++)
+            newColors[i] = colors.get(i);
 
         //Fill the list is colors are missing
         for(i = newColors.length; i < TheGame.MAXIMUM_COLORS_NUMBER; i++)
@@ -231,7 +248,7 @@ public class SocketClient implements ClientInterface{
         int color_index = gameView.askColor(newColors);
 
         //Send the selected color selection
-        sendCmdToClient(ProtocolCommands.COLOR_SELECTION.getCommand(data[color_index]));
+        sendCmdToClient(ProtocolCommands.COLOR_SELECTION.getCommand(), colors.get(color_index));
     }
 
     /**
@@ -239,16 +256,18 @@ public class SocketClient implements ClientInterface{
      * If the argument is "1" then start action slot update,
      * els eif "0" ignore ad repeat the usual commands.
      * @param command
+     * @param obj
      */
-    private void manageGameToUpdate(String command) {
-        //Get the data from the command(all the arguments)
-        String[] data = ProtocolCommands.getDataFromCommand(command);
+    private void manageUpdatedBoard(String command, Object obj) {
+        //Get the data from the object
+        Board board = (Board) obj;
 
-        //Find out whether is there any change on the board
-        if(Integer.parseInt(data[0]) == 1)
-            Client.setFsmState(Client.FSMClient.ACTION_SPACE_UPDATE);
-        else if(Integer.parseInt(data[0]) == 0)
-            Client.setFsmState(Client.FSMClient.BOARD_UPDATES);
+        //If any changes, update the map
+        if(board.equals(oldBoard) == false)
+            gameView.showTmpMap();
+
+        // Save the old board
+        oldBoard = board;
     }
 
 }
