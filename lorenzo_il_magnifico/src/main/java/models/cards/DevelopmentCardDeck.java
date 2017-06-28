@@ -15,6 +15,7 @@ public class DevelopmentCardDeck extends Deck {
         super(new DevelopmentCard());
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.cardFromFile = new FileManagerImport();
+
     }
 
     public DevelopmentCardDeck(){

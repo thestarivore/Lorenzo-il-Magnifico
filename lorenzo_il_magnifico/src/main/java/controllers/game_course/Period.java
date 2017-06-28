@@ -22,4 +22,9 @@ public class Period {
     public void setRound(Round round) {
         this.round = round;
     }
+
+    @Override
+    public String toString(){
+        return "" + this.numberOfPeriod;
+    }
 }

@@ -17,27 +17,31 @@ import models.cards.Deck;
  * Created by cp18393 on 11/06/17.
  */
 public class FileManagerImport {
-
-    private Deck deck;
+    
     private LeaderCardDeck leaderCards;
     private DevelopmentCardDeck developmentCards;
 
 
 
-    public static void main(String[] args) {
-
-    final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
+    //public static void main(String[] args) {
+    private ArrayList<DevelopmentCard> returnDeck(){
+        ArrayList<DevelopmentCard> cards = new ArrayList<DevelopmentCard>();
+        final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
         String dCardFile = "/Users/cp18393/Desktop/LeaderCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
-            List<DevelopmentCard> list = gson.fromJson(reader, dCardType);
+            ArrayList<DevelopmentCard> list = gson.fromJson(reader, dCardType);
             for(int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i));
             }
+            cards=list;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        for(int i = 0; i < cards.size(); i++) {
+            System.out.print(cards.get(i));
+        }
+        return cards;
 
     }
 

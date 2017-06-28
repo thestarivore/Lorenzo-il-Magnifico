@@ -68,6 +68,6 @@ public class Points {
     }
     @Override
     public String toString(){
-        return "Victory Points " + this.victory + "\n"+ "Military Points: " + this.military+"\n"+"Faith Points: "+this.faith;
+        return "Victory Points " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith;
     }
 }
