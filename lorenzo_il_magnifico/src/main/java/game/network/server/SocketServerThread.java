@@ -17,8 +17,10 @@ import java.util.Scanner;
 public class SocketServerThread extends Thread{
     private RemotePlayer remotePlayer;
     protected Socket socket;
-    private Scanner in;
-    private PrintWriter out;
+    //private Scanner in;
+    //private PrintWriter out;
+    ObjectInputStream in;
+    ObjectOutputStream out;
 
 
     public SocketServerThread(RemotePlayer remotePlayer, Socket clientSocket) {
@@ -33,8 +35,11 @@ public class SocketServerThread extends Thread{
         try {
             // apro gli stream di input e output per leggere e scrivere
             // nella connessione appena ricevuta
-            in = new Scanner(socket.getInputStream());
-            out = new PrintWriter(socket.getOutputStream());
+            //in = new Scanner(socket.getInputStream());
+            //out = new PrintWriter(socket.getOutputStream());
+            out = new ObjectOutputStream(socket.getOutputStream());
+            in = new ObjectInputStream(socket.getInputStream());
+
 
 
             // leggo e scrivo nella connessione finche' non ricevo "quit”
@@ -44,13 +49,18 @@ public class SocketServerThread extends Thread{
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         } finally {
             try {
                 // Close streams and socket
                 System.out.println("Closing sockets");
-                in.close();
-                out.close();
-                socket.close();
+                if(in != null)
+                    in.close();
+                if(out != null)
+                    out.close();
+                if(socket != null)
+                    socket.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -62,9 +72,11 @@ public class SocketServerThread extends Thread{
      * Communication Automa Server Side.
      * Wait for commands and response accordingly.
      */
-    private void communicationAutoma(){
+    private void communicationAutoma() throws IOException, ClassNotFoundException {
         //Receive from Client
-        String cmd = in.nextLine();
+        //String cmd = in.nextLine();
+        String cmd = (String) in.readObject();
+
 
         //PLAYER_IDENTIFIACTION
         if (ProtocolCommands.PLAYER_IDENTIFIACTION.isThisCmd(cmd)) {
@@ -96,7 +108,7 @@ public class SocketServerThread extends Thread{
      * Manage PLAYER_IDENTIFIACTION command.
      * @param command String of the command received via socket
      */
-    private void managePlayerIdentification(String command){
+    private void managePlayerIdentification(String command) throws IOException {
         //Get the data from the command(all the arguments)
         String[] data = ProtocolCommands.getDataFromCommand(command);
 
@@ -115,15 +127,17 @@ public class SocketServerThread extends Thread{
      * Send Acknowledgement back to the client.
      * Must be done after every received command managed.
      */
-    private void sendAck(){
-        out.println(ProtocolCommands.ACK.getCommand());
+    private void sendAck() throws IOException {
+        //out.println(ProtocolCommands.ACK.getCommand());
+        String sendCmd = ProtocolCommands.ACK.getCommand();
+        out.writeObject(sendCmd);
         out.flush();
     }
 
     /**
      * Ask the remote player to pick a color from the ones that are available
      */
-    public void askPlayerColor(){
+    public void askPlayerColor() throws IOException {
         ArrayList<String> colors = remotePlayer.getGameReference().getAvailableColorsStrings();
 
         //Fill the list is colors are missing
@@ -131,12 +145,18 @@ public class SocketServerThread extends Thread{
             colors.add("");
 
         //Send colors to choose from
-        out.println(ProtocolCommands.SELECT_COLOR.getCommand(
+        /*out.println(ProtocolCommands.SELECT_COLOR.getCommand(
                 colors.get(0),
                 colors.get(1),
                 colors.get(2),
                 colors.get(3))
-        );
+        );*/
+        String sendCmd = ProtocolCommands.SELECT_COLOR.getCommand(
+                colors.get(0),
+                colors.get(1),
+                colors.get(2),
+                colors.get(3));
+        out.writeObject(sendCmd);
         out.flush();
     }
 
@@ -144,7 +164,7 @@ public class SocketServerThread extends Thread{
      * Manage COLOR_SELECTION command.
      * @param command String of the command received via socket
      */
-    private void manageColorSelection(String command){
+    private void manageColorSelection(String command) throws IOException {
         //Get the data from the command(all the arguments)
         String[] data = ProtocolCommands.getDataFromCommand(command);
 
@@ -165,13 +185,15 @@ public class SocketServerThread extends Thread{
      * Manage ASK_GAME_UPDATES command
      * @param command String of the command received via socket
      */
-    private void manageAskGameUpdates(String command) {
+    private void manageAskGameUpdates(String command) throws IOException {
         //There should be no arguments here
         //TODO: for now i don't check if something really changed on the board(i assume is always changes just for debug)
         short itChanged = 1;
 
         //Send the command back
-        out.println(ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged));
+        //out.println(ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged));
+        String sendCmd = ProtocolCommands.GAME_TO_UPDATE.getCommand(itChanged);
+        out.writeObject(sendCmd);
         out.flush();
     }
 

@@ -7,12 +7,11 @@ import game.network.protocol.ProtocolCommands;
 import views.GameView;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Eduard Chirica on 6/3/17.
@@ -54,12 +53,16 @@ public class SocketClient implements ClientInterface{
      * Start Socket Client communication manager
      * @throws IOException
      */
-    private void startClient() throws IOException {
+    private void startClient() throws IOException, ClassNotFoundException {
         Socket socket = new Socket(ip, port);
         System.out.println("Connection established");
 
-        Scanner socketIn = new Scanner(socket.getInputStream());
-        PrintWriter socketOut = new PrintWriter(socket.getOutputStream());
+        //Scanner socketIn = new Scanner(socket.getInputStream());
+        //PrintWriter socketOut = new PrintWriter(socket.getOutputStream());
+        ObjectOutputStream socketOut = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream socketIn = new ObjectInputStream(socket.getInputStream());
+
+
         Scanner stdin = new Scanner(System.in);
         try {
             while (true) {
@@ -96,6 +99,8 @@ public class SocketClient implements ClientInterface{
         } catch (IOException e) {
             System.err.println(e.getMessage());
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -166,16 +171,18 @@ public class SocketClient implements ClientInterface{
      * @param in
      * @param out
      */
-    private void communicationAutoma(Scanner in, PrintWriter out){
+    private void communicationAutoma(ObjectInputStream in, ObjectOutputStream out) throws IOException, ClassNotFoundException {
         boolean cmdToSend = !cmdList.isEmpty();
 
         if(cmdToSend){
             //Send CMD
-            out.println(cmdList.remove(0));
+            out.writeObject(new String(cmdList.remove(0)));
+            //out.println(cmdList.remove(0));
             out.flush();
 
             //Receive Ack or Response
-            String line = in.nextLine();
+            //String line = in.nextLine();
+            String line = (String) in.readObject();
 
             //ACK
             if(ProtocolCommands.ACK.isThisCmd(line)){
