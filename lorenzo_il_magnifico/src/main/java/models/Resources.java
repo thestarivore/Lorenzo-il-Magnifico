@@ -98,6 +98,6 @@ public class Resources {
     }
     @Override
     public String toString(){
-        return "Woods: "+this.woods + " Stones: "+this.stones+ " Coins: "+this.coins+ " Servants: "+this.servants;
+        return "Woods: "+this.woods + " Stones: "+this.stones+ " Servants: "+this.servants +" Coins: "+this.coins;
     }
 }
