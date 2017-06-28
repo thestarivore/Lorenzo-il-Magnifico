@@ -23,12 +23,12 @@ public class FileManagerImport {
 
 
 
-    //public static void main(String[] args) {
-    private ArrayList<DevelopmentCard> returnDeck(){
+    public static void main(String[] args) {
+    //private ArrayList<DevelopmentCard> returnDeck(){
         ArrayList<DevelopmentCard> cards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = "/Users/cp18393/Desktop/LeaderCard.json";
+        String dCardFile = "/Users/cp18393/Desktop/DevCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
             ArrayList<DevelopmentCard> list = gson.fromJson(reader, dCardType);
             for(int i = 0; i < list.size(); i++) {
@@ -38,10 +38,10 @@ public class FileManagerImport {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for(int i = 0; i < cards.size(); i++) {
+        /*for(int i = 0; i < cards.size(); i++) {
             System.out.print(cards.get(i));
-        }
-        return cards;
+        }*/
+        //return cards;
 
     }
 

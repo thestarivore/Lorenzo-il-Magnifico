@@ -1,0 +1,518 @@
+[
+{
+	"name":"Prova",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"cost":{
+	 	"woods":1,
+	 	"stones":2,
+	 	"servants":3,
+	 	"coins":4
+	 	},
+	"pointReq":{
+	 	"victory":1,
+	 	"military":2,
+	 	"faith":3
+	 	},
+	"pointCost":{
+	 	"victory":1,
+	 	"military":2,
+	 	"faith":3
+	 	},
+	"immediateEffect":{
+	 	"resources":{
+	 		"woods":1,
+	 		"stones":2,
+	 		"servants":3,
+	 		"coins":4
+	 		},
+	 	"points":{
+	 		"victory":1,
+	 		"military":2,
+	 		"faith":3
+	 		},
+	 	"bonusAction":{},
+	 	"isbonus":0
+	 	},
+	"permanentEffect":{
+		"points":{
+	 		"victory":1,
+	 		"military":2,
+	 		"faith":3
+	 		},
+	 	"resources":{
+	 		"woods":1,
+	 		"stones":2,
+	 		"servants":3,
+	 		"coins":4
+	 		},
+	 		"dice":1
+	},
+	"description":"This card is useful"
+},
+{	"name":"Commercial Hub",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"permanentEffect":{
+	 	"resources":{
+	 		"coins":1
+	 		},
+	 		"dice":1
+	},
+	"description":"This card is useful"
+},
+{	"name":"Woods",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"woods":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":1
+	 		},
+	 		"dice":2
+	},
+	"description":"This card is useful"
+},
+{	"name":"Village",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"permanentEffect":{
+	 	"resources":{
+	 		"coins":1,
+	 		"servants":1
+	 		},
+	 		"dice":3
+	},
+	"description":"This card is useful"
+},
+{	"name":"Gravel Pit",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"stones":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"stones":2
+	 		},
+	 		"dice":4
+	},
+	"description":"This card is useful"
+},
+{	"name":"Forest",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"woods":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":3
+	 		},
+	 		"dice":5
+	},
+	"description":"This card is useful"
+},
+{	"name":"Monastery",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"servants":1
+	 		},
+	 	"points":{
+	 		"military":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"stones":1
+	 		},
+	 	"points":{
+	 		"faith":1
+	 		},
+	 		"dice":6
+	},
+	"description":"This card is useful"
+},
+{	"name":"Citadel",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"permanentEffect":{
+	 	"resources":{
+	 		"stones":1
+	 		},
+	 	"points":{
+	 		"military":2
+	 		},
+	 		"dice":5
+	},
+	"description":"This card is useful"
+},
+{	"name":"Gold Mine",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"coins":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"coins":2
+	 		},
+	 		"dice":1
+	},
+	"description":"This card is useful"
+},
+{	"name":"Mountain Town",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"servants":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":2
+	 		},
+	 	"points":{
+	 		"military":1
+	 		},
+	 		"dice":3
+	},
+	"description":"This card is useful"
+},
+{	"name":"Mining Town",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"stones":1,
+	 		"servants":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"stones":2,
+	 		"servants":1
+	 		},
+	 		"dice":4
+	},
+	"description":"This card is useful"
+},
+{	"name":"Rock Pit",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"woods":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"stones":3
+	 		},
+	 		"dice":3
+	},
+	"description":"This card is useful"
+},
+{	"name":"Estate",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"woods":1,
+	 		"servants":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":2,
+	 		"coins":1
+	 		},
+	 		"dice":4
+	},
+	"description":"This card is useful"
+},
+{	"name":"Hermitage",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"points":{
+	 		"faith":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"points":{
+	 		"faith":1
+	 		},
+	 		"dice":2
+	},
+	"description":"This card is useful"
+},
+{	"name":"Manor House",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"permanentEffect":{
+	 	"resources":{
+	 		"servants":2
+	 		},
+	 	"points":{
+	 		"military":2
+	 		},	
+	 		"dice":5
+	},
+	"description":"This card is useful"
+},
+{	"name":"Dukedom",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"coins":4
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":2,
+	 		"coins":1,
+	 		"stones":1
+	 		},
+	 		"dice":6
+	},
+	"description":"This card is useful"
+},
+{	"name":"Trading Town",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"coins":1,
+	 		"servants":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"coins":3
+	 		},
+	 		"dice":1
+	},
+	"description":"This card is useful"
+},
+{	"name":"Farm",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"resources":{
+	 		"woods":1
+	 		},
+	 	"points":{
+	 		"victory":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":2
+	 		},
+	 	"points":{
+	 		"victory":2
+	 		},
+	 		"dice":3
+	},
+	"description":"This card is useful"
+},
+{	"name":"Colony",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"points":{
+	 		"military":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"woods":1
+	 		},
+	 	"points":{
+	 		"victory":4
+	 		},
+	 		"dice":5
+	},
+	"description":"This card is useful"
+},
+{	"name":"Marble Pit",
+	"period":{
+		"numberOfPeriod":1,
+		"round":{
+			"numberOfRound":2
+			}
+		},
+	"immediateEffect":{
+	 	"points":{
+	 		"victory":3
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"stones":2
+	 		},
+	 	"points":{
+	 		"victory":1
+	 		},
+	 		"dice":2
+	},
+	"description":"This card is useful"
+},
+{	"name":"Sanctuary",
+	"period":{
+		"numberOfPeriod":1
+		},
+	"immediateEffect":{
+	 	"points":{
+	 		"faith":1
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"coins":1
+	 		},
+	 	"points":{
+	 		"faith":1
+	 		},
+	 		"dice":1
+	},
+	"description":"This card is useful"
+},
+{	"name":"Castle",
+	"period":{
+		"numberOfPeriod":1
+		},
+	"immediateEffect":{
+		"resources":{
+	 		"coins":2
+	 		},
+	 	"points":{
+	 		"victory":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"servants":1
+	 		},
+	 	"points":{
+	 		"military":3
+	 		},
+	 		"dice":4
+	},
+	"description":"This card is useful"
+},
+{	"name":"Fortified Town",
+	"period":{
+		"numberOfPeriod":1
+		},
+	"immediateEffect":{
+		"resources":{
+	 		"servants":1
+	 		},
+	 	"points":{
+	 		"military":2
+	 		}
+	 	},
+	"permanentEffect":{
+	 	"resources":{
+	 		"servants":2
+	 		},
+	 	"points":{
+	 		"military":1
+	 		},
+	 		"dice":2
+	},
+	"description":"This card is useful"
+}
+]
