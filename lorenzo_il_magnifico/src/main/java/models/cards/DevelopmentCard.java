@@ -86,6 +86,11 @@ public class DevelopmentCard implements Card {
     }
     @Override
     public String toString(){
-        return "Card Name: " + this.name + "\n"+ "Card Cost: " + this.cost+"\n"+"Immediate Effect: "+this.immediateEffect+ "\n"+ "Permanent effect: " + this.permanentEffect;
+        return  "Card Name: " + this.name + "\n"+
+                "Card Period: " + this.period + "\n"+
+                "Card Cost: " + this.cost+"\n"+
+                "Card Point: " + this.pointsReq + "\n"+
+                "Immediate Effect: "+this.immediateEffect+ "\n"+
+                "Permanent effect: " + this.permanentEffect;
     }
 }

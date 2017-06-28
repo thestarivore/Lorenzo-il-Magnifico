@@ -7,6 +7,7 @@ import models.cards.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Type;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +23,26 @@ public class FileManagerImport {
     private DevelopmentCardDeck developmentCards;
 
 
-    public DevelopmentCardDeck getDevelopmentCards() {
+
+    public static void main(String[] args) {
+
+    final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = null;
+        String dCardFile = "/Users/cp18393/Desktop/LeaderCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
-            DevelopmentCardDeck developmentCards = gson.fromJson(reader, new TypeToken<DevelopmentCardDeck>() {
-            }.getType());
+            List<DevelopmentCard> list = gson.fromJson(reader, dCardType);
+            for(int i = 0; i < list.size(); i++) {
+                System.out.print(list.get(i));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return developmentCards;
+
+
     }
 
-    public LeaderCardDeck getLeaderCards() {
+
+  /*  public LeaderCardDeck getLeaderCards() {
         String lCardFile = null;
         Gson gson = new Gson();
         try (Reader reader = new FileReader(lCardFile)) {
@@ -44,11 +52,11 @@ public class FileManagerImport {
             e.printStackTrace();
         }
         return leaderCards;
-    }
+
     public void callFileManager(){
         getLeaderCards();
     }
-
+*/
 
 }
 
