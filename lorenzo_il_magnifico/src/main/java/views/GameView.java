@@ -1,15 +1,12 @@
 package views;
 
 import controllers.Player;
-import game.Lobby;
 import game.TheGame;
 import models.Points;
 import models.Resources;
 import models.board.*;
 import models.cards.DevelopmentCard;
 import utility.Constants;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,11 +30,6 @@ public class GameView {
 
     //Constants
     public static final int ACTION_SPACE_HEIGHT = 4;
-
-
-
-
-
 
 
 
@@ -403,9 +395,9 @@ public class GameView {
         String[] description1 = new String[Board.FIXED_NUMBER_OF_TOWER];
         String[] description2 = new String[Board.FIXED_NUMBER_OF_TOWER];
         String[] description3 = new String[Board.FIXED_NUMBER_OF_TOWER];
-        String[] playerName = new String[Board.FIXED_NUMBER_OF_TOWER];
+        String[] playerColor = new String[Board.FIXED_NUMBER_OF_TOWER];
         String[] familyMemberColor = new String[Board.FIXED_NUMBER_OF_TOWER];
-        String[] playerID = new String[Board.FIXED_NUMBER_OF_TOWER];
+        String[] blankBonusLine = new String[Board.FIXED_NUMBER_OF_TOWER];
 
         printLine("           TOWER 1                                       TOWER 2                                       TOWER 3                                       TOWER 4        ");
         printLine(" ___________________________________________________________________________________________________________________________________________________________________");
@@ -425,9 +417,8 @@ public class GameView {
                     description1[i] = formatCardSize("");
                     description2[i] = formatCardSize("");
                     description3[i] = formatCardSize("");
-                    playerName[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getPlayerName());
-                    playerID[i] = formatBonusSpace(String.valueOf(board.getTower(i).getSpace(j).getFamilyMember().getPlayerID()));
-                    familyMemberColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getFamilyMemberColors().getColor());
+                    playerColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getPlayerColor().getColor());
+                    familyMemberColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getDiceColor().getColor());
 
                 }
                 else {
@@ -437,8 +428,7 @@ public class GameView {
                     description1[i] = formatCardSize(desc.substring(0, 24));
                     description2[i] = formatCardSize(desc.substring(25, 49));
                     description3[i] = formatCardSize(desc.substring(50, 74));
-                    playerName[i] = formatBonusSpace("");
-                    playerID[i] = formatBonusSpace("");
+                    playerColor[i] = formatBonusSpace("");
                     familyMemberColor[i] = formatBonusSpace("");
                 }
 
@@ -447,6 +437,10 @@ public class GameView {
             String s = formatCardSize("");
             String line = "_________________________";
             String s2 = formatCardSize(line);
+
+            for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++)
+                blankBonusLine[i] = formatBonusSpace("");
+
             printFourTime(s, s, s, s);
             printLine("");
             printFourTime(card[0], card[1], card[2], card[3]);
@@ -466,9 +460,9 @@ public class GameView {
                 printFourTime(s + "    __1_______ ", s + "    __1_______ ", s + "    __1_______ ", s + "    __1_______ ");
 
             printLine("");
-            printFourTime(description1[0] + "   " + playerName[0], description1[1] + "   " + playerName[1], description1[2] + "   " + playerName[2], description1[3] + "   " + playerName[3]);
+            printFourTime(description1[0] + "   " + playerColor[0], description1[1] + "   " + playerColor[1], description1[2] + "   " + playerColor[2], description1[3] + "   " + playerColor[3]);
             printLine("");
-            printFourTime(description2[0] + "   " + playerID[0], description2[1] + "   " + playerID[1], description2[2] + "   " + playerID[2], description2[3] + "   " + playerID[3]);
+            printFourTime(description2[0] + "   " + blankBonusLine[0], description2[1] + "   " + blankBonusLine[1], description2[2] + "   " + blankBonusLine[2], description2[3] + "   " + blankBonusLine[3]);
             printLine("");
             printFourTime(description3[0] + "   " + familyMemberColor[0], description3[1] + "   " + familyMemberColor[1], description3[2] + "   " + familyMemberColor[2], description3[3] + "   " + familyMemberColor[3]);
             printLine("");
@@ -515,9 +509,9 @@ public class GameView {
 
                 line += "__________ ";
 
-                councilPalaceSpace[0] += formatActionSpace(board.getCouncilPalace().getSpace(i).getFamilyMember().getPlayerName());
-                councilPalaceSpace[1] += formatActionSpace(String.valueOf(board.getCouncilPalace().getSpace(i).getFamilyMember().getPlayerID()));
-                councilPalaceSpace[2] += formatActionSpace(board.getCouncilPalace().getSpace(i).getFamilyMember().getFamilyMemberColors().getColor());
+                councilPalaceSpace[0] += formatActionSpace(board.getCouncilPalace().getSpace(i).getFamilyMember().getPlayerColor().getColor());
+                councilPalaceSpace[1] += formatActionSpace("");
+                councilPalaceSpace[2] += formatActionSpace(board.getCouncilPalace().getSpace(i).getFamilyMember().getDiceColor().getColor());
                 endLine += "|__________";
 
             }
@@ -565,9 +559,9 @@ public class GameView {
         //If Harvest or Production single space is occupied, get information about the player that occupied this action space
         if (singleSpace.getOccupied()) {
 
-            harvestSpace[0] += formatActionSpace(singleSpace.getFamilyMember().getPlayerName());
-            harvestSpace[1] += formatActionSpace(String.valueOf(singleSpace.getFamilyMember().getPlayerID()));
-            harvestSpace[2] += formatActionSpace(singleSpace.getFamilyMember().getFamilyMemberColors().getColor());
+            harvestSpace[0] += formatActionSpace(singleSpace.getFamilyMember().getPlayerColor().getColor());
+            harvestSpace[1] += formatActionSpace("");
+            harvestSpace[2] += formatActionSpace(singleSpace.getFamilyMember().getDiceColor().getColor());
 
         }
 
@@ -595,9 +589,9 @@ public class GameView {
 
                 line += "__________ ";
 
-                harvestSpace[0] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getPlayerName());
-                harvestSpace[1] += formatActionSpace(String.valueOf(multipleSpace.get(i).getFamilyMember().getPlayerID()));
-                harvestSpace[2] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getFamilyMemberColors().getColor());
+                harvestSpace[0] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getPlayerColor().getColor());
+                harvestSpace[1] += formatActionSpace("");
+                harvestSpace[2] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getDiceColor().getColor());
 
                 endLine += "|__________";
 
@@ -653,9 +647,9 @@ public class GameView {
 
             if (board.getMarket().getSpace(i).getOccupied()) {
 
-                marketSpace[0] += formatActionSpace(board.getMarket().getSpace(i).getFamilyMember().getPlayerName()) + "| ";
-                marketSpace[1] += formatActionSpace(String.valueOf(board.getMarket().getSpace(i).getFamilyMember().getPlayerID())) + "| ";
-                marketSpace[2] += formatActionSpace(board.getMarket().getSpace(i).getFamilyMember().getFamilyMemberColors().getColor()) + "| ";
+                marketSpace[0] += formatActionSpace(board.getMarket().getSpace(i).getFamilyMember().getPlayerColor().getColor()) + "| ";
+                marketSpace[1] += formatActionSpace("") + "| ";
+                marketSpace[2] += formatActionSpace(board.getMarket().getSpace(i).getFamilyMember().getDiceColor().getColor()) + "| ";
             }
 
             else {

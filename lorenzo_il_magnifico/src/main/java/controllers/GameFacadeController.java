@@ -10,11 +10,10 @@ import models.GameFacadeModel;
 import models.Points;
 import models.Resources;
 import models.board.Board;
-import models.board.NeutralFamilyMember;
+import models.board.FamilyMember;
 import models.cards.Deck;
 import models.cards.DevelopmentCard;
 
-import static java.lang.Integer.parseInt;
 
 /**
  * Created by Eduard Chirica on 5/20/17.
@@ -67,7 +66,7 @@ public class GameFacadeController {
      * @return family member with value update
      */
 
-    public NeutralFamilyMember selectFamilyMember(Player player, int type, int servant) {
+    public FamilyMember selectFamilyMember(Player player, int type, int servant) {
 
         player.getFamilyMember(type).addValue(servant);
         player.getFamilyMember(type).setUsed();
@@ -83,7 +82,7 @@ public class GameFacadeController {
      * @param space
      * @return
      */
-    public boolean checkFamilyMemberTowerChoice(NeutralFamilyMember familyMember, int tower, int space) {
+    public boolean checkFamilyMemberTowerChoice(FamilyMember familyMember, int tower, int space) {
         boolean valid = false;
         if (familyMember.getValue() >= facadeModel.getBoard().getTower(tower).getSpace(space).getDiceCost())
             valid = true;
@@ -96,7 +95,7 @@ public class GameFacadeController {
      * @param familyMember
      * @return
      */
-    public boolean checkFamilyMemberChoice(NeutralFamilyMember familyMember) {
+    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
         boolean valid = false;
         if (familyMember.getValue() >= 1)
             valid = true;
@@ -171,7 +170,7 @@ public class GameFacadeController {
     public boolean familyMemberAction(Player player, int tower, int space, int type, int servant) {
 
         boolean check = false;
-        NeutralFamilyMember familyMember = selectFamilyMember(player, type, servant);
+        FamilyMember familyMember = selectFamilyMember(player, type, servant);
         if (checkFamilyMemberTowerChoice(familyMember,tower,space))
             check = action.placeFamilyMemberOnTower(tower, space, familyMember,player);
         if (check && facadeModel.getBoard().getTower(tower).getSpace(space).checkBonus())
@@ -193,7 +192,7 @@ public class GameFacadeController {
 
 
         while (!(valid)) {
-                NeutralFamilyMember familyMember = selectFamilyMember(player, type, servant);
+                FamilyMember familyMember = selectFamilyMember(player, type, servant);
                 if (checkFamilyMemberChoice(familyMember)) {
                     harvestAction.placeFamilyMemberOnHarvestArea(familyMember);
                     valid = true;
@@ -215,7 +214,7 @@ public class GameFacadeController {
 
 
         while(!(valid)) {
-            NeutralFamilyMember familyMember = selectFamilyMember(player, type, servant);
+            FamilyMember familyMember = selectFamilyMember(player, type, servant);
             if (checkFamilyMemberChoice(familyMember)) {
                 productionAction.placeFamilyMemberOnProductionArea(familyMember);
                 valid = true;
@@ -238,7 +237,7 @@ public class GameFacadeController {
 
 
         while (!(valid)) {
-            NeutralFamilyMember familyMember = selectFamilyMember(player, type, servant);
+            FamilyMember familyMember = selectFamilyMember(player, type, servant);
             if (checkFamilyMemberChoice(familyMember)) {
                 action.placeFamilyMemberCouncilPalace(familyMember);
                 valid = true;
@@ -253,7 +252,7 @@ public class GameFacadeController {
         boolean valid = false;
 
         while (!(valid)) {
-                NeutralFamilyMember familyMember = selectFamilyMember(player, type, servant);
+                FamilyMember familyMember = selectFamilyMember(player, type, servant);
                 if (checkFamilyMemberChoice(familyMember)){
                 }
             }

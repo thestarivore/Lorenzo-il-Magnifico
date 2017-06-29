@@ -8,9 +8,12 @@ import java.awt.*;
  * Created by Eduard Chirica on 5/7/17.
  */
 public class FamilyMember {
+
     private Dice.COLORS diceColor;
     private TheGame.COLORS playerColor;
     private Dice dice;
+    private int value;
+    private boolean isUsed;
 
     public static final int FIXED_FAMILY_MEMBER = 4;
 
@@ -33,6 +36,7 @@ public class FamilyMember {
         this.value  = 0;
         this.isUsed = false;
     }
+    
 
     public int getValue() {
         return value;

@@ -26,7 +26,6 @@ public class Player {
     protected ArrayList<LeaderCard> leaderCards;
     protected TheGame.COLORS color;
     protected PersonalBonusTile personalBonusTile;
-    protected NeutralFamilyMember neutralFamilyMember;
     protected FamilyMember[] familyMember;
     protected MarkerDiscs markerDiscs;
     protected ExcommunicationCubes excommunicationCubes;
@@ -144,17 +143,11 @@ public class Player {
 
     public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {this.personalBonusTile=personalBonusTile; }
 
-    public NeutralFamilyMember getFamilyMember(int i) { return familyMember[i]; }
+    public FamilyMember getFamilyMember(int i) {
+        return familyMember[i];
+    }
 
     public void setFamilyMember(FamilyMember familyMember, int i) {this.familyMember[i]=familyMember; }
-
-    public NeutralFamilyMember getNeutralFamilyMember() {
-        return neutralFamilyMember;
-    }
-
-    public void setNeutralFamilyMember(NeutralFamilyMember neutralFamilyMember) {
-        this.neutralFamilyMember = neutralFamilyMember;
-    }
 
     public MarkerDiscs getMarkerDiscs() { return markerDiscs; }
 

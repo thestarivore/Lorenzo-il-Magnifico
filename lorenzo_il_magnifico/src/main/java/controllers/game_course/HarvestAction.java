@@ -5,7 +5,6 @@ import game.TheGame;
 import models.GameFacadeModel;
 import models.board.ActionSpace;
 import models.board.FamilyMember;
-import models.board.NeutralFamilyMember;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -18,7 +17,7 @@ public class HarvestAction extends Action {
 
 
 
-    public boolean placeFamilyMemberOnHarvestArea(NeutralFamilyMember famMember) {
+    public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
         boolean free;
 
         free = checkFreeActionSpace();

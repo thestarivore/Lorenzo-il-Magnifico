@@ -20,6 +20,9 @@ public class Board {
     /**
      * Board Constants
      */
+
+    public final static int FIXED_NUMBER_OF_TOWER = 4;
+    public final static int FIXED_NUMBER_OF_CARD = 4;
     public final static int NUMBER_ACTION_SPACES = 25;
     //Complete list of the indexes of th Action Spaces
     // First Tower

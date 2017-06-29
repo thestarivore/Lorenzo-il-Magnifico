@@ -1,15 +1,9 @@
 package controllers.game_course.phases;
 
 import controllers.Player;
-import game.TheGame;
 import models.CouncilPrivilege;
 import models.GameFacadeModel;
-import models.Points;
-import models.Resources;
-import models.board.ActionSpace;
 import models.board.FamilyMember;
-import models.board.NeutralFamilyMember;
-import models.cards.DevelopmentCard;
 import utility.Constants;
 
 /**
@@ -37,7 +31,7 @@ public class Action implements Phase {
     }
 
 
-    public boolean placeFamilyMemberCouncilPalace (NeutralFamilyMember familyMember) {
+    public boolean placeFamilyMemberCouncilPalace (FamilyMember familyMember) {
         model.getBoard().getCouncilPalace().addSpaces();
         int space = model.getBoard().getCouncilPalace().getSpaces().size();
         model.getBoard().getCouncilPalace().getSpace(space).setFamilyMember(familyMember);
@@ -45,7 +39,7 @@ public class Action implements Phase {
     }
 
 
-    public boolean placeFamilyMemberOnTower (int tower, int floor, NeutralFamilyMember famMember, Player player) {
+    public boolean placeFamilyMemberOnTower (int tower, int floor, FamilyMember famMember, Player player) {
 
         boolean free;
         free = checkFreeActionSpace(tower, floor);
@@ -64,7 +58,7 @@ public class Action implements Phase {
     }
 
 
-    public boolean placeFamilyMemberMarket(NeutralFamilyMember neutralFamilyMember, Player player, int space) {
+    public boolean placeFamilyMemberMarket(FamilyMember neutralFamilyMember, Player player, int space) {
         boolean free;
 
         free = checkFreeMarketSpace(space);
@@ -86,10 +80,10 @@ public class Action implements Phase {
 
     }
 
-    public boolean checkNoSameColorFamilyMember(int tower, NeutralFamilyMember familyMember) {
+    public boolean checkNoSameColorFamilyMember(int tower, FamilyMember familyMember) {
         for (int i=0 ; i<Constants.FIXED_TOWER_CARDS; i++)
             if (!(checkFreeActionSpace(tower,i)))
-                if (familyMember.getFamilyMemberColors().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getFamilyMemberColors()))
+                if (familyMember.getDiceColor().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getDiceColor()))
                     return false;
 
         return true;
