@@ -2,13 +2,14 @@ package models.board;
 
 import models.cards.DevelopmentCard;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class PersonalBoard {
+public class PersonalBoard implements Serializable {
     private List<DevelopmentCard> buildings;
     private List<DevelopmentCard> characters;
     private List<DevelopmentCard> territories;

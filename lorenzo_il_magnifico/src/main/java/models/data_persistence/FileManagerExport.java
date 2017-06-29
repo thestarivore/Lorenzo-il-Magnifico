@@ -1,9 +1,8 @@
 package models.data_persistence;
 import com.google.gson.Gson;
-import java.io.FileReader;
-import java.io.Reader;
-import java.io.IOException;
-import java.io.FileWriter;
+
+import java.io.*;
+
 import models.cards.DevelopmentCard;
 import models.cards.LeaderCard;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.Scanner;
  * Created by Eduard Chirica on 5/16/17.
  */
 
-public class FileManagerExport{
+public class FileManagerExport implements Serializable{
 
     public static void main(String[] args) throws IOException {
 

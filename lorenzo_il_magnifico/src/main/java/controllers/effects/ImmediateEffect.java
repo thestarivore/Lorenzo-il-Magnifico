@@ -62,4 +62,8 @@ public class ImmediateEffect {
             this.isBonus = false;
         else this.isBonus = true;
     }
+    @Override
+    public String toString(){
+        return "\n\tResources: " + this.resources + "\n"+ "\tPoints: " + this.points+"\n"+"\tBonus Action: "+this.bonusAction+ "\n"+ "\tisBonus: " + this.isBonus;
+    }
 }

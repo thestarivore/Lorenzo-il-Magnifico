@@ -2,11 +2,12 @@ package models.data_persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.BufferedReader;
+
+import java.io.*;
+
 import models.cards.*;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+
+import java.lang.reflect.Type;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,26 +16,37 @@ import models.cards.Deck;
 /**
  * Created by cp18393 on 11/06/17.
  */
-public class FileManagerImport {
-
-    private Deck deck;
+public class FileManagerImport implements Serializable{
+    
     private LeaderCardDeck leaderCards;
     private DevelopmentCardDeck developmentCards;
 
 
-    public DevelopmentCardDeck getDevelopmentCards() {
+
+    //public static void main(String[] args) {
+    private ArrayList<DevelopmentCard> returnDeck(){
+        ArrayList<DevelopmentCard> cards = new ArrayList<DevelopmentCard>();
+        final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = null;
+        String dCardFile = "/Users/cp18393/Desktop/LeaderCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
-            DevelopmentCardDeck developmentCards = gson.fromJson(reader, new TypeToken<DevelopmentCardDeck>() {
-            }.getType());
+            ArrayList<DevelopmentCard> list = gson.fromJson(reader, dCardType);
+            for(int i = 0; i < list.size(); i++) {
+                System.out.print(list.get(i));
+            }
+            cards=list;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return developmentCards;
+        for(int i = 0; i < cards.size(); i++) {
+            System.out.print(cards.get(i));
+        }
+        return cards;
+
     }
 
-    public LeaderCardDeck getLeaderCards() {
+
+  /*  public LeaderCardDeck getLeaderCards() {
         String lCardFile = null;
         Gson gson = new Gson();
         try (Reader reader = new FileReader(lCardFile)) {
@@ -44,11 +56,11 @@ public class FileManagerImport {
             e.printStackTrace();
         }
         return leaderCards;
-    }
+
     public void callFileManager(){
         getLeaderCards();
     }
-
+*/
 
 }
 

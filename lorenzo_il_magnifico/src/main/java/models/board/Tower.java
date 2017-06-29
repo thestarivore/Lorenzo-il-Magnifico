@@ -5,10 +5,12 @@ import models.cards.DevelopmentCard;
 import utility.Constants;
 import models.cards.DevelopmentCardDeck;
 
+import java.io.Serializable;
+
 /**
  * Created by starivore on 5/7/17.
  */
-public class Tower {
+public class Tower implements Serializable {
     private DevelopmentCardDeck deck;
     private ActionSpace[] space;
     private int numberOfTower;

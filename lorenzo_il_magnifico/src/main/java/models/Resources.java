@@ -2,10 +2,12 @@ package models;
 
 import utility.Constants;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class Resources {
+public class Resources implements Serializable {
     private int woods;
     private int stones;
     private int servants;
@@ -101,6 +103,6 @@ public class Resources {
     }
     @Override
     public String toString(){
-        return "Woods: "+this.woods + " Stones: "+this.stones+ " Coins: "+this.coins+ " Servants: "+this.servants;
+        return "Woods: "+this.woods + " Stones: "+this.stones+ " Servants: "+this.servants +" Coins: "+this.coins;
     }
 }

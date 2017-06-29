@@ -8,10 +8,12 @@ import controllers.effects.PermanentEffect;
 import models.Points;
 import models.Resources;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class DevelopmentCard implements Card {
+public class DevelopmentCard implements Card, Serializable {
     private String name;
     private Period period;
     private Resources cost;
@@ -96,8 +98,18 @@ public class DevelopmentCard implements Card {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString(){
-        return "Card Name: " + this.name + "\n"+ "Card Cost: " + this.cost+"\n"+"Immediate Effect: "+this.immediateEffect+ "\n"+ "Permanent effect: " + this.permanentEffect;
+        return  "Card Name: " + this.name + "\n"+
+                "Card Period: " + this.period + "\n"+
+                "Card Cost: " + this.cost+"\n"+
+                "Card Point: " + this.pointsReq + "\n"+
+                "Immediate Effect: "+this.immediateEffect+ "\n"+
+                "Permanent effect: " + this.permanentEffect +"\n"+
+                "Description: " + this.description+ "\n\n";
     }
 }

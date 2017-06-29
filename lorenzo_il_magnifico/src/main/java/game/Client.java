@@ -77,8 +77,8 @@ public class Client {
         TURN_UPDATE(1),
         CASE2(2),
         CASE3(3),
-        ACTION_SPACE_UPDATE(4);
 
+        ;
         int state;
 
         /**
@@ -224,24 +224,12 @@ public class Client {
                     case CASE3:{
                         fsmState = FSMClient.BOARD_UPDATES;
                     }break;
-
-                    case ACTION_SPACE_UPDATE:{
-                        client.getActionSpaceUpdate(currentActionSpace);
-                        if(currentActionSpace < Board.NUMBER_ACTION_SPACES) {
-                            currentActionSpace++;
-                            fsmState = FSMClient.ACTION_SPACE_UPDATE;
-                        }
-                        else {
-                            currentActionSpace = 0;
-                            fsmState = FSMClient.TURN_UPDATE;
-                        }
-                    }break;
                 }
             }
-        }, 0, 100);
+        }, 50, 100);
 
         //Cancel the timer at the end
-        timer.cancel();
+        //timer.cancel();
     }
 
     /**
