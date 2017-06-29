@@ -18,6 +18,7 @@ public class Track implements Serializable{
 
     public String[] getTrackMarker() {
         return trackMarker;
+    }
 
 
     public MarkerDiscs getMarkerDiscs() {
