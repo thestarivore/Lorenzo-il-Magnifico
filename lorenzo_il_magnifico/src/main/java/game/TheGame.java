@@ -69,7 +69,7 @@ public class TheGame {
         this.period = new Period();
 
         //Initialize the Model and the Controller
-        theModel        = new GameFacadeModel(getNumberOfPlayer());
+        theModel        = new GameFacadeModel(TheGame.MAXIMUM_PLAYERS_NUMBER);
         theController   = new GameFacadeController(theModel, period);
 
         //Initialize colors available for players

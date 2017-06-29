@@ -264,7 +264,7 @@ public class SocketClient implements ClientInterface{
 
         //If any changes, update the map
         if(board.equals(oldBoard) == false)
-            gameView.showTmpMap();
+            gameView.printMap(board);
 
         // Save the old board
         oldBoard = board;

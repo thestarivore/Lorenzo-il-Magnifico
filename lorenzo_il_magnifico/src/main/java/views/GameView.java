@@ -476,11 +476,7 @@ public class GameView {
                 printFourTime(" " + line, " " + line, " " + line, " " + line);
                 printLine("");
             }
-
-
         }
-
-
     }
 
 
