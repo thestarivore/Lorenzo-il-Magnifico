@@ -21,15 +21,16 @@ public enum ProtocolCommands {
 
     //New Protocol
     //Client Side
-    PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD"),   // Name,Id
-    COLOR_SELECTION ("COLOR_SELECTION"),                      // Color
+    PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD"),
+    COLOR_SELECTION ("COLOR_SELECTION"),
     ASK_BOARD_UPDATES("ASK_BOARD_UPDATES"),
-
+    WHOSE_TURN("WHOSE_TURN"),
 
     //Server Side
     ACK ("ACK"),
-    SELECT_COLOR ("SELECT_COLOR"),                 // color1, color2, color3, color4
-    UPDATED_BOARD("UPDATED_BOARD"),                       // "1" = yes / "0" = no
+    SELECT_COLOR ("SELECT_COLOR"),
+    UPDATED_BOARD("UPDATED_BOARD"),
+    PLAYERS_TURN("PLAYERS_TURN"),
 
     //OBJECT Strings
     NONE("NONE"),

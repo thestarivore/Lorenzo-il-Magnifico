@@ -24,7 +24,6 @@ import models.cards.DevelopmentCard;
  * The Controller coordinates interactions
  * between the View and Model
  */
-
 public class GameFacadeController {
     private GameFacadeModel facadeModel;
     private Period period;
@@ -33,9 +32,14 @@ public class GameFacadeController {
     private ProductionAction productionAction;
     private VaticanReport vaticanReport;
     private RoundSetup roundSetup;
-    private Player playerTurn;
+    private Player playersTurn;
     private Deck deck;
 
+    /**
+     * Basic Controller Constructor
+     * @param facadeModel
+     * @param period
+     */
     public GameFacadeController(GameFacadeModel facadeModel, Period period) {
         this.facadeModel = facadeModel;
         this.period = period;
@@ -56,9 +60,6 @@ public class GameFacadeController {
         return facadeModel.getBoard();
     }
 
-
-
-
     /**
      * Select the family member and add servant if requested.
      * @param player
@@ -67,12 +68,10 @@ public class GameFacadeController {
      */
 
     public FamilyMember selectFamilyMember(Player player, int type, int servant) {
-
         player.getFamilyMember(type).addValue(servant);
         player.getFamilyMember(type).setUsed();
 
         return player.getFamilyMember(type);
-
     }
 
     /**
@@ -207,11 +206,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
-
-
     public boolean productionActionChoice(Player player, int type, int servant) {
         boolean valid = false;
-
 
         while(!(valid)) {
             FamilyMember familyMember = selectFamilyMember(player, type, servant);
@@ -222,7 +218,6 @@ public class GameFacadeController {
         }
 
         return true;
-
     }
 
     /**
@@ -230,11 +225,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
-
-
     public boolean councilActionChoice(Player player, int type, int servant) {
         boolean valid = false;
-
 
         while (!(valid)) {
             FamilyMember familyMember = selectFamilyMember(player, type, servant);
@@ -245,7 +237,6 @@ public class GameFacadeController {
         }
 
         return true;
-
     }
 
     public void marketActionChoice(Player player, int type, int servant) {
@@ -266,7 +257,6 @@ public class GameFacadeController {
      * @param space
      * @return
      */
-
     public boolean performTowerAction(Player player, int tower, int space, int choice) {
 
         boolean valid;
@@ -307,12 +297,8 @@ public class GameFacadeController {
                 }
                 //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
                     //takeBonusCard(player, devCard);
-
-
         }
-
        return valid;
-
     }
 
 
@@ -322,14 +308,9 @@ public class GameFacadeController {
      * @param card
      * @return
      */
-
-
     public boolean takeBonusCard(Player player, DevelopmentCard card, int tower, int space) {
         boolean valid = false;
-
         String cardType = card.getImmediateEffect().getBonusAction().getCard();
-
-
 
         if ("territory".equalsIgnoreCase(cardType))
             tower = 0;
@@ -348,37 +329,42 @@ public class GameFacadeController {
         }
 
         //valid = performTowerAction(player,tower,space);
-
         return valid;
-
     }
 
     public boolean performHarvestAction(Player player, boolean check){
-
         if (check) {
-
         }
-
         return true;
-
     }
 
     public boolean checkCardRequest(Player player, DevelopmentCard card) {
-
         Resources cardRes = card.getCost();
         Resources playerRes = player.getRes();
-
         Points cardPoints = card.getPointsReq();
         Points playerPoints = player.getPoints();
-
         return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
-
     }
-
-
 
     public RoundSetup getRoundSetup() {
         return roundSetup;
+    }
+
+    /**
+     * Get the player whose turn is right now.
+     * @return Player instance
+     */
+    public Player getPlayerInTurn() {
+        return playersTurn;
+    }
+
+    /**
+     * Set the player whose turn is right now.
+     * @param playerTurn Player instance of the player
+     *                   to which give him the turn.
+     */
+    private void setPlayerInTurn(Player playerTurn) {
+        this.playersTurn = playerTurn;
     }
 
 }

@@ -21,7 +21,6 @@ public class TheGame {
     private Period period;
     private List<RemotePlayer> players;
     private Board board;
-    private int playerIDTurn;
 
     private GameFacadeModel         theModel;
     private GameFacadeController    theController;
@@ -64,6 +63,9 @@ public class TheGame {
     }
 
 
+    /**
+     * Basic TheGame Constructor
+     */
     public TheGame() {
         this.players = new ArrayList<RemotePlayer>();
         this.period = new Period();
@@ -187,6 +189,7 @@ public class TheGame {
     public ArrayList<COLORS> getAvailableColors() {
         return colorAvailable;
     }
+
 }
 
 

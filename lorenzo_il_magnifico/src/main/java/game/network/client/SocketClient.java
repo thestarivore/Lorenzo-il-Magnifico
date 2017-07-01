@@ -137,15 +137,15 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public void getBoardUpdates() {
-        sendCmdToClient(ProtocolCommands.ASK_BOARD_UPDATES.getCommand(), new String("None"));
+        sendCmdToClient(ProtocolCommands.ASK_BOARD_UPDATES.getCommand());
     }
 
     /**
      * Is my turn yet?
      */
     @Override
-    public void isMyTurn() {
-
+    public void getPLayersTurn() {
+        sendCmdToClient(ProtocolCommands.WHOSE_TURN.getCommand());
     }
 
 
@@ -153,11 +153,12 @@ public class SocketClient implements ClientInterface{
      ****************** Protocol Commands *************************
      **************************************************************/
     /**
-     * Send Command to the client
+     * Send Command to the client (No object Version)
      * @param cmd command String to send
      */
     public void sendCmdToClient(String cmd){
         cmdList.add(cmd);
+        cmdObjectList.add(new String(ProtocolCommands.NONE.getCommand()));
     }
 
     /**
@@ -211,6 +212,11 @@ public class SocketClient implements ClientInterface{
             if(ProtocolCommands.UPDATED_BOARD.isThisCmd(line)){
                 manageUpdatedBoard(line, obj);
             }
+
+            //Player's Turn Update
+            if(ProtocolCommands.PLAYERS_TURN.isThisCmd(line)){
+                managePlayersTurn(line, obj);
+            }
         }
     }
 
@@ -223,8 +229,8 @@ public class SocketClient implements ClientInterface{
 
     /**
      * Manage Color Selection Command
-     * @param command
-     * @param obj
+     * @param command String of the command received
+     * @param obj Object instance of the object received
      */
     private void manageColorSelection(String command, Object obj){
         String[] newColors = new String[TheGame.MAXIMUM_COLORS_NUMBER];
@@ -252,11 +258,10 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
-     * Manage Game to Update Command.
-     * If the argument is "1" then start action slot update,
-     * els eif "0" ignore ad repeat the usual commands.
-     * @param command
-     * @param obj
+     * Manage Updated Board Command.
+     * Gets the Board and controls whether are there any updates on it.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
      */
     private void manageUpdatedBoard(String command, Object obj) {
         //Get the data from the object
@@ -270,4 +275,24 @@ public class SocketClient implements ClientInterface{
         oldBoard = board;
     }
 
+    /**
+     * Manage Player's Turn Command.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
+     */
+    private void managePlayersTurn(String command, Object obj) {
+        //Get the data from the object
+        Board board = (Board) obj;
+
+        //If any changes, update the map
+        if(board.equals(oldBoard) == false)
+            gameView.printMap(board);
+
+        // Save the old board
+        oldBoard = board;
+    }
+
 }
+
+
+
