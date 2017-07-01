@@ -130,13 +130,6 @@ public class RMIClient implements ClientInterface{
 
     }
 
-    /**
-     * Get update on the action slot indexed by the passed number
-     * @param currentActionSpace index of the current action slot to ask;
-     */
-    @Override
-    public void getActionSpaceUpdate(int currentActionSpace) {
 
-    }
 
 }

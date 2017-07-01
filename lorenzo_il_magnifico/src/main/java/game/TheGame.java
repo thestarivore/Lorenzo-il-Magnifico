@@ -69,10 +69,10 @@ public class TheGame {
         this.period = new Period();
 
         //Initialize the Model and the Controller
-        theModel        = new GameFacadeModel(getNumberOfPlayer());
+        theModel        = new GameFacadeModel(TheGame.MAXIMUM_PLAYERS_NUMBER);
         theController   = new GameFacadeController(theModel, period);
 
-        //Initialize collors available for players
+        //Initialize colors available for players
         colorAvailable = new ArrayList<COLORS>();
         colorAvailable.add(COLORS.RED);
         colorAvailable.add(COLORS.BLUE);

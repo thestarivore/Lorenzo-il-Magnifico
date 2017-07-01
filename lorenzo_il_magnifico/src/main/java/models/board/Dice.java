@@ -1,12 +1,13 @@
 package models.board;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class Dice {
+public class Dice implements Serializable {
     private Color color;
     private int number;
 

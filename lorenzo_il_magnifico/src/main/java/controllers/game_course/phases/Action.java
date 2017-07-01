@@ -3,7 +3,6 @@ package controllers.game_course.phases;
 import controllers.Player;
 import models.CouncilPrivilege;
 import models.GameFacadeModel;
-import models.board.ActionSpace;
 import models.board.FamilyMember;
 import utility.Constants;
 
@@ -31,9 +30,9 @@ public class Action implements Phase {
         this.model = model;
     }
 
+
     public boolean placeFamilyMemberCouncilPalace (FamilyMember familyMember) {
-        ActionSpace actionSpace = new ActionSpace();
-        model.getBoard().getCouncilPalace().addSpaces(actionSpace);
+        model.getBoard().getCouncilPalace().addSpaces();
         int space = model.getBoard().getCouncilPalace().getSpaces().size();
         model.getBoard().getCouncilPalace().getSpace(space).setFamilyMember(familyMember);
         return true;
@@ -44,31 +43,31 @@ public class Action implements Phase {
 
         boolean free;
         free = checkFreeActionSpace(tower, floor);
-        if (free && checkNoSameColorFamilyMember(tower, famMember))
-            for(int i = 0; i < Constants.FIXED_TOWER_CARDS; i++)
-                if (model.getBoard().getTower(tower).getSpace(i).getOccupied())
-                    if (player.getRes().getCoins() >= 3) {
-                        int coins = player.getRes().getCoins() - 3;
-                        player.getRes().setCoins(coins);
-                        break;
-                    }
-
-        model.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
+        if (free) {
+            for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++)
+                if ((model.getBoard().getTower(tower).getSpace(i).getOccupied()) && (player.getRes().getCoins() >= 3)) {
+                    int coins = player.getRes().getCoins() - 3;
+                    player.getRes().setCoins(coins);
+                    break;
+                }
+                if (checkNoSameColorFamilyMember(tower,famMember))
+                    model.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
+        }
         return free;
 
     }
 
-    public boolean placeFamilyMemberMarket(FamilyMember familyMember, Player player, int space){
+
+    public boolean placeFamilyMemberMarket(FamilyMember neutralFamilyMember, Player player, int space) {
         boolean free;
 
         free = checkFreeMarketSpace(space);
 
         if (free)
-            model.getBoard().getMarket().getSpace(space).setFamilyMember(familyMember);
+            model.getBoard().getMarket().getSpace(space).setFamilyMember(neutralFamilyMember);
 
         return free;
     }
-
 
     public boolean checkFreeMarketSpace(int space) {
         return (!(model.getBoard().getMarket().getSpace(space).getOccupied()));
@@ -81,10 +80,10 @@ public class Action implements Phase {
 
     }
 
-    public boolean checkNoSameColorFamilyMember(int tower, FamilyMember famMember) {
+    public boolean checkNoSameColorFamilyMember(int tower, FamilyMember familyMember) {
         for (int i=0 ; i<Constants.FIXED_TOWER_CARDS; i++)
             if (!(checkFreeActionSpace(tower,i)))
-                if (famMember.getDiceColor().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getDiceColor()))
+                if (familyMember.getDiceColor().equals(model.getBoard().getTower(tower).getSpace(i).getFamilyMember().getDiceColor()))
                     return false;
 
         return true;

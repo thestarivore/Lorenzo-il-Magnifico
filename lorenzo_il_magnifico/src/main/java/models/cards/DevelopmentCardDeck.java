@@ -1,5 +1,6 @@
 package models.cards;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import models.data_persistence.FileManagerImport;
@@ -7,7 +8,7 @@ import models.data_persistence.FileManagerImport;
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class DevelopmentCardDeck extends Deck {
+public class DevelopmentCardDeck extends Deck implements Serializable {
     private ArrayList<DevelopmentCard> developmentCards;
     private FileManagerImport cardFromFile;
 

@@ -2,12 +2,13 @@ package models.cards;
 
 import models.data_persistence.FileManagerImport;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by cp18393 on 17/06/17.
  */
-public class LeaderCardDeck extends Deck {
+public class LeaderCardDeck extends Deck implements Serializable {
     private ArrayList<LeaderCard> leaderCards;
     private FileManagerImport cardFromFile;
 

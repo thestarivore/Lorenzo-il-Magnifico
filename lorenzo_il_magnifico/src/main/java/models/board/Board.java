@@ -3,12 +3,13 @@ package models.board;
 import utility.Constants;
 import models.board.trackers.Track;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class Board {
+public class Board implements Serializable {
     private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;
@@ -20,6 +21,9 @@ public class Board {
     /**
      * Board Constants
      */
+
+    public final static int FIXED_NUMBER_OF_TOWER = 4;
+    public final static int FIXED_NUMBER_OF_CARD = 4;
     public final static int NUMBER_ACTION_SPACES = 25;
     //Complete list of the indexes of th Action Spaces
     // First Tower
@@ -78,8 +82,9 @@ public class Board {
             this.dice[i].setColor(i);
         }
 
-        this.harvestArea = new HarvestArea(1);
+        this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
+
     }
 
     public Tower getTower(int i) {

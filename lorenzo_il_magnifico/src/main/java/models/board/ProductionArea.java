@@ -1,12 +1,13 @@
 package models.board;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Mattia on 29/05/2017.
  */
-public class ProductionArea {
+public class ProductionArea implements Serializable {
     private ActionSpace singleSpace;
     private List<ActionSpace> multipleSpace;
 
@@ -39,4 +40,5 @@ public class ProductionArea {
     public void addMultipleSpace(ActionSpace singleSpace) {
         this.multipleSpace.add(singleSpace);
     }
+
 }

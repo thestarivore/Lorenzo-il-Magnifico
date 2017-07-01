@@ -4,6 +4,8 @@ package game.network.protocol;
  * Created by Eduard Chirica on 6/13/17.
  */
 public enum ProtocolCommands {
+    //Old Protocol
+    /*
     //Client Side
     PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD[%s,%d]"),   // Name,Id
     COLOR_SELECTION ("COLOR_SELECTION[%s]"),                      // Color
@@ -15,6 +17,22 @@ public enum ProtocolCommands {
     SELECT_COLOR ("SELECT_COLOR[%s,%s,%s,%s]"),                 // color1, color2, color3, color4
     GAME_TO_UPDATE("GAME_TO_UPDATE[%d]"),                       // "1" = yes / "0" = no
     SEND_ACTION_SPACE("SEND_ACTION_SPACE[%s,%s]"),                // familyMemberColor, playersColor
+    */
+
+    //New Protocol
+    //Client Side
+    PLAYER_IDENTIFIACTION ("PLAYER_IDENTIFICATION_CMD"),   // Name,Id
+    COLOR_SELECTION ("COLOR_SELECTION"),                      // Color
+    ASK_BOARD_UPDATES("ASK_BOARD_UPDATES"),
+
+
+    //Server Side
+    ACK ("ACK"),
+    SELECT_COLOR ("SELECT_COLOR"),                 // color1, color2, color3, color4
+    UPDATED_BOARD("UPDATED_BOARD"),                       // "1" = yes / "0" = no
+
+    //OBJECT Strings
+    NONE("NONE"),
 
     ;//Ecc
 

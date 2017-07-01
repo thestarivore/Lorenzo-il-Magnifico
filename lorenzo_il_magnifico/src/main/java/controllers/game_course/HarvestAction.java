@@ -1,6 +1,7 @@
 package controllers.game_course;
 
 import controllers.game_course.phases.Action;
+import game.TheGame;
 import models.GameFacadeModel;
 import models.board.ActionSpace;
 import models.board.FamilyMember;
@@ -14,6 +15,8 @@ public class HarvestAction extends Action {
         super(model);
     }
 
+
+
     public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
         boolean free;
 
@@ -23,8 +26,7 @@ public class HarvestAction extends Action {
             return true;
         }
 
-        ActionSpace singleSpace = new ActionSpace();
-        model.getBoard().getHarvestArea().addMultipleSpace(singleSpace);
+        model.getBoard().getHarvestArea().addMultipleSpace();
         int i = model.getBoard().getHarvestArea().getMultipleSpace().size();
         model.getBoard().getHarvestArea().getMultipleSingleSpace(i).setFamilyMember(famMember);
 

@@ -2,11 +2,11 @@ package models.data_persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.BufferedReader;
+
+import java.io.*;
+
 import models.cards.*;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+
 import java.lang.reflect.Type;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import models.cards.Deck;
 /**
  * Created by cp18393 on 11/06/17.
  */
-public class FileManagerImport {
+public class FileManagerImport implements Serializable{
     
     private LeaderCardDeck leaderCards;
     private DevelopmentCardDeck developmentCards;

@@ -1,9 +1,11 @@
 package models;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class CouncilPrivilege {
+public class CouncilPrivilege implements Serializable {
 
     private Resources res;
     private Points points;
