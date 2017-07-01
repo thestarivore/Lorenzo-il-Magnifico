@@ -19,13 +19,13 @@ import models.cards.Deck;
 public class FileManagerImport implements Serializable{
     
     private LeaderCardDeck leaderCards;
-    private DevelopmentCardDeck developmentCards;
+    private ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
 
 
 
-    public static void main(String[] args) {
-    //private ArrayList<DevelopmentCard> returnDeck(){
-        ArrayList<DevelopmentCard> cards = new ArrayList<DevelopmentCard>();
+    //public static void main(String[] args) {
+    public ArrayList<DevelopmentCard> returnDeck(){
+        //ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
         String dCardFile = "/Users/cp18393/Desktop/DevCard.json";
@@ -34,14 +34,14 @@ public class FileManagerImport implements Serializable{
             for(int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i));
             }
-            cards=list;
+            developmentCards=list;
         } catch (IOException e) {
             e.printStackTrace();
         }
         /*for(int i = 0; i < cards.size(); i++) {
             System.out.print(cards.get(i));
         }*/
-        //return cards;
+        return developmentCards;
 
     }
 

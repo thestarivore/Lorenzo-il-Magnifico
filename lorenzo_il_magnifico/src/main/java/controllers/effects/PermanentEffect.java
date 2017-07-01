@@ -9,7 +9,13 @@ import models.Resources;
 public class PermanentEffect {
     private Points points;
     private Resources resources;
-    private int dice;
+    private boolean privilege;
+
+    public PermanentEffect(){
+        this.points=new Points();
+        this.resources=new Resources();
+        this.privilege=false;
+    }
 
     public Points getPoints() {
         return points;
@@ -27,15 +33,8 @@ public class PermanentEffect {
         this.resources = resources;
     }
 
-    public int getDice() {
-        return dice;
-    }
-
-    public void setDice(int dice) {
-        this.dice = dice;
-    }
     @Override
     public String toString(){
-        return "\n\tPoints " + this.points +"\n\tResources " + this.resources+ "\n\tDice " + this.dice;
+        return "\n\tPoints " + this.points +"\n\tResources " + this.resources;
     }
 }

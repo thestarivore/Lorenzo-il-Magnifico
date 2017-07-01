@@ -12,21 +12,17 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
     private ArrayList<DevelopmentCard> developmentCards;
     private FileManagerImport cardFromFile;
 
-    public DevelopmentCardDeck(ArrayList<DevelopmentCard> developmentCards, FileManagerImport cardFromFile) {
+   /* public DevelopmentCardDeck(ArrayList<DevelopmentCard> developmentCards, FileManagerImport cardFromFile) {
         super(new DevelopmentCard());
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.cardFromFile = new FileManagerImport();
 
-    }
+    }*/
 
     public DevelopmentCardDeck(){
         super(new DevelopmentCard());
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.cardFromFile = new FileManagerImport();
-    }
-
-    public ArrayList<DevelopmentCard>  getDevelopmentCards() {
-        return developmentCards;
     }
 
     public DevelopmentCard getCardFromDeck() {
@@ -40,10 +36,13 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
         this.developmentCards.add(card);
     }
 
-    public void setDevelopmentCards (ArrayList<DevelopmentCard> developmentCards) {
-        this.developmentCards = developmentCards;
-    }
+    public void setDeck(){
+        this.developmentCards=cardFromFile.returnDeck();
 
+    }
+    public ArrayList<DevelopmentCard> getDeck(){
+        return this.developmentCards;
+    }
 
 }
 

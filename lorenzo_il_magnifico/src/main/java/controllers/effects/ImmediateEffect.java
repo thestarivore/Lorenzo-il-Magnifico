@@ -2,6 +2,7 @@ package controllers.effects;
 
 import controllers.Player;
 import controllers.game_course.phases.Action;
+import models.CouncilPrivilege;
 import models.Points;
 import models.Resources;
 
@@ -13,12 +14,14 @@ public class ImmediateEffect {
     private Points points;
     private Action bonusAction;
     private boolean isBonus;
+    private boolean privilege;
 
     public ImmediateEffect() {
         this.resources = new Resources();
         this.points = new Points();
         this.bonusAction = new Action();
         this.isBonus = false;
+        this.privilege=false;
     }
 
     public Resources getResources() {
@@ -62,6 +65,7 @@ public class ImmediateEffect {
             this.isBonus = false;
         else this.isBonus = true;
     }
+
     @Override
     public String toString(){
         return "\n\tResources: " + this.resources + "\n"+ "\tPoints: " + this.points+"\n"+"\tBonus Action: "+this.bonusAction+ "\n"+ "\tisBonus: " + this.isBonus;

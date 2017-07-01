@@ -21,6 +21,7 @@ public class DevelopmentCard implements Card, Serializable {
     private Points pointsCost;
     private ImmediateEffect immediateEffect;
     private PermanentEffect permanentEffect;
+    private int dice;
     private String description;
 
     //Constant
@@ -94,6 +95,14 @@ public class DevelopmentCard implements Card, Serializable {
         player.getPoints().removePoints(pointsCost);
     }
 
+     public int getDice() {
+        return dice;
+    }
+
+    public void setDice(int dice) {
+        this.dice = dice;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -110,6 +119,7 @@ public class DevelopmentCard implements Card, Serializable {
                 "Card Point: " + this.pointsReq + "\n"+
                 "Immediate Effect: "+this.immediateEffect+ "\n"+
                 "Permanent effect: " + this.permanentEffect +"\n"+
+                "Dice Cost: " + this.dice +"\n"+
                 "Description: " + this.description+ "\n\n";
     }
 }
