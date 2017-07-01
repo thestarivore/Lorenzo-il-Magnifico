@@ -15,6 +15,7 @@ public class ImmediateEffect {
     private Action bonusAction;
     private boolean isBonus;
     private boolean privilege;
+    private int numberOfPrivilege;
 
     public ImmediateEffect() {
         this.resources = new Resources();
@@ -64,6 +65,22 @@ public class ImmediateEffect {
         if (this.isBonus)
             this.isBonus = false;
         else this.isBonus = true;
+    }
+
+    public boolean isPrivilege() {
+        return privilege;
+    }
+
+    public void setPrivilege(boolean privilege) {
+        this.privilege = privilege;
+    }
+
+    public int getNumberOfPrivilege() {
+        return numberOfPrivilege;
+    }
+
+    public void setNumberOfPrivilege(int numberOfPrivilege) {
+        this.numberOfPrivilege = numberOfPrivilege;
     }
 
     @Override

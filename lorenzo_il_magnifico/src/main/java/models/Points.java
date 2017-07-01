@@ -9,12 +9,14 @@ public class Points implements Serializable {
     private int victory;
     private int military;
     private int faith;
+    private int finalVictoryPoints; //points of each card that will be added at the end of the game
 
 
     public Points() {
         this.victory=0;
         this.military=0;
         this.faith=0;
+        this.finalVictoryPoints=0;
     }
 
     public Points(int tower,int floor) {
@@ -69,8 +71,17 @@ public class Points implements Serializable {
                     return true;
         return false;
     }
+
+    public int getFinalVictoryPoints() {
+        return finalVictoryPoints;
+    }
+
+    public void setFinalVictoryPoints(int finalVictoryPoints) {
+        this.finalVictoryPoints = finalVictoryPoints;
+    }
+
     @Override
     public String toString(){
-        return "Victory Points " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith;
+        return "Victory Points " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;
     }
 }

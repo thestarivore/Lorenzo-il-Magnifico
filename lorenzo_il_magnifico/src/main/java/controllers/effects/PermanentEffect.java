@@ -10,7 +10,7 @@ public class PermanentEffect {
     private Points points;
     private Resources resources;
     private boolean privilege;
-
+    private int numberOfPrivilege;
     public PermanentEffect(){
         this.points=new Points();
         this.resources=new Resources();
@@ -31,6 +31,22 @@ public class PermanentEffect {
 
     public void setResources(Resources resources) {
         this.resources = resources;
+    }
+
+    public boolean isPrivilege() {
+        return privilege;
+    }
+
+    public void setPrivilege(boolean privilege) {
+        this.privilege = privilege;
+    }
+
+    public int getNumberOfPrivilege() {
+        return numberOfPrivilege;
+    }
+
+    public void setNumberOfPrivilege(int numberOfPrivilege) {
+        this.numberOfPrivilege = numberOfPrivilege;
     }
 
     @Override
