@@ -37,7 +37,11 @@ public class SocketServerThread extends Thread{
 
             // Communication automata, manages communication
             while (true) {
+                //Execute Communication Automa
                 communicationAutoma();
+
+                //Execute game's Controller Automa
+                remotePlayer.getGameReference().executeControllerAutoma();
             }
 
         } catch (IOException e) {

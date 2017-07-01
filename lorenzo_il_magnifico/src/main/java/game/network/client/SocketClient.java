@@ -19,14 +19,46 @@ import java.util.*;
  * Created by Eduard Chirica on 6/3/17.
  */
 public class SocketClient implements ClientInterface{
+    /**
+     * IP and PORT of the ServerSocket to connect to
+     */
     private String ip;
     private int port;
+
+    /**
+     * GameView instance, used to print on screen
+     */
     private GameView gameView;
+
+    /**
+     * Player instance passed from Client Class, it
+     * represents this player.
+     */
     private Player player;
+
+    /**
+     * Player instance of the last Player in turn.
+     */
+    private Player playerInTurn;
+
+    /**
+     * Command List - used for string commands to send
+     */
     private List<String> cmdList;
+
+    /**
+     * Command Object List - used for objects to send
+     */
     private List<Object> cmdObjectList;
+
+    /**
+     * Old Board Instance, used to individuate changes on the board.
+     */
     private Board oldBoard;
 
+    /**
+     * SocketClient Singleton Instance
+     */
     private static SocketClient instance = null;
 
     /**
@@ -224,7 +256,7 @@ public class SocketClient implements ClientInterface{
      * Manage Acknowledgement
      */
     private void manageAck(){
-        //TODO: nothing to manage for now
+        //nothing to manage for now
     }
 
     /**
@@ -282,14 +314,18 @@ public class SocketClient implements ClientInterface{
      */
     private void managePlayersTurn(String command, Object obj) {
         //Get the data from the object
-        Board board = (Board) obj;
+        Player player = (Player) obj;
 
         //If any changes, update the map
-        if(board.equals(oldBoard) == false)
-            gameView.printMap(board);
-
-        // Save the old board
-        oldBoard = board;
+        if(player != null) {
+            if (player.equals(this.player) == true)
+                gameView.printYourTurn();
+            else if (player.equals(this.playerInTurn) == false) {
+                //Turn has changed -> New player
+                this.playerInTurn = player;
+                gameView.printPlayerTurn(player.getName());
+            }
+        }
     }
 
 }

@@ -189,8 +189,6 @@ public class Client {
         clientThread.start();
     }
 
-
-
     /**
      * Start the Main Game Client's Automa
      */

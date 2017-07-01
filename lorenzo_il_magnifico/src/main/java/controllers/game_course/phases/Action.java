@@ -18,6 +18,9 @@ public class Action implements Phase {
     private boolean checkCard;
     private int diceCost;
 
+    /**
+     * Basic Action Constructor
+     */
     public Action() {
         this.councilPrivilege = new CouncilPrivilege();
         this.cardType = "";
@@ -54,7 +57,6 @@ public class Action implements Phase {
                     model.getBoard().getTower(tower).getSpace(floor).setFamilyMember(famMember);
         }
         return free;
-
     }
 
 
@@ -92,9 +94,6 @@ public class Action implements Phase {
 
 
     public CouncilPrivilege chooseCouncilPrivilege (int i) {
-
-
-
         switch (i) {
             case 0:
                 councilPrivilege.getRes().setWoods(1);
@@ -118,8 +117,6 @@ public class Action implements Phase {
         }
 
         return councilPrivilege;
-
-
     }
 
 
