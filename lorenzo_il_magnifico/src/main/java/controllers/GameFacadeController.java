@@ -6,6 +6,7 @@ import controllers.game_course.Period;
 import controllers.game_course.phases.Action;
 import controllers.game_course.phases.RoundSetup;
 import controllers.game_course.phases.VaticanReport;
+import game.TheGame;
 import models.GameFacadeModel;
 import models.Points;
 import models.Resources;
@@ -13,6 +14,9 @@ import models.board.Board;
 import models.board.FamilyMember;
 import models.cards.Deck;
 import models.cards.DevelopmentCard;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -24,28 +28,40 @@ import models.cards.DevelopmentCard;
  * The Controller coordinates interactions
  * between the View and Model
  */
-
 public class GameFacadeController {
     private GameFacadeModel facadeModel;
-    private Period period;
+    private TheGame game;
+    private Period[] periods;
     private Action action;
     private HarvestAction harvestAction;
     private ProductionAction productionAction;
     private VaticanReport vaticanReport;
     private RoundSetup roundSetup;
-    private Player playerTurn;
+    private Player playersTurn;
     private Deck deck;
+    private int periodIndex = 0;
 
-    public GameFacadeController(GameFacadeModel facadeModel, Period period) {
+    /**
+     * Basic Controller Constructor
+     * @param facadeModel
+     * @param game
+     */
+    public GameFacadeController(GameFacadeModel facadeModel, TheGame game) {
         this.facadeModel = facadeModel;
-        this.period = period;
+        this.game = game;
         this.action = new Action(this.facadeModel);
         this.harvestAction = new HarvestAction(this.facadeModel);
         this.productionAction = new ProductionAction(this.facadeModel);
         this.vaticanReport = new VaticanReport();
         this.roundSetup = new RoundSetup();
 
+        //Setup Period
+        periods = new Period[TheGame.PERIODS_PER_GAME];
+        periodIndex = TheGame.FIRST_PERIOD;
 
+        //Set the first player in turn
+        if(game.getNumberOfPlayers() > 0)
+            setPlayerInTurn(game.getPlayer(0));
     }
 
     /**
@@ -56,9 +72,6 @@ public class GameFacadeController {
         return facadeModel.getBoard();
     }
 
-
-
-
     /**
      * Select the family member and add servant if requested.
      * @param player
@@ -67,12 +80,10 @@ public class GameFacadeController {
      */
 
     public FamilyMember selectFamilyMember(Player player, int type, int servant) {
-
         player.getFamilyMember(type).addValue(servant);
         player.getFamilyMember(type).setUsed();
 
         return player.getFamilyMember(type);
-
     }
 
     /**
@@ -111,8 +122,6 @@ public class GameFacadeController {
     public boolean chooseAction(Player player, String message, String where) {
         boolean check;
         if (("Place").equalsIgnoreCase(message)) {
-
-
             if (("Tower").equalsIgnoreCase(where)) {
                 //check = towerActionChoice(player);
                 //return check;
@@ -132,10 +141,7 @@ public class GameFacadeController {
                /* check = councilActionChoice(player);
                 return check; */
             }
-
-
         }
-
         return true;
     }
 
@@ -207,11 +213,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
-
-
     public boolean productionActionChoice(Player player, int type, int servant) {
         boolean valid = false;
-
 
         while(!(valid)) {
             FamilyMember familyMember = selectFamilyMember(player, type, servant);
@@ -222,7 +225,6 @@ public class GameFacadeController {
         }
 
         return true;
-
     }
 
     /**
@@ -230,11 +232,8 @@ public class GameFacadeController {
      * @param player
      * @return
      */
-
-
     public boolean councilActionChoice(Player player, int type, int servant) {
         boolean valid = false;
-
 
         while (!(valid)) {
             FamilyMember familyMember = selectFamilyMember(player, type, servant);
@@ -245,7 +244,6 @@ public class GameFacadeController {
         }
 
         return true;
-
     }
 
     public void marketActionChoice(Player player, int type, int servant) {
@@ -266,7 +264,6 @@ public class GameFacadeController {
      * @param space
      * @return
      */
-
     public boolean performTowerAction(Player player, int tower, int space, int choice) {
 
         boolean valid;
@@ -307,12 +304,8 @@ public class GameFacadeController {
                 }
                 //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
                     //takeBonusCard(player, devCard);
-
-
         }
-
        return valid;
-
     }
 
 
@@ -322,14 +315,9 @@ public class GameFacadeController {
      * @param card
      * @return
      */
-
-
     public boolean takeBonusCard(Player player, DevelopmentCard card, int tower, int space) {
         boolean valid = false;
-
         String cardType = card.getImmediateEffect().getBonusAction().getCard();
-
-
 
         if ("territory".equalsIgnoreCase(cardType))
             tower = 0;
@@ -348,38 +336,74 @@ public class GameFacadeController {
         }
 
         //valid = performTowerAction(player,tower,space);
-
         return valid;
-
     }
 
     public boolean performHarvestAction(Player player, boolean check){
-
         if (check) {
-
         }
-
         return true;
-
     }
 
     public boolean checkCardRequest(Player player, DevelopmentCard card) {
-
         Resources cardRes = card.getCost();
         Resources playerRes = player.getRes();
-
         Points cardPoints = card.getPointsReq();
         Points playerPoints = player.getPoints();
-
         return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
-
     }
-
-
 
     public RoundSetup getRoundSetup() {
         return roundSetup;
     }
+
+    /**
+     * Get the player whose turn is right now.
+     * @return Player instance
+     */
+    public Player getPlayerInTurn() {
+        return playersTurn;
+    }
+
+    /**
+     * Set the player whose turn is right now.
+     * @param playerTurn Player instance of the player
+     *                   to which give him the turn.
+     */
+    private void setPlayerInTurn(Player playerTurn) {
+        this.playersTurn = playerTurn;
+    }
+
+    /**
+     * Execute the Controller's Automata, to manage periods, actions
+     * and apply all the game's rules
+     */
+    public void executeControllerAutoma() {
+        Timer timer = new Timer();
+
+        // Schedule a timer that ticks every 100ms, it's used as time base
+        // for the controller's automata(final state machine).
+        // Controller's automata should do every piece of game logic that
+        // server needs to control in order to make sense of the game.
+        timer.schedule( new TimerTask() {
+
+            //Run Function
+            public void run() {
+                switch (periodIndex){
+                    case TheGame.FIRST_PERIOD:{
+
+
+                    }break;
+                    case TheGame.SECOND_PERIOD:{
+
+                    }break;
+                }
+
+            }
+        }, 0, 100);
+
+    }
+
 
 }
 

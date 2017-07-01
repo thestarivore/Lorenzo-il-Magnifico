@@ -1,12 +1,9 @@
 package game;
 
 
-import controllers.Player;
 import controllers.RemotePlayer;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Created by Paolo on 08/05/17.
@@ -45,7 +42,7 @@ public class Lobby {
         //If game is not full add the new player to this game, else create a new game
         if (lastGame.isGameFull() == false){
             //Calculate and set player turn
-            int numberOfPlayers = lastGame.getNumberOfPlayer();
+            int numberOfPlayers = lastGame.getNumberOfPlayers();
             player.setTurnOrder(numberOfPlayers +1);
 
             //Add the new arrived player to the game

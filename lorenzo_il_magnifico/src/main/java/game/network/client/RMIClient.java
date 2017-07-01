@@ -126,7 +126,7 @@ public class RMIClient implements ClientInterface{
      * Is my turn yet?
      */
     @Override
-    public void isMyTurn() {
+    public void getPLayersTurn() {
 
     }
 

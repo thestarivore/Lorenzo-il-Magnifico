@@ -19,14 +19,46 @@ import java.util.*;
  * Created by Eduard Chirica on 6/3/17.
  */
 public class SocketClient implements ClientInterface{
+    /**
+     * IP and PORT of the ServerSocket to connect to
+     */
     private String ip;
     private int port;
+
+    /**
+     * GameView instance, used to print on screen
+     */
     private GameView gameView;
+
+    /**
+     * Player instance passed from Client Class, it
+     * represents this player.
+     */
     private Player player;
+
+    /**
+     * Player instance of the last Player in turn.
+     */
+    private Player playerInTurn;
+
+    /**
+     * Command List - used for string commands to send
+     */
     private List<String> cmdList;
+
+    /**
+     * Command Object List - used for objects to send
+     */
     private List<Object> cmdObjectList;
+
+    /**
+     * Old Board Instance, used to individuate changes on the board.
+     */
     private Board oldBoard;
 
+    /**
+     * SocketClient Singleton Instance
+     */
     private static SocketClient instance = null;
 
     /**
@@ -137,15 +169,15 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public void getBoardUpdates() {
-        sendCmdToClient(ProtocolCommands.ASK_BOARD_UPDATES.getCommand(), new String("None"));
+        sendCmdToClient(ProtocolCommands.ASK_BOARD_UPDATES.getCommand());
     }
 
     /**
      * Is my turn yet?
      */
     @Override
-    public void isMyTurn() {
-
+    public void getPLayersTurn() {
+        sendCmdToClient(ProtocolCommands.WHOSE_TURN.getCommand());
     }
 
 
@@ -153,11 +185,12 @@ public class SocketClient implements ClientInterface{
      ****************** Protocol Commands *************************
      **************************************************************/
     /**
-     * Send Command to the client
+     * Send Command to the client (No object Version)
      * @param cmd command String to send
      */
     public void sendCmdToClient(String cmd){
         cmdList.add(cmd);
+        cmdObjectList.add(new String(ProtocolCommands.NONE.getCommand()));
     }
 
     /**
@@ -211,6 +244,11 @@ public class SocketClient implements ClientInterface{
             if(ProtocolCommands.UPDATED_BOARD.isThisCmd(line)){
                 manageUpdatedBoard(line, obj);
             }
+
+            //Player's Turn Update
+            if(ProtocolCommands.PLAYERS_TURN.isThisCmd(line)){
+                managePlayersTurn(line, obj);
+            }
         }
     }
 
@@ -218,13 +256,13 @@ public class SocketClient implements ClientInterface{
      * Manage Acknowledgement
      */
     private void manageAck(){
-        //TODO: nothing to manage for now
+        //nothing to manage for now
     }
 
     /**
      * Manage Color Selection Command
-     * @param command
-     * @param obj
+     * @param command String of the command received
+     * @param obj Object instance of the object received
      */
     private void manageColorSelection(String command, Object obj){
         String[] newColors = new String[TheGame.MAXIMUM_COLORS_NUMBER];
@@ -252,11 +290,10 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
-     * Manage Game to Update Command.
-     * If the argument is "1" then start action slot update,
-     * els eif "0" ignore ad repeat the usual commands.
-     * @param command
-     * @param obj
+     * Manage Updated Board Command.
+     * Gets the Board and controls whether are there any updates on it.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
      */
     private void manageUpdatedBoard(String command, Object obj) {
         //Get the data from the object
@@ -270,4 +307,28 @@ public class SocketClient implements ClientInterface{
         oldBoard = board;
     }
 
+    /**
+     * Manage Player's Turn Command.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
+     */
+    private void managePlayersTurn(String command, Object obj) {
+        //Get the data from the object
+        Player player = (Player) obj;
+
+        //If any changes, update the map
+        if(player != null) {
+            if (player.equals(this.player) == true)
+                gameView.printYourTurn();
+            else if (player.equals(this.playerInTurn) == false) {
+                //Turn has changed -> New player
+                this.playerInTurn = player;
+                gameView.printPlayerTurn(player.getName());
+            }
+        }
+    }
+
 }
+
+
+

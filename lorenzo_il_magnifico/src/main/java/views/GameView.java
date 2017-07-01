@@ -667,8 +667,6 @@ public class GameView {
 
     }
 
-
-
     /**
      * Format string of Action Space where Family Member could be placed.
      * @param s
@@ -682,20 +680,16 @@ public class GameView {
 
     }
 
-
     /**
      * Format string of Tower cards.
       * @param s
      * @return
      */
     public String formatCardSize(String s) {
-
         String cardSize = s;
         cardSize = String.format("|%-25s|",cardSize);
         return cardSize;
-
     }
-
 
     /**
      * Format string of Bonus Tower spaces.
@@ -709,8 +703,6 @@ public class GameView {
         return bonusSize;
 
     }
-
-
 
     /**
      * Format Tower card request.
@@ -735,8 +727,6 @@ public class GameView {
 
     }
 
-
-
     /**
      * Print string on the same line, four time.
      * @param a
@@ -746,6 +736,20 @@ public class GameView {
      */
     public void printFourTime(String a, String b, String c, String d) {
         System.out.printf("%-45s %-45s %-45s %-45s", a, b, c, d);
+    }
+
+    /**
+     * Print Message to let know the user that it's his turn now
+     */
+    public void printYourTurn() {
+        printLine("*********************It's your turn!******************");
+    }
+
+    /**
+     * Print Message to let know the user that it's another player's turn now
+     */
+    public void printPlayerTurn(String playerName) {
+        printLine("*********************It's " + playerName + "'s turn!******************");
     }
 
 

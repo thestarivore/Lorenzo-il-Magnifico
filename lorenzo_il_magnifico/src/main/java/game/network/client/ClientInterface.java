@@ -34,6 +34,6 @@ public interface ClientInterface extends Runnable {
     /**
      * Is my turn yet?
      */
-    public void isMyTurn();
+    public void getPLayersTurn();
 
 }

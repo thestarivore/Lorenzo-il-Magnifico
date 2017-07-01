@@ -5,7 +5,6 @@ import controllers.Player;
 import controllers.RemotePlayer;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
-import models.board.Board;
 
 import java.io.*;
 import java.net.Socket;
@@ -38,7 +37,11 @@ public class SocketServerThread extends Thread{
 
             // Communication automata, manages communication
             while (true) {
+                //Execute Communication Automa
                 communicationAutoma();
+
+                //Execute game's Controller Automa
+                remotePlayer.getGameReference().executeControllerAutoma();
             }
 
         } catch (IOException e) {
@@ -88,6 +91,11 @@ public class SocketServerThread extends Thread{
             manageAskBoardUpdates(cmd, obj);
         }
 
+        //WHOSE_TURN - "whose turn is it now?"
+        if (ProtocolCommands.WHOSE_TURN.isThisCmd(cmd)) {
+            manageWhoseTurn(cmd, obj);
+        }
+
 
     }
 
@@ -99,12 +107,9 @@ public class SocketServerThread extends Thread{
     /**
      * Manage PLAYER_IDENTIFIACTION command.
      * @param command String of the command received via socket
-     * @param obj
+     * @param obj Object received via socket
      */
     private void managePlayerIdentification(String command, Object obj) throws IOException {
-        //Get the data from the command(all the arguments)
-        //String[] data = ProtocolCommands.getDataFromCommand(command);
-
         //Get Player from Object
         Player player = (Player) obj;
 
@@ -142,18 +147,6 @@ public class SocketServerThread extends Thread{
         while(colors.size() < TheGame.MAXIMUM_COLORS_NUMBER)
             colors.add("");
 
-        //Send colors to choose from
-        /*out.println(ProtocolCommands.SELECT_COLOR.getCommand(
-                colors.get(0),
-                colors.get(1),
-                colors.get(2),
-                colors.get(3))
-        );*/
-        /*String sendCmd = ProtocolCommands.SELECT_COLOR.getCommand(
-                colors.get(0),
-                colors.get(1),
-                colors.get(2),
-                colors.get(3));*/
         //Send SELECT_COLOR command
         out.writeObject(new String(ProtocolCommands.SELECT_COLOR.getCommand()));
 
@@ -165,12 +158,9 @@ public class SocketServerThread extends Thread{
     /**
      * Manage COLOR_SELECTION command.
      * @param command String of the command received via socket
-     * @param obj
+     * @param obj Object received via socket
      */
     private void manageColorSelection(String command, Object obj) throws IOException {
-        //Get the data from the command(all the arguments)
-        //String[] data = ProtocolCommands.getDataFromCommand(command);
-
         //Get Color
         String selectedColor = obj.toString();
         TheGame.COLORS color = TheGame.COLORS.valueOf(selectedColor);
@@ -188,7 +178,7 @@ public class SocketServerThread extends Thread{
     /**
      * Manage ASK_BOARD_UPDATES command
      * @param command String of the command received via socket
-     * @param obj
+     * @param obj Object received via socket
      */
     private void manageAskBoardUpdates(String command, Object obj) throws IOException {
         //There should be no arguments here
@@ -196,6 +186,18 @@ public class SocketServerThread extends Thread{
         //Send the UPDATED_BOARD command back + the updated board
         out.writeObject(new String(ProtocolCommands.UPDATED_BOARD.getCommand()));
         out.writeObject(remotePlayer.getGameReference().getTheController().getBoard());
+        out.flush();
+    }
+
+    /**
+     * Manage WHOSE_TURN command
+     * @param command String of the command received via socket
+     * @param obj Object received via socket
+     */
+    private void manageWhoseTurn(String command, Object obj) throws IOException {
+        //Send the PLAYERS_TURN command back + the Player object whose turn is
+        out.writeObject(new String(ProtocolCommands.PLAYERS_TURN.getCommand()));
+        out.writeObject(remotePlayer.getGameReference().getTheController().getPlayerInTurn());
         out.flush();
     }
 

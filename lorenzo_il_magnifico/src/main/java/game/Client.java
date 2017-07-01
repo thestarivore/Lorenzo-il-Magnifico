@@ -189,8 +189,6 @@ public class Client {
         clientThread.start();
     }
 
-
-
     /**
      * Start the Main Game Client's Automa
      */
@@ -213,7 +211,7 @@ public class Client {
                     }break;
 
                     case TURN_UPDATE:{
-                        client.isMyTurn();
+                        client.getPLayersTurn();
                         fsmState = FSMClient.CASE2;
                     }break;
 
