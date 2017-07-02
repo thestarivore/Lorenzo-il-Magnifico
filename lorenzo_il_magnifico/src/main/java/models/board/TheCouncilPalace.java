@@ -1,11 +1,7 @@
 package models.board;
 
-import controllers.game_course.phases.Action;
-import game.TheGame;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**

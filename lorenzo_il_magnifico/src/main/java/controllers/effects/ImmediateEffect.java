@@ -1,8 +1,7 @@
 package controllers.effects;
 
 import controllers.Player;
-import controllers.game_course.phases.Action;
-import models.CouncilPrivilege;
+import controllers.game_course.Action;
 import models.Points;
 import models.Resources;
 
@@ -20,7 +19,7 @@ public class ImmediateEffect {
     public ImmediateEffect() {
         this.resources = new Resources();
         this.points = new Points();
-        this.bonusAction = new Action();
+        //this.bonusAction = new Action();
         this.isBonus = false;
         this.privilege=false;
     }

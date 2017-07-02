@@ -195,6 +195,22 @@ public class Player implements Serializable{
     public void setGameReference(TheGame gameReference) {
         this.gameReference = gameReference;
     }
+
+    /**
+     * Is this player the same as the player passed as argument?
+     * Only controls Name and ID.
+     * @param player to check
+     * @return "true" if is the same player
+     */
+    public boolean isSameAs(Player player){
+        if(player == null || name == null)
+            return false;
+
+        if(name.equals(player.getName()) && ID == player.getID())
+            return true;
+        else
+            return false;
+    }
 }
 
 

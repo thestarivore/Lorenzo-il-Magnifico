@@ -2,6 +2,7 @@ package game.network.client;
 
 
 import controllers.Player;
+import controllers.game_course.Action;
 import game.TheGame;
 import game.network.protocol.RMIProtocol;
 import views.GameView;
@@ -130,6 +131,10 @@ public class RMIClient implements ClientInterface{
 
     }
 
+    @Override
+    public void sendAction(Action action) {
+
+    }
 
 
 }

@@ -1,6 +1,6 @@
 package controllers.ability;
 
-import controllers.game_course.phases.Action;
+import controllers.game_course.Action;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
