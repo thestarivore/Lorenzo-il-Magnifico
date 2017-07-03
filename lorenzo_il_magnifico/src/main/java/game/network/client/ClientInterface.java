@@ -1,7 +1,7 @@
 package game.network.client;
 
 import controllers.Player;
-import views.GameView;
+import views.cli.GameView;
 
 /**
  * Created by Mattia on 22/05/2017.

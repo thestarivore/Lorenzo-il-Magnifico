@@ -2,9 +2,8 @@ package game.network.client;
 
 
 import controllers.Player;
-import game.TheGame;
 import game.network.protocol.RMIProtocol;
-import views.GameView;
+import views.cli.GameView;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,7 +11,6 @@ import javax.naming.NameClassPair;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.rmi.server.ServerNotActiveException;
-import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**

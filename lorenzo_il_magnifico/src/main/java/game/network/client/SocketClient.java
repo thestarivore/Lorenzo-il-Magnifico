@@ -1,17 +1,15 @@
 package game.network.client;
 
 import controllers.Player;
-import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 
 import models.board.Board;
-import views.GameView;
+import views.cli.GameView;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.*;
 

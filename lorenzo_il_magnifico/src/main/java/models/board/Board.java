@@ -17,6 +17,8 @@ public class Board implements Serializable {
     private Dice[] dice;
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
+    private String playerIsTurn;
+
 
     /**
      * Board Constants
@@ -199,5 +201,13 @@ public class Board implements Serializable {
         }
 
         return actionSpaces;
+    }
+
+    public String getPlayerIsTurn() {
+        return playerIsTurn;
+    }
+
+    public void setPlayerIsTurn(String playerIsTurn) {
+        this.playerIsTurn = playerIsTurn;
     }
 }

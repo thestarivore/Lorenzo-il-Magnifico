@@ -7,7 +7,7 @@ import game.network.client.SocketClient;
 import models.board.Board;
 import models.board.PersonalBoard;
 import models.board.PersonalBonusTile;
-import views.GameView;
+import views.cli.GameView;
 
 import java.util.Timer;
 import java.util.TimerTask;
