@@ -18,14 +18,14 @@ import models.cards.Deck;
  */
 public class FileManagerImport implements Serializable{
     
-    private LeaderCardDeck leaderCards;
+    private ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
     private ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
 
 
 
     //public static void main(String[] args) {
-    public ArrayList<DevelopmentCard> returnDeck(){
-        //ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
+    public ArrayList<DevelopmentCard> acquireDevCard(){
+        ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
         String dCardFile = "/Users/cp18393/Desktop/DevCard.json";
@@ -38,29 +38,34 @@ public class FileManagerImport implements Serializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*for(int i = 0; i < cards.size(); i++) {
-            System.out.print(cards.get(i));
+        /*for(int i = 0; i < developmentCards.size(); i++) {
+            System.out.print(developmentCards.get(i));
         }*/
         return developmentCards;
 
     }
 
+/*
 
-  /*  public LeaderCardDeck getLeaderCards() {
-        String lCardFile = null;
+    public ArrayList<LeaderCard> acquireLeaderCard(){
+        //ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
+        final Type lCardType = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
         Gson gson = new Gson();
+        String lCardFile = "/Users/cp18393/Desktop/LeaderCard.json";
         try (Reader reader = new FileReader(lCardFile)) {
-            LeaderCardDeck leaderCards = gson.fromJson(reader, new TypeToken<LeaderCardDeck>() {
-            }.getType());
+            ArrayList<LeaderCard> list = gson.fromJson(reader, lCardType);
+            for(int i = 0; i < list.size(); i++) {
+                System.out.print(list.get(i));
+            }
+            leaderCards=list;
         } catch (IOException e) {
             e.printStackTrace();
         }
+         for(int i = 0; i < cards.size(); i++) {
+            System.out.print(cards.get(i));
+        }
         return leaderCards;
-
-    public void callFileManager(){
-        getLeaderCards();
-    }
+}
 */
-
 }
 
