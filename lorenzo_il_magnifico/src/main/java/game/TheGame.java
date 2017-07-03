@@ -9,6 +9,7 @@ import game.network.client.ClientInterface;
 import game.network.server.ServerInterface;
 import models.board.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,15 +17,15 @@ import java.util.List;
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class TheGame {
+public class TheGame implements Serializable{
     private List<RemotePlayer> players;
     private Board board;
 
-    private GameFacadeModel         theModel;
-    private GameFacadeController    theController;
+    transient private GameFacadeModel         theModel;
+    transient private GameFacadeController    theController;
 
-    private ClientInterface client;
-    private ServerInterface server;
+    transient private ClientInterface client;
+    transient private ServerInterface server;
 
     private ArrayList<COLORS> colorAvailable;
 
@@ -35,9 +36,19 @@ public class TheGame {
     /**
      * Number of periods in a game
      */
-    public static final int PERIODS_PER_GAME = 2;
-    public static final int FIRST_PERIOD = 0;
-    public static final int SECOND_PERIOD = 1;
+    public static final int PERIODS_PER_GAME = 3;
+    public static final int FIRST_PERIOD    = 0;
+    public static final int SECOND_PERIOD   = 1;
+    public static final int THIRD_PERIOD    = 2;
+    public static final int END_OF_GAME     = 3;
+
+    /**
+     * Player Indexes
+     */
+    public static final int FIRST_PLAYER    = 0;
+    public static final int SECOND_PLAYER   = 1;
+    public static final int THIRD_PLAYER    = 2;
+    public static final int FORTH_PLAYER    = 3;
 
     /**
      * Enum - Possible TheGame's colors constants.
@@ -117,6 +128,35 @@ public class TheGame {
 
         //If nothing found return null
         return null;
+    }
+
+    /**
+     * Iterate through players and find the player's turn in the game
+     * If no player was found, return "-1"
+     * @param player player whose turn we must find out
+     * @return integer of player's turn, "-1" if no player was found
+     */
+    public int getPlayerTurnNumber(Player player){
+        //Iterate Players
+        for (int index = 0; index < players.size(); index++) {
+            if(players.get(index).equals(player))
+                return index;
+        }
+
+        //If nothing found return null
+        return -1;
+    }
+
+    /**
+     * Get the player with the turn number selected.
+     * @param turnNumber player's turn number
+     * @return Player instance
+     */
+    public Player getPlayerByTurnNumber(int turnNumber){
+        if(turnNumber <= getNumberOfPlayers() - 1)
+            return players.get(turnNumber);
+        else
+            return null;
     }
 
     /**

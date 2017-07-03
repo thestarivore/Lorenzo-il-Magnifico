@@ -2,6 +2,8 @@ package game.network.client;
 
 import controllers.Player;
 import views.cli.GameView;
+import controllers.game_course.Action;
+
 
 /**
  * Created by Mattia on 22/05/2017.
@@ -36,4 +38,8 @@ public interface ClientInterface extends Runnable {
      */
     public void getPLayersTurn();
 
+    /**
+     * Send Action done to the Server
+     */
+    public void sendAction(Action action);
 }

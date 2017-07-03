@@ -2,6 +2,8 @@ package game.network.client;
 
 
 import controllers.Player;
+import controllers.game_course.Action;
+import game.TheGame;
 import game.network.protocol.RMIProtocol;
 import views.cli.GameView;
 
@@ -11,6 +13,7 @@ import javax.naming.NameClassPair;
 import javax.naming.NamingException;
 import java.io.IOException;
 import java.rmi.server.ServerNotActiveException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**
@@ -128,6 +131,10 @@ public class RMIClient implements ClientInterface{
 
     }
 
+    @Override
+    public void sendAction(Action action) {
+
+    }
 
 
 }

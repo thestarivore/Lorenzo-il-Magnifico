@@ -1,8 +1,10 @@
 package game.network.server;
 
 
+import controllers.GameFacadeController;
 import controllers.Player;
 import controllers.RemotePlayer;
+import controllers.game_course.Action;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 
@@ -96,9 +98,27 @@ public class SocketServerThread extends Thread{
             manageWhoseTurn(cmd, obj);
         }
 
-
+        //PLAYER_ACTION - player has sent an action
+        if (ProtocolCommands.PLAYER_ACTION.isThisCmd(cmd)) {
+            managePlayerAction(cmd, obj);
+        }
     }
 
+    /**
+     * Get the reference to the player's game.
+     * @return TheGame instance
+     */
+    public TheGame getGameReference() {
+        return remotePlayer.getGameReference();
+    }
+
+    /**
+     * Gets the instance of the Controller
+     * @return GameFacadeController class instance
+     */
+    public GameFacadeController getTheController() {
+        return getGameReference().getTheController();
+    }
 
     /****************************************************************************************
      ************************ Protocol Received Commands Management *************************
@@ -141,7 +161,7 @@ public class SocketServerThread extends Thread{
      * Ask the remote player to pick a color from the ones that are available
      */
     public void askPlayerColor() throws IOException {
-        ArrayList<String> colors = remotePlayer.getGameReference().getAvailableColorsStrings();
+        ArrayList<String> colors = getGameReference().getAvailableColorsStrings();
 
         //Fill the list is colors are missing
         while(colors.size() < TheGame.MAXIMUM_COLORS_NUMBER)
@@ -169,7 +189,7 @@ public class SocketServerThread extends Thread{
         remotePlayer.setColor(color);
 
         //Remove color from it's game
-        remotePlayer.getGameReference().removeColor(color);
+        getGameReference().removeColor(color);
 
         //sk the remote player to pick a color
         sendAck();
@@ -185,7 +205,7 @@ public class SocketServerThread extends Thread{
 
         //Send the UPDATED_BOARD command back + the updated board
         out.writeObject(new String(ProtocolCommands.UPDATED_BOARD.getCommand()));
-        out.writeObject(remotePlayer.getGameReference().getTheController().getBoard());
+        out.writeObject(getTheController().getBoard());
         out.flush();
     }
 
@@ -197,9 +217,28 @@ public class SocketServerThread extends Thread{
     private void manageWhoseTurn(String command, Object obj) throws IOException {
         //Send the PLAYERS_TURN command back + the Player object whose turn is
         out.writeObject(new String(ProtocolCommands.PLAYERS_TURN.getCommand()));
-        out.writeObject(remotePlayer.getGameReference().getTheController().getPlayerInTurn());
+        out.writeObject(getTheController().getPlayerInTurn());
         out.flush();
     }
+
+    /**
+     * Manage PLAYER_ACTION command
+     * @param command String of the command received via socket
+     * @param obj Object received via socket
+     */
+    private void managePlayerAction(String command, Object obj) throws IOException {
+        //Get Action from Object
+        Action action = (Action) obj;
+
+        //Send Action to the controller so that he can manage it
+        getTheController().managePlayerAction(action);
+
+        //Send the ACTION_PROCESSED command back + the Player object whose turn is
+        out.writeObject(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()));
+        out.writeObject(new String(ProtocolCommands.NONE.getCommand()));
+        out.flush();
+    }
+
 
 
 }

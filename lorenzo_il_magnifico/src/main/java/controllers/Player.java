@@ -3,6 +3,7 @@ package controllers;
 
 import game.TheGame;
 import models.Points;
+import models.cards.DevelopmentCard;
 import utility.Constants;
 import models.board.*;
 import models.cards.LeaderCard;
@@ -25,6 +26,7 @@ public class Player implements Serializable{
     protected Resources res;
     protected PersonalBoard personalBoard;
     protected ArrayList<LeaderCard> leaderCards;
+    protected ArrayList<DevelopmentCard> developmentCards;
     protected TheGame.COLORS color;
     protected PersonalBonusTile personalBonusTile;
     protected FamilyMember[] familyMember;
@@ -67,6 +69,7 @@ public class Player implements Serializable{
         this.res = new Resources();
         this.personalBoard = new PersonalBoard();
         this.leaderCards = new ArrayList<LeaderCard>();
+        this.developmentCards=new ArrayList<DevelopmentCard>();
         this.personalBonusTile = new PersonalBonusTile();
         this.markerDiscs = new MarkerDiscs();
         this.excommunicationCubes = new ExcommunicationCubes();
@@ -132,6 +135,14 @@ public class Player implements Serializable{
         this.leaderCards = leaderCards;
     }
 
+    public ArrayList<DevelopmentCard> getDevelopmentCards() {
+        return developmentCards;
+    }
+
+    public void setDevelopmentCards(ArrayList<DevelopmentCard> developmentCards) {
+        this.developmentCards = developmentCards;
+    }
+
     public TheGame.COLORS getColor() {
         return color;
     }
@@ -194,6 +205,22 @@ public class Player implements Serializable{
      */
     public void setGameReference(TheGame gameReference) {
         this.gameReference = gameReference;
+    }
+
+    /**
+     * Is this player the same as the player passed as argument?
+     * Only controls Name and ID.
+     * @param player to check
+     * @return "true" if is the same player
+     */
+    public boolean isSameAs(Player player){
+        if(player == null || name == null)
+            return false;
+
+        if(name.equals(player.getName()) && ID == player.getID())
+            return true;
+        else
+            return false;
     }
 }
 

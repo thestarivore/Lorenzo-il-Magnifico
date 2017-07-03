@@ -51,6 +51,6 @@ public class PermanentEffect {
 
     @Override
     public String toString(){
-        return "\n\tPoints " + this.points +"\n\tResources " + this.resources;
+        return "\n\tPoints " + this.points +"\n\tResources " + this.resources+"\n\tPrivileges " + this.privilege;
     }
 }

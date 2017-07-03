@@ -32,7 +32,6 @@ public class DevelopmentCard implements Card, Serializable {
         this.cost = new Resources(1);
         this.pointsReq = new Points();
         this.description = "ciao                                                                        ";
-        this.dice=0;
     }
 
 
@@ -108,6 +107,10 @@ public class DevelopmentCard implements Card, Serializable {
         return description;
     }
 
+    public void setPointsReq(Points pointsReq) {
+        this.pointsReq = pointsReq;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -117,6 +120,7 @@ public class DevelopmentCard implements Card, Serializable {
         return  "Card Name: " + this.name + "\n"+
                 "Card Period: " + this.period + "\n"+
                 "Card Cost: " + this.cost+"\n"+
+                "Points Cost" + this.pointsCost+"\n"+
                 "Card Point: " + this.pointsReq + "\n"+
                 "Immediate Effect: "+this.immediateEffect+ "\n"+
                 "Permanent effect: " + this.permanentEffect +"\n"+

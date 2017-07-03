@@ -1,6 +1,5 @@
 package controllers.game_course;
 
-import controllers.game_course.phases.Action;
 import models.GameFacadeModel;
 import models.board.ActionSpace;
 import models.board.FamilyMember;

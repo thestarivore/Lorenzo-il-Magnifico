@@ -16,7 +16,6 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
         super(new DevelopmentCard());
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.cardFromFile = new FileManagerImport();
-
     }*/
 
     public DevelopmentCardDeck(){
@@ -37,7 +36,7 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
     }
 
     public void setDeck(){
-        this.developmentCards=cardFromFile.returnDeck();
+        this.developmentCards=cardFromFile.acquireDevCard();
 
     }
     public ArrayList<DevelopmentCard> getDeck(){

@@ -1,6 +1,7 @@
 package game;
 
 import controllers.Player;
+import controllers.game_course.Action;
 import game.network.client.ClientInterface;
 import game.network.client.RMIClient;
 import game.network.client.SocketClient;
@@ -52,6 +53,11 @@ public class Client {
      */
     private static PersonalBonusTile    personalBonusTile;
 
+    /**
+     * Boolean variable indicating that it's this client's player turn
+     */
+    private static boolean myTurn;
+
 
     /****************************Constants****************************/
     /**
@@ -75,7 +81,7 @@ public class Client {
     public enum FSMClient{
         BOARD_UPDATES(0),
         TURN_UPDATE(1),
-        CASE2(2),
+        SEND_ACTION(2),
         CASE3(3),
 
         ;
@@ -193,7 +199,6 @@ public class Client {
      * Start the Main Game Client's Automa
      */
     private static void startClientAutoma() {
-
         Timer timer = new Timer();
 
         // Schedule a timer that ticks every 100ms, it's used as time base
@@ -212,10 +217,18 @@ public class Client {
 
                     case TURN_UPDATE:{
                         client.getPLayersTurn();
-                        fsmState = FSMClient.CASE2;
+                        fsmState = FSMClient.SEND_ACTION;
                     }break;
 
-                    case CASE2:{
+                    case SEND_ACTION:{
+                        //Control if is my turn
+                        if(myTurn) {
+                            //Get action from user and send it to the server
+                            String debugToken = gameView.getAction();
+                            //TODO: bisogna acnora fare la conversione da testo inserito dall'utente ad azione vera
+                            Action action = new Action(debugToken);
+                            client.sendAction(action);
+                        }
                         fsmState = FSMClient.CASE3;
                     }break;
 
@@ -243,5 +256,13 @@ public class Client {
      */
     public static void setFsmState(FSMClient fsmState) {
         Client.fsmState = fsmState;
+    }
+
+    /**
+     * Sets the turn for this client's player.
+     * @param turn "true" if is his turn
+     */
+    public static void setMyTurn(boolean turn){
+        myTurn = turn;
     }
 }

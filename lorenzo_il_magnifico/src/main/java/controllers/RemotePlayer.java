@@ -13,7 +13,7 @@ public class RemotePlayer extends Player{
     /**
      * Remote Client Thread used to communicate with the socket server
      */
-    private SocketServerThread remoteClientThread;
+    transient private SocketServerThread remoteClientThread;
 
     /**
      * Basic Constructor

@@ -18,8 +18,9 @@ public class LeaderCardDeck extends Deck implements Serializable {
         this.cardFromFile = new FileManagerImport();
     }
 
-    public ArrayList<LeaderCard>  getLeaderCards() {
-        return leaderCards;
+    public void setDeck(){
+     //   this.leaderCards=cardFromFile.acquireLeaderCards();
+
     }
 
     public LeaderCard getCardFromDeck() {

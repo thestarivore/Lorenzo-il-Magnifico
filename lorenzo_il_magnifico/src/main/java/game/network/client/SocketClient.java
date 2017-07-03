@@ -1,6 +1,8 @@
 package game.network.client;
 
 import controllers.Player;
+import controllers.game_course.Action;
+import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 
@@ -10,6 +12,7 @@ import views.cli.GameView;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.*;
 
@@ -82,6 +85,7 @@ public class SocketClient implements ClientInterface{
         this.port = port;
         this.cmdList = new ArrayList<String>();
         this.cmdObjectList = new ArrayList<Object>();
+        playerInTurn = new Player("");
     }
 
     /**
@@ -178,6 +182,11 @@ public class SocketClient implements ClientInterface{
         sendCmdToClient(ProtocolCommands.WHOSE_TURN.getCommand());
     }
 
+    @Override
+    public void sendAction(Action action) {
+        sendCmdToClient(ProtocolCommands.PLAYER_ACTION.getCommand(), action);
+    }
+
 
     /**************************************************************
      ****************** Protocol Commands *************************
@@ -246,6 +255,11 @@ public class SocketClient implements ClientInterface{
             //Player's Turn Update
             if(ProtocolCommands.PLAYERS_TURN.isThisCmd(line)){
                 managePlayersTurn(line, obj);
+            }
+
+            //Action processed
+            if(ProtocolCommands.ACTION_PROCESSED.isThisCmd(line)){
+                manageActionProcessed(line, obj);
             }
         }
     }
@@ -316,14 +330,29 @@ public class SocketClient implements ClientInterface{
 
         //If any changes, update the map
         if(player != null) {
-            if (player.equals(this.player) == true)
+            if(this.player.isSameAs(player)){
+                //My Turn now --> inform the client
                 gameView.printYourTurn();
-            else if (player.equals(this.playerInTurn) == false) {
+                Client.setMyTurn(true);
+            }
+            else if (this.playerInTurn.isSameAs(player) == false) {
                 //Turn has changed -> New player
                 this.playerInTurn = player;
+                Client.setMyTurn(false);
                 gameView.printPlayerTurn(player.getName());
             }
         }
+    }
+
+    /**
+     * Manage Action Processed Command from server.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
+     */
+    private void manageActionProcessed(String command, Object obj) {
+        // nothing to manage for now...
+        // maybe a control in the future, as the server sends back
+        // the action we've sent.
     }
 
 }

@@ -160,7 +160,7 @@
   },
   {	"name":"City",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "immediateEffect":{
       "resources":{
@@ -532,8 +532,8 @@
     "immediateEffect":{
       "points":{
         "victory":5
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -562,8 +562,8 @@
     "immediateEffect":{
       "points":{
         "victory":5
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -593,8 +593,8 @@
     "immediateEffect":{
       "points":{
         "victory":6
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -624,8 +624,8 @@
     "immediateEffect":{
       "points":{
         "victory":6
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1
@@ -652,8 +652,8 @@
     "immediateEffect":{
       "points":{
         "victory":3
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -682,8 +682,8 @@
     "immediateEffect":{
       "points":{
         "victory":2
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -712,8 +712,8 @@
     "immediateEffect":{
       "points":{
         "faith":1
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -741,8 +741,8 @@
     "immediateEffect":{
       "points":{
         "victory":1
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -771,8 +771,8 @@
     "immediateEffect":{
       "points":{
         "victory":3
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -800,8 +800,8 @@
     "immediateEffect":{
       "points":{
         "victory":4
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -830,8 +830,8 @@
     "immediateEffect":{
       "points":{
         "victory":5
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -859,8 +859,8 @@
     "immediateEffect":{
       "points":{
         "victory":6
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -889,8 +889,8 @@
     "immediateEffect":{
       "points":{
         "victory":4
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -919,8 +919,8 @@
       "points":{
         "victory":2,
         "faith":1
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -949,8 +949,8 @@
     "immediateEffect":{
       "points":{
         "victory":3
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1,
@@ -980,8 +980,8 @@
     "immediateEffect":{
       "points":{
         "victory":8
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":2,
@@ -1004,8 +1004,8 @@
     "immediateEffect":{
       "points":{
         "victory":7
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1
@@ -1030,8 +1030,8 @@
     "immediateEffect":{
       "points":{
         "victory":10
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":3
@@ -1051,10 +1051,10 @@
     },
     "immediateEffect":{
       "points":{
-        "victory":7
+        "victory":7,
         "faith":3
-      },
-    }
+      }
+    },
     "permanentEffect":{
       "points":{
         "victory":1
@@ -1065,7 +1065,7 @@
   },
   {	"name":"Fortress",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "stones":4,
@@ -1090,13 +1090,62 @@
 
 
 
-
+  {
+    "name":"Papal Messenger",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":5
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":3
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Royal Messenger",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":5
+      }
+    },
+    "immediateEffect":{
+      "privilege":true,
+      "numberOfPrivilege":3
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Papal Messenger",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":5
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":3
+      }
+    },
+    "description":"This card is useful"
+  },
 
 
   {
     "name":"Hiring Recruits",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "coins":4
@@ -1116,7 +1165,7 @@
   {
     "name":"Repairing the Church",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "coins":1,
@@ -1138,7 +1187,7 @@
   {
     "name":"Building the walls",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "stones":3
@@ -1160,7 +1209,7 @@
   {
     "name":"Hiring Recruits",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "stones":3
@@ -1182,7 +1231,7 @@
   {
     "name":"Raising a statue",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "stones":2,
@@ -1205,7 +1254,7 @@
   {
     "name":"Hosting Panhandlers",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "woods":3
@@ -1225,7 +1274,7 @@
   {
     "name":"Repairing the Abbey",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "coins":2,
@@ -1247,7 +1296,7 @@
   {
     "name":"Hosting Panhandlers",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "woods":3
@@ -1267,7 +1316,7 @@
   {
     "name":"Building the Bastions",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "stones":4
@@ -1289,7 +1338,7 @@
   {
     "name":"Hiring Mercenaries",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "coins":8
@@ -1309,7 +1358,7 @@
   {
     "name":"Promoting sacred Art",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "woods":6
@@ -1329,7 +1378,7 @@
   {
     "name":"Building the tower",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "stones":6
@@ -1338,7 +1387,7 @@
       "points":{
         "military":4
       },
-      "privilege":true
+      "privilege":true,
       "numberOfPrivilege":1
     },
     "permanentEffect":{
@@ -1351,7 +1400,7 @@
   {
     "name":"Hosting Foreigners",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "woods":4
@@ -1371,7 +1420,7 @@
   {
     "name":"Hiring soldiers",
     "period":{
-      "numberOfPeriod":1,
+      "numberOfPeriod":1
     },
     "cost":{
       "coins":6
@@ -1388,4 +1437,216 @@
     },
     "description":"This card is useful"
   },
+  {
+    "name":"Military Campaign",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":2
+    },
+    "pointsreq":{
+      "military":3
+    },
+    "immediateEffect":{
+      "resources":{
+        "coins":3
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":5
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Fighting Heresies",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":3
+    },
+    "pointsreq":{
+      "military":5
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":2
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":5
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Support to the king",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":3
+    },
+    "pointsreq":{
+      "military":6
+    },
+    "immediateEffect":{
+      "resources":{
+        "coins":1
+      },
+      "privilege":true,
+      "numberOfPrivilege":1
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":3
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Crusade",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":4
+    },
+    "pointsreq":{
+      "military":8
+    },
+    "immediateEffect":{
+      "resources":{
+        "coins":5
+      },
+      "points":{
+        "faith":1
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":5
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Military Conquest",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":6
+    },
+    "pointsreq":{
+      "military":12
+    },
+    "immediateEffect":{
+      "resources":{
+        "coins":3,
+        "stones":3,
+        "woods":3
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":7
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Support the Cardinal",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":4
+    },
+    "pointsreq":{
+      "military":7
+    },
+    "cost":{
+      "resources":{
+        "coins":3,
+        "stones":2,
+        "woods":2
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":4
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":8
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Support the Bishop",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":2
+    },
+    "pointsreq":{
+      "military":4
+    },
+    "cost":{
+      "resources":{
+        "coins":1,
+        "stones":1,
+        "woods":1
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":3
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":1
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Support the Pope",
+    "period":{
+      "numberOfPeriod":1
+    },
+    "pointscost":{
+      "military":5
+    },
+    "pointsreq":{
+      "military":10
+    },
+    "cost":{
+      "resources":{
+        "coins":4,
+        "stones":3,
+        "woods":3
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":2
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":10
+      }
+    },
+    "description":"This card is useful"
+  }
 ]

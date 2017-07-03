@@ -16,11 +16,11 @@ Strong Candidates: (tab indicates inheritance, while in the parenthesis we have 
 	-models.cards.LeaderCard (models.Requirements requirements, controllers.ability.SpecialAbility specialAbility)
 -models.Requirements
 -controllers.ability.SpecialAbility
-	-controllers.ability.OncePerRoundAbility (controllers.game_course.phases.Action action)
-	-controllers.ability.PermanentAbility (controllers.game_course.phases.Action action)
--controllers.effects.ImmediateEffect (models.Resources resources, models.Points points, controllers.game_course.phases.Action bonusAction)
+	-controllers.ability.OncePerRoundAbility (controllers.game_course.Action action)
+	-controllers.ability.PermanentAbility (controllers.game_course.Action action)
+-controllers.effects.ImmediateEffect (models.Resources resources, models.Points points, controllers.game_course.Action bonusAction)
 -controllers.effects.PermanentEffect
--controllers.game_course.phases.Action
+-controllers.game_course.Action
 	-controllers.game_course.ProductionAction
 	-controllers.game_course.HarvestAction
 -models.board.FamilyMember (color, models.board.Dice dice)
@@ -32,7 +32,7 @@ Strong Candidates: (tab indicates inheritance, while in the parenthesis we have 
 -controllers.game_course.Round (controllers.game_course.phases.Phase phase)
 -controllers.game_course.phases.Phase
 	-controllers.game_course.phases.RoundSetup
-	-controllers.game_course.phases.Action
+	-controllers.game_course.Action
 	-controllers.game_course.phases.VaticanReport
 	-controllers.game_course.phases.EndOfRound
 -models.board.Board (models.board.ActionSpace spaces, models.board.TheMarket market, models.board.TheCouncilPalace councilPalace, models.board.trackers.Track tracks[])
