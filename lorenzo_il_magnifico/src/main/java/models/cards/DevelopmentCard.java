@@ -7,6 +7,7 @@ import controllers.game_course.Period;
 import controllers.effects.PermanentEffect;
 import models.Points;
 import models.Resources;
+import models.board.Tower;
 
 import java.io.Serializable;
 
@@ -23,6 +24,7 @@ public class DevelopmentCard implements Card, Serializable {
     private PermanentEffect permanentEffect;
     private int dice;
     private String description;
+    private DevelopmentCardDeck deck;
 
     //Constant
     public static final int MAX_DESCRIPTION_LENGTH = 75;
@@ -32,6 +34,7 @@ public class DevelopmentCard implements Card, Serializable {
         this.cost = new Resources(1);
         this.pointsReq = new Points();
         this.description = "ciao                                                                        ";
+        this.deck=new DevelopmentCardDeck();
     }
 
 
@@ -113,6 +116,14 @@ public class DevelopmentCard implements Card, Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getDeck() {
+        return deck.getTower();
+    }
+
+    public void setDeck(DevelopmentCardDeck deck) {
+        this.deck = deck;
     }
 
     @Override

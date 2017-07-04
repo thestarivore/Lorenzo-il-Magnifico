@@ -52,5 +52,11 @@ public class Tower implements Serializable {
         this.isEmpty = true;
     }
 
+    public int getNumberOfTower() {
+        return numberOfTower;
+    }
 
+    public void setNumberOfTower(int numberOfTower) {
+        this.numberOfTower = numberOfTower;
+    }
 }
