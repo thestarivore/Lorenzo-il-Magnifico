@@ -109,6 +109,11 @@ public class Client {
     private static FSMClient fsmState  = FSMClient.BOARD_UPDATES;
 
     /**
+     * Final State Machine - Current Client State
+     */
+    private static boolean DEBUGGING  = true;
+
+    /**
      * The current action slot being updated from the server
      */
     private static int currentActionSpace = 0;
@@ -128,7 +133,14 @@ public class Client {
         askUsersName();
 
         //Start User Interface
-        String ui = gameView.askUserInterfaceType();
+        String ui;
+        if(DEBUGGING) {
+            //If debugging use Textual Interface by default
+            ui = "t";
+        }
+        else {
+            ui = gameView.askUserInterfaceType();
+        }
         gameView.printUITypeMessage(ui);
 
         //Start Client Communication
@@ -180,7 +192,14 @@ public class Client {
      */
     private static void startClientCommunication(){
         //Get Protocol Choice
-        String protocol = gameView.askCommunicationType();
+        String protocol;
+        if(DEBUGGING) {
+            //If debugging use Socket Protocol by default
+            protocol = "s";
+        }
+        else {
+            protocol = gameView.askCommunicationType();
+        }
 
         // Get/Create an instance of the Client
         // Create and start the thread

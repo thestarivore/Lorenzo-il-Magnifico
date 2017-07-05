@@ -9,17 +9,6 @@ public class Deck implements Serializable {
     transient private Card card;
 
     public Deck(Card card) {
-        this.card = new Card() {
-            @Override
-            public String getName() {
-                return null;
-            }
-
-            @Override
-            public void setName(String name) {
-
-            }
-        };
 
 
     }
