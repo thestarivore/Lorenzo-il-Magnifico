@@ -8,7 +8,7 @@ Strong Candidates: (tab indicates inheritance, while in the parenthesis we have 
 -models.Resources  (woods, stones, servants, coins)
 -models.Points (victory, military, faith)
 -models.cards.Card
-	-models.cards.DevelopmentCard (controllers.game_course.Period period, models.Resources cost, controllers.effects.ImmediateEffect immediateEffect, controllers.effects.PermanentEffect permanentEffect)
+	-models.cards.DevelopmentCard (controllers.game_course.Period period, models.Resources cost, controllers.effects.ImmediateEffects.ImmediateEffect immediateEffect, controllers.effects.PermanentEffects.PermanentEffect permanentEffect)
 		-models.cards.Territory
 		-models.cards.Building
 		-models.cards.Character
@@ -18,8 +18,8 @@ Strong Candidates: (tab indicates inheritance, while in the parenthesis we have 
 -controllers.ability.SpecialAbility
 	-controllers.ability.OncePerRoundAbility (controllers.game_course.Action action)
 	-controllers.ability.PermanentAbility (controllers.game_course.Action action)
--controllers.effects.ImmediateEffect (models.Resources resources, models.Points points, controllers.game_course.Action bonusAction)
--controllers.effects.PermanentEffect
+-controllers.effects.ImmediateEffects.ImmediateEffect (models.Resources resources, models.Points points, controllers.game_course.Action bonusAction)
+-controllers.effects.PermanentEffects.PermanentEffect
 -controllers.game_course.Action
 	-controllers.game_course.ProductionAction
 	-controllers.game_course.HarvestAction

@@ -1,5 +1,8 @@
 [
   {	"name":"Commercial Hub",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -15,6 +18,9 @@
     "description":"This card is useful"
   },
   {	"name":"Woods",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -36,6 +42,9 @@
     "description":"This card is useful"
   },
   {	"name":"Village",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -52,6 +61,9 @@
     "description":"This card is useful"
   },
   {	"name":"Gravel Pit",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -73,6 +85,9 @@
     "description":"This card is useful"
   },
   {	"name":"Forest",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -93,6 +108,9 @@
     "description":"This card is useful"
   },
   {	"name":"Monastery",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -119,6 +137,9 @@
     "description":"This card is useful"
   },
   {	"name":"Citadel",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -137,6 +158,9 @@
     "description":"This card is useful"
   },
   {	"name":"City",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -159,6 +183,9 @@
     "description":"This card is useful"
   },
   {	"name":"City",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -171,6 +198,9 @@
     "description":"This card is useful"
   },
   {	"name":"Gold Mine",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -191,6 +221,9 @@
     "description":"This card is useful"
   },
   {	"name":"Mountain Town",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -214,6 +247,9 @@
     "description":"This card is useful"
   },
   {	"name":"Mining Town",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -236,6 +272,9 @@
     "description":"This card is useful"
   },
   {	"name":"Rock Pit",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -256,6 +295,9 @@
     "description":"This card is useful"
   },
   {	"name":"Estate",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -278,6 +320,9 @@
     "description":"This card is useful"
   },
   {	"name":"Hermitage",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -298,6 +343,9 @@
     "description":"This card is useful"
   },
   {	"name":"Manor House",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -316,6 +364,9 @@
     "description":"This card is useful"
   },
   {	"name":"Dukedom",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -338,6 +389,9 @@
     "description":"This card is useful"
   },
   {	"name":"Trading Town",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -359,6 +413,9 @@
     "description":"This card is useful"
   },
   {	"name":"Farm",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -385,6 +442,9 @@
     "description":"This card is useful"
   },
   {	"name":"Colony",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -409,6 +469,9 @@
   },
   {
     "name":"Province",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -431,6 +494,9 @@
     "description":"This card is useful"
   },
   {	"name":"Marble Pit",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1,
       "round":{
@@ -454,6 +520,9 @@
     "description":"This card is useful"
   },
   {	"name":"Sanctuary",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -474,6 +543,9 @@
     "description":"This card is useful"
   },
   {	"name":"Castle",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -497,6 +569,9 @@
     "description":"This card is useful"
   },
   {	"name":"Fortified Town",
+    "deck":{
+      "tower":1
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -521,37 +596,9 @@
   },
   {
     "name":"Tax Office",
-    "period":{
-      "numberOfPeriod":1
-
+    "deck":{
+      "tower":3
     },
-    "cost":{
-      "woods":3,
-      "stones":1
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":5
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
-      }
-    },
-    "dice":5,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Mint",
     "period":{
       "numberOfPeriod":1
     },
@@ -565,23 +612,49 @@
       }
     },
     "permanentEffect":{
-      "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
       "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+        "coins":1
       }
+    },
+    "pointsForCharacters":{
+      "tower":1
+    },
+    "dice":5,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Mint",
+    "deck":{
+      "tower":3
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "woods":1,
+      "stones":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":5
+      }
+    },
+    "permanentEffect":{
+      "resources":{
+        "coins":1
+      }
+    },
+    "pointsForCharacters":{
+      "tower":3
     },
     "dice":5,
     "description":"This card is useful"
   },
   {
     "name":"Triumph Arch",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
 
@@ -597,22 +670,20 @@
     },
     "permanentEffect":{
       "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+        "victory":1
       }
+    },
+    "pointsForCharacters":{
+      "tower":4
     },
     "dice":6,
     "description":"This card is useful"
   },
   {
     "name":"Theater",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
 
@@ -629,19 +700,19 @@
     "permanentEffect":{
       "points":{
         "victory":1
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
       }
+    },
+    "pointsForCharacters":{
+      "tower":2
     },
     "dice":6,
     "description":"This card is useful"
   },
   {
     "name":"Carpeter's Shop",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -654,17 +725,12 @@
         "victory":3
       }
     },
-    "permanentEffect":{
+    "Exchange":{
       "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
+        "victory":3
       },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+      "firstP":{
+        "stones":1
       }
     },
     "dice":4,
@@ -672,6 +738,9 @@
   },
   {
     "name":"Stonemason's Shop",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -702,6 +771,9 @@
   },
   {
     "name":"Chapel",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
 
@@ -716,22 +788,25 @@
     },
     "permanentEffect":{
       "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+        "faith":1
       }
     },
-    "dice":2,
-    "description":"This card is useful"
-  },
+    "Exchange":{
+      "points":{
+        "victory":3
+      },
+      "firstP":{
+        "stones":1
+      }
+    },
+      "dice":2,
+      "description":"This card is useful"
+    },
   {
     "name":"Residence",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -760,37 +835,44 @@
     "description":"This card is useful"
   },
   {
-    "name":"Marketplace",
-    "period":{
-      "numberOfPeriod":1
+    "name": "Marketplace",
+    "deck": {
+      "tower": 3
     },
-    "cost":{
-      "woods":2,
-      "stones":1
+    "period": {
+      "numberOfPeriod": 1
     },
-    "immediateEffect":{
-      "points":{
-        "victory":3
+    "cost": {
+      "woods": 2,
+      "stones": 1
+    },
+    "immediateEffect": {
+      "points": {
+        "victory": 3
       }
     },
-    "permanentEffect":{
-      "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
+    "permanentEffect": {
+      "resources": {
+        "woods": 2,
+        "stones": 2
+      }
+    },
+    "Exchange": {
+      "points": {
+        "victory": 3
       },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+      "firstP": {
+        "stones": 1
       }
     },
-    "dice":3,
-    "description":"This card is useful"
+    "dice": 3,
+    "description": "This card is useful"
   },
   {
     "name":"Treasury",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -820,6 +902,9 @@
   },
   {
     "name":"Painters' Guild",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
 
@@ -850,6 +935,9 @@
   },
   {
     "name":"Sculptors' Guild",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -861,24 +949,21 @@
         "victory":6
       }
     },
-    "permanentEffect":{
+    "Exchange":{
       "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
+        "victory":3
       },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
-      },
-      "dice":5
+      "firstP":{
+        "stones":1
+      }
     },
     "description":"This card is useful"
   },
   {
     "name":"Stonemasons' Guild",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -892,23 +977,26 @@
       }
     },
     "permanentEffect":{
-      "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+      "points": {
+        "victory": 6
       }
     },
-    "dice":4,
-    "description":"This card is useful"
-  },
+    "Exchange":{
+        "points":{
+          "victory":3
+        },
+        "firstP":{
+          "stones":1
+        }
+      },
+      "dice":4,
+      "description":"This card is useful"
+    },
   {
     "name":"Baptistery",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -923,22 +1011,28 @@
     },
     "permanentEffect":{
       "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
+        "victory":1
       },
       "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+        "coins":2
       }
     },
-    "dice":2,
-    "description":"This card is useful"
-  },
+    "Exchange": {
+      "points": {
+        "victory": 3
+      },
+      "firstP": {
+        "stones": 1
+      }
+    },
+      "dice":2,
+      "description":"This card is useful"
+    },
   {
     "name":"Barracks",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -953,22 +1047,25 @@
     },
     "permanentEffect":{
       "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
+        "military":3
       }
     },
-    "dice":1,
-    "description":"This card is useful"
-  },
+    "Exchange": {
+      "points": {
+        "victory": 3
+      },
+      "firstP": {
+        "stones": 1
+      }
+    },
+      "dice":1,
+      "description":"This card is useful"
+    },
   {
     "name":"Stronghold",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -993,6 +1090,9 @@
   },
   {
     "name":"Bank",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1019,6 +1119,9 @@
   },
   {
     "name":"Garden",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1042,6 +1145,9 @@
   },
   {
     "name":"Cathedral",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1064,6 +1170,9 @@
     "description":"This card is useful"
   },
   {	"name":"Fortress",
+    "deck":{
+      "tower":3
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1087,11 +1196,11 @@
     "dice":5,
     "description":"This card is useful"
   },
-
-
-
   {
     "name":"Papal Messenger",
+    "deck":{
+      "tower":2
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1109,6 +1218,9 @@
   },
   {
     "name":"Royal Messenger",
+    "deck":{
+      "tower":2
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1125,6 +1237,9 @@
   },
   {
     "name":"Papal Messenger",
+    "deck":{
+      "tower":2
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1140,10 +1255,11 @@
     },
     "description":"This card is useful"
   },
-
-
   {
     "name":"Hiring Recruits",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1164,6 +1280,9 @@
   },
   {
     "name":"Repairing the Church",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1186,6 +1305,9 @@
   },
   {
     "name":"Building the walls",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1207,7 +1329,10 @@
     "description":"This card is useful"
   },
   {
-    "name":"Hiring Recruits",
+    "name":"Building the Walls",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1230,6 +1355,9 @@
   },
   {
     "name":"Raising a statue",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1253,6 +1381,9 @@
   },
   {
     "name":"Hosting Panhandlers",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1273,6 +1404,9 @@
   },
   {
     "name":"Repairing the Abbey",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1294,27 +1428,10 @@
     "description":"This card is useful"
   },
   {
-    "name":"Hosting Panhandlers",
-    "period":{
-      "numberOfPeriod":1
-    },
-    "cost":{
-      "woods":3
-    },
-    "immediateEffect":{
-      "resources":{
-        "servants":4
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "finalVictoryPoints":4
-      }
-    },
-    "description":"This card is useful"
-  },
-  {
     "name":"Building the Bastions",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1337,6 +1454,9 @@
   },
   {
     "name":"Hiring Mercenaries",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1357,6 +1477,9 @@
   },
   {
     "name":"Promoting sacred Art",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1376,7 +1499,10 @@
     "description":"This card is useful"
   },
   {
-    "name":"Building the tower",
+    "name":"Building the towers",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1399,6 +1525,9 @@
   },
   {
     "name":"Hosting Foreigners",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1419,6 +1548,9 @@
   },
   {
     "name":"Hiring soldiers",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1439,6 +1571,9 @@
   },
   {
     "name":"Military Campaign",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1462,6 +1597,9 @@
   },
   {
     "name":"Fighting Heresies",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1485,6 +1623,9 @@
   },
   {
     "name":"Support to the king",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1510,6 +1651,9 @@
   },
   {
     "name":"Crusade",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1536,6 +1680,9 @@
   },
   {
     "name":"Military Conquest",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1561,6 +1708,9 @@
   },
   {
     "name":"Support the Cardinal",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1591,6 +1741,9 @@
   },
   {
     "name":"Support the Bishop",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1621,6 +1774,9 @@
   },
   {
     "name":"Support the Pope",
+    "deck":{
+      "tower":4
+    },
     "period":{
       "numberOfPeriod":1
     },
@@ -1645,6 +1801,527 @@
     "permanentEffect":{
       "points":{
         "finalVictoryPoints":10
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Improving the Roads",
+    "deck":{
+      "tower":4
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":3,
+        "servants":3
+      }
+    },
+    "ImmediateTakeCard":{
+      "dice":3
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":5
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Repairing the cathedral",
+    "deck":{
+      "tower":4
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4,
+        "servants":3
+      }
+    },
+    "ImmediateEffect":{"Points":{"faith":1}},
+    "ImmediateTakeCard":{
+      "dice":7
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":5
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Improving the Canals",
+    "deck":{
+      "tower":4
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":3,
+        "servants":2
+      }
+    },
+    "ImmediateTakeCard":{
+      "dice":4
+    },
+    "permanentEffect":{
+      "points":{
+        "finalVictoryPoints":5
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Bishop",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":5
+      }
+    },
+    "ImmediateTakeCard":{
+      "dice":4
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":1
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Cardinal",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "ImmediateTakeCard":{
+      "dice":4
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":2
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Herald",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":6
+      }
+    },
+    "pointsforCharacters":{
+      "tower":4
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":2
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Paramour",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":7
+      }
+    },
+    "pointsforCharacters":{
+      "tower":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":2
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Governor",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":6
+      }
+    },
+    "pointsforCharacters":{
+      "tower":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":2
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Noble",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":6
+      }
+    },
+    "pointsforCharacters":{
+      "tower":1
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":2
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Hero",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "immediateTakeCard":{
+      "dice":6
+    },
+    "immediateEffect":{
+      "privilege":true,
+      "numberOfPrivilege":1
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Ambassador",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":6
+      }
+    },
+    "immediateTakeCard":{
+      "dice":7
+    },
+    "immediateEffect":{
+      "privilege":true,
+      "numberOfPrivilege":1
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Scholar",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":3,
+      "actionType":3
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Peasant",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":3,
+      "actionType": 1
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Artisan",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":3
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":2,
+      "actionType":3
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Knight",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":2
+      }
+    },
+    "immediateEffect":{
+      "privilege":true,
+      "numberOfprivilege":1
+    },
+    "PermanentIncreaseAction":{
+      "increase":2,
+      "cardType": 4
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Farmer",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":2
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":2,
+      "actionType": 1
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Dame",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":2,
+      "cardType":2,
+      "discount":{
+        "coins":1
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Stonemason",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":2,
+      "cardType": 3,
+      "discount":{
+        "stones":1,
+        "woods":1
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Warlord",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":2
+      }
+    },
+    "immediateEffet":{
+      "points":{
+        "military":1
+      }
+    },
+    "PermanentIncreaseAction":{
+      "increase":2,
+      "cardType":1
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Abbess",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":3
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":1
+      }
+    },
+    "immediatetakecard":{
+      "dice":4,
+      "cardType":0
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Captain",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "military":2
+      }
+    },
+    "immediatetakecard":{
+      "dice":6,
+      "cardType":1
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Architect",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":4
+      }
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":1
+      }
+    },
+    "immediatetakecard":{
+      "dice":6,
+      "cardType":3,
+      "discount":{
+        "stones":1,
+        "woods":1
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Patron",
+    "deck":{
+      "tower":2
+    },
+    "period":{
+      "numberOfPeriod":1
+    },
+    "cost":{
+      "resources":{
+        "coins":3
+      }
+    },
+    "immediatetakecard":{
+      "dice":6,
+      "cardType":2,
+      "discount":{
+        "coins":2
       }
     },
     "description":"This card is useful"

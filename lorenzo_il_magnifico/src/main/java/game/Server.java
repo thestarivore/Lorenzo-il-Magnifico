@@ -32,7 +32,7 @@ public class Server {
         //prova json
         FileManagerImport cardFromFile;
         cardFromFile = new FileManagerImport();
-        ArrayList<DevelopmentCard> developmentCards = cardFromFile.acquireDevCard();
+       // ArrayList<DevelopmentCard> developmentCards = cardFromFile.acquireDevCard();
 
         // Get/Create an instance of the Socket Server
         // Create and start the thread

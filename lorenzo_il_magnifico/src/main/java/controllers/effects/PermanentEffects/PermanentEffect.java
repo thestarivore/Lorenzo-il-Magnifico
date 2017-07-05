@@ -1,4 +1,4 @@
-package controllers.effects;
+package controllers.effects.PermanentEffects;
 
 import models.Points;
 import models.Resources;
@@ -12,6 +12,7 @@ public class PermanentEffect {
     private boolean privilege;
     private int numberOfPrivilege;
     public PermanentEffect(){
+
         this.points=new Points();
         this.resources=new Resources();
         this.privilege=false;
