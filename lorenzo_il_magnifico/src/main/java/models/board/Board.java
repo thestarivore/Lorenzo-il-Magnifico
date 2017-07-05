@@ -18,6 +18,9 @@ public class Board implements Serializable {
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
     private String playerIsTurn;
+    private int period;
+    private int round;
+    private String phase;
 
 
     /**
@@ -209,5 +212,29 @@ public class Board implements Serializable {
 
     public void setPlayerIsTurn(String playerIsTurn) {
         this.playerIsTurn = playerIsTurn;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+
+    public int getRound() {
+        return round;
+    }
+
+    public void setRound(int round) {
+        this.round = round;
+    }
+
+    public String getPhase() {
+        return phase;
+    }
+
+    public void setPhase(String phase) {
+        this.phase = phase;
     }
 }

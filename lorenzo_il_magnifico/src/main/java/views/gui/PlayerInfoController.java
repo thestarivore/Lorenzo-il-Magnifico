@@ -51,7 +51,14 @@ public class PlayerInfoController {
     private Label gameTurnLabel;
 
     @FXML
-    private
+    private Label periodLabel;
+
+    @FXML
+    private Label roundLabel;
+
+    @FXML
+    private Label phaseLabel;
+
 
 
     private ObservableList<Player> players;
@@ -84,13 +91,14 @@ public class PlayerInfoController {
 
         handleMenuButton(menuButton);
 
+        showGameInfo(board);
 
     }
 
 
 
 
-    private void showPlayerInfo(Player player) {
+    public void showPlayerInfo(Player player) {
         if (player != null) {
             //Fill the labels with Player information.
             nameLabel.setText(player.getName());
@@ -115,7 +123,21 @@ public class PlayerInfoController {
 
     }
 
-    private void handleMenuButton(MenuButton menuButton) {
+    public void showGameInfo(Board board) {
+        if (board != null) {
+            gameTurnLabel.setText(board.getPlayerIsTurn());
+            periodLabel.setText(String.valueOf(board.getPeriod()));
+            roundLabel.setText(String.valueOf(board.getRound()));
+            phaseLabel.setText(board.getPhase());
+        } else {
+            gameTurnLabel.setText("");
+            periodLabel.setText("");
+            roundLabel.setText("");
+            phaseLabel.setText("");
+        }
+    }
+
+    public void handleMenuButton(MenuButton menuButton) {
 
             List<MenuItem> tempItems = menuButton.getItems();
 
@@ -125,9 +147,6 @@ public class PlayerInfoController {
             }
 
     }
-
-
-
 
 
 }

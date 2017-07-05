@@ -28,7 +28,7 @@ public class DevelopmentCard implements Card, Serializable {
     public static final int MAX_DESCRIPTION_LENGTH = 75;
 
     public DevelopmentCard() {
-        this.name  = "prova";
+        this.name  = "commercial_hub";
         this.cost = new Resources(1);
         this.pointsReq = new Points();
         this.description = "ciao                                                                        ";

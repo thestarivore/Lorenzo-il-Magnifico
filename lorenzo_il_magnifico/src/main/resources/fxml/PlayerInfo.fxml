@@ -74,10 +74,10 @@
             <Label text="Period" GridPane.rowIndex="1" />
             <Label text="Round" GridPane.rowIndex="2" />
             <Label text="Phase" GridPane.rowIndex="3" />
-            <Label text="Label" GridPane.columnIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="gameTurnLabel" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="periodLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="roundLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="phaseLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>
