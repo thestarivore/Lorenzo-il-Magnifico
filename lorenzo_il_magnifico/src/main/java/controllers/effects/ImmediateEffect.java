@@ -15,7 +15,6 @@ public class ImmediateEffect {
     private boolean isBonus;
     private boolean privilege;
     private int numberOfPrivilege;
-    private SpecialEffects specialEffect;
 
     public ImmediateEffect() {
         this.resources = new Resources();
@@ -23,7 +22,7 @@ public class ImmediateEffect {
         //this.bonusAction = new Action();
         this.isBonus = false;
         this.privilege=false;
-        this.specialEffect=new SpecialEffects();
+
     }
 
     public Resources getResources() {
@@ -84,13 +83,6 @@ public class ImmediateEffect {
         this.numberOfPrivilege = numberOfPrivilege;
     }
 
-    public SpecialEffects getSpecialEffect() {
-        return specialEffect;
-    }
-
-    public void setSpecialEffect(SpecialEffects specialEffect) {
-        this.specialEffect = specialEffect;
-    }
 
     @Override
     public String toString(){

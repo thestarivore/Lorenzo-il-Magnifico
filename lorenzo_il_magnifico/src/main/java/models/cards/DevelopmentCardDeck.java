@@ -11,6 +11,7 @@ import models.data_persistence.FileManagerImport;
 public class DevelopmentCardDeck extends Deck implements Serializable {
     private ArrayList<DevelopmentCard> developmentCards;
     private FileManagerImport cardFromFile;
+    private int tower;
 
    /* public DevelopmentCardDeck(ArrayList<DevelopmentCard> developmentCards, FileManagerImport cardFromFile) {
         super(new DevelopmentCard());
@@ -22,6 +23,7 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
         super(new DevelopmentCard());
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.cardFromFile = new FileManagerImport();
+        this.tower=0;
     }
 
     public DevelopmentCard getCardFromDeck() {
@@ -43,5 +45,12 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
         return this.developmentCards;
     }
 
+    public int getTower() {
+        return tower;
+    }
+
+    public void setTower(int tower) {
+        this.tower = tower;
+    }
 }
 
