@@ -726,7 +726,7 @@
       }
     },
     "Exchange":{
-      "points":{
+      "expoints":{
         "victory":3
       },
       "firstP":{
@@ -792,7 +792,7 @@
       }
     },
     "Exchange":{
-      "points":{
+      "expoints":{
         "victory":3
       },
       "firstP":{
@@ -858,7 +858,7 @@
       }
     },
     "Exchange": {
-      "points": {
+      "expoints": {
         "victory": 3
       },
       "firstP": {
@@ -950,7 +950,7 @@
       }
     },
     "Exchange":{
-      "points":{
+      "expoints":{
         "victory":3
       },
       "firstP":{
@@ -982,7 +982,7 @@
       }
     },
     "Exchange":{
-        "points":{
+        "expoints":{
           "victory":3
         },
         "firstP":{
@@ -1018,7 +1018,7 @@
       }
     },
     "Exchange": {
-      "points": {
+      "expoints": {
         "victory": 3
       },
       "firstP": {
@@ -1051,7 +1051,7 @@
       }
     },
     "Exchange": {
-      "points": {
+      "expoints": {
         "victory": 3
       },
       "firstP": {

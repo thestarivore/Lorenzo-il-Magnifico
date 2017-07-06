@@ -10,8 +10,14 @@ import controllers.ability.SpecialAbility;
 public class LeaderCard implements Card, Serializable {
     private String name;
     private Requirements requirements;
+    private boolean isPermanent;
     private SpecialAbility specialAbility;
 
+    public LeaderCard(){
+        this.requirements= new Requirements();
+        this.isPermanent= false;
+        this.specialAbility=new SpecialAbility();
+    }
 
     public Requirements getRequirements() {
         return requirements;

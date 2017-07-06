@@ -1,0 +1,180 @@
+[{
+    "name":"Francesco Sforza",
+    "requirements":{
+      "numberOfCard":5,
+      "typeofcards":4
+    }
+  },
+  {
+    "name":"Ludovico Ariosto",
+    "requirements":{
+      "numberOfCard":5,
+      "typeofcards":2
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Filippo Brunelleschi",
+    "requirements":{
+      "numberOfCard":5,
+      "typeofcards":3
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Sigismondo Malatesta",
+    "requirements":{
+      "points":{
+        "faith":3,
+        "military":7
+      }
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Girolamo Savonarola",
+    "requirements":{
+      "resources":{
+        "coins":18
+      }
+    },
+    "SpecialAbility":{
+      "gain":{
+        "points":{
+          "faith":1
+        }
+      }
+    }
+  },
+  {
+    "name":"Michelangelo Buonarroti",
+    "requirements":{
+      "resources":{
+        "stones":10
+      }
+    },
+    "SpecialAbility":{
+      "gain":{
+        "resources":{
+          "coins":3
+        }
+      }
+    }
+  },
+  {
+    "name":"Giovanni dalle bande nere",
+    "requirements":{
+      "points":{
+        "military":12
+      }
+    },
+    "SpecialAbility":{
+      "gain":{
+        "resources":{
+          "stones":1,
+          "woods":1,
+          "coins":1
+        }
+      }
+    }
+  },
+  {
+    "name":"Lucrezia Borgia",
+    "requirements":{
+      "numberOfCard":6,
+      "typeofcards":3
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Federico da Montefeltro",
+    "requirements":{
+      "numberOfCard":5,
+      "typeofcards":1
+    }
+  },
+  {
+    "name":"Lorenzo de'Medici",
+    "requirements":{
+      "points":{
+        "victory":35
+      }
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Sisto IV",
+    "requirements":{
+      "resources":{
+        "coins":6,
+        "woods":6,
+        "servants":6,
+        "stones":6
+      }
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Cesare Borgia",
+    "requirements":{
+      "resources":{
+        "coins":12
+      },
+      "points":{
+        "faith":2
+      }
+    },
+    "numberOfCard":3,
+    "typeofcards":3
+  },
+  {
+    "name":"Santa Rita",
+    "requirements":{
+      "points":{
+        "faith":8
+      }
+    },
+    "isPermanent":true
+  },
+  {
+    "name":"Cosimo de Medici",
+    "requirements":{
+      "numberOfCard":4,
+      "typeofcards":3
+    },
+    "SpecialAbility":{
+      "gain":{
+        "points":{
+          "victory":1
+        },
+        "resources":{
+          "servants":3
+        }
+      }
+    }
+  },
+  {
+    "name":"Ludovico III Gonzaga",
+    "requirements":{
+      "resources":{
+        "servants":15
+      }
+    }
+  },
+  {
+  "name":"Sandro Botticelli",
+  "requirements":{
+    "resources":{
+      "woods":10
+    }
+  },
+  "SpecialAbility":{
+    "gain":{
+      "points":{
+        "military":2,
+        "victory":1
+      }
+    }
+  }
+}
+]

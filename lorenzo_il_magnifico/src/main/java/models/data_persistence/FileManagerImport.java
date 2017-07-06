@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
 
+import models.board.ExcommunicationTile;
 import models.cards.*;
 
 import java.lang.reflect.Type;
@@ -20,12 +21,12 @@ public class FileManagerImport implements Serializable{
     
     private ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
     private ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
-
+    private ArrayList<ExcommunicationTile> excommunicationTiles = new ArrayList<ExcommunicationTile>();
 
 
     //public static void main(String[] args) {
     public ArrayList<DevelopmentCard> acquireDevCard(){
-        ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
+       // ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
         String dCardFile = "/Users/cp18393/IdeaProjects/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/java/models/data_persistence/DevCard.json";
@@ -45,7 +46,7 @@ public class FileManagerImport implements Serializable{
 
     }
 
-/*
+
 
     public ArrayList<LeaderCard> acquireLeaderCard(){
         //ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
@@ -61,11 +62,30 @@ public class FileManagerImport implements Serializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-         for(int i = 0; i < cards.size(); i++) {
+         /*for(int i = 0; i < cards.size(); i++) {
             System.out.print(cards.get(i));
-        }
+        }*/
         return leaderCards;
 }
-*/
+
+    public ArrayList<ExcommunicationTile> acquireTiles(){
+        //ArrayList<E> developmentCards = new ArrayList<DevelopmentCard>();
+        final Type tilesType = new TypeToken<ArrayList<ExcommunicationTile>>(){}.getType();
+        Gson gson = new Gson();
+        String tilesFiles = "/Users/cp18393/Desktop/LeaderCard.json";
+        try (Reader reader = new FileReader(tilesFiles)) {
+            ArrayList<ExcommunicationTile> list = gson.fromJson(reader, tilesType);
+            for(int i = 0; i < list.size(); i++) {
+                System.out.print(list.get(i));
+            }
+            excommunicationTiles=list;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+         /*for(int i = 0; i < cards.size(); i++) {
+            System.out.print(cards.get(i));
+        }*/
+        return excommunicationTiles;
+    }
 }
 
