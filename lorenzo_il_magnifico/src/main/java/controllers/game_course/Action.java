@@ -222,7 +222,6 @@ public class Action implements Serializable {
      * related to.
      */
     public boolean execute(Player player) {
-
         boolean check;
 
         //Perform tower action choice
