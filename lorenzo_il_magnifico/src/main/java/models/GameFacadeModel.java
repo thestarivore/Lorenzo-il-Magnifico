@@ -2,6 +2,8 @@ package models;
 
 import models.board.Board;
 
+import java.io.Serializable;
+
 
 /**
  * Created by Eduard Chirica on 5/20/17.

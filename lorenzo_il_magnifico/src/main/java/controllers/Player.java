@@ -19,7 +19,7 @@ import java.util.List;
  * Created by Eduard Chirica on 5/7/17.
  */
 
-public class Player implements Serializable{
+public class Player implements Serializable {
     protected String name;
     protected int ID;
     protected Points points;
@@ -54,9 +54,10 @@ public class Player implements Serializable{
 
     /**
      * Constructor with Player's Name
+     *
      * @param name
      */
-    public Player(String name){
+    public Player(String name) {
         //Set passed name
         this.name = name;
 
@@ -69,7 +70,7 @@ public class Player implements Serializable{
         this.res = new Resources();
         this.personalBoard = new PersonalBoard();
         this.leaderCards = new ArrayList<LeaderCard>();
-        this.developmentCards=new ArrayList<DevelopmentCard>();
+        this.developmentCards = new ArrayList<DevelopmentCard>();
         this.personalBonusTile = new PersonalBonusTile();
         this.markerDiscs = new MarkerDiscs();
         this.excommunicationCubes = new ExcommunicationCubes();
@@ -149,32 +150,50 @@ public class Player implements Serializable{
 
     public void setColor(TheGame.COLORS color) {
         this.color = color;
+
+        for (int i = 0; i < FamilyMember.FIXED_FAMILY_MEMBER; i++)
+            this.getFamilyMember(i).setPlayerColor(color);
+
     }
 
-    public PersonalBonusTile getPersonaBonusTile() { return personalBonusTile; }
+    public PersonalBonusTile getPersonaBonusTile() {
+        return personalBonusTile;
+    }
 
-    public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {this.personalBonusTile=personalBonusTile; }
+    public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {
+        this.personalBonusTile = personalBonusTile;
+    }
 
     public FamilyMember getFamilyMember(int i) {
         return familyMember[i];
     }
 
-    public void setFamilyMember(FamilyMember familyMember, int i) {this.familyMember[i]=familyMember; }
+    public void setFamilyMember(FamilyMember familyMember, int i) {
+        this.familyMember[i] = familyMember;
+    }
 
-    public MarkerDiscs getMarkerDiscs() { return markerDiscs; }
+    public MarkerDiscs getMarkerDiscs() {
+        return markerDiscs;
+    }
 
-    public void setMarkerDiscs(MarkerDiscs markerDiscs){ this.markerDiscs=markerDiscs; }
+    public void setMarkerDiscs(MarkerDiscs markerDiscs) {
+        this.markerDiscs = markerDiscs;
+    }
 
-    public ExcommunicationCubes getExcommunicationCubes() { return excommunicationCubes; }
+    public ExcommunicationCubes getExcommunicationCubes() {
+        return excommunicationCubes;
+    }
 
-    public void setExcommunicationCubes(ExcommunicationCubes excommunicationCubes) { this.excommunicationCubes=excommunicationCubes; }
+    public void setExcommunicationCubes(ExcommunicationCubes excommunicationCubes) {
+        this.excommunicationCubes = excommunicationCubes;
+    }
 
     public boolean isMyTurn() {
         return myTurn;
     }
 
     public void setMyTurn(boolean myTurn) {
-            this.myTurn = true;
+        this.myTurn = true;
     }
 
     public int getTurnOrder() {
@@ -186,13 +205,14 @@ public class Player implements Serializable{
     }
 
     @Override
-    public String toString(){
-        return "Player name: "+this.name + "\n" + "Player Points:"+this.points + "\n" + this.res ;
+    public String toString() {
+        return "Player name: " + this.name + "\n" + "Player Points:" + this.points + "\n" + this.res;
 
     }
 
     /**
      * Get the reference to the player's game.
+     *
      * @return TheGame instance
      */
     public TheGame getGameReference() {
@@ -201,6 +221,7 @@ public class Player implements Serializable{
 
     /**
      * Sets the reference of a game in the player
+     *
      * @param gameReference
      */
     public void setGameReference(TheGame gameReference) {
@@ -210,17 +231,32 @@ public class Player implements Serializable{
     /**
      * Is this player the same as the player passed as argument?
      * Only controls Name and ID.
+     *
      * @param player to check
      * @return "true" if is the same player
      */
-    public boolean isSameAs(Player player){
-        if(player == null || name == null)
+    public boolean isSameAs(Player player) {
+        if (player == null || name == null)
             return false;
 
-        if(name.equals(player.getName()) && ID == player.getID())
+        if (name.equals(player.getName()) && ID == player.getID())
             return true;
         else
             return false;
+    }
+
+    public String[] getAvailableFamilyMember() {
+
+        String[] familyMemberAvailable = new String[FamilyMember.FIXED_FAMILY_MEMBER];
+
+        for (int i = 0; i < FamilyMember.FIXED_FAMILY_MEMBER; i++) {
+            if (familyMember[i].getUsed()) {
+                familyMemberAvailable[i] = "Not available";
+            } else {
+                familyMemberAvailable[i] = familyMember[i].getDiceColor().getColor();
+            }
+        }
+        return familyMemberAvailable;
     }
 }
 

@@ -4,6 +4,8 @@ import controllers.GameFacadeController;
 import game.TheGame;
 import models.board.FamilyMember;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */

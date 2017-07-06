@@ -3,10 +3,12 @@ package controllers.effects;
 import models.Points;
 import models.Resources;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class PermanentEffect {
+public class PermanentEffect implements Serializable {
     private Points points;
     private Resources resources;
     private boolean privilege;

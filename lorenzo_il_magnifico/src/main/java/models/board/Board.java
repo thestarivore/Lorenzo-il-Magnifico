@@ -4,12 +4,16 @@ import utility.Constants;
 import models.board.trackers.Track;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class Board implements Serializable {
+
+    private int ID;
     private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;
@@ -71,6 +75,10 @@ public class Board implements Serializable {
      * @param numberOfPlayer
      */
     public Board(int numberOfPlayer){
+
+        Random randomGenerator = new Random();
+        this.ID = randomGenerator.nextInt();
+
         this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
         for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)
             this.tower[i] = new Tower(i);
@@ -90,6 +98,10 @@ public class Board implements Serializable {
         this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
 
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public Tower getTower(int i) {
@@ -155,7 +167,7 @@ public class Board implements Serializable {
      * @return ActionSpace instance variable
      */
     public List<ActionSpace> getActionSpacesByIndex(int index){
-        List<ActionSpace> actionSpaces = null;
+        List<ActionSpace> actionSpaces = new ArrayList<ActionSpace>();
 
         // from 0 to 3    --> tower 0 (4 action spaces)
         if(index <= 3){
@@ -206,6 +218,70 @@ public class Board implements Serializable {
         return actionSpaces;
     }
 
+    public String[] getAvailableActionSpace() {
+
+        String[] availableActionSpace = new String[Board.NUMBER_ACTION_SPACES];
+
+        //Get available Tower spaces.
+        for(int i = 0; i < Board.NUMBER_ACTION_SPACES - 9 ; i++) {
+            if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
+                availableActionSpace[i] = "Not Available";
+            } else {
+                availableActionSpace[i] = String.valueOf(i);
+            }
+        }
+
+        //The Council Palace is always available.
+        availableActionSpace[16] = String.valueOf(16);
+
+        //Harvest Single space could be occupied, Multiple space always available.
+        if (this.getActionSpacesByIndex(17).get(0).getOccupied()) {
+            availableActionSpace[17] = "Not Available";
+        } else {
+            availableActionSpace[17] = String.valueOf(17);
+        }
+        availableActionSpace[18] = String.valueOf(18);
+
+        ///Production Single space could be occupied, Multiple space always available.
+        if (this.getActionSpacesByIndex(19).get(0).getOccupied()) {
+            availableActionSpace[19] = "Not Available";
+        } else {
+            availableActionSpace[19] = String.valueOf(19);
+        }
+        availableActionSpace[20] = String.valueOf(20);
+
+        for (int i = 21; i < Board.NUMBER_ACTION_SPACES; i++){
+            if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
+                availableActionSpace[i] = "Not Available";
+            } else {
+                availableActionSpace[i] = String.valueOf(i);
+            }
+        }
+
+
+
+        return availableActionSpace;
+    }
+
+    public int getTowerIndexFromActionSpaceIndex(int actionSpaceIndex) {
+
+        int towerIndex = -1;
+
+        if (actionSpaceIndex <= 3)
+            towerIndex = 0;
+
+        if (actionSpaceIndex >= 4 && actionSpaceIndex <= 7)
+            towerIndex = 1;
+
+        if (actionSpaceIndex >= 8 && actionSpaceIndex <= 11)
+            towerIndex = 2;
+
+        if (actionSpaceIndex >= 12 && actionSpaceIndex <= 15)
+            towerIndex = 4;
+
+        return towerIndex;
+    }
+
     public String getPlayerIsTurn() {
         return playerIsTurn;
     }
@@ -238,3 +314,5 @@ public class Board implements Serializable {
         this.phase = phase;
     }
 }
+
+

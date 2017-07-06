@@ -3,13 +3,15 @@ package controllers;
 import game.TheGame;
 import game.network.server.SocketServerThread;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 6/17/17.
  *
  * We need a Remote Player on the Server Side
  * to associate the remote client's communication thread.
  */
-public class RemotePlayer extends Player{
+public class RemotePlayer extends Player {
     /**
      * Remote Client Thread used to communicate with the socket server
      */

@@ -34,7 +34,7 @@ public class DevelopmentCard implements Card, Serializable {
         this.cost = new Resources(1);
         this.pointsReq = new Points();
         this.description = "ciao                                                                        ";
-        this.deck=new DevelopmentCardDeck();
+        //this.deck = new DevelopmentCardDeck();
     }
 
 

@@ -8,9 +8,13 @@ import models.GameFacadeModel;
 import models.Points;
 import models.Resources;
 import models.board.Board;
+import models.board.Dice;
 import models.board.FamilyMember;
 import models.cards.Deck;
 import models.cards.DevelopmentCard;
+import views.cli.GameView;
+
+import java.io.Serializable;
 
 
 /**
@@ -67,45 +71,15 @@ public class GameFacadeController {
         return game;
     }
 
-    /**
-     * Select the family member and add servant if requested.
-     * @param player
-     * @param type Type of family member
-     * @return family member with value update
-     */
-    public FamilyMember selectFamilyMember(Player player, int type, int servant) {
-        player.getFamilyMember(type).addValue(servant);
-        player.getFamilyMember(type).setUsed();
-
-        return player.getFamilyMember(type);
+    public GameFacadeModel getFacadeModel() {
+        return facadeModel;
     }
 
-    /**
-     * Check if family member value is greater than tower space dice cost.
-     * @param familyMember
-     * @param tower
-     * @param space
-     * @return
-     */
-    public boolean checkFamilyMemberTowerChoice(FamilyMember familyMember, int tower, int space) {
-        boolean valid = false;
-        if (familyMember.getValue() >= facadeModel.getBoard().getTower(tower).getSpace(space).getDiceCost())
-            valid = true;
 
-        return valid;
-    }
 
-    /**
-     * Check if family member value is greater than 1.
-     * @param familyMember
-     * @return
-     */
-    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
-        boolean valid = false;
-        if (familyMember.getValue() >= 1)
-            valid = true;
-        return valid;
-    }
+
+
+
 
     /**
      * Choose action requested by player.
@@ -139,42 +113,10 @@ public class GameFacadeController {
         return true;
     }
 
-    /**
-     * If tower choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    /*public boolean towerActionChoice(Player player, int tower, int space, int type, int servant) {
-        boolean valid = false;
-        boolean check = false;
 
 
-        while (!(valid)) {
-                check = familyMemberAction(player, tower, space, type, servant);
-                valid = check;
-            }
-        return check;
-    }*/
 
 
-    /**
-     * If requirements are satisfied, place family member on tower space and add the corresponding bonus to the player.
-     * @param player
-     * @param tower
-     * @param space
-     * @param type
-     * @return
-     */
-   /* public boolean familyMemberAction(Player player, int tower, int space, int type, int servant) {
-        boolean check = false;
-        FamilyMember familyMember = selectFamilyMember(player, type, servant);
-        if (checkFamilyMemberTowerChoice(familyMember,tower,space))
-            check = action.placeFamilyMemberOnTower(tower, space, familyMember,player);
-        if (check && facadeModel.getBoard().getTower(tower).getSpace(space).checkBonus())
-            facadeModel.getBoard().getTower(tower).getSpace(space).addBonus(player);
-
-        return check;
-    }*/
 
     /**
      * If harvest choice, request to the player whitch family member use, and select the corresponding action.
@@ -232,7 +174,7 @@ public class GameFacadeController {
         return true;
     }*/
 
-    public void marketActionChoice(Player player, int type, int servant) {
+    /*public void marketActionChoice(Player player, int type, int servant) {
         boolean valid = false;
 
         while (!(valid)) {
@@ -240,7 +182,7 @@ public class GameFacadeController {
                 if (checkFamilyMemberChoice(familyMember)){
                 }
             }
-        }
+        }*/
 
 
     /**
@@ -250,7 +192,7 @@ public class GameFacadeController {
      * @param space
      * @return
      */
-    public boolean performTowerAction(Player player, int tower, int space, int choice) {
+    /*public boolean performTowerAction(Player player, int tower, int space, int choice) {
 
         boolean valid;
         Resources res = facadeModel.getBoard().getTower(tower).getSpace(space).getBonus();
@@ -292,7 +234,7 @@ public class GameFacadeController {
                     //takeBonusCard(player, devCard);
         }
        return valid;
-    }
+    }*/
 
 
     /**
@@ -317,7 +259,7 @@ public class GameFacadeController {
             tower = 3;
 
         while (!valid) {
-            valid = action.checkFreeActionSpace(tower,space);
+            valid = action.checkFreeActionSpaceTowerSpace(tower,space);
         }
 
         //valid = performTowerAction(player,tower,space);
@@ -429,8 +371,8 @@ public class GameFacadeController {
      */
     public void managePlayerAction(Action action) {
         //Set game reference and execute action
-        action.setGame(game);
-        action.execute();
+        action.setBoard(getBoard());
+        action.execute(getPlayerInTurn());
 
         //Get Player's turn number
         Player playerInTurn = getPlayerInTurn();
@@ -438,6 +380,7 @@ public class GameFacadeController {
 
         if(playersTurnNum != -1)
             getCurrentRound().updateActionPlayerTurn(playersTurnNum);
+
     }
 }
 

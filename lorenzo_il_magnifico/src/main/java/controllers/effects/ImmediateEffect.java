@@ -5,10 +5,12 @@ import controllers.game_course.Action;
 import models.Points;
 import models.Resources;
 
+import java.io.Serializable;
+
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class ImmediateEffect {
+public class ImmediateEffect implements Serializable {
     private Resources resources;
     private Points points;
     private Action bonusAction;

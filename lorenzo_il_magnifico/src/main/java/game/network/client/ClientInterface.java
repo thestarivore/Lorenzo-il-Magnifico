@@ -42,4 +42,5 @@ public interface ClientInterface extends Runnable {
      * Send Action done to the Server
      */
     public void sendAction(Action action);
+
 }

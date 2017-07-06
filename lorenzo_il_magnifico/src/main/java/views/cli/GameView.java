@@ -1,6 +1,7 @@
 package views.cli;
 
 import controllers.Player;
+import controllers.game_course.Action;
 import game.TheGame;
 import models.Points;
 import models.Resources;
@@ -156,63 +157,78 @@ public class GameView {
 
 
 
-    public String getWhereAction() {
-        printLine("Where do you want to place Family Member?");
-        return getLine();
-    }
 
-    public String getTowerActionSpace() {
-        printLine("Choose Tower");
-        return getLine();
+    public int getActionSpace(Board board) {
 
-    }
+        String[] availableActionSpace = board.getAvailableActionSpace();
 
-    public String getActionSpace() {
+        //Print the message.
         printLine("Choose space");
-        return getLine();
+
+        //List the available action space.
+        ArrayList<String> list = new ArrayList<String>() {
+            {
+                for (int i = 0; i < Board.NUMBER_ACTION_SPACES; i++){
+                    if (!("not available").equalsIgnoreCase(availableActionSpace[i]))
+                        add(String.valueOf(i));
+                }
+            }
+        };
+
+        return parseInt(getValidParameter(list));
     }
 
 
-    public String getFamilyMember(Player player) {
+    public int getFamilyMember(Player player) {
 
-        String read;
-        printLine("Select Family Member");
-        read = getLine();
-        while ((("0").equals(read) || ("1").equals(read) || ("2").equals(read) || ("3").equals(read)) && player.getFamilyMember(parseInt(read)).getUsed()) {
-            printLine("Not Valid");
-            read = getLine();
+        String[] familyMemberAvailable = player.getAvailableFamilyMember();
+
+        //Print the message.
+        printLine("Choose  Family Member: ");
+        for(int i = 0; i < FamilyMember.FIXED_FAMILY_MEMBER; i++) {
+            printLine(String.valueOf(i) + " - " + familyMemberAvailable[i]);
         }
 
-        return read;
+        //List the available family member choice.
+        ArrayList<String> list = new ArrayList<String>() {
+            {
+                for (int i = 0; i < FamilyMember.FIXED_FAMILY_MEMBER; i++) {
+                    if (!("not available").equalsIgnoreCase(familyMemberAvailable[i]))
+                        add(String.valueOf(i));
+                }
+            }
+        };
+
+        return parseInt(getValidParameter(list));
 
     }
 
 
     public int getServant(Player player) {
 
-        int numberOfServant = 0;
+        String servant = "0";
         printLine("Do you want to add Servant? [Y/N]");
-        String str = getLine();
-        while (!(("y").equalsIgnoreCase(str)) && !(("n").equalsIgnoreCase(str))) {
-            printLine("[Y/N]");
-            str = getLine();
-        }
-
-        if (("n").equalsIgnoreCase(str))
-            return numberOfServant;
-
-        else {
-            Scanner input = new Scanner(System.in);
-            printLine("Select Servant");
-            numberOfServant = input.nextInt();
-            while (numberOfServant > player.getRes().getServants()) {
-                printLine("Input exceed number of Servant");
-                numberOfServant = input.nextInt();
+        ArrayList<String> list = new ArrayList<String>(){
+            {
+                add("Y");
+                add("N");
             }
+        };
+        String choice = getValidParameter(list);
 
-        }
+        list.clear();
 
-        return numberOfServant;
+        if (("n").equalsIgnoreCase(choice)) {
+            return parseInt(servant);
+
+        } else {
+            printLine("Select Servant");
+            for(int i = 0; i < player.getRes().getServants(); i++)
+                list.add(String.valueOf(i + 1 ));
+            }
+            servant = getValidParameter(list);
+
+        return parseInt(servant);
     }
 
     public int getCouncilPrivilege() {
@@ -262,11 +278,20 @@ public class GameView {
 
     /**
      * Get action from the player
+     * -action[0] get FamilyMember
+     * -action[1] get Servant
+     * -action[2] get Action Space
      * @return String with the action done by the player
      */
-    public String getAction(){
-        printLine("Insert Action:");
-        return getLine();
+    public int[] getAction(Player player, Board board){
+
+        int[] action = new int[Action.NUMBER_OF_ACTION_INFO];
+
+        action[0] = getFamilyMember(player);
+        action[1] = getServant(player);
+        action[2] = getActionSpace(board);
+
+        return action;
     }
 
 
@@ -352,6 +377,8 @@ public class GameView {
      * @param board
      */
     public void printMap(Board board){
+
+        printLine(String.valueOf("Board ID: " + board.getID()));
 
 
         printLine(" _______  _______  _______  ______    ______ ");

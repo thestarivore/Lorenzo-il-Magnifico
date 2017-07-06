@@ -7,6 +7,8 @@ import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 
 import models.board.Board;
+import models.board.Dice;
+import models.board.FamilyMember;
 import views.cli.GameView;
 
 import java.io.IOException;
@@ -61,6 +63,7 @@ public class SocketClient implements ClientInterface{
      * SocketClient Singleton Instance
      */
     private static SocketClient instance = null;
+
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -312,8 +315,9 @@ public class SocketClient implements ClientInterface{
         Board board = (Board) obj;
 
         //If any changes, update the map
-        if(board.equals(oldBoard) == false)
+        if(board.equals(oldBoard) == false) {
             gameView.printMap(board);
+        }
 
         // Save the old board
         oldBoard = board;
@@ -353,6 +357,8 @@ public class SocketClient implements ClientInterface{
         // nothing to manage for now...
         // maybe a control in the future, as the server sends back
         // the action we've sent.
+        //manageUpdatedBoard(command, obj);
+        gameView.printMap((Board)obj);
     }
 
 }

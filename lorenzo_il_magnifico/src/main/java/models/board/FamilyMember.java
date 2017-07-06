@@ -33,7 +33,7 @@ public class FamilyMember implements Serializable {
     public FamilyMember(Dice.COLORS diceColor, TheGame.COLORS playerColor) {
         this.diceColor      = diceColor;
         this.playerColor    = playerColor;
-        this.value  = 0;
+        this.value  = 5000;
         this.isUsed = false;
     }
 

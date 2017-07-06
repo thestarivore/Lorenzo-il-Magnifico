@@ -223,12 +223,13 @@ public class Client {
                     case SEND_ACTION:{
                         //Control if is my turn
                         if(myTurn) {
+                            int[] debugToken;
                             //Get action from user and send it to the server
-                            String debugToken = gameView.getAction();
-                            //TODO: bisogna acnora fare la conversione da testo inserito dall'utente ad azione vera
+                            debugToken = gameView.getAction(player, board);
+                            //TODO: bisogna ancora fare la conversione da testo inserito dall'utente ad azione vera
                             Action action = new Action(debugToken);
                             client.sendAction(action);
-                        }
+                            }
                         fsmState = FSMClient.CASE3;
                     }break;
 

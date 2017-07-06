@@ -17,6 +17,7 @@ public class Resources implements Serializable {
     public static final int FIXED_NUM_OF_RESOURCES = 4;
 
     public Resources(){
+        this.servants = 5;
     }
 
     public Resources(int turnOrder){

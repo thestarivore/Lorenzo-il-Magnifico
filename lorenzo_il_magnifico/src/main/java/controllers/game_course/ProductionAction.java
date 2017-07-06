@@ -9,14 +9,14 @@ import models.board.FamilyMember;
  */
 public class ProductionAction extends Action {
 
-    public ProductionAction (GameFacadeModel model) {
+   /* public ProductionAction (GameFacadeModel model) {
         super(model);
     }
 
     public boolean placeFamilyMemberOnProductionArea(FamilyMember famMember){
         boolean free;
 
-        free = checkFreeActionSpace();
+        free = checkFreeActionSpaceTowerSpace();
         if (free) {
             model.getBoard().getProductionArea().getSingleSpace().setFamilyMember(famMember);
             return true;
@@ -33,9 +33,9 @@ public class ProductionAction extends Action {
         return false;
     }
 
-    public boolean checkFreeActionSpace() {
+    public boolean checkFreeActionSpaceTowerSpace() {
         if (!(model.getBoard().getProductionArea().getSingleSpace().getOccupied()))
             return true;
         return false;
-    }
+    }*/
 }

@@ -8,7 +8,7 @@ import models.board.FamilyMember;
  */
 public class HarvestAction extends Action {
 
-    public HarvestAction(GameFacadeModel model){
+    /*public HarvestAction(GameFacadeModel model){
         super(model);
     }
 
@@ -17,7 +17,7 @@ public class HarvestAction extends Action {
     public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
         boolean free;
 
-        free = checkFreeActionSpace();
+        free = checkFreeActionSpaceTowerSpace();
         if (free) {
             model.getBoard().getHarvestArea().getSingleSpace().setFamilyMember(famMember);
             return true;
@@ -34,9 +34,9 @@ public class HarvestAction extends Action {
     }
 
 
-    public boolean checkFreeActionSpace() {
+    public boolean checkFreeActionSpaceTowerSpace() {
         if (!(model.getBoard().getHarvestArea().getSingleSpace().getOccupied()))
             return true;
         return false;
-    }
+    }*/
 }

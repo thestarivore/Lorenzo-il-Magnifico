@@ -17,9 +17,8 @@ import java.util.List;
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
-public class TheGame implements Serializable{
+public class TheGame implements Serializable {
     private List<RemotePlayer> players;
-    private Board board;
 
     transient private GameFacadeModel         theModel;
     transient private GameFacadeController    theController;
