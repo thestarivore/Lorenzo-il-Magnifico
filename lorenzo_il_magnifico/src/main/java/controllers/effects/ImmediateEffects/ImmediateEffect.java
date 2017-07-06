@@ -1,4 +1,4 @@
-package controllers.effects;
+package controllers.effects.ImmediateEffects;
 
 import controllers.Player;
 import controllers.game_course.Action;

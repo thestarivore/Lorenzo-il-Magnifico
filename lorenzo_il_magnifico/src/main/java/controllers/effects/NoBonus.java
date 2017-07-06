@@ -1,5 +1,7 @@
 package controllers.effects;
 
+import controllers.effects.PermanentEffects.PermanentEffect;
+
 import java.io.Serializable;
 
 /**

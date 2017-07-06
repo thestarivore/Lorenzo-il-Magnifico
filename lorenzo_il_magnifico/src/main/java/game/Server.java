@@ -5,8 +5,11 @@ import controllers.RemotePlayer;
 import game.network.client.SocketClient;
 import game.network.server.RMIServer;
 import game.network.server.SocketServer;
+import models.cards.DevelopmentCard;
+import models.data_persistence.FileManagerImport;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Eduard Chirica on 6/11/17.
@@ -25,6 +28,11 @@ public class Server {
      */
     public static void main(String[] args){
         lobby = new Lobby();
+
+        //prova json
+        FileManagerImport cardFromFile;
+        cardFromFile = new FileManagerImport();
+       // ArrayList<DevelopmentCard> developmentCards = cardFromFile.acquireDevCard();
 
         // Get/Create an instance of the Socket Server
         // Create and start the thread
