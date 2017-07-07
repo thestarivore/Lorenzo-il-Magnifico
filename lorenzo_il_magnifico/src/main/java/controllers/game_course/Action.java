@@ -22,14 +22,14 @@ public class Action implements Serializable {
      */
     private TheGame game;
 
-    private Board board;
+    protected Board board;
     private CouncilPrivilege councilPrivilege;
     private boolean checkPrivilege;
     private String cardType;
     private boolean checkCard;
     private int diceCost;
-    private int familyMember;
-    private int servants;
+    protected int familyMember;
+    protected int servants;
     private int tower;
     private int space;
 
@@ -275,17 +275,7 @@ public class Action implements Serializable {
         return valid;
     }
 
-    /**
-     * Check if family member value is greater than 1.
-     * @param familyMember
-     * @return
-     */
-    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
-        boolean valid = false;
-        if (familyMember.getValue() >= 1)
-            valid = true;
-        return valid;
-    }
+
 
     /**
      * Select the family member and add servant if requested.
@@ -305,7 +295,7 @@ public class Action implements Serializable {
         return player.getFamilyMember(type);
     }
 
-    /**
+   /* /**
      * When family member is placed, this method perform all the corresponding action of this choice.
      * @param player
      * @param tower

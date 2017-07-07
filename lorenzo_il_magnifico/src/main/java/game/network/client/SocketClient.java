@@ -2,6 +2,7 @@ package game.network.client;
 
 import controllers.Player;
 import controllers.game_course.Action;
+import controllers.game_course.HarvestAction;
 import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
@@ -378,14 +379,23 @@ public class SocketClient implements ClientInterface{
         player = updatedPlayer;
     }
 
+    public int getActionType(){
+        int actionType = gameView.getActionType(oldBoard);
+        return actionType;
+    }
 
+
+    @Override
     public Action getAction() {
-
         int[] action = gameView.getAction(player, oldBoard);
-
         return new Action(action);
     }
 
+    @Override
+    public Action getHarvestAction() {
+        int[] harvestAction = gameView.getHarvestAction(player, oldBoard);
+        return new HarvestAction(harvestAction);
+    }
 
 }
 

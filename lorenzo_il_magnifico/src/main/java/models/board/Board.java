@@ -23,6 +23,7 @@ public class Board implements Serializable {
     private String playerIsTurn;
     private int period;
     private int round;
+    private int numberOfPlayer;
     private String phase;
 
 
@@ -91,6 +92,7 @@ public class Board implements Serializable {
             this.dice[i].setColor(i);
         }
 
+        this.numberOfPlayer = numberOfPlayer;
         this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
 
@@ -290,6 +292,10 @@ public class Board implements Serializable {
             towerIndex = 4;
 
         return towerIndex;
+    }
+
+    public int getNumberOfPlayer() {
+        return numberOfPlayer;
     }
 
     public String getPlayerIsTurn() {

@@ -49,7 +49,12 @@ public interface ClientInterface extends Runnable {
      */
     public void sendAction(Action action);
 
+    public int getActionType();
+
     public Action getAction();
+
+    public Action getHarvestAction();
+
 
 
 

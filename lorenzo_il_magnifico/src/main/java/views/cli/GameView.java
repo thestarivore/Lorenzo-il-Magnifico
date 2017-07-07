@@ -156,8 +156,42 @@ public class GameView {
 
     /***************************************************************************************************************/
 
+    public int getActionType(Board board) {
+        printLine("Action you want to perform: (" +
+                "0 - Tower, " +
+                "1 - The Council Palace, " +
+                "2 - Harvest Area, " +
+                "3 - Production Area, " +
+                "4 - Market)");
+        ArrayList<String> list = new ArrayList<String>(){
+            {
+                for (int i = 0; i < Board.ACTION_AREAS; i++)
+                    add(String.valueOf(i));
+            }
+        };
+
+        int actionType = -1;
+        boolean valid = false;
+        while (!valid) {
+            actionType = parseInt(getValidParameter(list));
+            valid = true;
+            if (actionType == 2 && board.getNumberOfPlayer() < 3 && board.getHarvestArea().getSingleSpace().getOccupied()) {
+                valid = false;
+                printLine("[WARNING] Harvest action not available, insert new action");
+            }
+            if (actionType == 3 && board.getNumberOfPlayer() < 3 && board.getProductionArea().getSingleSpace().getOccupied()) {
+                valid = false;
+                printLine("[WARNING] Production action not available, insert new action");
+            }
+
+        }
+
+        return actionType;
+
+    }
+
     public int[] getHarvestAction(Player player, Board board) {
-        int playerHarvestCard = player.getPersonalBoard().getTerritories().size();
+
         int[] harvestAction = new int[HarvestAction.NUMBER_OF_HARVESTACTION_INFO];
 
         harvestAction[0] = getFamilyMember(player);
@@ -430,11 +464,11 @@ public class GameView {
         printLine("");
 
         printLine("HARVEST AREA");
-        printHarvestProductionArea(board.getHarvestArea().getSingleSpace(), board.getHarvestArea().getMultipleSpace());
+        printHarvestProductionArea(board, board.getHarvestArea().getSingleSpace(), board.getHarvestArea().getMultipleSpace());
         printLine("");
 
         printLine("PRODUCTION AREA");
-        printHarvestProductionArea(board.getProductionArea().getSingleSpace(), board.getProductionArea().getMultipleSpace());
+        printHarvestProductionArea(board, board.getProductionArea().getSingleSpace(), board.getProductionArea().getMultipleSpace());
         printLine("");
 
         printMarket(board);
@@ -597,9 +631,10 @@ public class GameView {
      * @param singleSpace
      * @param multipleSpace
      */
-    public void printHarvestProductionArea(ActionSpace singleSpace, List<ActionSpace> multipleSpace) {
+    public void printHarvestProductionArea(Board board, ActionSpace singleSpace, List<ActionSpace> multipleSpace) {
 
-        int harvestSize = multipleSpace.size();
+
+
         String line = " ";
         String endLine = "";
         String[] harvestSpace = new String[ACTION_SPACE_HEIGHT - 1];
@@ -629,40 +664,42 @@ public class GameView {
         for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
             harvestSpace[i] += "|";
 
-        //If Harvest or Production multiple space are occupied, get information about the player that occupied this actions space
-        if (harvestSize != 0) {
+        if (board.getNumberOfPlayer() > 2) {
+            int harvestSize = multipleSpace.size();
 
-            line += "     ";
-            endLine += "    ";
-            for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
-                harvestSpace[i] += "    ";
+            //If Harvest or Production multiple space are occupied, get information about the player that occupied this actions space
+            if (harvestSize != 0) {
+
+                line += "     ";
+                endLine += "    ";
+                for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
+                    harvestSpace[i] += "    ";
 
 
-            for (int i = 0; i < harvestSize; i++) {
+                for (int i = 0; i < harvestSize; i++) {
 
-                line += "__________ ";
+                    line += "__________ ";
 
-                harvestSpace[0] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getPlayerColor().getColor());
-                harvestSpace[1] += formatActionSpace("");
-                harvestSpace[2] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getDiceColor().getColor());
+                    harvestSpace[0] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getPlayerColor().getColor());
+                    harvestSpace[1] += formatActionSpace("");
+                    harvestSpace[2] += formatActionSpace(multipleSpace.get(i).getFamilyMember().getDiceColor().getColor());
 
-                endLine += "|__________";
+                    endLine += "|__________";
 
+                }
+                for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
+                    harvestSpace[i] += "|";
+
+                endLine += "|";
+            } else {
+                line += "     ______________________________ ";
+
+                for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
+                    harvestSpace[i] += "    " + formatActionSpace(String.format("%30s", "")) + "|";
+
+
+                endLine += "    |______________________________|";
             }
-            for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
-                harvestSpace[i] += "|";
-
-            endLine += "|";
-        }
-
-        else {
-            line += "     ______________________________ ";
-
-            for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
-                harvestSpace[i] += "    " + formatActionSpace(String.format("%30s", "")) + "|";
-
-
-            endLine += "    |______________________________|";
         }
 
 
@@ -673,6 +710,7 @@ public class GameView {
 
 
         printLine(endLine);
+
 
     }
 
@@ -813,23 +851,7 @@ public class GameView {
 
     }
 
-    public int getActionType() {
-        printLine("Action you want to perform: (" +
-                "0 - Tower, " +
-                "1 - The Council Palace, " +
-                "2 - Harvest Area, " +
-                "3 - Production Area, " +
-                "4 - Market)");
-        ArrayList<String> list = new ArrayList<String>(){
-            {
-                for (int i = 0; i < Board.ACTION_AREAS; i++)
-                    add(String.valueOf(i));
-            }
-        };
 
-        return parseInt(getValidParameter(list));
-
-    }
 
     /**
      * Print Message to let know the user that it's his turn now

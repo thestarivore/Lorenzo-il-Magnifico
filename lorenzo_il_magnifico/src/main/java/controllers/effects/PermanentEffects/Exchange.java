@@ -10,14 +10,14 @@ import java.io.Serializable;
  */
 public class Exchange  implements Serializable {
 
-    private Resources firstP[]; //first parameter
-    private Points expoints[];
-    private Resources exresources[];
+    private Resources[] firstP; //first parameter
+    private Points[] expoints;
+    private Resources[] exresources;
 
     public Exchange(){
-        this.expoints= new Points[0];
-        this.exresources= new Resources[0];
-        this.firstP= new Resources[0];
+        this.expoints= new Points[2];
+        this.exresources= new Resources[2];
+        this.firstP= new Resources[2];
     }
 
 

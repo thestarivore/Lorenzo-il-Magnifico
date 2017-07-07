@@ -123,23 +123,7 @@ public class GameFacadeController {
 
 
 
-    /**
-     * If harvest choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    /*public boolean harvestActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
 
-        while (!(valid)) {
-                FamilyMember familyMember = selectFamilyMember(player, type, servant);
-                if (checkFamilyMemberChoice(familyMember)) {
-                    harvestAction.placeFamilyMemberOnHarvestArea(familyMember);
-                    valid = true;
-                }
-        }
-        return true;
-    }*/
 
     /**
      * If production choice, request to the player whitch family member use, and select the corresponding action.

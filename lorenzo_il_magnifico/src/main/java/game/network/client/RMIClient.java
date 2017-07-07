@@ -3,6 +3,7 @@ package game.network.client;
 
 import controllers.Player;
 import controllers.game_course.Action;
+import controllers.game_course.HarvestAction;
 import game.TheGame;
 import game.network.protocol.RMIProtocol;
 import models.board.Board;
@@ -141,8 +142,18 @@ public class RMIClient implements ClientInterface{
     }
 
     @Override
+    public int getActionType() {
+        return 0;
+    }
+
+    @Override
     public Action getAction() {
         return new Action();
+    }
+
+    @Override
+    public Action getHarvestAction() {
+        return new HarvestAction();
     }
 
 

@@ -242,12 +242,23 @@ public class Client {
                         //Control if is my turn
                         if(myTurn) {
                             //Get witch action user want to perform
-                            int actionType = gameView.getActionType();
-
+                            int actionType = client.getActionType();
                             //Get action from user and send it to the server
-                            Action action = client.getAction();
-                            client.sendAction(action);
-                            myTurn = false;
+                            switch (actionType) {
+                                case 0: {
+                                    Action action = client.getAction();
+                                    client.sendAction(action);
+                                    myTurn = false;
+                                }break;
+                                case 1:{
+
+                                }break;
+                                case 2: {
+                                    Action action = client.getHarvestAction();
+                                    client.sendAction(action);
+                                    myTurn = false;
+                                }break;
+                            }
                         }
                         fsmState = FSMClient.CASE3;
                     }break;
