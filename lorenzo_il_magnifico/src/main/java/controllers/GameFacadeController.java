@@ -15,6 +15,8 @@ import models.cards.DevelopmentCard;
 import views.cli.GameView;
 
 import java.io.Serializable;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -53,6 +55,9 @@ public class GameFacadeController {
         //Set the first player in turn
         /*if(game.getNumberOfPlayers() > 0)
             setPlayerInTurn(game.getPlayer(0));*/
+
+        //Execute game's Controller Automa
+        executeControllerAutoma();
     }
 
     /**
@@ -332,37 +337,55 @@ public class GameFacadeController {
         // Controller's automata should do every piece of game logic that
         // server needs to control in order to make sense of the game.
 
-        //Iterate Periods
-        //Each periods is composed of
-        switch (periodIndex) {
-            //First Period
-            case TheGame.FIRST_PERIOD: {
-                periods[TheGame.FIRST_PERIOD].periodAutoma();
+        //Create new timer
+        Timer timer = new Timer();
 
-                //Control if round has finished
-                if(periods[TheGame.FIRST_PERIOD].isFinished())
-                    periodIndex = TheGame.SECOND_PERIOD;
-            }break;
-            //Second Period
-            case TheGame.SECOND_PERIOD: {
-                periods[TheGame.SECOND_PERIOD].periodAutoma();
+        // Schedule a timer that ticks every 100ms, it's used as time base
+        // for the server's automata(final state machine).
+        timer.schedule( new TimerTask() {
+            //Run Function
+            public void run() {
+                //Wait for 2 or more players, before starting the controller
+                if(game.getNumberOfPlayers() >= 2) {
 
-                //Control if round has finished
-                if(periods[TheGame.SECOND_PERIOD].isFinished())
-                    periodIndex = TheGame.THIRD_PERIOD;
-            }break;
-            //Third Period
-            case TheGame.THIRD_PERIOD: {
-                periods[TheGame.THIRD_PERIOD].periodAutoma();
+                    //Iterate Periods
+                    //Each periods is composed of
+                    switch (periodIndex) {
+                        //First Period
+                        case TheGame.FIRST_PERIOD: {
+                            periods[TheGame.FIRST_PERIOD].periodAutoma();
 
-                //Control if round has finished
-                if(periods[TheGame.THIRD_PERIOD].isFinished())
-                    periodIndex = TheGame.END_OF_GAME;
-            }break;
-            //End of Game
-            case TheGame.END_OF_GAME: {
-            }break;
-        }
+                            //Control if round has finished
+                            if (periods[TheGame.FIRST_PERIOD].isFinished())
+                                periodIndex = TheGame.SECOND_PERIOD;
+                        }
+                        break;
+                        //Second Period
+                        case TheGame.SECOND_PERIOD: {
+                            periods[TheGame.SECOND_PERIOD].periodAutoma();
+
+                            //Control if round has finished
+                            if (periods[TheGame.SECOND_PERIOD].isFinished())
+                                periodIndex = TheGame.THIRD_PERIOD;
+                        }
+                        break;
+                        //Third Period
+                        case TheGame.THIRD_PERIOD: {
+                            periods[TheGame.THIRD_PERIOD].periodAutoma();
+
+                            //Control if round has finished
+                            if (periods[TheGame.THIRD_PERIOD].isFinished())
+                                periodIndex = TheGame.END_OF_GAME;
+                        }
+                        break;
+                        //End of Game
+                        case TheGame.END_OF_GAME: {
+                        }
+                        break;
+                    }
+                }
+            }
+        }, 50, 100);
     }
 
     /**

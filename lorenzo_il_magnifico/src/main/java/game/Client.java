@@ -245,10 +245,10 @@ public class Client {
                             int[] debugToken;
                             //Get action from user and send it to the server
                             debugToken = gameView.getAction(player, board);
-                            //TODO: bisogna ancora fare la conversione da testo inserito dall'utente ad azione vera
                             Action action = new Action(debugToken);
                             client.sendAction(action);
-                            }
+                            myTurn = false;
+                        }
                         fsmState = FSMClient.CASE3;
                     }break;
 
