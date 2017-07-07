@@ -190,56 +190,7 @@ public class GameFacadeController {
         }*/
 
 
-    /**
-     * When family member is placed, this method perform all the corresponding action of this choice.
-     * @param player
-     * @param tower
-     * @param space
-     * @return
-     */
-    /*public boolean performTowerAction(Player player, int tower, int space, int choice) {
-
-        boolean valid;
-        Resources res = facadeModel.getBoard().getTower(tower).getSpace(space).getBonus();
-        player.getRes().addResources(res);
-
-        DevelopmentCard devCard = facadeModel.getBoard().getTower(tower).getSpace(space).getCard();
-
-        valid = checkCardRequest(player,devCard);
-
-        if (valid) {
-
-            switch (tower) {
-                case 0:
-                    player.getPersonalBoard().getTerritories().add(devCard);
-                    break;
-                case 1:
-                    player.getPersonalBoard().getCharacters().add(devCard);
-                    break;
-                case 2:
-                    player.getPersonalBoard().getBuildings().add(devCard);
-                    break;
-                case 3:
-                    player.getPersonalBoard().getVentures().add(devCard);
-                    break;
-                default:
-                    break;
-            }
-
-            devCard.removePoints(player);
-            devCard.removeRes(player);
-            devCard.getImmediateEffect().addPoints(player);
-            devCard.getImmediateEffect().addResources(player);
-
-            if(devCard.getImmediateEffect().getIsBonus())
-                if(devCard.getImmediateEffect().getBonusAction().getCheckPrivilege()) {
-                    devCard.getImmediateEffect().getBonusAction().chooseCouncilPrivilege(choice);
-                }
-                //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
-                    //takeBonusCard(player, devCard);
-        }
-       return valid;
-    }*/
+   
 
 
     /**
@@ -396,6 +347,9 @@ public class GameFacadeController {
         //Set game reference and execute action
         action.setBoard(getBoard());
         action.execute(getPlayerInTurn());
+
+        GameView gameView = new GameView();
+        gameView.printAllBoard(getPlayerInTurn(), getBoard());
 
         //Get Player's turn number
         Player playerInTurn = getPlayerInTurn();

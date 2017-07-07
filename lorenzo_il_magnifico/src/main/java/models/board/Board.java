@@ -33,6 +33,7 @@ public class Board implements Serializable {
 
     public final static int FIXED_NUMBER_OF_TOWER = 4;
     public final static int FIXED_NUMBER_OF_CARD = 4;
+    public final static int ACTION_AREAS = 5;
     public final static int NUMBER_ACTION_SPACES = 25;
     //Complete list of the indexes of th Action Spaces
     // First Tower
@@ -218,7 +219,7 @@ public class Board implements Serializable {
         return actionSpaces;
     }
 
-    public boolean[] getAvailableActionSpace() {
+    public boolean[] getAvailableTowerActionSpace() {
 
         boolean[] availableActionSpace = new boolean[Board.NUMBER_ACTION_SPACES];
 
@@ -231,7 +232,7 @@ public class Board implements Serializable {
             }
         }
 
-        //The Council Palace is always available.
+        /*//The Council Palace is always available.
         availableActionSpace[16] = true;
 
         //Harvest Single space could be occupied, Multiple space always available.
@@ -256,7 +257,7 @@ public class Board implements Serializable {
             } else {
                 availableActionSpace[i] = true;
             }
-        }
+        }*/
 
         return availableActionSpace;
     }

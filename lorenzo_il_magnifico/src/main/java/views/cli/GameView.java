@@ -157,19 +157,31 @@ public class GameView {
 
 
 
+    public int getTower(Board board){
+        printLine("Choose Tower:");
 
-    public int getActionSpace(Board board) {
+        ArrayList<String> list = new ArrayList<String>() {
+            {
+                for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++)
+                    add(String.valueOf(i));
+            }
+        };
 
-        boolean[] availableActionSpace = board.getAvailableActionSpace();
+        return parseInt(getValidParameter(list));
+    }
+
+    public int getSpace(Board board) {
+
+        boolean[] availableTowerActionSpace = board.getAvailableTowerActionSpace();
 
         //Print the message.
-        printLine("Choose space");
+        printLine("Choose space:");
 
         //List the available action space.
         ArrayList<String> list = new ArrayList<String>() {
             {
-                for (int i = 0; i < Board.NUMBER_ACTION_SPACES; i++){
-                    if (availableActionSpace[i] == true)
+                for (int i = 0; i < Board.NUMBER_ACTION_SPACES - 9; i++){
+                    if (availableTowerActionSpace[i] == true)
                         add(String.valueOf(i));
                 }
             }
@@ -291,7 +303,8 @@ public class GameView {
 
         action[0] = getFamilyMember(player);
         action[1] = getServant(player);
-        action[2] = getActionSpace(board);
+        action[2] = getTower(board);
+        action[3] = getSpace(board);
 
         return action;
     }
@@ -373,6 +386,11 @@ public class GameView {
         System.out.println(line);
     }
 
+    public void printAllBoard(Player player, Board board) {
+        printMap(board);
+        printLine("");
+        printPlayerInfo(player);
+    }
 
     /**
      * Print updated Board to the console.
@@ -765,6 +783,42 @@ public class GameView {
      */
     public void printFourTime(String a, String b, String c, String d) {
         System.out.printf("%-45s %-45s %-45s %-45s", a, b, c, d);
+    }
+
+    /**
+     * Print updated Player info.
+     * @param player
+     */
+    public void printPlayerInfo(Player player) {
+
+        printLine("Name: " + player.getName());
+//        printLine("Color: " + player.getColor().getColor());
+        printLine("Servant: " + player.getRes().getServants());
+        printLine("Stones: " + player.getRes().getStones());
+        printLine("Woods: " + player.getRes().getWoods());
+        printLine("Coins: " + player.getRes().getCoins());
+        printLine("Faith Points: " + player.getPoints().getFaith());
+        printLine("Military Points: " + player.getPoints().getMilitary());
+        printLine("Victory Points: " + player.getPoints().getVictory());
+
+    }
+
+    public int getActionType() {
+        printLine("Action you want to perform: (" +
+                "0 - Tower, " +
+                "1 - The Council Palace, " +
+                "2 - Harvest Area, " +
+                "3 - Production Area, " +
+                "4 - Market)");
+        ArrayList<String> list = new ArrayList<String>(){
+            {
+                for (int i = 0; i < Board.ACTION_AREAS; i++)
+                    add(String.valueOf(i));
+            }
+        };
+
+        return parseInt(getValidParameter(list));
+
     }
 
     /**

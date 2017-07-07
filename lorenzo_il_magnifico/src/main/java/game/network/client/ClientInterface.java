@@ -29,6 +29,11 @@ public interface ClientInterface extends Runnable {
     public void setPlayer(Player player);
 
     /**
+     * Get updated Player
+     */
+    public void getPlayerUpdates();
+
+    /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
      */

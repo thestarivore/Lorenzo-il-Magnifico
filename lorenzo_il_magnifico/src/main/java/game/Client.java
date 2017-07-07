@@ -156,8 +156,6 @@ public class Client {
     private static void clientInit() {
         gameView            = new GameView();
         board               = new Board(TheGame.MAXIMUM_PLAYERS_NUMBER);
-        personalBoard       = new PersonalBoard();
-        personalBonusTile   = new PersonalBonusTile();
     }
 
     /**
@@ -230,6 +228,7 @@ public class Client {
             public void run() {
                 switch (fsmState){
                     case BOARD_UPDATES:{
+                        client.getPlayerUpdates();
                         client.getBoardUpdates();
                         fsmState = FSMClient.TURN_UPDATE;
                     }break;
@@ -242,9 +241,10 @@ public class Client {
                     case SEND_ACTION:{
                         //Control if is my turn
                         if(myTurn) {
-                            int[] debugToken;
+                            //Get witch action user want to perform
+                            int actionType = gameView.getActionType();
+
                             //Get action from user and send it to the server
-                            //TODO: bisogna ancora fare la conversione da testo inserito dall'utente ad azione vera
                             Action action = client.getAction();
                             client.sendAction(action);
                             myTurn = false;

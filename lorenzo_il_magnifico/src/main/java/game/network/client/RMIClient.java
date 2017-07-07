@@ -116,6 +116,8 @@ public class RMIClient implements ClientInterface{
         this.player = player;
     }
 
+    public void getPlayerUpdates(){}
+
     /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
