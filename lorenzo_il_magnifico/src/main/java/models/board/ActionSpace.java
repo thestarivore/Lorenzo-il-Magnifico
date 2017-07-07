@@ -107,7 +107,7 @@ public class ActionSpace implements Serializable {
         player.getRes().addResources(this.bonusRes);
         player.getPoints().addPoints(this.bonusPoints);
     }
-    
+
 
     /**
      * Indicates whether some other object is "equal to" this one.

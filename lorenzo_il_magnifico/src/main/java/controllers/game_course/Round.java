@@ -144,7 +144,7 @@ public class Round {
         //So if we have 4 player, we'll have 4 actions with playerTurn = 0,1,2,3;
         //So we know that we've done all action when playerTurn = 4 which should
         //be action number 5 and does not exist.
-        if(playerTurn == controller.getGame().getNumberOfPlayers())
+        if(playerTurn == controller.getGame().getPlayersAllowed())
             return true;
         else
             return false;
