@@ -74,7 +74,7 @@ public class TheGame implements Serializable {
     public static final int FORTH_PLAYER    = 3;
 
     //TODO: sostituire con l'uso di un valore caricato da file
-    public static final int GAME_TIMEOUT    = 30000; //in ms
+    public static final int GAME_TIMEOUT    = 5000; //in ms
 
     /**
      * Enum - Possible TheGame's colors constants.

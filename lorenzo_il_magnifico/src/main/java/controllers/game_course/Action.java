@@ -46,10 +46,14 @@ public class Action implements Serializable {
      * Basic Action Constructor used for debug
      */
     public Action(int[] choice) {
+
         this.familyMember = choice[0];
         this.servants = choice[1];
-        this.tower = choice[2];
-        this.space = choice[3];
+
+        if (choice.length > 2) {
+            this.tower = choice[2];
+            this.space = choice[3];
+        }
     }
 
     /**

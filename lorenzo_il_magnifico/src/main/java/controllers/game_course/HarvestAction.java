@@ -8,6 +8,8 @@ import models.board.FamilyMember;
  */
 public class HarvestAction extends Action {
 
+    public static final int NUMBER_OF_HARVESTACTION_INFO = 2;
+
     public HarvestAction(int[] choice){
         super(choice);
 

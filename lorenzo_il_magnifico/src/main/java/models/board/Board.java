@@ -230,13 +230,13 @@ public class Board implements Serializable {
         return actionSpaces;
     }
 
-    public boolean[] getAvailableTowerActionSpace() {
+    public boolean[] getAvailableTowerActionSpace(int tower) {
 
-        boolean[] availableActionSpace = new boolean[Board.NUMBER_ACTION_SPACES];
+        boolean[] availableActionSpace = new boolean[Board.FIXED_NUMBER_OF_CARD];
 
         //Get available Tower spaces.
-        for(int i = 0; i < Board.NUMBER_ACTION_SPACES - 9 ; i++) {
-            if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
+        for(int i = 0; i < Board.FIXED_NUMBER_OF_CARD ; i++) {
+            if (this.getTower(tower).getSpace(i).getOccupied()) {
                 availableActionSpace[i] = false;
             } else {
                 availableActionSpace[i] = true;

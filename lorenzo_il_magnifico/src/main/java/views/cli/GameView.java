@@ -2,6 +2,7 @@ package views.cli;
 
 import controllers.Player;
 import controllers.game_course.Action;
+import controllers.game_course.HarvestAction;
 import game.TheGame;
 import models.Points;
 import models.Resources;
@@ -155,6 +156,35 @@ public class GameView {
 
     /***************************************************************************************************************/
 
+    public int[] getHarvestAction(Player player, Board board) {
+        int playerHarvestCard = player.getPersonalBoard().getTerritories().size();
+        int[] harvestAction = new int[HarvestAction.NUMBER_OF_HARVESTACTION_INFO];
+
+        harvestAction[0] = getFamilyMember(player);
+        harvestAction[1] = getServant(player);
+
+        return harvestAction;
+    }
+
+    /**
+     * Get action from the player
+     * -action[0] get FamilyMember
+     * -action[1] get Servant
+     * -action[2] get Tower
+     * -action[3] get Space
+     * @return String with the action done by the player
+     */
+    public int[] getAction(Player player, Board board){
+        int[] action = new int[Action.NUMBER_OF_ACTION_INFO];
+
+        action[0] = getFamilyMember(player);
+        action[1] = getServant(player);
+        action[2] = getTower(board);
+        action[3] = getSpace(board, action[2]);
+
+        return action;
+    }
+
 
 
     public int getTower(Board board){
@@ -170,9 +200,9 @@ public class GameView {
         return parseInt(getValidParameter(list));
     }
 
-    public int getSpace(Board board) {
+    public int getSpace(Board board, int tower) {
 
-        boolean[] availableTowerActionSpace = board.getAvailableTowerActionSpace();
+        boolean[] availableTowerActionSpace = board.getAvailableTowerActionSpace(tower);
 
         //Print the message.
         printLine("Choose space:");
@@ -180,12 +210,15 @@ public class GameView {
         //List the available action space.
         ArrayList<String> list = new ArrayList<String>() {
             {
-                for (int i = 0; i < Board.NUMBER_ACTION_SPACES - 9; i++){
+                for (int i = 0; i < Board.FIXED_NUMBER_OF_CARD; i++){
                     if (availableTowerActionSpace[i] == true)
                         add(String.valueOf(i));
                 }
             }
         };
+
+        for (int i = 0; i < list.size(); i++)
+            System.out.println(list.get(i));
 
         return parseInt(getValidParameter(list));
     }
@@ -288,33 +321,7 @@ public class GameView {
 
     /*********************************************************************************************************************************/
 
-    /**
-     * Get action from the player
-     * -action[0] get FamilyMember
-     * -action[1] get Servant
-     * -action[2] get Action Space
-     * @return String with the action done by the player
-     */
-    public int[] getAction(Player player, Board board){
-        int[] action = new int[Action.NUMBER_OF_ACTION_INFO];
 
-        action[0] = getFamilyMember(player);
-        action[1] = getServant(player);
-        action[2] = getTower(board);
-        action[3] = getSpace(board);
-
-        return action;
-    }
-
-    public int[] getHarvestAction(Player player, Board board) {
-        int playerHarvestCard = player.getPersonalBoard().getTerritories().size();
-        int[] harvestAction = new int[playerHarvestCard];
-
-        harvestAction[0] = getFamilyMember(player);
-        harvestAction[1] = getServant(player);
-
-        return harvestAction;
-    }
 
 
     /**
