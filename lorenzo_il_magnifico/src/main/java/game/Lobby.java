@@ -52,8 +52,8 @@ public class Lobby {
             player.setGameReference(lastGame);
 
             //If more than 2 players Set the first player in turn
-            if(lastGame.getNumberOfPlayers() >= 2)
-                lastGame.getTheController().setPlayerInTurn(lastGame.getPlayer(0));
+            //if(lastGame.getNumberOfPlayers() >= TheGame.MINIMUM_PLAYERS_NUMBER)
+            //    lastGame.getTheController().setPlayerInTurn(lastGame.getPlayer(0));
         }
         else{
             games.add(new TheGame());

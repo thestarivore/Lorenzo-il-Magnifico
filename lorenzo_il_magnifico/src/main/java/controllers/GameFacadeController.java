@@ -346,7 +346,7 @@ public class GameFacadeController {
             //Run Function
             public void run() {
                 //Wait for 2 or more players, before starting the controller
-                if(game.getNumberOfPlayers() >= 2) {
+                if(game.isGameStarted()) {
 
                     //Iterate Periods
                     //Each periods is composed of

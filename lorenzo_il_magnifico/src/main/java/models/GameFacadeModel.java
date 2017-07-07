@@ -1,6 +1,7 @@
 package models;
 
 import models.board.Board;
+import models.cards.DevelopmentCardDeck;
 
 import java.io.Serializable;
 
@@ -20,6 +21,9 @@ public class GameFacadeModel {
 
     public GameFacadeModel (int numberOfPlayer) {
         this.board = new Board(numberOfPlayer);
+
+        DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
+        developmentCardDeck.setDeck();
     }
 
     public Board getBoard() {

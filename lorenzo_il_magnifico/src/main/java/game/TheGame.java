@@ -12,23 +12,47 @@ import models.board.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class TheGame implements Serializable {
+    /**
+     * List of the players in this game
+     */
     private List<RemotePlayer> players;
 
+    /**
+     * The Facade Model of the MVC
+     */
     transient private GameFacadeModel         theModel;
+
+    /**
+     * The Facade Controller of the MVC
+     */
     transient private GameFacadeController    theController;
 
-    transient private ClientInterface client;
-    transient private ServerInterface server;
-
+    /**
+     * List of the available colors used for the players
+     */
     private ArrayList<COLORS> colorAvailable;
 
+    /**
+     * Boolean variable indicating if game is started
+     * or still has to begin.
+     */
+    private boolean gameStarted;
+
+    /**
+     * The maximum number of players allowed to this game
+     */
+    private int playersAllowed;
+
     //Constants
+    public static final int MINIMUM_PLAYERS_NUMBER = 2;
     public static final int MAXIMUM_PLAYERS_NUMBER = 4;
     public static final int MAXIMUM_COLORS_NUMBER = 4;
 
@@ -48,6 +72,9 @@ public class TheGame implements Serializable {
     public static final int SECOND_PLAYER   = 1;
     public static final int THIRD_PLAYER    = 2;
     public static final int FORTH_PLAYER    = 3;
+
+    //TODO: sostituire con l'uso di un valore caricato da file
+    public static final int GAME_TIMEOUT    = 30000; //in ms
 
     /**
      * Enum - Possible TheGame's colors constants.
@@ -94,6 +121,13 @@ public class TheGame implements Serializable {
         colorAvailable.add(COLORS.BLUE);
         colorAvailable.add(COLORS.YELLOW);
         colorAvailable.add(COLORS.GREEN);
+
+        //Game is still in standby until the players arrive
+        gameStarted = false;
+        playersAllowed = MAXIMUM_PLAYERS_NUMBER;
+
+        //Start the Game Timeout for players
+        startGameTimeOut();
     }
 
     /**
@@ -196,7 +230,7 @@ public class TheGame implements Serializable {
      */
     public boolean isGameFull(){
         int currentPlayers = getNumberOfPlayers();
-        if(currentPlayers >= MAXIMUM_PLAYERS_NUMBER)
+        if(currentPlayers >= playersAllowed)
             return true;
         else
             return false;
@@ -232,6 +266,94 @@ public class TheGame implements Serializable {
         return colorAvailable;
     }
 
+    /**
+     * @return "true" if game has started and "false" otherwise
+     */
+    public boolean isGameStarted() {
+        return gameStarted;
+    }
+
+    /**
+     * Set if game has started or not
+     * @param gameStarted boolean variable indicating if game has started
+     */
+    public void setGameStarted(boolean gameStarted) {
+        this.gameStarted = gameStarted;
+    }
+
+
+    private void startGameTimeOut() {
+        //Create new timer
+        Timer timer = new Timer();
+
+        // Schedule a timer that ticks every 100ms, it's used as time base
+        // for the server's automata(final state machine).
+        timer.schedule( new TimerTask() {
+            int timeout = GAME_TIMEOUT; //in ms
+            boolean startTimeout = false;
+
+            //Run Function
+            public void run() {
+                //If game isn't started yet, do the timeout thing
+                if(!isGameStarted()) {
+                    //Wait for 2 or more players, before starting the controller
+                    if (getNumberOfPlayers() >= 2) {
+                        startTimeout = true;
+
+                        //Stops if we've already reached the maximum number of players
+                        if(getNumberOfPlayers() == MAXIMUM_PLAYERS_NUMBER){
+                            startGameWithCurrentPlayers();
+                        }
+                    }
+
+                    //If timeout control is enabled
+                    if (startTimeout) {
+                        if (timeout > 0) {
+                            timeout -= 100;
+                        }
+                        //Timeout finished
+                        else {
+                            startGameWithCurrentPlayers();
+                        }
+                    }
+                }
+                else{
+                    timer.cancel();
+                }
+            }
+        }, 0, 100);
+    }
+
+    /**
+     * Starts this game with the current number uf players connected
+     */
+    private void startGameWithCurrentPlayers(){
+        //Set game as officially started
+        setGameStarted(true);
+
+        //Set the current maximum allowed number of players
+        setPlayersAllowed(getNumberOfPlayers());
+
+        //Set the first player
+        getTheController().setPlayerInTurn(getPlayer(0));
+    }
+
+    /**
+     * Get the maximum number of players allowed.
+     * This has a fixed value at first, but can decrease if timeout occurs
+     * during the players connection
+     */
+    public int getPlayersAllowed() {
+        return playersAllowed;
+    }
+
+    /**
+     * Set the maximum number of players allowed in this game
+     * @param playersAllowed integer number of players
+     */
+    public void setPlayersAllowed(int playersAllowed) {
+        this.playersAllowed = playersAllowed;
+    }
 }
 
 
