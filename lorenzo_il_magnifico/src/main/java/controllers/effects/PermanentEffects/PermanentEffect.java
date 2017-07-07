@@ -13,11 +13,19 @@ public class PermanentEffect implements Serializable {
     private Resources resources;
     private boolean privilege;
     private int numberOfPrivilege;
-    public PermanentEffect(){
+    private PermanentIncreaseAction increaseAction;
+    private Exchange exchange;
+    private boolean noBonus;
 
+
+    public PermanentEffect(){
         this.points=new Points();
         this.resources=new Resources();
         this.privilege=false;
+        this.numberOfPrivilege=0;
+        this.increaseAction = new PermanentIncreaseAction();
+        this.exchange = new Exchange();
+        this.noBonus=false;
     }
 
     public Points getPoints() {
