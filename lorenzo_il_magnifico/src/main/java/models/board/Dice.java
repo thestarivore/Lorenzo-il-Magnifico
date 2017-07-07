@@ -81,5 +81,36 @@ public class Dice implements Serializable {
         this.number = number;
     }
 
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dice)) return false;
 
+        Dice dice = (Dice) o;
+
+        if (number != dice.number) return false;
+        return color != null ? color.equals(dice.color) : dice.color == null;
+    }
+
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
+    @Override
+    public int hashCode() {
+        int result = color != null ? color.hashCode() : 0;
+        result = 31 * result + number;
+        return result;
+    }
 }

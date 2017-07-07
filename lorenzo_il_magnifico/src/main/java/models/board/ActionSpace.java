@@ -107,7 +107,46 @@ public class ActionSpace implements Serializable {
         player.getRes().addResources(this.bonusRes);
         player.getPoints().addPoints(this.bonusPoints);
     }
+    
 
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ActionSpace)) return false;
 
+        ActionSpace that = (ActionSpace) o;
 
+        if (diceCost != that.diceCost) return false;
+        if (isOccupied != that.isOccupied) return false;
+        if (card != null ? !card.equals(that.card) : that.card != null) return false;
+        if (bonusRes != null ? !bonusRes.equals(that.bonusRes) : that.bonusRes != null) return false;
+        if (bonusPoints != null ? !bonusPoints.equals(that.bonusPoints) : that.bonusPoints != null) return false;
+        return familyMember != null ? familyMember.equals(that.familyMember) : that.familyMember == null;
+    }
+
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
+    @Override
+    public int hashCode() {
+        int result = card != null ? card.hashCode() : 0;
+        result = 31 * result + (bonusRes != null ? bonusRes.hashCode() : 0);
+        result = 31 * result + (bonusPoints != null ? bonusPoints.hashCode() : 0);
+        result = 31 * result + (familyMember != null ? familyMember.hashCode() : 0);
+        result = 31 * result + diceCost;
+        result = 31 * result + (isOccupied ? 1 : 0);
+        return result;
+    }
 }

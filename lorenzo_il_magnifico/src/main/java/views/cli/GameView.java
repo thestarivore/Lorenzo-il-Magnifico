@@ -397,10 +397,6 @@ public class GameView {
      * @param board
      */
     public void printMap(Board board){
-
-        printLine(String.valueOf("Board ID: " + board.getID()));
-
-
         printLine(" _______  _______  _______  ______    ______ ");
         printLine("|  _    ||       ||   _   ||    _ |  |      |");
         printLine("| |_|   ||   _   ||  |_|  ||   | ||  |  _    |");

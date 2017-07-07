@@ -5,6 +5,7 @@ import models.board.trackers.Track;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -12,8 +13,6 @@ import java.util.Random;
  * Created by Eduard Chirica on 5/7/17.
  */
 public class Board implements Serializable {
-
-    private int ID;
     private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;
@@ -76,10 +75,6 @@ public class Board implements Serializable {
      * @param numberOfPlayer
      */
     public Board(int numberOfPlayer){
-
-        Random randomGenerator = new Random();
-        this.ID = randomGenerator.nextInt();
-
         this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
         for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)
             this.tower[i] = new Tower(i);
@@ -101,12 +96,12 @@ public class Board implements Serializable {
 
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public Tower getTower(int i) {
-        return tower[i];
+    /**
+     * Returns Tower at index
+     * @param index
+     */
+    public Tower getTower(int index) {
+        return tower[index];
     }
 
     public void setTower(Tower tower, int i) {
@@ -135,7 +130,23 @@ public class Board implements Serializable {
         this.tracks = tracks;
     }
 
+    /**
+     * Returns Track at index
+     * @param index
+     */
+    public Track getTrack(int index){
+        return tracks[index];
+    }
+
     public Dice[] getDice() { return dice; }
+
+    /**
+     * Returns Dice at index
+     * @param index
+     */
+    public Dice getDice(int index){
+        return dice[index];
+    }
 
     public HarvestArea getHarvestArea() {
         return harvestArea;
@@ -311,6 +322,63 @@ public class Board implements Serializable {
 
     public void setPhase(String phase) {
         this.phase = phase;
+    }
+
+
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Board)) return false;
+
+        Board board = (Board) o;
+
+        if (period != board.period) return false;
+        if (round != board.round) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        if (!Arrays.equals(tower, board.tower)) return false;
+        if (market != null ? !market.equals(board.market) : board.market != null) return false;
+        if (councilPalace != null ? !councilPalace.equals(board.councilPalace) : board.councilPalace != null)
+            return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        if (!Arrays.equals(tracks, board.tracks)) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        if (!Arrays.equals(dice, board.dice)) return false;
+        if (harvestArea != null ? !harvestArea.equals(board.harvestArea) : board.harvestArea != null) return false;
+        if (productionArea != null ? !productionArea.equals(board.productionArea) : board.productionArea != null)
+            return false;
+        if (playerIsTurn != null ? !playerIsTurn.equals(board.playerIsTurn) : board.playerIsTurn != null) return false;
+        return phase != null ? phase.equals(board.phase) : board.phase == null;
+    }
+
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
+    @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(tower);
+        result = 31 * result + (market != null ? market.hashCode() : 0);
+        result = 31 * result + (councilPalace != null ? councilPalace.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(tracks);
+        result = 31 * result + Arrays.hashCode(dice);
+        result = 31 * result + (harvestArea != null ? harvestArea.hashCode() : 0);
+        result = 31 * result + (productionArea != null ? productionArea.hashCode() : 0);
+        result = 31 * result + (playerIsTurn != null ? playerIsTurn.hashCode() : 0);
+        result = 31 * result + period;
+        result = 31 * result + round;
+        result = 31 * result + (phase != null ? phase.hashCode() : 0);
+        return result;
     }
 }
 
