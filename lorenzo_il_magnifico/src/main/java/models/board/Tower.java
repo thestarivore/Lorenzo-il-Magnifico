@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Created by starivore on 5/7/17.
  */
 public class Tower implements Serializable {
-    private DevelopmentCardDeck deck;
+    //private DevelopmentCardDeck deck;
     private ActionSpace[] space;
     private int numberOfTower;
     private boolean isEmpty;
@@ -21,19 +21,13 @@ public class Tower implements Serializable {
      * @param numberOfTower
      */
     public Tower(int numberOfTower){
-        this.deck= new DevelopmentCardDeck();
+        //this.deck= new DevelopmentCardDeck();
         this.numberOfTower = numberOfTower;
         this.space = new ActionSpace[Constants.FIXED_TOWER_CARDS];
         for (int i=0; i<Constants.FIXED_TOWER_CARDS; i++)
             this.space[i] = new ActionSpace(numberOfTower, i);
         this.isEmpty = false;
 
-    }
-
-    public DevelopmentCardDeck getDeck() { return deck; }
-
-    public void setDeck(DevelopmentCardDeck deck) {
-        this.deck = deck;
     }
 
     public ActionSpace getSpace(int i) {

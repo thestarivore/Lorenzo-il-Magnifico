@@ -225,6 +225,9 @@ public class SocketClient implements ClientInterface{
         boolean cmdToSend = !cmdList.isEmpty();
 
         if(cmdToSend){
+            //Reset Object Output Stream
+            out.reset();
+
             //Send CMD String
             out.writeObject(new String(cmdList.remove(0)));
 

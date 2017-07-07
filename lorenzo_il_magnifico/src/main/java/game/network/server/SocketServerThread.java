@@ -1,6 +1,7 @@
 package game.network.server;
 
 
+
 import controllers.GameFacadeController;
 import controllers.Player;
 import controllers.RemotePlayer;
@@ -15,6 +16,7 @@ import views.cli.GameView;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+
 
 /**
  * Created by Eduard Chirica on 6/13/17.
@@ -129,6 +131,30 @@ public class SocketServerThread extends Thread{
      ****************************************************************************************/
 
     /**
+     * Respond back to the client.
+     * This method will reset the Object Output Stream,
+     * will send the command and the object passed as argument
+     * and finally flush the stream.
+     * Must be done after every received command managed.
+     * @param cmd Command to send back to the client (usually a
+     *            String from the Protocol)
+     * @param obj Object to send back to the client
+     */
+    private void respondToClient(Object cmd, Object obj) throws IOException {
+        //Firstly reset the Object Output Stream
+        out.reset();
+
+        //Send The command object (usually a String)
+        out.writeObject(cmd);
+
+        //Send The Object
+        out.writeObject(obj);
+
+        //Finally flush the output stream
+        out.flush();
+    }
+
+    /**
      * Manage PLAYER_IDENTIFIACTION command.
      * @param command String of the command received via socket
      * @param obj Object received via socket
@@ -155,10 +181,9 @@ public class SocketServerThread extends Thread{
         //out.println(ProtocolCommands.ACK.getCommand());
         String sendCmd = ProtocolCommands.ACK.getCommand();
 
-        //One send for the command and one for the object(which will not be use in this case)
-        out.writeObject(sendCmd);
-        out.writeObject(sendCmd);
-        out.flush();
+        //One send for the command and one for the object(which
+        // will not be use in this case)
+        respondToClient(sendCmd, sendCmd);
     }
 
     /**
@@ -172,11 +197,8 @@ public class SocketServerThread extends Thread{
             colors.add("");
 
         //Send SELECT_COLOR command
-        out.writeObject(new String(ProtocolCommands.SELECT_COLOR.getCommand()));
-
         //Send the colors to choose from(arraylist of strings)
-        out.writeObject(colors);
-        out.flush();
+        respondToClient(new String(ProtocolCommands.SELECT_COLOR.getCommand()), colors);
     }
 
     /**
@@ -206,13 +228,10 @@ public class SocketServerThread extends Thread{
      */
     private void manageAskBoardUpdates(String command, Object obj) throws IOException {
         //There should be no arguments here
-
+        Board board =  getTheController().getBoard();
 
         //Send the UPDATED_BOARD command back + the updated board
-        out.writeObject(new String(ProtocolCommands.UPDATED_BOARD.getCommand()));
-        out.reset();
-        out.writeObject(getTheController().getBoard());
-        out.flush();
+        respondToClient(new String(ProtocolCommands.UPDATED_BOARD.getCommand()), board);
     }
 
     /**
@@ -222,9 +241,8 @@ public class SocketServerThread extends Thread{
      */
     private void manageWhoseTurn(String command, Object obj) throws IOException {
         //Send the PLAYERS_TURN command back + the Player object whose turn is
-        out.writeObject(new String(ProtocolCommands.PLAYERS_TURN.getCommand()));
-        out.writeObject(getTheController().getPlayerInTurn());
-        out.flush();
+        respondToClient(new String(ProtocolCommands.PLAYERS_TURN.getCommand()),
+                getTheController().getPlayerInTurn());
     }
 
     /**
@@ -240,9 +258,7 @@ public class SocketServerThread extends Thread{
         getTheController().managePlayerAction(action);
 
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
-        out.writeObject(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()));
-        out.writeObject(ProtocolCommands.NONE.getCommand());
-        out.flush();
+        respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), board);
     }
 
 
