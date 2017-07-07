@@ -7,11 +7,11 @@ import java.io.Serializable;
 /**
  * Created by cp18393 on 04/07/17.
  */
-public class PermanentIncreaseAction extends PermanentEffect implements Serializable {
+public class PermanentIncreaseAction implements Serializable {
     private int increase;
     private Resources discount;
-    private int actionType;  //1 harvest, 2 characters, 3 production 4 imprese
-    private int cardType;   //1 harvest, 2 characters, 3 production 4 imprese
+    private int actionType;  //1 Territory, 2 Characters, 3 Buildings 4 Venture
+    private int cardType;   //1 Territory, 2 Characters, 3 Buildings 4 Venture
     public  PermanentIncreaseAction(){
         this.increase=0;
         this.discount=new Resources();

@@ -17,6 +17,8 @@ public class ImmediateEffect implements Serializable {
     private boolean isBonus;
     private boolean privilege;
     private int numberOfPrivilege;
+    private PointsForCharacters pointsForCharacters;
+    private ImmediateTakeCard immediateTakeCard;
 
     public ImmediateEffect() {
         this.resources = new Resources();
@@ -24,7 +26,9 @@ public class ImmediateEffect implements Serializable {
         //this.bonusAction = new Action();
         this.isBonus = false;
         this.privilege=false;
-
+        this.numberOfPrivilege=0;
+        this.pointsForCharacters = new PointsForCharacters();
+        this.immediateTakeCard = new ImmediateTakeCard();
     }
 
     public Resources getResources() {

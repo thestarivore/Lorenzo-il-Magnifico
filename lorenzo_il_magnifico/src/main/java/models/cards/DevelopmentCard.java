@@ -2,12 +2,8 @@ package models.cards;
 
 
 import controllers.Player;
-import controllers.effects.*;
 import controllers.effects.ImmediateEffects.ImmediateEffect;
-import controllers.effects.ImmediateEffects.PointsForCharacters;
-import controllers.effects.PermanentEffects.Exchange;
 import controllers.effects.PermanentEffects.PermanentEffect;
-import controllers.effects.PermanentEffects.PermanentIncreaseAction;
 import controllers.game_course.Period;
 import models.Points;
 import models.Resources;
@@ -20,18 +16,15 @@ import java.io.Serializable;
 public class DevelopmentCard implements Card, Serializable {
     private String name;
     private Period period;
+    private int cardType;    //1 Territory, 2 Characters, 3 Buildings 4 Venture
     private Resources cost;
     private Points pointsReq;
     private Points pointsCost;
     private ImmediateEffect immediateEffect;
     private PermanentEffect permanentEffect;
-    private PermanentIncreaseAction increaseAction;
-    private NoBonus noBonus;
-    private PointsForCharacters pointsForCharacters;
     private int dice;
     private String description;
-    private DevelopmentCardDeck deck;
-    private Exchange exchange;
+
 
 
     //Constant
@@ -39,15 +32,12 @@ public class DevelopmentCard implements Card, Serializable {
 
     public DevelopmentCard() {
         this.name  = "commercial_hub";
+        this.cardType = 0;
+        this.pointsCost = new Points();
         this.cost = new Resources(1);
         this.pointsReq = new Points();
         this.description = "ciao                                                                        ";
-        this.deck=new DevelopmentCardDeck();
-        this.increaseAction=new PermanentIncreaseAction();
-        this.noBonus= new NoBonus();
-        this.pointsForCharacters = new PointsForCharacters();
-        this.exchange= new Exchange();
-    }
+       }
 
 
     public Period getPeriod() {
@@ -130,44 +120,12 @@ public class DevelopmentCard implements Card, Serializable {
         this.description = description;
     }
 
-    public PermanentIncreaseAction getIncreaseAction() {
-        return increaseAction;
+    public int getCardType() {
+        return cardType;
     }
 
-    public void setIncreaseAction(PermanentIncreaseAction increaseAction) {
-        this.increaseAction = increaseAction;
-    }
-
-    public NoBonus getNoBonus() {
-        return noBonus;
-    }
-
-    public void setNoBonus(NoBonus noBonus) {
-        this.noBonus = noBonus;
-    }
-
-    public PointsForCharacters getPointsForCharacters() {
-        return pointsForCharacters;
-    }
-
-    public void setPointsForCharacters(PointsForCharacters pointsForCharacters) {
-        this.pointsForCharacters = pointsForCharacters;
-    }
-
-    public Exchange getExchange() {
-        return exchange;
-    }
-
-    public void setExchange(Exchange exchange) {
-        this.exchange = exchange;
-    }
-
-    public int getDeck() {
-        return deck.getTower();
-    }
-
-    public void setDeck(DevelopmentCardDeck deck) {
-        this.deck = deck;
+    public void setCardType(int cardType) {
+        this.cardType = cardType;
     }
 
     @Override
