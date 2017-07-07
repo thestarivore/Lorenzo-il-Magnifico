@@ -10,11 +10,17 @@ public class Requirements implements Serializable {
    private int numOfCharacter;
    private int numOfTerritory;
    private int numOfVenture;
-   private int militaryPoints;
-   private int faithPoints;
-   private int victoryPoints;
-   private Resources res;
+   private int numberOfCards;
+   private int typeOfCards;
+   private Points points;
+   private Resources resources;
 
+   public Requirements(){
+      this.numberOfCards=0;
+      this.typeOfCards=0;
+      this.points= new Points();
+      this.resources= new Resources();
+   }
    public int getNumOfBuilding() {
       return numOfBuilding;
    }
@@ -47,35 +53,35 @@ public class Requirements implements Serializable {
       this.numOfVenture = numOfVenture;
    }
 
-   public int getMilitaryPoints() {
-      return militaryPoints;
+   public int getNumberOfCards() {
+      return numberOfCards;
    }
 
-   public void setMilitaryPoints(int militaryPoints) {
-      this.militaryPoints = militaryPoints;
+   public void setNumberOfCards(int numberOfCards) {
+      this.numberOfCards = numberOfCards;
    }
 
-   public int getFaithPoints() {
-      return faithPoints;
+   public int getTypeOfCards() {
+      return typeOfCards;
    }
 
-   public void setFaithPoints(int faithPoints) {
-      this.faithPoints = faithPoints;
+   public void setTypeOfCards(int typeOfCards) {
+      this.typeOfCards = typeOfCards;
    }
 
-   public int getVictoryPoints() {
-      return victoryPoints;
+   public Points getPoints() {
+      return points;
    }
 
-   public void setVictoryPoints(int victoryPoints) {
-      this.victoryPoints = victoryPoints;
+   public void setPoints(Points points) {
+      this.points = points;
    }
 
-   public Resources getRes() {
-      return res;
+   public Resources getResources() {
+      return resources;
    }
 
-   public void setRes(Resources res) {
-      this.res = res;
+   public void setResources(Resources resources) {
+      this.resources = resources;
    }
 }

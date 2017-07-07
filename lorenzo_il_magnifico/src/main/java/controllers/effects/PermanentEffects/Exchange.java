@@ -19,4 +19,29 @@ public class Exchange extends PermanentEffect implements Serializable {
         this.exresources= new Resources();
         this.firstP= new Resources();
     }
+
+    public Resources getFirstP() {
+        return firstP;
+    }
+
+    public void setFirstP(Resources firstP) {
+        this.firstP = firstP;
+    }
+
+    public Points getExpoints() {
+        return expoints;
+    }
+
+    public void setExpoints(Points expoints) {
+        this.expoints = expoints;
+    }
+
+    public Resources getExresources() {
+        return exresources;
+    }
+
+    public void setExresources(Resources exresources) {
+        this.exresources = exresources;
+    }
 }
+
