@@ -363,6 +363,14 @@ public class SocketClient implements ClientInterface{
         //manageUpdatedBoard(command, obj);
     }
 
+    public Action getAction() {
+
+        int[] action = gameView.getAction(player, oldBoard);
+
+        return new Action(action);
+    }
+
+
 }
 
 

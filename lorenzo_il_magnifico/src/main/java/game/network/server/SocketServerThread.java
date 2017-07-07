@@ -258,7 +258,7 @@ public class SocketServerThread extends Thread{
         getTheController().managePlayerAction(action);
 
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
-        respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), board);
+        respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), ProtocolCommands.NONE.getCommand());
     }
 
 

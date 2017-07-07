@@ -225,7 +225,8 @@ public class Action implements Serializable {
         boolean check;
 
         //Perform tower action choice
-        check = towerActionChoice(player, this.actionSpaceID, this.familyMember, this.servants );
+        check = towerActionChoice(player, actionSpaceID, familyMember, servants );
+        System.err.println(check);
         return check;
 
     }
