@@ -54,34 +54,12 @@ public class Tower implements Serializable {
     }
 
     /**
-     * Equality method, used to find out if the tower passed as argument
-     * is equal to this one
-     * @return isEqual
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
      */
-    /*public boolean equals(Object obj) {
-        //The other Tower instance
-        Tower other = (Tower) obj;
-
-        //Start by saying that they are equal and see if u're wrong
-        boolean isEqual = true;
-
-        //Control the Action Spaces
-        for (int i=0; i<Constants.FIXED_TOWER_CARDS; i++){
-            if(this.space[i].equals(other.getSpace(i)))
-                isEqual = false;
-        }
-
-        //Control the Number of Towers
-        if(this.numberOfTower != other.getNumberOfTower())
-            isEqual = false;
-
-        //Control the isEmpty
-        if(this.isEmpty != other.getEmpty())
-            isEqual = false;
-
-        return isEqual;
-    }*/
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,6 +73,14 @@ public class Tower implements Serializable {
         return Arrays.equals(space, tower.space);
     }
 
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
     @Override
     public int hashCode() {
         int result = Arrays.hashCode(space);

@@ -107,23 +107,15 @@ public class ActionSpace implements Serializable {
         player.getRes().addResources(this.bonusRes);
         player.getPoints().addPoints(this.bonusPoints);
     }
+    
 
     /**
-     * Equality method, used to find out if the ActionSpace passed as argument
-     * is equal to this one
-     * @return isEqual
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
      */
-   // @Override
-   /* public boolean equals(Object obj) {
-        //The other Tower instance
-        ActionSpace other = (ActionSpace) obj;
-
-        //Start by saying that they are equal and see if u're wrong
-        boolean isEqual = true;
-
-        return isEqual;
-    }*/
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -139,6 +131,14 @@ public class ActionSpace implements Serializable {
         return familyMember != null ? familyMember.equals(that.familyMember) : that.familyMember == null;
     }
 
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
     @Override
     public int hashCode() {
         int result = card != null ? card.hashCode() : 0;

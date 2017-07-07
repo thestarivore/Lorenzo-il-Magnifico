@@ -325,70 +325,14 @@ public class Board implements Serializable {
         this.phase = phase;
     }
 
-    /*public boolean equals(Object obj) {
-        if (!(obj instanceof Board)) {
-            return false;
-        }
 
-        //The other Board instance
-        Board other = (Board) obj;
-
-        //Start by saying that they are equal and see if u're wrong
-        boolean isEqual = true;
-
-        //Control The Towers
-        for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++) {
-            if(!this.tower[i].equals(other.getTower(i)))
-                isEqual = false;
-        }
-
-        //Control The Market
-        if(!this.market.equals(other.getMarket()))
-            isEqual = false;
-
-        //Control The Council Palace
-        if(!this.councilPalace.equals(other.getCouncilPalace()))
-            isEqual = false;
-
-        //Control The Tracks
-        for (int i=0; i<Constants.FIXED_NUM_OF_TRACK; i++){
-            if(!this.tracks[i].equals(other.getTrack(i)))
-                isEqual = false;
-        }
-
-        //Control The Die
-        for (int i=0; i<Constants.FIXED_NUM_OF_DICE; i++){
-            if(!this.dice[i].equals(other.getDice(i)))
-                isEqual = false;
-        }
-
-        //Control The HarvestArea
-        if(!this.harvestArea.equals(other.getHarvestArea()))
-            isEqual = false;
-
-        //Control The ProductionArea
-        if(!this.productionArea.equals(other.getProductionArea()))
-            isEqual = false;
-
-        //Control The Player turn
-        if(!this.playerIsTurn.equals(other.getPlayerIsTurn()))
-            isEqual = false;
-
-        //Control The Period
-        if(this.period != other.getPeriod())
-            isEqual = false;
-
-        //Control The Round
-        if(this.round != other.getRound())
-            isEqual = false;
-
-        //Control The Phase
-        if(!this.phase.equals(other.getPhase()))
-            isEqual = false;
-
-        return isEqual;
-    }*/
-
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -414,6 +358,14 @@ public class Board implements Serializable {
         return phase != null ? phase.equals(board.phase) : board.phase == null;
     }
 
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
     @Override
     public int hashCode() {
         int result = Arrays.hashCode(tower);

@@ -85,6 +85,13 @@ public class Points implements Serializable {
         return "Victory Points " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;
     }
 
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,6 +105,14 @@ public class Points implements Serializable {
         return finalVictoryPoints == points.finalVictoryPoints;
     }
 
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
     @Override
     public int hashCode() {
         int result = victory;

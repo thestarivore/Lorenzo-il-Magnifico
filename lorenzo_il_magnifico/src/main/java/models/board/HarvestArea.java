@@ -41,6 +41,13 @@ public class HarvestArea implements Serializable {
         this.multipleSpace.add(new ActionSpace());
     }
 
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     * <p>
+     * The {@code equals} method implements an equivalence relation
+     * on non-null object references.
+     * @param o
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,6 +59,14 @@ public class HarvestArea implements Serializable {
         return multipleSpace != null ? multipleSpace.equals(that.multipleSpace) : that.multipleSpace == null;
     }
 
+    /**
+     * Returns a hash code value for the object.
+     * <p>
+     * As much as is reasonably practical, the hashCode method defined
+     * does return distinct integers for distinct objects.
+     * <p>
+     * @return  a hash code value for this object.
+     */
     @Override
     public int hashCode() {
         int result = singleSpace != null ? singleSpace.hashCode() : 0;
