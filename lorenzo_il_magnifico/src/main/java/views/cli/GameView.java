@@ -287,7 +287,6 @@ public class GameView {
      * @return String with the action done by the player
      */
     public int[] getAction(Player player, Board board){
-
         int[] action = new int[Action.NUMBER_OF_ACTION_INFO];
 
         action[0] = getFamilyMember(player);

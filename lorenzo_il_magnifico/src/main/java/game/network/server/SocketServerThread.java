@@ -49,7 +49,7 @@ public class SocketServerThread extends Thread{
                 communicationAutoma();
 
                 //Execute game's Controller Automa
-                remotePlayer.getGameReference().executeControllerAutoma();
+                //remotePlayer.getGameReference().executeControllerAutoma();
             }
 
         } catch (IOException e) {

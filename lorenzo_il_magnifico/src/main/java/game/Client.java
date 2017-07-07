@@ -240,7 +240,6 @@ public class Client {
                     }break;
 
                     case SEND_ACTION:{
-
                         //Control if is my turn
                         if(myTurn) {
                             int[] debugToken;
@@ -248,7 +247,8 @@ public class Client {
                             //TODO: bisogna ancora fare la conversione da testo inserito dall'utente ad azione vera
                             Action action = client.getAction();
                             client.sendAction(action);
-                            }
+                            myTurn = false;
+                        }
                         fsmState = FSMClient.CASE3;
                     }break;
 
