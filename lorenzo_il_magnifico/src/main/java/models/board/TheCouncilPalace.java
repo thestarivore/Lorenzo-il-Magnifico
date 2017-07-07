@@ -28,4 +28,18 @@ public class TheCouncilPalace implements Serializable {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TheCouncilPalace)) return false;
+
+        TheCouncilPalace that = (TheCouncilPalace) o;
+
+        return spaces != null ? spaces.equals(that.spaces) : that.spaces == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return spaces != null ? spaces.hashCode() : 0;
+    }
 }

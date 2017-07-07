@@ -108,6 +108,45 @@ public class ActionSpace implements Serializable {
         player.getPoints().addPoints(this.bonusPoints);
     }
 
+    /**
+     * Equality method, used to find out if the ActionSpace passed as argument
+     * is equal to this one
+     * @return isEqual
+     */
+   // @Override
+   /* public boolean equals(Object obj) {
+        //The other Tower instance
+        ActionSpace other = (ActionSpace) obj;
 
+        //Start by saying that they are equal and see if u're wrong
+        boolean isEqual = true;
 
+        return isEqual;
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ActionSpace)) return false;
+
+        ActionSpace that = (ActionSpace) o;
+
+        if (diceCost != that.diceCost) return false;
+        if (isOccupied != that.isOccupied) return false;
+        if (card != null ? !card.equals(that.card) : that.card != null) return false;
+        if (bonusRes != null ? !bonusRes.equals(that.bonusRes) : that.bonusRes != null) return false;
+        if (bonusPoints != null ? !bonusPoints.equals(that.bonusPoints) : that.bonusPoints != null) return false;
+        return familyMember != null ? familyMember.equals(that.familyMember) : that.familyMember == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = card != null ? card.hashCode() : 0;
+        result = 31 * result + (bonusRes != null ? bonusRes.hashCode() : 0);
+        result = 31 * result + (bonusPoints != null ? bonusPoints.hashCode() : 0);
+        result = 31 * result + (familyMember != null ? familyMember.hashCode() : 0);
+        result = 31 * result + diceCost;
+        result = 31 * result + (isOccupied ? 1 : 0);
+        return result;
+    }
 }

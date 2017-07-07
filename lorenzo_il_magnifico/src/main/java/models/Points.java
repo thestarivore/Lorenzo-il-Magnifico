@@ -84,4 +84,26 @@ public class Points implements Serializable {
     public String toString(){
         return "Victory Points " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Points)) return false;
+
+        Points points = (Points) o;
+
+        if (victory != points.victory) return false;
+        if (military != points.military) return false;
+        if (faith != points.faith) return false;
+        return finalVictoryPoints == points.finalVictoryPoints;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = victory;
+        result = 31 * result + military;
+        result = 31 * result + faith;
+        result = 31 * result + finalVictoryPoints;
+        return result;
+    }
 }

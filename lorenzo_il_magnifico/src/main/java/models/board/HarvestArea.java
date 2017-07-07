@@ -40,4 +40,22 @@ public class HarvestArea implements Serializable {
     public void addMultipleSpace() {
         this.multipleSpace.add(new ActionSpace());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HarvestArea)) return false;
+
+        HarvestArea that = (HarvestArea) o;
+
+        if (singleSpace != null ? !singleSpace.equals(that.singleSpace) : that.singleSpace != null) return false;
+        return multipleSpace != null ? multipleSpace.equals(that.multipleSpace) : that.multipleSpace == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = singleSpace != null ? singleSpace.hashCode() : 0;
+        result = 31 * result + (multipleSpace != null ? multipleSpace.hashCode() : 0);
+        return result;
+    }
 }

@@ -81,5 +81,21 @@ public class Dice implements Serializable {
         this.number = number;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Dice)) return false;
 
+        Dice dice = (Dice) o;
+
+        if (number != dice.number) return false;
+        return color != null ? color.equals(dice.color) : dice.color == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = color != null ? color.hashCode() : 0;
+        result = 31 * result + number;
+        return result;
+    }
 }

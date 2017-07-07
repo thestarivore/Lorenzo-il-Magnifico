@@ -182,4 +182,28 @@ public class DevelopmentCard implements Card, Serializable {
                 "Dice Cost: " + this.dice +"\n"+
                 "Description: " + this.description+ "\n\n";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DevelopmentCard)) return false;
+
+        DevelopmentCard that = (DevelopmentCard) o;
+
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (period != null ? !period.equals(that.period) : that.period != null) return false;
+        if (cost != null ? !cost.equals(that.cost) : that.cost != null) return false;
+        if (pointsReq != null ? !pointsReq.equals(that.pointsReq) : that.pointsReq != null) return false;
+        return pointsCost != null ? pointsCost.equals(that.pointsCost) : that.pointsCost == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (period != null ? period.hashCode() : 0);
+        result = 31 * result + (cost != null ? cost.hashCode() : 0);
+        result = 31 * result + (pointsReq != null ? pointsReq.hashCode() : 0);
+        result = 31 * result + (pointsCost != null ? pointsCost.hashCode() : 0);
+        return result;
+    }
 }

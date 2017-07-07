@@ -2,6 +2,7 @@ package models.board;
 
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 
 /**
@@ -38,5 +39,21 @@ public class TheMarket implements Serializable {
 
     public void setSpace (ActionSpace space, int i) {
         this.space[i] = space;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TheMarket)) return false;
+
+        TheMarket theMarket = (TheMarket) o;
+
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(space, theMarket.space);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(space);
     }
 }

@@ -106,4 +106,26 @@ public class Resources implements Serializable {
     public String toString(){
         return "Woods: "+this.woods + " Stones: "+this.stones+ " Servants: "+this.servants +" Coins: "+this.coins;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Resources)) return false;
+
+        Resources resources = (Resources) o;
+
+        if (woods != resources.woods) return false;
+        if (stones != resources.stones) return false;
+        if (servants != resources.servants) return false;
+        return coins == resources.coins;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = woods;
+        result = 31 * result + stones;
+        result = 31 * result + servants;
+        result = 31 * result + coins;
+        return result;
+    }
 }

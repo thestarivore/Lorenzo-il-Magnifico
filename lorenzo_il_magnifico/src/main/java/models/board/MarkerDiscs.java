@@ -17,4 +17,18 @@ public class MarkerDiscs implements Serializable {
         this.player = player;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MarkerDiscs)) return false;
+
+        MarkerDiscs that = (MarkerDiscs) o;
+
+        return player != null ? player.equals(that.player) : that.player == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return player != null ? player.hashCode() : 0;
+    }
 }

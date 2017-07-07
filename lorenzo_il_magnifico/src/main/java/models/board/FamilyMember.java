@@ -81,4 +81,28 @@ public class FamilyMember implements Serializable {
     public void setPlayerColor(TheGame.COLORS playerColor) {
         this.playerColor = playerColor;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FamilyMember)) return false;
+
+        FamilyMember that = (FamilyMember) o;
+
+        if (value != that.value) return false;
+        if (isUsed != that.isUsed) return false;
+        if (diceColor != that.diceColor) return false;
+        if (playerColor != that.playerColor) return false;
+        return dice != null ? dice.equals(that.dice) : that.dice == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = diceColor != null ? diceColor.hashCode() : 0;
+        result = 31 * result + (playerColor != null ? playerColor.hashCode() : 0);
+        result = 31 * result + (dice != null ? dice.hashCode() : 0);
+        result = 31 * result + value;
+        result = 31 * result + (isUsed ? 1 : 0);
+        return result;
+    }
 }
