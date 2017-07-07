@@ -190,7 +190,7 @@ public class GameFacadeController {
         }*/
 
 
-   
+
 
 
     /**
@@ -228,13 +228,6 @@ public class GameFacadeController {
         return true;
     }
 
-    public boolean checkCardRequest(Player player, DevelopmentCard card) {
-        Resources cardRes = card.getCost();
-        Resources playerRes = player.getRes();
-        Points cardPoints = card.getPointsReq();
-        Points playerPoints = player.getPoints();
-        return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
-    }
 
     /**
      * Get Period instance at the current index in the controller

@@ -187,9 +187,6 @@ public class GameView {
             }
         };
 
-        for (int i = 0; i < list.size(); i++)
-            printLine(list.get(i));
-
         return parseInt(getValidParameter(list));
     }
 
@@ -307,6 +304,16 @@ public class GameView {
         action[3] = getSpace(board);
 
         return action;
+    }
+
+    public int[] getHarvestAction(Player player, Board board) {
+        int playerHarvestCard = player.getPersonalBoard().getTerritories().size();
+        int[] harvestAction = new int[playerHarvestCard];
+
+        harvestAction[0] = getFamilyMember(player);
+        harvestAction[1] = getServant(player);
+
+        return harvestAction;
     }
 
 

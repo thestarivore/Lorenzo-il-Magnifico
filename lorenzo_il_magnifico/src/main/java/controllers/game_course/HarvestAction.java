@@ -8,13 +8,15 @@ import models.board.FamilyMember;
  */
 public class HarvestAction extends Action {
 
-    /*public HarvestAction(GameFacadeModel model){
-        super(model);
+    public HarvestAction(int[] choice){
+        super(choice);
+
+
     }
 
 
 
-    public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
+   /* public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
         boolean free;
 
         free = checkFreeActionSpaceTowerSpace();

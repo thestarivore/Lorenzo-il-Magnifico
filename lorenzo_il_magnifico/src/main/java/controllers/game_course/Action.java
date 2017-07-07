@@ -3,6 +3,7 @@ package controllers.game_course;
 import controllers.Player;
 import game.TheGame;
 import models.CouncilPrivilege;
+import models.Points;
 import models.Resources;
 import models.board.Board;
 import models.board.Dice;
@@ -44,11 +45,11 @@ public class Action implements Serializable {
     /**
      * Basic Action Constructor used for debug
      */
-    public Action(int[] debugToken) {
-        this.familyMember = debugToken[0];
-        this.servants = debugToken[1];
-        this.tower = debugToken[2];
-        this.space = debugToken[3];
+    public Action(int[] choice) {
+        this.familyMember = choice[0];
+        this.servants = choice[1];
+        this.tower = choice[2];
+        this.space = choice[3];
     }
 
     /**
@@ -349,6 +350,15 @@ public class Action implements Serializable {
         }
        return valid;
     }*/
+
+    public boolean checkCardRequest(Player player, DevelopmentCard card) {
+        Resources cardRes = card.getCost();
+        Resources playerRes = player.getRes();
+        Points cardPoints = card.getPointsReq();
+        Points playerPoints = player.getPoints();
+        return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
+    }
+
 
 }
 
