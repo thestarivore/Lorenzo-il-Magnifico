@@ -218,47 +218,45 @@ public class Board implements Serializable {
         return actionSpaces;
     }
 
-    public String[] getAvailableActionSpace() {
+    public boolean[] getAvailableActionSpace() {
 
-        String[] availableActionSpace = new String[Board.NUMBER_ACTION_SPACES];
+        boolean[] availableActionSpace = new boolean[Board.NUMBER_ACTION_SPACES];
 
         //Get available Tower spaces.
         for(int i = 0; i < Board.NUMBER_ACTION_SPACES - 9 ; i++) {
             if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
-                availableActionSpace[i] = "Not Available";
+                availableActionSpace[i] = false;
             } else {
-                availableActionSpace[i] = String.valueOf(i);
+                availableActionSpace[i] = true;
             }
         }
 
         //The Council Palace is always available.
-        availableActionSpace[16] = String.valueOf(16);
+        availableActionSpace[16] = true;
 
         //Harvest Single space could be occupied, Multiple space always available.
         if (this.getActionSpacesByIndex(17).get(0).getOccupied()) {
-            availableActionSpace[17] = "Not Available";
+            availableActionSpace[17] = false;
         } else {
-            availableActionSpace[17] = String.valueOf(17);
+            availableActionSpace[17] = true;
         }
-        availableActionSpace[18] = String.valueOf(18);
+        availableActionSpace[18] = true;
 
         ///Production Single space could be occupied, Multiple space always available.
         if (this.getActionSpacesByIndex(19).get(0).getOccupied()) {
-            availableActionSpace[19] = "Not Available";
+            availableActionSpace[19] = false;
         } else {
-            availableActionSpace[19] = String.valueOf(19);
+            availableActionSpace[19] = true;
         }
-        availableActionSpace[20] = String.valueOf(20);
+        availableActionSpace[20] = true;
 
         for (int i = 21; i < Board.NUMBER_ACTION_SPACES; i++){
             if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
-                availableActionSpace[i] = "Not Available";
+                availableActionSpace[i] = false;
             } else {
-                availableActionSpace[i] = String.valueOf(i);
+                availableActionSpace[i] = true;
             }
         }
-
-
 
         return availableActionSpace;
     }

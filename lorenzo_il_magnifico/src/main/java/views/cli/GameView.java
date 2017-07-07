@@ -160,7 +160,7 @@ public class GameView {
 
     public int getActionSpace(Board board) {
 
-        String[] availableActionSpace = board.getAvailableActionSpace();
+        boolean[] availableActionSpace = board.getAvailableActionSpace();
 
         //Print the message.
         printLine("Choose space");
@@ -169,11 +169,14 @@ public class GameView {
         ArrayList<String> list = new ArrayList<String>() {
             {
                 for (int i = 0; i < Board.NUMBER_ACTION_SPACES; i++){
-                    if (!("not available").equalsIgnoreCase(availableActionSpace[i]))
+                    if (availableActionSpace[i] == true)
                         add(String.valueOf(i));
                 }
             }
         };
+
+        for (int i = 0; i < list.size(); i++)
+            printLine(list.get(i));
 
         return parseInt(getValidParameter(list));
     }

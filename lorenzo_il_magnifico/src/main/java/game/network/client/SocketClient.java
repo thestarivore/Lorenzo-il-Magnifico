@@ -358,7 +358,6 @@ public class SocketClient implements ClientInterface{
         // maybe a control in the future, as the server sends back
         // the action we've sent.
         //manageUpdatedBoard(command, obj);
-        gameView.printMap((Board)obj);
     }
 
 }

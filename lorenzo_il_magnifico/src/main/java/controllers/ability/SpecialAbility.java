@@ -7,7 +7,7 @@ public class SpecialAbility {
 
     private Gain gain;
 
-    SpecialAbility(){
+    public SpecialAbility(){
         this.gain=new Gain();
     }
 

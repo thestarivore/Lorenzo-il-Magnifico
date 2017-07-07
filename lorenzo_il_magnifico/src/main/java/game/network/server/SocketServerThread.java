@@ -207,8 +207,10 @@ public class SocketServerThread extends Thread{
     private void manageAskBoardUpdates(String command, Object obj) throws IOException {
         //There should be no arguments here
 
+
         //Send the UPDATED_BOARD command back + the updated board
         out.writeObject(new String(ProtocolCommands.UPDATED_BOARD.getCommand()));
+        out.reset();
         out.writeObject(getTheController().getBoard());
         out.flush();
     }
@@ -237,14 +239,9 @@ public class SocketServerThread extends Thread{
         //Send Action to the controller so that he can manage it
         getTheController().managePlayerAction(action);
 
-        GameView gameView = new GameView();
-
-        Board board =  getTheController().getBoard();
-        gameView.printMap(board);
-
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
         out.writeObject(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()));
-        out.writeObject(board);
+        out.writeObject(ProtocolCommands.NONE.getCommand());
         out.flush();
     }
 

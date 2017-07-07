@@ -67,7 +67,7 @@ public class Action implements Serializable {
     }
 
     /**
-     * Set Game reference Board
+     * Set Board Game reference
      * @param board
      */
     public void setBoard(Board board) {
@@ -99,7 +99,7 @@ public class Action implements Serializable {
 
         if (free) {
 
-            //Check if there are other family member on the same tower, and if player got enough coins to place family member
+            //Check if there are other family member on the same tower and if player got enough coins to place family member
             for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++) {
                 if ((board.getActionSpacesByIndex(actionSpaceID).get(0).getOccupied()) && (player.getRes().getCoins() >= 3)) {
                     int coins = player.getRes().getCoins() - 3;
@@ -302,8 +302,12 @@ public class Action implements Serializable {
      */
     public FamilyMember selectFamilyMember(Player player, int type, int servant) {
         player.getFamilyMember(type).addValue(servant);
-        player.getFamilyMember(type).setUsed();
 
+        //Update player servant value
+        int newServantValue = player.getRes().getServants() - servant;
+        player.getRes().setServants(newServantValue);
+
+        player.getFamilyMember(type).setUsed();
         return player.getFamilyMember(type);
     }
 
