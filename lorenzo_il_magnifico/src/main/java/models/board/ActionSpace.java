@@ -149,4 +149,9 @@ public class ActionSpace implements Serializable {
         result = 31 * result + (isOccupied ? 1 : 0);
         return result;
     }
+
+    @Override
+    public String toString(){
+        return "Resources: " + this.bonusRes + "\t"+ "Points: " + this.bonusPoints;
+    }
 }

@@ -620,9 +620,7 @@
   },
   {
     "name":"Residence",
-    "deck":{
-      "tower":3
-    },
+    "cardType":3,
     "period":1,
     "cost":{
       "stones":2
@@ -677,9 +675,7 @@
   },
   {
     "name":"Treasury",
-    "deck":{
-      "tower":3
-    },
+    "cardType":3,
     "period":2,
     "cost":{
       "stones":3
@@ -710,9 +706,7 @@
   },
   {
     "name":"Painters' Guild",
-    "deck":{
-      "tower":3
-    },
+    "cardType":3,
     "period":2,
     "cost":{
       "woods":4
@@ -743,9 +737,7 @@
   },
   {
     "name":"Sculptors' Guild",
-    "deck":{
-      "tower":3
-    },
+    "cardType":3,
     "period":2,
     "cost":{
       "stones":4
@@ -1058,9 +1050,7 @@
   },
   {
     "name":"Cathedral",
-    "deck":{
-      "tower":3
-    },
+    "cardType":3,
     "period":3,
     "cost":{
       "stones":4,
@@ -2050,28 +2040,6 @@
         "finalVictoryPoints": 5
       }
     }
-    },
-    "description":"This card is useful"
-  },
-  {
-    "name":"Support the Pope",
-    "cardType":4,
-    "period":3,
-    "pointsCost":{
-      "military":15
-    },
-    "pointsReq":{
-      "military":8
-    },
-    "immediateEffect":{
-      "points":{
-        "faith":4
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "finalVictoryPoints":8
-      }
     },
     "description":"This card is useful"
   },

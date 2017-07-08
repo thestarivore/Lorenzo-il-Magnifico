@@ -1,0 +1,292 @@
+{
+  "timeOutPlayer": 10,
+  "timeOutMove": 10,
+  "tower": [{
+    "numberOfTower": 1,
+    "space": [
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 1
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 2
+        }
+      }
+    ]
+  },{
+    "numberOfTower": 2,
+    "space": [
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 1,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 2,
+          "woods": 0
+        }
+      }
+    ]
+  },{
+    "numberOfTower": 3,
+    "space": [
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 1,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 2,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      }
+    ]
+  },{
+    "numberOfTower": 4,
+    "space": [
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 1,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 2,
+          "stones": 0,
+          "woods": 0
+        }
+      }
+    ]
+  }],
+  "market": {
+    "space": [
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 5,
+          "stones": 0,
+          "woods": 0
+        }
+      },
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 5,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      },{
+        "bonusPoints": {
+          "military": 3,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 2,
+          "stones": 0,
+          "woods": 0
+        }
+      },
+      {
+        "bonusPoints": {
+          "military": 0,
+          "faith": 0,
+          "victory": 0,
+          "finalVictoryPoints": 0
+        },
+        "bonusRes": {
+          "servants": 0,
+          "coins": 0,
+          "stones": 0,
+          "woods": 0
+        }
+      }
+    ]
+  }
+}
