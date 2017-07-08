@@ -11,20 +11,20 @@ import java.io.Serializable;
 public class Defect implements Serializable{
     private Points points;
     private Resources resources;
-    private boolean harvest; // if it's true every harvest action has a value reduced by the number indicated in dice
-    private boolean production; // if it's true every production action has a value reduced by the number indicated in dice
-    private boolean familyMember; // if it's true every family member has a value reduced by the number indicated in dice
+    private boolean harvest; /** if it's true every harvest action has a value reduced by the number indicated in dice**/
+    private boolean production; /** if it's true every production action has a value reduced by the number indicated in dice**/
+    private boolean familyMember; /** if it's true every family member has a value reduced by the number indicated in dice**/
     private int dice;
-    private int cardType; //1 Territory, 2 Characters, 3 Buildings 4 Venture
+    private int cardType; /** Territory, 2 Characters, 3 Buildings 4 Venture**/
     private boolean noFinalPoints;
     private boolean noMarketSpace;
-    private boolean looseVictoryPoints; //if it's true you loose 1 victory point every "victory" or "military" points
-    private boolean loosePointsCard; ////if it's true you loose 1 victory points for each stones and woods on the cards
-    private boolean loosePointsEveryResources;//if it's true you loose 1 victory points for each resource
+    private boolean looseVictoryPoints; /**if it's true you loose 1 victory point every "victory" or "military" points**/
+    private boolean loosePointsCard; /**if it's true you loose 1 victory points for each stones and woods on the cards**/
+    private boolean loosePointsEveryResources;//if it's true you loose 1 victory points for each resource**/
     private int victory;
     private int military;
-    private int moreServants; //servants spent to increase the value of the action
-    private boolean looseFirstAction; //if it's true the player loose his first action
+    private int moreServants; /**servants spent to increase the value of the action**/
+    private boolean looseFirstAction; /**if it's true the player loose his first action**/
 
 
     public Defect(){
