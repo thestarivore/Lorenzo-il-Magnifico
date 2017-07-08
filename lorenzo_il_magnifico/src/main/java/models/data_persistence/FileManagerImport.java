@@ -94,4 +94,3 @@ public class FileManagerImport implements Serializable{
         return configFile;
     }
 }
-
