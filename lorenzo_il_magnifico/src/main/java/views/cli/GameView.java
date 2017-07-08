@@ -197,7 +197,7 @@ public class GameView {
 
         councilAction[0] = getFamilyMember(player);
         councilAction[1] = getServant(player);
-        councilAction[3] = getCouncilPrivilege();
+        councilAction[2] = getCouncilPrivilege();
 
         return councilAction;
     }

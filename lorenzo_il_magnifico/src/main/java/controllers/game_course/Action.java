@@ -32,6 +32,8 @@ public class Action implements Serializable {
     protected int servants;
     private int tower;
     private int space;
+    private int councilPrivilegeChoice;
+    private int actionChoice;
 
     //Constants
     public final static int NUMBER_OF_ACTION_INFO = 4;
@@ -50,8 +52,12 @@ public class Action implements Serializable {
 
         this.familyMember = userInfo[0];
         this.servants = userInfo[1];
+        this.actionChoice = actionChoice;
 
-        if (userInfo.length > 2) {
+        if (userInfo.length > 2 && actionChoice == 1)
+            this.councilPrivilegeChoice = userInfo[2];
+
+        if (userInfo.length > 2 && actionChoice == 2) {
             this.tower = userInfo[2];
             this.space = userInfo[3];
         }
@@ -72,7 +78,6 @@ public class Action implements Serializable {
 
         this.councilPrivilege = new CouncilPrivilege();
         this.cardType = "";
-        this.checkPrivilege = false;
         this.checkCard = false;
         this.diceCost = 1;
     }
@@ -85,17 +90,22 @@ public class Action implements Serializable {
         this.board = board;
     }
 
-
-    /*public boolean placeFamilyMemberCouncilPalace(FamilyMember familyMember) {
+    /**
+     * Place family member on Council Palace action space.
+     * @param familyMember
+     * @return
+     */
+    public boolean placeFamilyMemberCouncilPalace(FamilyMember familyMember) {
         board.getCouncilPalace().addSpaces();
         int space = board.getCouncilPalace().getSpaces().size();
-        board.getCouncilPalace().getSpace(space).setFamilyMember(familyMember);
+        board.getCouncilPalace().getSpace(space - 1).setFamilyMember(familyMember);
+        board.getCouncilPalace().getSpace(space - 1).setOccupied();
         return true;
-    }*/
+    }
 
 
     /**
-     * Place family member on action space.
+     * Place family member on Tower action space.
      * @param tower
      * @param space
      * @param famMember
@@ -126,6 +136,7 @@ public class Action implements Serializable {
                 board.getTower(tower).getSpace(space).setOccupied();
             }
         }
+
         return free;
     }
 
@@ -227,12 +238,39 @@ public class Action implements Serializable {
      * related to.
      */
     public boolean execute(Player player) {
-        boolean check;
-        //Perform tower action choice
-        check = familyMemberAction(player, tower, space, familyMember, servants );
-        //performTowerAction(player, actionSpaceID,)
-        return check;
+        boolean check = false;
 
+        //Tower choice
+        if(actionChoice == 0) {
+            //Perform tower action choice
+            check = towerAction(player, tower, space, familyMember, servants);
+            //performTowerAction(player, actionSpaceID,)
+        }
+        //The Council Palace choice
+        if(actionChoice == 1)
+            check = councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice);
+
+        return check;
+    }
+
+    /**
+     * If requirements are satisfied, place family member on Council Palace.
+     * @param player
+     * @param type
+     * @param servant
+     * @param councilPrivilegeChoice
+     * @return
+     */
+    public boolean councilPalaceAction(Player player, int type, int servant, int councilPrivilegeChoice) {
+        boolean check = false;
+
+        //Select family member choose by player, and add servant to his value.
+        FamilyMember familyMember = selectFamilyMember(player, type, servant);
+
+        //Check if the family member satisfied action space request
+        if (checkFamilyMemberCouncilChoice(familyMember))
+            check = placeFamilyMemberCouncilPalace(familyMember);
+        return check;
     }
 
 
@@ -245,7 +283,7 @@ public class Action implements Serializable {
      * @param servant
      * @return
      */
-    public boolean familyMemberAction(Player player, int tower, int space, int type, int servant) {
+    public boolean towerAction(Player player, int tower, int space, int type, int servant) {
         boolean check = false;
 
         //Select family member choose by player, and add servant to his value.
@@ -273,6 +311,18 @@ public class Action implements Serializable {
         if (familyMember.getValue() >= board.getTower(tower).getSpace(space).getDiceCost())
             valid = true;
 
+        return valid;
+    }
+
+    /**
+     * Check if family member value is greater than 1.
+     * @param familyMember
+     * @return
+     */
+    public boolean checkFamilyMemberCouncilChoice(FamilyMember familyMember) {
+        boolean valid = false;
+        if (familyMember.getValue() >= 1)
+            valid = true;
         return valid;
     }
 

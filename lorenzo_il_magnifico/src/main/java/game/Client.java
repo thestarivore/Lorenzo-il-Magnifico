@@ -259,6 +259,8 @@ public class Client {
                                 }break;
                                 case 1:{
                                     Action action = client.getCouncilAction(actionType);
+                                    client.sendAction(action);
+                                    myTurn = false;
                                 }break;
                                 case 2: {
                                     Action action = client.getHarvestAction(actionType);
