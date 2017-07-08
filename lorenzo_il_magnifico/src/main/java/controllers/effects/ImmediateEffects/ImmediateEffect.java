@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class ImmediateEffect implements Serializable {
     private Resources resources;
     private Points points;
-    private Action bonusAction;
+    //private Action bonusAction;
     private boolean isBonus;
     private boolean privilege;
     private int numberOfPrivilege;
@@ -47,7 +47,7 @@ public class ImmediateEffect implements Serializable {
         this.points = points;
     }
 
-    public Action getBonusAction() {
+   /* public Action getBonusAction() {
         return bonusAction;
     }
 
@@ -55,6 +55,7 @@ public class ImmediateEffect implements Serializable {
         this.bonusAction = bonusAction;
     }
 
+    */
     public void addResources(Player player) {
         player.getRes().addResources(resources);
     }
@@ -92,6 +93,6 @@ public class ImmediateEffect implements Serializable {
 
     @Override
     public String toString(){
-        return "\n\tResources: " + this.resources + "\n"+ "\tPoints: " + this.points+"\n"+"\tBonus Action: "+this.bonusAction+ "\n"+ "\tisBonus: " + this.isBonus+"\n\tPrivileges " + this.privilege;
+        return "\n\tResources: " + this.resources + "\n"+ "\tPoints: " + this.points+"\n"+ "\tisBonus: " + this.isBonus+"\n\tPrivileges " + this.privilege;
     }
 }

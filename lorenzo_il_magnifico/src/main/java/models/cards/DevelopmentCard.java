@@ -31,6 +31,8 @@ public class DevelopmentCard implements Card, Serializable {
     public static final int MAX_DESCRIPTION_LENGTH = 75;
 
     public DevelopmentCard() {
+        this.immediateEffect=new ImmediateEffect();
+        this.permanentEffect = new PermanentEffect();
         this.name  = "commercial_hub";
         this.pointsCost = new Points();
         this.cost = new Resources(1);

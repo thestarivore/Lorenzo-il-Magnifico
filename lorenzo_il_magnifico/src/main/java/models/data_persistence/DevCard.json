@@ -604,13 +604,13 @@
     },
     "PermanentEffect":{
     "Exchange":[{
-      "exresources": {
+      "exResources": {
         "coins": 3
       },
       "firstP": {
         "woods": 1
       },
-      "exresources": {
+      "exResources": {
         "coins": 5
       },
       "firstP": {
@@ -639,13 +639,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "exresources": {
+        "exResources": {
           "coins": 3
         },
         "firstP": {
           "stones": 1
         },
-        "exresources": {
+        "exResources": {
           "coins": 5
         },
         "firstP": {
@@ -674,7 +674,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "faith": 1
         },
         "firstP": {
@@ -735,7 +735,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "exresources": {
+        "exResources": {
           "stones":2,
           "woods":2
         },
@@ -766,13 +766,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 3
         },
         "firstP": {
           "coins": 1
         },
-        "expoints": {
+        "exPoints": {
           "victory": 5
         },
         "firstP": {
@@ -803,13 +803,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 3
         },
         "firstP": {
           "woods": 1
         },
-        "expoints": {
+        "exPoints": {
           "victory": 7
         },
         "firstP": {
@@ -839,13 +839,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 3
         },
         "firstP": {
           "stones": 1
         },
-        "expoints": {
+        "exPoints": {
           "victory": 7
         },
         "firstP": {
@@ -873,7 +873,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 6
         },
         "firstP": {
@@ -904,10 +904,10 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "exresources": {
+        "exResources": {
           "coins": 2
         },
-        "expoints":{
+        "exPoints":{
           "victory":1
          },
         "firstP": {
@@ -936,7 +936,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "military": 3
         },
         "firstP": {
@@ -1090,10 +1090,10 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "military":3
         },
-        "exresources": {
+        "exResources": {
           "servants":2
         },
         "firstP": {
@@ -1123,7 +1123,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "faith":2
           },
         "firstP": {
@@ -1154,7 +1154,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "military":3,
           "victory":1
         },
@@ -1234,7 +1234,7 @@
         "coins":4
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction":{
       "increase": 2,
       "cardType": 3,
@@ -1257,7 +1257,7 @@
         "coins":4
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "cardType": 2,
@@ -1283,7 +1283,7 @@
       "privilege":true,
       "numberOfprivilege":1
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "cardType": 4
@@ -1302,7 +1302,7 @@
         "coins":2
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "actionType": 1
@@ -1321,7 +1321,7 @@
         "coins":3
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "actionType": 3
@@ -1345,7 +1345,7 @@
         "faith":4
       }
     },
-    "Permanenteffect":{
+    "PermanentEffect":{
       "noBonus":true
       },
     "description":"This card is useful"
