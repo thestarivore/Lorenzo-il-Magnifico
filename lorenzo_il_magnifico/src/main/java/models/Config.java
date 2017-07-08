@@ -20,12 +20,14 @@ public class Config {
 
     private Tower[] tower;
     private TheMarket market;
+    private int[] faithPoints;
 
     public Config(){
         this.timeOutGame = 0 ;
         this.timeOutMove = 0;
         this.market = new TheMarket();
         this.tower  = new Tower[4];
+        this.faithPoints[16]= 0;
     }
 
     public int getTimeOutGame() {
@@ -52,6 +54,14 @@ public class Config {
 
     public void setMarket(TheMarket market) {
         this.market = market;
+    }
+
+    public int[] getFaithPoints() {
+        return faithPoints;
+    }
+
+    public void setFaithPoints(int[] faithPoints) {
+        this.faithPoints = faithPoints;
     }
 
     public String toString(){
