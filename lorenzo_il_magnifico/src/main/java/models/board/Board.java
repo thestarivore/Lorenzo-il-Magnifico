@@ -380,6 +380,13 @@ public class Board implements Serializable {
         result = 31 * result + (phase != null ? phase.hashCode() : 0);
         return result;
     }
+
+    /**
+     * Get number of players
+     */
+    public int getNumberOfPlayer() {
+        return numberOfPlayer;
+    }
 }
 
 
