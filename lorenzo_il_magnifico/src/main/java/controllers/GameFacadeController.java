@@ -5,16 +5,10 @@ import controllers.game_course.Period;
 import controllers.game_course.Round;
 import game.TheGame;
 import models.GameFacadeModel;
-import models.Points;
-import models.Resources;
 import models.board.Board;
-import models.board.Dice;
-import models.board.FamilyMember;
 import models.cards.Deck;
-import models.cards.DevelopmentCard;
 import views.cli.GameView;
 
-import java.io.Serializable;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -337,11 +331,23 @@ public class GameFacadeController {
 
     }
 
+    /**
+     * Fill the towers with the cards in the deck
+     */
     public void fillTheTower(){
+        //Iterate each tower
         for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
-            for (int j = 0; j < Board.FIXED_NUMBER_OF_CARD; j++) {
+            //Iterate each space in the tower
+            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
                 getBoard().getTower(i).getSpace(j).setCard(getFacadeModel().getDeck(i).getCardToFillTower());
             }
         }
+    }
+
+    /**
+     * Once per round the first player throws the dice.
+     */
+    public void ThrowDice() {
+
     }
 }

@@ -8,7 +8,7 @@ import models.Points;
 import models.Resources;
 import models.board.*;
 import models.cards.DevelopmentCard;
-import utility.Constants;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -248,7 +248,7 @@ public class GameView {
         //List the available action space.
         ArrayList<String> list = new ArrayList<String>() {
             {
-                for (int i = 0; i < Board.FIXED_NUMBER_OF_CARD; i++){
+                for (int i = 0; i < Board.CARDS_PER_TOWER; i++){
                     if (availableTowerActionSpace[i] == true)
                         add(String.valueOf(i));
                 }
@@ -501,7 +501,7 @@ public class GameView {
 
 
         //Print static or dinamic action spaces
-        for (int j = 0; j < board.FIXED_NUMBER_OF_CARD; j++) {
+        for (int j = 0; j < board.CARDS_PER_TOWER; j++) {
 
 
             for (int i = 0; i < board.FIXED_NUMBER_OF_TOWER; i++) {

@@ -1,10 +1,7 @@
 package views.gui;
 
 
-import game.TheGame;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -82,7 +79,7 @@ public class GameBoard{
 
 
         for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
-            for (int j = 0; j < Board.FIXED_NUMBER_OF_CARD; j++) {
+            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
 
                 if (!board.getTower(i).getSpace(j).getOccupied()) {
                     String url = GuiUtil.getDevCardURL(board.getTower(i).getSpace(j).getCard().getName());
@@ -101,7 +98,7 @@ public class GameBoard{
         GridPane gridPane = (GridPane)anchorPane.getChildren().get(0);
 
         for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
-            for (int j = 0; j < Board.FIXED_NUMBER_OF_CARD; j++) {
+            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
 
                 if(board.getTower(i).getSpace(j).getOccupied()) {
 

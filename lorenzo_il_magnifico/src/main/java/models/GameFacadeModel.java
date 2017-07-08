@@ -20,7 +20,10 @@ public class GameFacadeModel {
 
     public static final int FIXED_NUMBER_OF_DEVELOPMENTDECK = 4;
 
-
+    /**
+     * Basic Constructor of the Facade Model of the MVC
+     * @param numberOfPlayer
+     */
     public GameFacadeModel (int numberOfPlayer) {
         //Create a new Board
         this.board = new Board(numberOfPlayer);
@@ -40,9 +43,6 @@ public class GameFacadeModel {
         //Print cards
         for (int i = 0; i < Deck.MAX_DECK_CARDS_NUMBER; i++)
             System.out.println(deck[1].getCard().get(i).getName());
-
-
-
     }
 
     public Board getBoard() {

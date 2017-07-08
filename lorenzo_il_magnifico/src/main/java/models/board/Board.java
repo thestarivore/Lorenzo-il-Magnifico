@@ -30,7 +30,8 @@ public class Board implements Serializable {
      * Board Constants
      */
     public final static int FIXED_NUMBER_OF_TOWER = 4;
-    public final static int FIXED_NUMBER_OF_CARD = 4;
+    public static final int FIXED_NUM_OF_DICE = 3;
+    public final static int CARDS_PER_TOWER = 4;
     public final static int ACTION_AREAS = 5;
     public final static int NUMBER_ACTION_SPACES = 25;
     //Complete list of the indexes of th Action Spaces
@@ -84,8 +85,9 @@ public class Board implements Serializable {
         for (int i=0; i<Constants.FIXED_NUM_OF_TRACK; i++)
             this.tracks[i] = new Track();
 
-        this.dice = new Dice[Constants.FIXED_NUM_OF_DICE];
-        for (int i=0 ; i<Constants.FIXED_NUM_OF_DICE ; i++) {
+        //Dice init
+        this.dice = new Dice[FIXED_NUM_OF_DICE];
+        for (int i=0 ; i < FIXED_NUM_OF_DICE ; i++) {
             this.dice[i]=new Dice();
             this.dice[i].setColor(i);
         }
@@ -93,7 +95,6 @@ public class Board implements Serializable {
         this.numberOfPlayer = numberOfPlayer;
         this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
-
     }
 
     /**
@@ -232,10 +233,10 @@ public class Board implements Serializable {
 
     public boolean[] getAvailableTowerActionSpace(int tower) {
 
-        boolean[] availableActionSpace = new boolean[Board.FIXED_NUMBER_OF_CARD];
+        boolean[] availableActionSpace = new boolean[Board.CARDS_PER_TOWER];
 
         //Get available Tower spaces.
-        for(int i = 0; i < Board.FIXED_NUMBER_OF_CARD ; i++) {
+        for(int i = 0; i < Board.CARDS_PER_TOWER; i++) {
             if (this.getTower(tower).getSpace(i).getOccupied()) {
                 availableActionSpace[i] = false;
             } else {

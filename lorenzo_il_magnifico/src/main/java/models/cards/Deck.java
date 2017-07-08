@@ -55,6 +55,10 @@ public class Deck implements Serializable {
         return developmentCards;
     }
 
+    /**
+     * Get the first card in the deck, so that it can fill the tower
+     * @return
+     */
     public DevelopmentCard getCardToFillTower() {
         DevelopmentCard newCard = developmentCards.get(0);
         developmentCards.remove(0);
