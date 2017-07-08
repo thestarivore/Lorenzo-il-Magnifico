@@ -14,24 +14,9 @@ public class Deck implements Serializable {
 
     public Deck(List<DevelopmentCard> developmentCardsFile, int deck) {
         this.developmentCards = new ArrayList<DevelopmentCard>();
-        //TODO: modificare costruzione dei deck
-        if (deck == 0) {
-            for (int i = 0; i < 24; i++)
-                developmentCards.add(developmentCardsFile.get(i));
-        }
 
-        if (deck == 1) {
-            for (int i = 24; i < 48; i++)
-                developmentCards.add(developmentCardsFile.get(i));
-        }
-
-        if (deck == 2) {
-            for (int i = 48; i < 72; i++)
-                developmentCards.add(developmentCardsFile.get(i));
-        }
-
-        if (deck == 3) {
-            for (int i = 72; i < developmentCardsFile.size(); i++)
+        for (int i = 0; i < developmentCardsFile.size(); i++) {
+            if(developmentCardsFile.get(i).getCardType() == deck + 1)
                 developmentCards.add(developmentCardsFile.get(i));
         }
 

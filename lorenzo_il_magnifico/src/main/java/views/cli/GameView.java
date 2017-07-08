@@ -219,10 +219,17 @@ public class GameView {
      * -action[1] get Servant
      * -action[2] get Tower
      * -action[3] get Space
+     * -action[4] get CouncilPrivilege ImmediateEffect
+     * -action[5] get Tower ImmediateEffect
+     * -action[6] get Space ImmediateEffect
+     * -action[7] get Servants ImmediateEffect
      * @return String with the action done by the player
      */
     public int[] getAction(Player player, Board board){
         int[] action = new int[Action.NUMBER_OF_ACTION_INFO];
+
+        for (int i = 0; i < Action.NUMBER_OF_ACTION_INFO; i++)
+            action[i] = 0;
 
         //Get all the info required for the action definition
         setGettingAction(true);
@@ -230,6 +237,25 @@ public class GameView {
         action[1] = getServant(player);
         action[2] = getTower(board);
         action[3] = getSpace(board, action[2]);
+
+
+        //Get card from Action Space selected
+        DevelopmentCard devCard = board.getTower(action[2]).getSpace(action[3]).getCard();
+
+        //Check if there is Council Privilege Immediate effect
+        if (devCard.getImmediateEffect().getPrivilege())
+            action[4] = getCouncilPrivilege();
+
+        //Check if there is Take Another Card Immedaiate effect or Harvest/Production Immediate effect
+        if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
+            if (devCard.getImmediateEffect().getImmediateTakeCard().getCardType() == 0)
+                action[5] = getTower(board);
+            else action[5] = devCard.getImmediateEffect().getImmediateTakeCard().getCardType();
+            action[6] = getSpace(board, action[5]);
+            action[7] = getServant(player);
+        } else {
+            //TODO: fare richiesta per produzione e raccolto di effetti immediati
+        }
         setGettingAction(false);
 
         return action;
@@ -539,9 +565,9 @@ public class GameView {
                     card[i] = formatCardSize(board.getTower(i).getSpace(j).getCard().getName());
                     cost[i] = formatResourcesCost(board.getTower(i).getSpace(j).getCard().getCost(), board.getTower(i).getSpace(j).getCard().getPointsReq());
                     String desc = board.getTower(i).getSpace(j).getCard().getDescription();
-                    description1[i] = formatCardSize(desc.substring(0, 24));
-                    description2[i] = formatCardSize(desc.substring(25, 49));
-                    description3[i] = formatCardSize(desc.substring(50, 74));
+                    description1[i] = formatCardSize("");
+                    description2[i] = formatCardSize("");
+                    description3[i] = formatCardSize("");
                     playerColor[i] = formatBonusSpace("");
                     familyMemberColor[i] = formatBonusSpace("");
                 }

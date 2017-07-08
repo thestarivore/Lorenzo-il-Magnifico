@@ -2,6 +2,7 @@ package game;
 
 
 import controllers.RemotePlayer;
+import models.Resources;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,8 @@ public class Lobby {
             //Calculate and set player turn
             int numberOfPlayers = lastGame.getNumberOfPlayers();
             player.setTurnOrder(numberOfPlayers +1);
+            System.err.println(player.getTurnOrder());
+            player.setRes(new Resources(player.getTurnOrder()));
 
             //Add the new arrived player to the game
             lastGame.addPlayer(player);

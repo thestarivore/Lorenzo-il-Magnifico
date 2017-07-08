@@ -202,6 +202,8 @@ public class Player implements Serializable {
 
     public void setTurnOrder(int turnOrder) {
         this.turnOrder = turnOrder;
+
+        
     }
 
     @Override

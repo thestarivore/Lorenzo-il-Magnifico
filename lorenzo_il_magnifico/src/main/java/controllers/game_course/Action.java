@@ -33,10 +33,14 @@ public class Action implements Serializable {
     private int tower;
     private int space;
     private int councilPrivilegeChoice;
+    private int towerImmediateEffect;
+    private int spaceImmediateEffect;
+    private int servantImmediateEffect;
     private int actionChoice;
 
+
     //Constants
-    public final static int NUMBER_OF_ACTION_INFO = 4;
+    public final static int NUMBER_OF_ACTION_INFO = 8;
     public final static int NUMBER_OF_COUNCIL_INFO = 3;
 
 
@@ -54,12 +58,20 @@ public class Action implements Serializable {
         this.servants = userInfo[1];
         this.actionChoice = actionChoice;
 
-        if (userInfo.length > 2 && actionChoice == 1)
-            this.councilPrivilegeChoice = userInfo[2];
-
-        if (userInfo.length > 2 && actionChoice == 2) {
-            this.tower = userInfo[2];
-            this.space = userInfo[3];
+        switch (actionChoice) {
+            case 0: {
+                this.tower = userInfo[2];
+                this.space = userInfo[3];
+                this.councilPrivilegeChoice = userInfo[4];
+                this.towerImmediateEffect = userInfo[5];
+                this.spaceImmediateEffect = userInfo[6];
+                this.servantImmediateEffect = userInfo[7];
+            }
+            break;
+            case 1: {
+                this.councilPrivilegeChoice = userInfo[2];
+            }
+            break;
         }
     }
 
@@ -289,8 +301,10 @@ public class Action implements Serializable {
         //Select family member choose by player, and add servant to his value.
         FamilyMember familyMemberSelected = selectFamilyMember(player, type, servant);
 
-        //Check if the family member satisfied action space request
-        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space))
+        DevelopmentCard developmentCard = board.getTower(tower).getSpace(space).getCard();
+
+        //Check if the family member satisfied action space request and if Player satisfied card request
+        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space) && checkCardRequest(player, developmentCard))
             check = placeFamilyMemberOnTower(tower, space, familyMemberSelected, player);
 
         //Add bonus space to the player if there is bonus on action space
@@ -346,21 +360,20 @@ public class Action implements Serializable {
         return player.getFamilyMember(type);
     }
 
-   /* /**
+    /**
      * When family member is placed, this method perform all the corresponding action of this choice.
      * @param player
      * @param tower
      * @param space
      * @return
      */
-    /*public boolean performTowerAction(Player player, int tower, int space) {
-        boolean valid;
+    public boolean performTowerAction(Player player, int tower, int space) {
+        boolean valid = true;
         Resources res = board.getTower(tower).getSpace(space).getBonus();
         player.getRes().addResources(res);
 
         DevelopmentCard devCard = board.getTower(tower).getSpace(space).getCard();
 
-        valid = checkCardRequest(player,devCard);
 
         if (valid) {
 
@@ -386,15 +399,15 @@ public class Action implements Serializable {
             devCard.getImmediateEffect().addPoints(player);
             devCard.getImmediateEffect().addResources(player);
 
-            if(devCard.getImmediateEffect().getIsBonus())
-                if(devCard.getImmediateEffect().getBonusAction().getCheckPrivilege()) {
-                    devCard.getImmediateEffect().getBonusAction().chooseCouncilPrivilege(choice);
+            if (devCard.getImmediateEffect().getPrivilege()){}
+
                 }
                 //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
                     //takeBonusCard(player, devCard);
+        return valid;
         }
-       return valid;
-    }*/
+
+
 
     public boolean checkCardRequest(Player player, DevelopmentCard card) {
         Resources cardRes = card.getCost();

@@ -11,7 +11,7 @@ public class PointsForCharacters implements Serializable {
     private int towerNum;
 
     public PointsForCharacters(){
-        this.towerNum=0;
+        this.towerNum = 0;
     }
 
     public int getTowerNum() {
