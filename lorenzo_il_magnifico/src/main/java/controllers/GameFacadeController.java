@@ -6,11 +6,13 @@ import controllers.game_course.Round;
 import game.TheGame;
 import models.GameFacadeModel;
 import models.board.Board;
+import models.board.Dice;
 import models.cards.Deck;
 import views.cli.GameView;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 /**
@@ -348,6 +350,19 @@ public class GameFacadeController {
      * Once per round the first player throws the dice.
      */
     public void ThrowDice() {
+        int numberDice = getBoard().getDice().length;
 
+        //Iterate dice and set the new values
+        for(int i=0; i<numberDice ;i++){
+            //get die
+            Dice die = getBoard().getDice(i);
+
+            //get a random number between 1 and 6
+            int randomNum = ThreadLocalRandom.current().nextInt(1, 7);
+
+            //Sets the new die
+            die.setNumber(randomNum);
+            getBoard().setDie(die, i);
+        }
     }
 }

@@ -112,7 +112,7 @@ public class Client {
     /**
      * Final State Machine - Current Client State
      */
-    private static FSMClient fsmState  = FSMClient.BOARD_UPDATES;
+    private static FSMClient fsmState  = FSMClient.TURN_UPDATE;
 
     /**
      * Final State Machine - Current Client State
@@ -234,13 +234,13 @@ public class Client {
             //Run Function
             public void run() {
                 switch (fsmState){
-                    case BOARD_UPDATES:{
-                        client.getBoardUpdates();
-                        fsmState = FSMClient.TURN_UPDATE;
-                    }break;
-
                     case TURN_UPDATE:{
                         client.getPLayersTurn();
+                        fsmState = FSMClient.BOARD_UPDATES ;
+                    }break;
+
+                    case BOARD_UPDATES:{
+                        client.getBoardUpdates();
                         fsmState = FSMClient.SEND_ACTION;
                     }break;
 
@@ -270,7 +270,7 @@ public class Client {
                     }break;
 
                     case CASE3:{
-                        fsmState = FSMClient.BOARD_UPDATES;
+                        fsmState = FSMClient.TURN_UPDATE;
                     }break;
                 }
             }

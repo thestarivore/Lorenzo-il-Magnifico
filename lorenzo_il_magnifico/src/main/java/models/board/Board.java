@@ -139,7 +139,28 @@ public class Board implements Serializable {
         return tracks[index];
     }
 
+    /**
+     * Get all dice
+     * @return
+     */
     public Dice[] getDice() { return dice; }
+
+    /**
+     * Set all dice
+     * @param dice
+     */
+    public void setDice(Dice[] dice) {
+        this.dice = dice;
+    }
+
+    /**
+     * Set die at index
+     * @param die
+     * @param index
+     */
+    public void setDie(Dice die, int index) {
+        this.dice[index] = die;
+    }
 
     /**
      * Returns Dice at index
