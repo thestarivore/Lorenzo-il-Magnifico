@@ -228,7 +228,7 @@ public class Client {
             public void run() {
                 switch (fsmState){
                     case BOARD_UPDATES:{
-                        client.getPlayerUpdates();
+                        //client.getPlayerUpdates();
                         client.getBoardUpdates();
                         fsmState = FSMClient.TURN_UPDATE;
                     }break;

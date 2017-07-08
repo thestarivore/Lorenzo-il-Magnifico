@@ -341,6 +341,9 @@ public class TheGame implements Serializable {
             theModel.setBoard(new Board(getPlayersAllowed()));
         }
 
+        /*for (int i = 0; i < getPlayersAllowed(); i++)
+            getPlayer(i).*/
+
 
         //Set the first player
         getTheController().setPlayerInTurn(getPlayer(0));

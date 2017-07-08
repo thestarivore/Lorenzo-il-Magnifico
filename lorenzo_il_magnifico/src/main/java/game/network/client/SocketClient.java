@@ -368,9 +368,9 @@ public class SocketClient implements ClientInterface{
      * @param obj Object instance of the object received
      */
     private void manageActionProcessed(String command, Object obj) {
-        Player newPlayer = (Player)obj;
+        Player updatedPlayer = (Player)obj;
 
-        player = newPlayer;
+        player = updatedPlayer;
     }
 
     private void manageUpdatedPlayer(String command, Object obj) {

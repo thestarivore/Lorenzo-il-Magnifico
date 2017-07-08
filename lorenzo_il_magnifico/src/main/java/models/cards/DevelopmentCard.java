@@ -35,7 +35,7 @@ public class DevelopmentCard implements Card, Serializable {
         this.permanentEffect = new PermanentEffect();
         this.name  = "commercial_hub";
         this.pointsCost = new Points();
-        this.cost = new Resources(1);
+        this.cost = new Resources();
         this.pointsReq = new Points();
         this.description = "ciao                                                                       ";
        }

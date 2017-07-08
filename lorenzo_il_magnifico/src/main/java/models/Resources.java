@@ -17,17 +17,17 @@ public class Resources implements Serializable {
     public static final int FIXED_NUM_OF_RESOURCES = 4;
 
     public Resources(){
-        this.servants = 5;
+        this.servants = 0;
         this.coins=0;
         this.woods=0;
         this.stones=0;
     }
 
     public Resources(int turnOrder){
-        this.woods=2;
-        this.stones=2;
-        this.servants=2;
-        this.coins= Constants.FIXED_MIN_COINS+turnOrder;
+        this.woods = 2;
+        this.stones = 2;
+        this.servants = 2;
+        this.coins = Constants.FIXED_MIN_COINS+turnOrder;
 
     }
 

@@ -26,7 +26,7 @@ public class GameFacadeModel {
     public GameFacadeModel (int numberOfPlayer) {
         this.board = new Board(numberOfPlayer);
 
-       /* DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
+        /*DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
         developmentCardDeck.setDeck();
         this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
         for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++)
