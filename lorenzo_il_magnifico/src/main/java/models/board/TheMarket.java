@@ -1,6 +1,9 @@
 package models.board;
 
 
+import models.Points;
+import models.Resources;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -10,6 +13,10 @@ import java.util.Arrays;
  */
 public class TheMarket implements Serializable {
     private ActionSpace[] space;
+
+    public TheMarket(){
+        this.space = new ActionSpace[4];
+    }
 
 
     public TheMarket(int numberOfPlayer) {
@@ -70,5 +77,13 @@ public class TheMarket implements Serializable {
     @Override
     public int hashCode() {
         return Arrays.hashCode(space);
+    }
+
+    public String toString(){
+        return "\n\t"+"Space 1: " + this.space[0] +
+                "\n\t"+"Space 2: " + this.space[1] +
+                "\n\t"+"Space 3: " + this.space[2] +
+                "\n\t"+"Space 4: " + this.space[3];
+
     }
 }

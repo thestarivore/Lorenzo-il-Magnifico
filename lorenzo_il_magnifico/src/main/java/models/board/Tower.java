@@ -1,6 +1,8 @@
 package models.board;
 
 
+import models.Points;
+import models.Resources;
 import models.cards.DevelopmentCard;
 import utility.Constants;
 import models.cards.DevelopmentCardDeck;
@@ -16,6 +18,11 @@ public class Tower implements Serializable {
     private int numberOfTower;
     private boolean isEmpty;
 
+
+    public Tower(){
+        this.space  = new ActionSpace[4];
+        this.numberOfTower = 0;
+    }
     /**
      * Basic Constructor
      * @param numberOfTower
@@ -87,5 +94,14 @@ public class Tower implements Serializable {
         result = 31 * result + numberOfTower;
         result = 31 * result + (isEmpty ? 1 : 0);
         return result;
+    }
+
+    @Override
+    public String toString(){
+        return "Tower Num: " + this.numberOfTower + "\t"+
+                "\n\t"+"Space 1: " + this.space[0] +
+                "\n\t"+"Space 2: " + this.space[1] +
+                "\n\t"+"Space 3: " + this.space[2] +
+                "\n\t"+"Space 4: " + this.space[3];
     }
 }
