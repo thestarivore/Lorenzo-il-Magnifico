@@ -49,7 +49,9 @@ public class Deck implements Serializable {
         }
     }
 
-    public Deck(){}
+    public Deck(){
+
+    }
 
     public List<DevelopmentCard> getCard() {
         return developmentCards;

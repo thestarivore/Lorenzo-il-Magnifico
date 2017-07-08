@@ -38,7 +38,7 @@ public class FileManagerImport implements Serializable{
             for(int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i));
             }
-            //developmentCards = list;
+            developmentCards = list;
         } catch (IOException e) {
             e.printStackTrace();
         }
