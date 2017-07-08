@@ -1467,7 +1467,8 @@
     },
     "immediateEffect":{
       "immediateTakeCard":{
-        "dice":4
+        "dice":4,
+        "harvest":true
       },
       "points":{
         "faith":2
@@ -1486,7 +1487,8 @@
     },
     "immediateEffect":{
       "immediateTakeCard":{
-        "dice":4
+        "dice":4,
+        "production":true
       },
       "points":{
         "faith":1
@@ -1830,7 +1832,8 @@
     },
     "ImmediateEffect":{
     "immediateTakeCard": {
-      "dice": 4
+      "dice": 4,
+      "harvest":true
     }
     },
     "permanentEffect":{
@@ -2033,7 +2036,8 @@
     },
     "immediateEffect":{
     "immediateTakeCard":{
-      "dice":3
+      "dice":3,
+      "production":true
     },
     "permanentEffect": {
       "points": {
