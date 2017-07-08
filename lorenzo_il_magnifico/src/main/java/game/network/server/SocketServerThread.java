@@ -9,8 +9,6 @@ import controllers.game_course.Action;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 import models.board.Board;
-import models.board.Dice;
-import models.board.FamilyMember;
 import views.cli.GameView;
 
 import java.io.*;
@@ -257,13 +255,8 @@ public class SocketServerThread extends Thread{
         //Send Action to the controller so that he can manage it
         getTheController().managePlayerAction(action);
 
-        GameView gameView = new GameView();
-
-        Board board =  getTheController().getBoard();
-        gameView.printMap(board);
-
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
-        respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), board);
+        respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
     }
 
 
