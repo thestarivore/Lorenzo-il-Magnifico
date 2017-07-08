@@ -2,6 +2,7 @@ package models.cards;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -51,5 +52,12 @@ public class Deck implements Serializable {
 
     public void setCard(List<DevelopmentCard> card) {
         this.developmentCards = card;
+    }
+
+    /**
+     * Shuffles the deck of cards in a random way.
+     */
+    public void shuffle(){
+        Collections.shuffle(developmentCards);
     }
 }

@@ -24,17 +24,26 @@ public class GameFacadeModel {
 
 
     public GameFacadeModel (int numberOfPlayer) {
-        this.board = new
-                Board(numberOfPlayer);
+        //Create a new Board
+        this.board = new Board(numberOfPlayer);
 
-      /*  DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
+        //Get the Development cards from JSON file
+        DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
         developmentCardDeck.setDeck();
-        this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
-        for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++)
-            this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
 
+        //Create 4 Decks of Development cards and shuffle
+        //all the decks.
+        this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
+        for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++) {
+            this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
+            this.deck[i].shuffle();
+        }
+
+        //Print cards
         for (int i = 0; i < Deck.MAXIMUM_CARD_DECK_NUMBER; i++)
-            System.out.println(deck[1].getCard().get(i).getName());*/
+            System.out.println(deck[1].getCard().get(i).getName());
+
+
 
     }
 
