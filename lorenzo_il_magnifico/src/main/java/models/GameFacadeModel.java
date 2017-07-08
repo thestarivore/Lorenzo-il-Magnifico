@@ -1,6 +1,8 @@
 package models;
 
+import models.board.ActionSpace;
 import models.board.Board;
+import models.board.TheMarket;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
 import models.data_persistence.FileManagerImport;
@@ -28,15 +30,15 @@ public class GameFacadeModel {
      * @param numberOfPlayer
      */
     public GameFacadeModel (int numberOfPlayer) {
-        //Create a new Board
-        initBoard(numberOfPlayer);
-
         //Create 4 Decks of Development cards and shuffle
         //all the decks based on periods.
         initDeck();
 
         //Get configurations
         initConfigurations();
+
+        //Create a new Board
+        initBoard(numberOfPlayer);
     }
 
     /**
@@ -79,6 +81,21 @@ public class GameFacadeModel {
     private void initBoard(int numberOfPlayer){
         //Create a new Board
         this.board = new Board(numberOfPlayer);
+
+        //Get configuration Market
+        TheMarket configMarket = gameConfig.getMarket();
+
+        //Iterate Action Spaces in the Market
+        for(int i=0; i< configMarket.getArraySpace().length; i++){
+            //Get Action spaces on the market of the board and of the config instance
+            ActionSpace boardMSpace = board.getMarket().getSpace(i);
+            ActionSpace configMSpace = configMarket.getSpace(i);
+
+            //Update Bonus Points, Resources and CouncilPrivileges
+            boardMSpace.setBonusPoints(configMSpace.getBonusPoints());
+            boardMSpace.setResourcesBonus(configMSpace.getResourcesBonus());
+            boardMSpace.setBonusCouncilPrivileges(configMSpace.getBonusCouncilPrivileges());
+        }
     }
 
     /**

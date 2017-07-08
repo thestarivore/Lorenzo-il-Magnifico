@@ -67,12 +67,28 @@ public class ActionSpace implements Serializable {
         this.card = card;
     }
 
-    public Resources getBonus() {
+    public Resources getResourcesBonus() {
         return bonusRes;
     }
 
-    public void setBonus(Resources bonus) {
+    public void setResourcesBonus(Resources bonus) {
         this.bonusRes = bonus;
+    }
+
+    public Points getBonusPoints() {
+        return bonusPoints;
+    }
+
+    public void setBonusPoints(Points bonusPoints) {
+        this.bonusPoints = bonusPoints;
+    }
+
+    public int getBonusCouncilPrivileges() {
+        return bonusCouncilPrivileges;
+    }
+
+    public void setBonusCouncilPrivileges(int bonusCouncilPrivileges) {
+        this.bonusCouncilPrivileges = bonusCouncilPrivileges;
     }
 
     public FamilyMember getFamilyMember() {
