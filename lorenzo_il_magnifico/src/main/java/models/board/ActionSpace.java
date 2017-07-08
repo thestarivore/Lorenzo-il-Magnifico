@@ -154,6 +154,6 @@ public class ActionSpace implements Serializable {
 
     @Override
     public String toString(){
-        return "Resources: " + this.bonusRes + "\t"+ "Points: " + this.bonusPoints;
+        return "Resources: " + this.bonusRes + "\t"+ "Points: " + this.bonusPoints+ "\t"+ "Privileges: " + this.bonusCouncilPrivileges;
     }
 }

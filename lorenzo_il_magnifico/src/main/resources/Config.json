@@ -274,6 +274,7 @@
         }
       },
       {
+        "bonusCouncilPrivileges":2,
         "bonusPoints": {
           "military": 0,
           "faith": 0,

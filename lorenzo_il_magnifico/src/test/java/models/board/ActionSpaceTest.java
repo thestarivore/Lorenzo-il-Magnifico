@@ -1,5 +1,6 @@
 package models.board;
 
+import models.Resources;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -8,6 +9,20 @@ import static org.junit.Assert.*;
  * Created by cp18393 on 02/07/17.
  */
 public class ActionSpaceTest {
+
+    ActionSpace a;
+
+    @Test
+    public void checkBonus1() throws Exception {
+        a = new ActionSpace();
+        a.setBonus( new Resources(2));
+        assertTrue( a.checkBonus() );
+    }
+
+    @Test
+    public void addBonus1() throws Exception {
+    }
+
     @Test
     public void getCard() throws Exception {
     }
