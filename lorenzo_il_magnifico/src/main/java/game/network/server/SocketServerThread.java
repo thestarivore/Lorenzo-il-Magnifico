@@ -92,10 +92,6 @@ public class SocketServerThread extends Thread{
             manageColorSelection(cmd, obj);
         }
 
-        //ASK_PLAYER_UPDATES
-        if(ProtocolCommands.ASK_PLAYER_UPDATES.isThisCmd(cmd))
-            managePlayerUpdate(cmd, obj);
-
         //ASK_BOARD_UPDATES - "does the game need to be updated?"
         if (ProtocolCommands.ASK_BOARD_UPDATES.isThisCmd(cmd)) {
             manageAskBoardUpdates(cmd, obj);
@@ -261,16 +257,6 @@ public class SocketServerThread extends Thread{
 
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
         respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
-    }
-
-    /**
-     * Manage ASK_PLAYER_UPDATES command
-     * @param command String of the command received via socket
-     * @param obj Object received via socket
-     * @throws IOException
-     */
-    private void managePlayerUpdate(String command, Object obj) throws IOException {
-        respondToClient(new String(ProtocolCommands.UPDATED_PLAYER.getCommand()), remotePlayer);
     }
 
 }

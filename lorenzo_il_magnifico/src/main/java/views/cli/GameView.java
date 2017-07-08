@@ -158,6 +158,7 @@ public class GameView {
     /***************************************************************************************************************/
 
     public int getActionType(Board board) {
+        setGettingAction(true);
         printLine("Action you want to perform: (" +
                 "0 - Tower, " +
                 "1 - The Council Palace, " +

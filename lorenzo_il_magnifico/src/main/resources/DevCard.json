@@ -1,9 +1,7 @@
 [
   {	"name":"Commercial Hub",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "permanentEffect":{
       "resources":{
         "coins":1
@@ -14,9 +12,7 @@
   },
   {	"name":"Woods",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "immediateEffect":{
       "resources":{
         "woods":1
@@ -33,9 +29,7 @@
   },
   {	"name":"Village",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "permanentEffect":{
       "resources":{
         "coins":1,
@@ -47,9 +41,7 @@
   },
   {	"name":"Gravel Pit",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "immediateEffect":{
       "resources":{
         "stones":2
@@ -66,9 +58,7 @@
   },
   {	"name":"Forest",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "immediateEffect":{
       "resources":{
         "woods":1
@@ -84,9 +74,7 @@
   },
   {	"name":"Monastery",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "immediateEffect":{
       "resources":{
         "servants":1
@@ -108,9 +96,7 @@
   },
   {	"name":"Citadel",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "permanentEffect":{
       "resources":{
         "stones":1
@@ -124,9 +110,7 @@
   },
   {	"name":"City",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "immediateEffect":{
       "resources":{
         "coins":3
@@ -147,9 +131,7 @@
   },
   {	"name":"Gold Mine",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "resources":{
         "coins":1
@@ -165,9 +147,7 @@
   },
   {	"name":"Mountain Town",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "resources":{
         "servants":1
@@ -186,9 +166,7 @@
   },
   {	"name":"Mining Town",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "resources":{
         "stones":1,
@@ -206,9 +184,7 @@
   },
   {	"name":"Rock Pit",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "resources":{
         "woods":1
@@ -224,9 +200,7 @@
   },
   {	"name":"Estate",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "resources":{
         "woods":1,
@@ -244,9 +218,7 @@
   },
   {	"name":"Hermitage",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "points":{
         "faith":1
@@ -262,9 +234,7 @@
   },
   {	"name":"Manor House",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "permanentEffect":{
       "resources":{
         "servants":2
@@ -278,9 +248,7 @@
   },
   {	"name":"Dukedom",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "immediateEffect":{
       "resources":{
         "coins":4
@@ -298,9 +266,7 @@
   },
   {	"name":"Trading Town",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "resources":{
         "coins":1,
@@ -317,9 +283,7 @@
   },
   {	"name":"Farm",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "resources":{
         "woods":1
@@ -341,9 +305,7 @@
   },
   {	"name":"Colony",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "points":{
         "military":2
@@ -363,9 +325,7 @@
   {
     "name":"Province",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-      },
+    "period":3,
     "immediateEffect":{
       "resources":{
         "coins":3
@@ -386,9 +346,7 @@
   },
   {	"name":"Marble Pit",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "points":{
         "victory":3
@@ -407,9 +365,7 @@
   },
   {	"name":"Sanctuary",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "points":{
         "faith":1
@@ -428,9 +384,7 @@
   },
   {	"name":"Castle",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "resources":{
         "coins":2
@@ -452,9 +406,7 @@
   },
   {	"name":"Fortified Town",
     "cardType":1,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "immediateEffect":{
       "resources":{
         "servants":1
@@ -484,9 +436,7 @@
   {
     "name":"Mint",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "woods":1,
       "stones":3
@@ -510,9 +460,7 @@
   {
     "name":"Tax Office",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "woods":1,
       "stones":3
@@ -536,10 +484,7 @@
   {
     "name":"Triumphal Arch",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-
-    },
+    "period":1,
     "cost":{
       "coins":2,
       "stones":2
@@ -563,9 +508,7 @@
   {
     "name":"Theater",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "woods":2,
       "coins":2
@@ -589,9 +532,7 @@
   {
     "name":"Carpeter's Shop",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "woods":2,
       "coins":1
@@ -602,21 +543,19 @@
       }
     },
     "permanentEffect":{
-    "exchange":[{
-      "exResources": {
+    "exchange":{
+      "exResources":[ {
         "coins": 3
-      },
-      "firstP": {
+      },{
+        "coins": 5
+      }],
+      "firstP": [{
         "woods": 1
       },
-      "exResources": {
-        "coins": 5
-      },
-      "firstP": {
-        "woods": 2
-      }
+        {
+          "woods": 2
+        }]
     }
-      ]
     },
     "dice":4,
     "description":"This card is useful"
@@ -624,9 +563,7 @@
   {
     "name":"Stonemason's Shop",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "coins":1,
       "stones":2
@@ -637,21 +574,21 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exResources": {
+      "exchange":{
+        "exResources": [{
           "coins": 3
         },
-        "firstP": {
+          {
+            "coins": 5
+          }],
+        "firstP": [{
           "stones": 1
         },
-        "exResources": {
-          "coins": 5
-        },
-        "firstP": {
+        {
           "stones": 2
-        }
+        }]
       }
-      ]
+
     },
     "dice":3,
     "description":"This card is useful"
@@ -659,10 +596,7 @@
   {
     "name":"Chapel",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-
-    },
+    "period":1,
     "cost":{
       "woods":2
     },
@@ -672,15 +606,14 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "faith": 1
-        },
-        "firstP": {
+        }],
+        "firstP":[ {
           "coins":1
-        }
+        }]
       }
-      ]
     },
     "dice":2,
     "description":"This card is useful"
@@ -690,9 +623,7 @@
     "deck":{
       "tower":3
     },
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "stones":2
     },
@@ -720,9 +651,7 @@
   {
     "name": "Marketplace",
     "cardType":3,
-    "period": {
-      "numberOfPeriod": 1
-    },
+    "period":2,
     "cost": {
       "woods": 2,
       "stones": 1
@@ -733,16 +662,15 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exResources": {
+      "exchange":{
+        "exResources":[ {
           "stones":2,
           "woods":2
-        },
-        "firstP": {
+        }],
+        "firstP": [{
           "coins": 3
-        }
+        }]
       }
-      ]
     },
     "dice": 3,
     "description": "This card is useful"
@@ -752,9 +680,7 @@
     "deck":{
       "tower":3
     },
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":3
     },
@@ -764,21 +690,20 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints":[ {
           "victory": 3
         },
-        "firstP": {
+          {
+            "victory": 5
+          }],
+        "firstP":[ {
           "coins": 1
         },
-        "exPoints": {
-          "victory": 5
-        },
-        "firstP": {
-          "coins": 2
-        }
+          {
+            "coins": 2
+          }]
       }
-      ]
     },
     "dice":3,
     "description":"This card is useful"
@@ -788,10 +713,7 @@
     "deck":{
       "tower":3
     },
-    "period":{
-      "numberOfPeriod":1
-
-    },
+    "period":2,
     "cost":{
       "woods":4
     },
@@ -801,21 +723,20 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "victory": 3
         },
-        "firstP": {
+          {
+            "victory": 7
+          }],
+        "firstP":[{
           "woods": 1
         },
-        "exPoints": {
-          "victory": 7
-        },
-        "firstP": {
-          "woods": 3
-        }
+          {
+            "woods": 3
+          }]
       }
-      ]
     },
     "dice":4,
     "description":"This card is useful"
@@ -825,9 +746,7 @@
     "deck":{
       "tower":3
     },
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":4
     },
@@ -837,30 +756,25 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "victory": 3
-        },
-        "firstP": {
-          "stones": 1
-        },
-        "exPoints": {
+        },{
           "victory": 7
-        },
-        "firstP": {
+        }],
+        "firstP": [{
+          "stones": 1
+        },{
           "stones": 2
-        }
+        }]
       }
-      ]
     },
     "description":"This card is useful"
   },
   {
     "name":"Stonemasons' Guild",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":4,
       "woods":1
@@ -871,17 +785,17 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "victory": 6
-        },
-        "firstP": {
+        }],
+        "firstP":[ {
           "woods": 1,
           "stones":1,
           "servants":1
-        }
+        }]
       }
-      ]
+
     },
     "dice":4,
     "description":"This card is useful"
@@ -889,9 +803,7 @@
   {
     "name":"Baptistery",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":3
     },
@@ -902,18 +814,18 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exResources": {
+      "exchange":{
+        "exResources":[ {
           "coins": 2
-        },
-        "exPoints":{
+        }],
+        "exPoints":[{
           "victory":1
-         },
-        "firstP": {
+         }],
+        "firstP":[ {
           "woods": 1
-        }
+        }]
       }
-      ]
+
     },
     "dice":2,
     "description":"This card is useful"
@@ -921,9 +833,7 @@
   {
     "name":"Barracks",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":1,
       "woods":1
@@ -934,15 +844,14 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints":[ {
           "military": 3
-        },
-        "firstP": {
+        }],
+        "firstP": [{
           "servants": 1
-        }
+        }]
       }
-      ]
     },
     "dice":1,
     "description":"This card is useful"
@@ -950,9 +859,7 @@
   {
     "name":"Stronghold",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":2,
       "coins":2,
@@ -975,9 +882,7 @@
   {
     "name":"Bank",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "stones":3,
       "coins":3,
@@ -1002,9 +907,7 @@
   {
     "name":"Fair",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "coins":2,
       "woods":3
@@ -1025,9 +928,7 @@
   {
     "name":"Garden",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "stones":2,
       "woods":4,
@@ -1048,9 +949,7 @@
   },
   {	"name":"Fortress",
     "cardType":3,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "stones":4,
       "woods":2,
@@ -1074,9 +973,7 @@
   {
     "name": "Palace",
     "cardType":3,
-    "period": {
-      "numberOfPeriod": 1
-    },
+    "period":3,
     "cost": {
       "woods": 3,
       "stones":1,
@@ -1088,18 +985,17 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "military":3
-        },
-        "exResources": {
+        }],
+        "exResources": [{
           "servants":2
-        },
-        "firstP": {
+        }],
+        "firstP":[ {
           "coins": 1
-        }
+        }]
       }
-      ]
     },
     "dice": 3,
     "description": "This card is useful"
@@ -1107,9 +1003,7 @@
   {
     "name": "Church",
     "cardType":3,
-    "period": {
-      "numberOfPeriod": 1
-    },
+    "period":3,
     "cost": {
       "woods": 2,
       "stones":4
@@ -1121,16 +1015,15 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "faith":2
-          },
-        "firstP": {
+          }],
+        "firstP": [{
           "woods": 1,
           "stones":1
-        }
+        }]
       }
-      ]
     },
     "dice": 3,
     "description": "This card is useful"
@@ -1138,9 +1031,7 @@
   {
     "name": "Military Academy",
     "cardType":3,
-    "period": {
-      "numberOfPeriod": 1
-    },
+    "period":3,
     "cost": {
       "woods": 2,
       "stones":2,
@@ -1152,16 +1043,15 @@
       }
     },
     "permanentEffect":{
-      "exchange":[{
-        "exPoints": {
+      "exchange":{
+        "exPoints": [{
           "military":3,
           "victory":1
-        },
-        "firstP": {
+        }],
+        "firstP": [{
           "servants": 3
-        }
+        }]
       }
-      ]
     },
     "dice": 3,
     "description": "This card is useful"
@@ -1171,9 +1061,7 @@
     "deck":{
       "tower":3
     },
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "stones":4,
       "woods":4
@@ -1201,9 +1089,7 @@
   {
     "name":"Warlord",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":2
@@ -1225,9 +1111,7 @@
   {
     "name":"Stonemason",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":4
@@ -1248,9 +1132,7 @@
   {
     "name":"Dame",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":4
@@ -1270,9 +1152,7 @@
   {
     "name":"Knight",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":2
@@ -1293,9 +1173,7 @@
   {
     "name":"Farmer",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":2
@@ -1312,9 +1190,7 @@
   {
     "name":"Artisan",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":3
@@ -1331,9 +1207,7 @@
   {
     "name":"Preacher",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":2
@@ -1352,9 +1226,7 @@
   {
     "name":"Abbess",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "resources":{
         "coins":3
@@ -1373,9 +1245,7 @@
   {
     "name":"Captain",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":4
@@ -1395,9 +1265,7 @@
   {
     "name":"Architect",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":4
@@ -1421,9 +1289,7 @@
   {
     "name":"Patron",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-      },
+    "period":2,
       "cost": {
         "resources": {
           "coins": 3
@@ -1443,9 +1309,7 @@
   {
     "name":"Hero",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":4
@@ -1464,9 +1328,7 @@
   {
     "name":"Peasant",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":4
@@ -1483,9 +1345,7 @@
   {
     "name":"Scholar",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":4
@@ -1502,9 +1362,7 @@
   {
     "name":"Papal Messenger",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":5
@@ -1520,9 +1378,7 @@
   {
     "name":"Royal Messenger",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":5
@@ -1537,9 +1393,7 @@
   {
     "name":"Noble",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":6
@@ -1558,9 +1412,7 @@
   {
     "name":"Governor",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":6
@@ -1579,9 +1431,7 @@
   {
     "name":"Paramour",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":7
@@ -1600,9 +1450,7 @@
   {
     "name":"Herald",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":6
@@ -1621,9 +1469,7 @@
   {
     "name":"Cardinal",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":4
@@ -1642,9 +1488,7 @@
   {
     "name":"Bishop",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":5
@@ -1663,9 +1507,7 @@
   {
     "name":"General",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":6
@@ -1684,9 +1526,7 @@
   {
     "name":"Ambassador",
     "cardType":2,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":6
@@ -1710,9 +1550,7 @@
   {
     "name":"Hiring Recruits",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "coins":4
     },
@@ -1731,9 +1569,7 @@
   {
     "name":"Repairing the Church",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "coins":1,
       "woods":1,
@@ -1754,9 +1590,7 @@
   {
     "name":"Building the walls",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "stones":3
     },
@@ -1777,9 +1611,7 @@
   {
     "name":"Building the Walls",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "stones":3
     },
@@ -1800,9 +1632,7 @@
   {
     "name":"Raising a statue",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "stones":2,
       "woods":2
@@ -1824,9 +1654,7 @@
   {
     "name":"Military Campaign",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "pointsCost":{
       "military":2
     },
@@ -1848,9 +1676,7 @@
   {
     "name":"Hosting Panhandlers",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "cost":{
       "woods":3
     },
@@ -1869,9 +1695,7 @@
   {
     "name":"Fighting Heresies",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":1,
     "pointsCost":{
       "military":3
     },
@@ -1893,9 +1717,7 @@
   {
     "name":"Support the Bishop",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "pointsCost":{
       "military":2
     },
@@ -1924,9 +1746,7 @@
   {
     "name":"Hiring soldiers",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "coins":6
     },
@@ -1945,9 +1765,7 @@
   {
     "name":"Repairing the Abbey",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "coins":2,
       "woods":2,
@@ -1968,9 +1786,7 @@
   {
     "name":"Building the Bastions",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "stones":4
     },
@@ -1991,9 +1807,7 @@
   {
     "name":"Support to the king",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "pointsCost":{
       "military":3
     },
@@ -2017,9 +1831,7 @@
   {
     "name":"Improving the Canals",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "resources":{
         "coins":3,
@@ -2041,9 +1853,7 @@
   {
     "name":"Hosting Foreigners",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "cost":{
       "woods":4
     },
@@ -2062,9 +1872,7 @@
   {
     "name":"Crusade",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":2,
     "pointsCost":{
       "military":4
     },
@@ -2089,9 +1897,7 @@
   {
     "name":"Support the Cardinal",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "pointsCost":{
       "military":4
     },
@@ -2120,9 +1926,7 @@
   {
     "name":"Hiring Mercenaries",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "coins":8
     },
@@ -2141,9 +1945,7 @@
   {
     "name":"Repairing the cathedral",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":4,
@@ -2168,9 +1970,7 @@
   {
     "name":"Building the towers",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "stones":6
     },
@@ -2191,9 +1991,7 @@
   {
     "name":"Promoting sacred Art",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "woods":6
     },
@@ -2212,9 +2010,7 @@
   {
     "name":"Military Conquest",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "pointsCost":{
       "military":6
     },
@@ -2238,9 +2034,7 @@
   {
     "name":"Improving the Roads",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "cost":{
       "resources":{
         "coins":3,
@@ -2262,9 +2056,7 @@
   {
     "name":"Support the Pope",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "pointsCost":{
       "military":15
     },
@@ -2286,9 +2078,7 @@
   {
     "name":"Support the Pope",
     "cardType":4,
-    "period":{
-      "numberOfPeriod":1
-    },
+    "period":3,
     "pointsCost":{
       "military":5
     },

@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 public class DevelopmentCard implements Card, Serializable {
     private String name;
-    private Period period;
+    private int period;
     private int cardType;    //1 Territory, 2 Characters, 3 Buildings 4 Venture
     private Resources cost;
     private Points pointsReq;
@@ -31,6 +31,7 @@ public class DevelopmentCard implements Card, Serializable {
     public static final int MAX_DESCRIPTION_LENGTH = 75;
 
     public DevelopmentCard() {
+        this.period= 0;
         this.immediateEffect=new ImmediateEffect();
         this.permanentEffect = new PermanentEffect();
         this.name  = "commercial_hub";
@@ -40,9 +41,12 @@ public class DevelopmentCard implements Card, Serializable {
         this.description = "ciao                                                                       ";
        }
 
-
-    public Period getPeriod() {
+    public int getPeriod() {
         return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
     }
 
     public Resources getCost() {
@@ -55,10 +59,6 @@ public class DevelopmentCard implements Card, Serializable {
 
     public PermanentEffect getPermanentEffect() {
         return permanentEffect;
-    }
-
-    public void setPeriod(Period period) {
-        this.period = period;
     }
 
     public void setCost(Resources cost) {
@@ -158,7 +158,6 @@ public class DevelopmentCard implements Card, Serializable {
         DevelopmentCard that = (DevelopmentCard) o;
 
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (period != null ? !period.equals(that.period) : that.period != null) return false;
         if (cost != null ? !cost.equals(that.cost) : that.cost != null) return false;
         if (pointsReq != null ? !pointsReq.equals(that.pointsReq) : that.pointsReq != null) return false;
         return pointsCost != null ? pointsCost.equals(that.pointsCost) : that.pointsCost == null;
@@ -175,7 +174,6 @@ public class DevelopmentCard implements Card, Serializable {
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (period != null ? period.hashCode() : 0);
         result = 31 * result + (cost != null ? cost.hashCode() : 0);
         result = 31 * result + (pointsReq != null ? pointsReq.hashCode() : 0);
         result = 31 * result + (pointsCost != null ? pointsCost.hashCode() : 0);
