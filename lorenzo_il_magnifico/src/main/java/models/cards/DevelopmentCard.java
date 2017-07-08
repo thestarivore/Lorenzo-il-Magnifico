@@ -26,6 +26,10 @@ public class DevelopmentCard implements Card, Serializable {
     private String description;
 
 
+    public final static int CARD_TYPE_TERRITORY     = 1;
+    public final static int CARD_TYPE_CHARACTERS    = 2;
+    public final static int CARD_TYPE_BUILDINGS     = 3;
+    public final static int CARD_TYPE_VENTURE       = 4;
 
     //Constant
     public static final int MAX_DESCRIPTION_LENGTH = 75;

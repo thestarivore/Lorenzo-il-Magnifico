@@ -4,8 +4,6 @@ import models.board.Board;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
 
-import java.io.Serializable;
-
 
 /**
  * Created by Eduard Chirica on 5/20/17.
@@ -32,15 +30,15 @@ public class GameFacadeModel {
         developmentCardDeck.setDeck();
 
         //Create 4 Decks of Development cards and shuffle
-        //all the decks.
+        //all the decks based on periods.
         this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
         for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++) {
             this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
-            this.deck[i].shuffle();
+            this.deck[i].shuffleByPeriod();
         }
 
         //Print cards
-        for (int i = 0; i < Deck.MAXIMUM_CARD_DECK_NUMBER; i++)
+        for (int i = 0; i < Deck.MAX_DECK_CARDS_NUMBER; i++)
             System.out.println(deck[1].getCard().get(i).getName());
 
 
