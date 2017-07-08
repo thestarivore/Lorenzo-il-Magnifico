@@ -160,11 +160,6 @@ public class SocketClient implements ClientInterface{
         cmdObjectList.add(object);
     }
 
-    @Override
-    public void getPlayerUpdates() {
-        sendCmdToClient(ProtocolCommands.ASK_PLAYER_UPDATES.getCommand());
-    }
-
     /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
@@ -248,11 +243,6 @@ public class SocketClient implements ClientInterface{
             //Color Selection
             if(ProtocolCommands.SELECT_COLOR.isThisCmd(line)){
                 manageColorSelection(line, obj);
-            }
-
-            //Update Player after color selection
-            if(ProtocolCommands.UPDATED_PLAYER.isThisCmd(line)){
-                manageUpdatedPlayer(line, obj);
             }
 
             //Board Update
@@ -362,12 +352,6 @@ public class SocketClient implements ClientInterface{
         Player newPlayer = (Player)obj;
 
         player = newPlayer;
-    }
-
-    private void manageUpdatedPlayer(String command, Object obj) {
-        Player updatedPlayer = (Player)obj;
-
-        player = updatedPlayer;
     }
 
     public int getActionType(){
