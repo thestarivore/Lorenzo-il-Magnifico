@@ -1,6 +1,9 @@
 package controllers.effects.ImmediateEffects;
 
+import com.sun.org.apache.regexp.internal.RE;
 import controllers.effects.ImmediateEffects.ImmediateEffect;
+import models.Points;
+import models.Resources;
 
 import java.io.Serializable;
 
@@ -9,9 +12,13 @@ import java.io.Serializable;
  */
 public class PointsForCharacters implements Serializable {
     private int towerNum;
+    private Points characterPoints;
+    private Resources characterResourses;
+
 
     public PointsForCharacters(){
         this.towerNum=0;
+        this.characterPoints= new Points();
     }
 
     public int getTowerNum() {
