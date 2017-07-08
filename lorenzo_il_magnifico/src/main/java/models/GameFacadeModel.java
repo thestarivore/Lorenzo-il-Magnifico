@@ -1,6 +1,7 @@
 package models;
 
 import models.board.Board;
+import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
 
 import java.io.Serializable;
@@ -17,13 +18,23 @@ import java.io.Serializable;
  */
 public class GameFacadeModel {
     private Board board;
+    private Deck[] deck;
+
+    public static final int FIXED_NUMBER_OF_DEVELOPMENTDECK = 4;
 
 
     public GameFacadeModel (int numberOfPlayer) {
         this.board = new Board(numberOfPlayer);
 
-        //DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
-        //developmentCardDeck.setDeck();
+      /*  DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
+        developmentCardDeck.setDeck();
+        this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
+        for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++)
+            this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
+
+        for (int i = 0; i < Deck.MAXIMUM_CARD_DECK_NUMBER; i++)
+            System.out.println(deck[1].getCard().get(i).getName());*/
+
     }
 
     public Board getBoard() {
@@ -32,6 +43,10 @@ public class GameFacadeModel {
 
     public void setBoard(Board board) {
         this.board = board;
+    }
+
+    public Deck getDeck(int i) {
+        return deck[i];
     }
 
 

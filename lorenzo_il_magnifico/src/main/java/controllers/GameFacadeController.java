@@ -336,4 +336,12 @@ public class GameFacadeController {
             getCurrentRound().updateActionPlayerTurn(playersTurnNum);
 
     }
+
+    public void fillTheTower(){
+        for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
+            for (int j = 0; j < Board.FIXED_NUMBER_OF_CARD; j++) {
+                getBoard().getTower(i).getSpace(j).setCard(getFacadeModel().getDeck(i).getCardToFillTower());
+            }
+        }
+    }
 }

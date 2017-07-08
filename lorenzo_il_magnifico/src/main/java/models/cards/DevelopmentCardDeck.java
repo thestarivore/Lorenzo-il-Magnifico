@@ -20,7 +20,6 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
     }*/
 
     public DevelopmentCardDeck(){
-        super();
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.cardFromFile = new FileManagerImport();
         this.tower = 0;
@@ -41,7 +40,7 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
         this.developmentCards = cardFromFile.acquireDevCard();
 
     }
-    public ArrayList<DevelopmentCard> getDeck(){
+    public List<DevelopmentCard> getDeck(){
         return this.developmentCards;
     }
 

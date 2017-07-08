@@ -32,7 +32,6 @@ public class DevelopmentCard implements Card, Serializable {
 
     public DevelopmentCard() {
         this.name  = "commercial_hub";
-        this.cardType = 0;
         this.pointsCost = new Points();
         this.cost = new Resources(1);
         this.pointsReq = new Points();
@@ -130,14 +129,15 @@ public class DevelopmentCard implements Card, Serializable {
 
     @Override
     public String toString(){
-        return  "Card Name: " + this.name + "\n"+
+        return  "Card Name: " + this.name + "\n" +
                 "Card Period: " + this.period + "\n"+
-                "Card Cost: " + this.cost+"\n"+
-                "Points Cost" + this.pointsCost+"\n"+
-                "Card Point: " + this.pointsReq + "\n"+
-                "Immediate Effect: "+this.immediateEffect+ "\n"+
-                "Permanent effect: " + this.permanentEffect +"\n"+
-                "Dice Cost: " + this.dice +"\n"+
+                "Card Type: " + this.cardType + "\n" +
+                "Card Cost: " + this.cost+"\n" +
+                "Points Cost: " + this.pointsCost+"\n" +
+                "Card Point: " + this.pointsReq + "\n" +
+                "Immediate Effect: "+this.immediateEffect+ "\n" +
+                "Permanent effect: " + this.permanentEffect +"\n" +
+                "Dice Cost: " + this.dice +"\n" +
                 "Description: " + this.description+ "\n\n";
     }
 
