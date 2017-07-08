@@ -4,8 +4,6 @@ import models.board.Board;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
 
-import java.io.Serializable;
-
 
 /**
  * Created by Eduard Chirica on 5/20/17.
@@ -24,19 +22,26 @@ public class GameFacadeModel {
 
 
     public GameFacadeModel (int numberOfPlayer) {
-        this.board = new
-                Board(numberOfPlayer);
+        //Create a new Board
+        this.board = new Board(numberOfPlayer);
 
+        //Get the Development cards from JSON file
         DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
         developmentCardDeck.setDeck();
-        this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
-        for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++)
-            this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
 
-        System.out.println(deck[0].getCard().get(0).getName());
-        System.out.println(deck[0].getCard().get(0).getImmediateEffect().getImmediateTakeCard());
-        System.out.println(deck[1].getCard().get(7).getName());
-        System.out.println(deck[1].getCard().get(7).getImmediateEffect().getImmediateTakeCard());
+        //Create 4 Decks of Development cards and shuffle
+        //all the decks based on periods.
+        this.deck = new Deck[FIXED_NUMBER_OF_DEVELOPMENTDECK];
+        for (int i = 0; i < FIXED_NUMBER_OF_DEVELOPMENTDECK; i++) {
+            this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
+            this.deck[i].shuffleByPeriod();
+        }
+
+        //Print cards
+        for (int i = 0; i < Deck.MAX_DECK_CARDS_NUMBER; i++)
+            System.out.println(deck[1].getCard().get(i).getName());
+
+
 
     }
 

@@ -11,6 +11,10 @@ import controllers.game_course.Action;
  */
 public interface ClientInterface extends Runnable {
 
+    /*******************************************************
+     *************** Communication Methods *****************
+     *******************************************************/
+
     /**
      * Thread Execution method
      */
@@ -44,6 +48,11 @@ public interface ClientInterface extends Runnable {
      * Send Action done to the Server
      */
     public void sendAction(Action action);
+
+
+    /*******************************************************
+     ************** User Interaction Methods ***************
+     *******************************************************/
 
     public int getActionType();
 
