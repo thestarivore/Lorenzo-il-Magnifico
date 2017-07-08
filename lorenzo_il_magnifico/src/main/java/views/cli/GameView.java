@@ -565,6 +565,7 @@ public class GameView {
                     card[i] = formatCardSize(board.getTower(i).getSpace(j).getCard().getName());
                     cost[i] = formatResourcesCost(board.getTower(i).getSpace(j).getCard().getCost(), board.getTower(i).getSpace(j).getCard().getPointsReq());
                     String desc = board.getTower(i).getSpace(j).getCard().getDescription();
+                    //TODO: inserire descrizione
                     description1[i] = formatCardSize("");
                     description2[i] = formatCardSize("");
                     description3[i] = formatCardSize("");

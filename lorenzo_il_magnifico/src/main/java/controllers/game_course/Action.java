@@ -253,7 +253,7 @@ public class Action implements Serializable {
         boolean check = false;
 
         //Tower choice
-        if(actionChoice == 0) {
+        if(actionChoice == 0 && checkCardRequest(player,board.getTower(tower).getSpace(space).getCard())) {
             //Perform tower action choice
             check = towerAction(player, tower, space, familyMember, servants);
             //performTowerAction(player, actionSpaceID,)
@@ -374,21 +374,22 @@ public class Action implements Serializable {
 
         DevelopmentCard devCard = board.getTower(tower).getSpace(space).getCard();
 
-
-        if (valid) {
-
-            switch (tower) {
+        switch (tower) {
                 case 0:
-                    player.getPersonalBoard().getTerritories().add(devCard);
+                    if(player.getPersonalBoard().getTerritories().size() < 6)
+                        player.getPersonalBoard().getTerritories().add(devCard);
                     break;
                 case 1:
-                    player.getPersonalBoard().getCharacters().add(devCard);
+                    if(player.getPersonalBoard().getCharacters().size() < 6)
+                        player.getPersonalBoard().getCharacters().add(devCard);
                     break;
                 case 2:
-                    player.getPersonalBoard().getBuildings().add(devCard);
+                    if(player.getPersonalBoard().getBuildings().size() < 6)
+                        player.getPersonalBoard().getBuildings().add(devCard);
                     break;
                 case 3:
-                    player.getPersonalBoard().getVentures().add(devCard);
+                    if(player.getPersonalBoard().getVentures().size() < 6)
+                        player.getPersonalBoard().getVentures().add(devCard);
                     break;
                 default:
                     break;
@@ -400,19 +401,16 @@ public class Action implements Serializable {
             devCard.getImmediateEffect().addResources(player);
 
             if (devCard.getImmediateEffect().getPrivilege()){}
-
-                }
+            return true;
+    }
                 //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
                     //takeBonusCard(player, devCard);
-        return valid;
-        }
-
 
 
     public boolean checkCardRequest(Player player, DevelopmentCard card) {
         Resources cardRes = card.getCost();
         Resources playerRes = player.getRes();
-        Points cardPoints = card.getPointsReq();
+        Points cardPoints = card.getPointsCost();
         Points playerPoints = player.getPoints();
         return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
     }
