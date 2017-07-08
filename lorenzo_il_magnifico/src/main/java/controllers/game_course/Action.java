@@ -3,8 +3,12 @@ package controllers.game_course;
 import controllers.Player;
 import game.TheGame;
 import models.CouncilPrivilege;
+import models.Points;
+import models.Resources;
 import models.board.Board;
+import models.board.Dice;
 import models.board.FamilyMember;
+import models.cards.DevelopmentCard;
 import utility.Constants;
 
 import java.io.Serializable;
@@ -18,18 +22,19 @@ public class Action implements Serializable {
      */
     private TheGame game;
 
-    private Board board;
+    protected Board board;
     private CouncilPrivilege councilPrivilege;
     private boolean checkPrivilege;
     private String cardType;
     private boolean checkCard;
     private int diceCost;
-    private int familyMember;
-    private int servants;
-    private int actionSpaceID;
+    protected int familyMember;
+    protected int servants;
+    private int tower;
+    private int space;
 
     //Constants
-    public final static int NUMBER_OF_ACTION_INFO = 3;
+    public final static int NUMBER_OF_ACTION_INFO = 4;
 
 
     /**
@@ -40,10 +45,15 @@ public class Action implements Serializable {
     /**
      * Basic Action Constructor used for debug
      */
-    public Action(int[] debugToken) {
-        this.familyMember = debugToken[0];
-        this.servants = debugToken[1];
-        this.actionSpaceID = debugToken[2];
+    public Action(int[] choice) {
+
+        this.familyMember = choice[0];
+        this.servants = choice[1];
+
+        if (choice.length > 2) {
+            this.tower = choice[2];
+            this.space = choice[3];
+        }
     }
 
     /**
@@ -67,7 +77,7 @@ public class Action implements Serializable {
     }
 
     /**
-     * Set Game reference Board
+     * Set Board Game reference
      * @param board
      */
     public void setBoard(Board board) {
@@ -85,23 +95,24 @@ public class Action implements Serializable {
 
     /**
      * Place family member on action space.
-     * @param actionSpaceID
+     * @param tower
+     * @param space
      * @param famMember
      * @param player
      * @return
      */
-    public boolean placeFamilyMemberOnTower(int actionSpaceID, FamilyMember famMember, Player player) {
+    public boolean placeFamilyMemberOnTower(int tower, int space, FamilyMember famMember, Player player) {
 
         boolean free;
 
         //Check if actionspace is free
-        free = checkFreeActionSpace(actionSpaceID);
+        free = checkFreeActionSpace(tower, space);
 
         if (free) {
 
-            //Check if there are other family member on the same tower, and if player got enough coins to place family member
+            //Check if there are other family member on the same tower and if player got enough coins to place family member
             for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++) {
-                if ((board.getActionSpacesByIndex(actionSpaceID).get(0).getOccupied()) && (player.getRes().getCoins() >= 3)) {
+                if ((board.getTower(tower).getSpace(space).getOccupied()) && (player.getRes().getCoins() >= 3)) {
                     int coins = player.getRes().getCoins() - 3;
                     player.getRes().setCoins(coins);
                 }
@@ -109,9 +120,9 @@ public class Action implements Serializable {
                 }
 
             //Check that there are not other family member on the same tower with the same Player color and place family member
-            if (checkNoSameColorFamilyMember(board.getTowerIndexFromActionSpaceIndex(actionSpaceID), famMember)) {
-                board.getActionSpacesByIndex(actionSpaceID).get(0).setFamilyMember(famMember);
-                board.getActionSpacesByIndex(actionSpaceID).get(0).setOccupied();
+            if (checkNoSameColorFamilyMember(tower, famMember)) {
+                board.getTower(tower).getSpace(space).setFamilyMember(famMember);
+                board.getTower(tower).getSpace(space).setOccupied();
             }
         }
         return free;
@@ -134,33 +145,26 @@ public class Action implements Serializable {
 
     /**
      * Check if action space selected is free.
-     * @param actionSpaceID
-     * @return
-     */
-    public boolean checkFreeActionSpace(int actionSpaceID) {
-        return (!(board.getActionSpacesByIndex(actionSpaceID).get(0).getOccupied()));
-
-    }
-
-    /**
-     * Check if action space selected is free (by tower and space index)
      * @param tower
      * @param space
      * @return
      */
-    public boolean checkFreeActionSpaceTowerSpace(int tower, int space) {
-
+    public boolean checkFreeActionSpace(int tower, int space) {
         return (!(board.getTower(tower).getSpace(space).getOccupied()));
 
     }
 
     /**
-     * Check if there are other family members on the same tower, with the same color
+     * Check if there are other family members on the same tower, with the same Player color
      */
     public boolean checkNoSameColorFamilyMember(int tower, FamilyMember familyMember) {
+
+        if (familyMember.getDiceColor() == Dice.COLORS.NEUTER)
+            return true;
+
         for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++)
-            if (!(checkFreeActionSpaceTowerSpace(tower, i)))
-                if (familyMember.getDiceColor().equals(board.getTower(tower).getSpace(i).getFamilyMember().getDiceColor()))
+            if (!(checkFreeActionSpace(tower, i)))
+                if (familyMember.getPlayerColor().equals(board.getTower(tower).getSpace(i).getFamilyMember().getPlayerColor()))
                     return false;
 
         return true;
@@ -223,75 +227,55 @@ public class Action implements Serializable {
      */
     public boolean execute(Player player) {
         boolean check;
-
         //Perform tower action choice
-        check = towerActionChoice(player, this.actionSpaceID, this.familyMember, this.servants );
+        check = familyMemberAction(player, tower, space, familyMember, servants );
+        //performTowerAction(player, actionSpaceID,)
         return check;
 
     }
 
-    /**
-     *If tower choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    //TODO: mettere insieme towerActionChoice e familyMemberAction
-    public boolean towerActionChoice(Player player, int actionSpaceID, int type, int servant) {
-        boolean valid = false;
-        valid = familyMemberAction(player, actionSpaceID, type, servant);
-
-        return valid;
-    }
 
     /**
      * If requirements are satisfied, place family member on tower space and add the corresponding bonus to the player.
      * @param player
-     * @param actionSpaceID
+     * @param tower
+     * @param space
      * @param type
      * @param servant
      * @return
      */
-    public boolean familyMemberAction(Player player, int actionSpaceID, int type, int servant) {
+    public boolean familyMemberAction(Player player, int tower, int space, int type, int servant) {
         boolean check = false;
 
-        //Select family member choosen by player, and add servant to his value.
-        FamilyMember familyMember = selectFamilyMember(player, type, servant);
+        //Select family member choose by player, and add servant to his value.
+        FamilyMember familyMemberSelected = selectFamilyMember(player, type, servant);
 
         //Check if the family member satisfied action space request
-        if (checkFamilyMemberTowerChoice(familyMember, actionSpaceID))
-            check = placeFamilyMemberOnTower(actionSpaceID, familyMember, player);
+        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space))
+            check = placeFamilyMemberOnTower(tower, space, familyMemberSelected, player);
 
         //Add bonus space to the player if there is bonus on action space
-        if (check && board.getActionSpacesByIndex(actionSpaceID).get(0).checkBonus())
-            board.getActionSpacesByIndex(actionSpaceID).get(0).addBonus(player);
+        if (check && board.getTower(tower).getSpace(space).checkBonus())
+            board.getTower(tower).getSpace(space).addBonus(player);
         return check;
     }
 
     /**
      * Check if family member value is greater than tower space dice cost.
      * @param familyMember
-     * @param actionSpaceID
+     * @param tower
+     * @param space
      * @return
      */
-    public boolean checkFamilyMemberTowerChoice(FamilyMember familyMember, int actionSpaceID) {
+    public boolean checkFamilyMemberTowerChoice(FamilyMember familyMember, int tower, int space) {
         boolean valid = false;
-        if (familyMember.getValue() >= board.getActionSpacesByIndex(actionSpaceID).get(0).getDiceCost())
+        if (familyMember.getValue() >= board.getTower(tower).getSpace(space).getDiceCost())
             valid = true;
 
         return valid;
     }
 
-    /**
-     * Check if family member value is greater than 1.
-     * @param familyMember
-     * @return
-     */
-    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
-        boolean valid = false;
-        if (familyMember.getValue() >= 1)
-            valid = true;
-        return valid;
-    }
+
 
     /**
      * Select the family member and add servant if requested.
@@ -302,10 +286,73 @@ public class Action implements Serializable {
      */
     public FamilyMember selectFamilyMember(Player player, int type, int servant) {
         player.getFamilyMember(type).addValue(servant);
-        player.getFamilyMember(type).setUsed();
 
+        //Update player servant value
+        int newServantValue = player.getRes().getServants() - servant;
+        player.getRes().setServants(newServantValue);
+
+        player.getFamilyMember(type).setUsed();
         return player.getFamilyMember(type);
     }
+
+   /* /**
+     * When family member is placed, this method perform all the corresponding action of this choice.
+     * @param player
+     * @param tower
+     * @param space
+     * @return
+     */
+    /*public boolean performTowerAction(Player player, int tower, int space) {
+        boolean valid;
+        Resources res = board.getTower(tower).getSpace(space).getBonus();
+        player.getRes().addResources(res);
+
+        DevelopmentCard devCard = board.getTower(tower).getSpace(space).getCard();
+
+        valid = checkCardRequest(player,devCard);
+
+        if (valid) {
+
+            switch (tower) {
+                case 0:
+                    player.getPersonalBoard().getTerritories().add(devCard);
+                    break;
+                case 1:
+                    player.getPersonalBoard().getCharacters().add(devCard);
+                    break;
+                case 2:
+                    player.getPersonalBoard().getBuildings().add(devCard);
+                    break;
+                case 3:
+                    player.getPersonalBoard().getVentures().add(devCard);
+                    break;
+                default:
+                    break;
+            }
+
+            devCard.removePoints(player);
+            devCard.removeRes(player);
+            devCard.getImmediateEffect().addPoints(player);
+            devCard.getImmediateEffect().addResources(player);
+
+            if(devCard.getImmediateEffect().getIsBonus())
+                if(devCard.getImmediateEffect().getBonusAction().getCheckPrivilege()) {
+                    devCard.getImmediateEffect().getBonusAction().chooseCouncilPrivilege(choice);
+                }
+                //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
+                    //takeBonusCard(player, devCard);
+        }
+       return valid;
+    }*/
+
+    public boolean checkCardRequest(Player player, DevelopmentCard card) {
+        Resources cardRes = card.getCost();
+        Resources playerRes = player.getRes();
+        Points cardPoints = card.getPointsReq();
+        Points playerPoints = player.getPoints();
+        return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
+    }
+
 
 }
 

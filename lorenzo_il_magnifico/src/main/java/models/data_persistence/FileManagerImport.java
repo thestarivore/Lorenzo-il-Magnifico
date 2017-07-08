@@ -29,13 +29,13 @@ public class FileManagerImport implements Serializable{
        // ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = "/home/starivore/Workspace/Eclipse/java/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/java/models/data_persistence/DevCard.json";
+        String dCardFile = "/Users/cp18393/IdeaProjects/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/java/models/data_persistence/DevCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
             ArrayList<DevelopmentCard> list = gson.fromJson(reader, dCardType);
             for(int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i));
             }
-            developmentCards=list;
+            developmentCards = list;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ public class FileManagerImport implements Serializable{
         //ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type lCardType = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
         Gson gson = new Gson();
-        String lCardFile = "/Users/cp18393/Desktop/LeaderCard.json";
+        String lCardFile = "/Users/Mattia/IdeaProjects/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/java/models/data_persistence/LeaderCard.json";
         try (Reader reader = new FileReader(lCardFile)) {
             ArrayList<LeaderCard> list = gson.fromJson(reader, lCardType);
             for(int i = 0; i < list.size(); i++) {

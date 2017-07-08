@@ -1,5 +1,6 @@
 package controllers.game_course;
 
+import controllers.Player;
 import models.GameFacadeModel;
 import models.board.FamilyMember;
 
@@ -8,8 +9,36 @@ import models.board.FamilyMember;
  */
 public class HarvestAction extends Action {
 
-    /*public HarvestAction(GameFacadeModel model){
-        super(model);
+    public static final int NUMBER_OF_HARVESTACTION_INFO = 2;
+
+    public HarvestAction() {}
+
+    public HarvestAction(int[] choice){
+        super(choice);
+
+    }
+
+    public boolean execute(Player player) {
+        boolean check;
+
+        check = harvestActionChoice(player, familyMember, servants);
+
+        return check;
+    }
+
+    /**
+     * If harvest choice, request to the player whitch family member use, and select the corresponding action.
+     * @param player
+     * @return
+     */
+    public boolean harvestActionChoice(Player player, int type, int servant) {
+        boolean check = false;
+        FamilyMember familyMember = selectFamilyMember(player, type, servant);
+
+        if (checkFamilyMemberChoice(familyMember))
+            check = placeFamilyMemberOnHarvestArea(familyMember);
+
+        return check;
     }
 
 
@@ -17,26 +46,42 @@ public class HarvestAction extends Action {
     public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
         boolean free;
 
-        free = checkFreeActionSpaceTowerSpace();
+        free = checkFreeActionSpace();
         if (free) {
-            model.getBoard().getHarvestArea().getSingleSpace().setFamilyMember(famMember);
-            return true;
+            board.getHarvestArea().getSingleSpace().setFamilyMember(famMember);
+            board.getHarvestArea().getSingleSpace().setOccupied();
+            return free;
         }
 
-        model.getBoard().getHarvestArea().addMultipleSpace();
-        int i = model.getBoard().getHarvestArea().getMultipleSpace().size();
-        model.getBoard().getHarvestArea().getMultipleSingleSpace(i).setFamilyMember(famMember);
+        if (board.getNumberOfPlayer() > 2) {
+            board.getHarvestArea().addMultipleSpace();
+            int i = board.getHarvestArea().getMultipleSpace().size();
+            System.out.println(i);
+            board.getHarvestArea().getMultipleSingleSpace(i - 1).setFamilyMember(famMember);
+            board.getHarvestArea().getMultipleSingleSpace(i - 1).setOccupied();
 
-        int value = famMember.getValue();
-        famMember.setValue(value-3);
+            int value = famMember.getValue();
+            famMember.setValue(value - 3);
+        }
 
-        return false;
+        return free;
+    }
+
+    /**
+     * Check if family member value is greater than 1.
+     * @param familyMember
+     * @return
+     */
+    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
+        boolean valid = false;
+        if (familyMember.getValue() >= 1)
+            valid = true;
+        return valid;
     }
 
 
-    public boolean checkFreeActionSpaceTowerSpace() {
-        if (!(model.getBoard().getHarvestArea().getSingleSpace().getOccupied()))
-            return true;
-        return false;
-    }*/
+    public boolean checkFreeActionSpace() {
+        return (!(board.getHarvestArea().getSingleSpace().getOccupied()));
+    }
+
 }

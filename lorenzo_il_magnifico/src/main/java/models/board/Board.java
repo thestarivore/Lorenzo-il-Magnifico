@@ -22,6 +22,7 @@ public class Board implements Serializable {
     //private String playerInTurn;
     private int period;
     private int round;
+    private int numberOfPlayer;
     private String phase;
 
 
@@ -30,6 +31,7 @@ public class Board implements Serializable {
      */
     public final static int FIXED_NUMBER_OF_TOWER = 4;
     public final static int FIXED_NUMBER_OF_CARD = 4;
+    public final static int ACTION_AREAS = 5;
     public final static int NUMBER_ACTION_SPACES = 25;
     //Complete list of the indexes of th Action Spaces
     // First Tower
@@ -88,6 +90,7 @@ public class Board implements Serializable {
             this.dice[i].setColor(i);
         }
 
+        this.numberOfPlayer = numberOfPlayer;
         this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
 
@@ -227,47 +230,45 @@ public class Board implements Serializable {
         return actionSpaces;
     }
 
-    public String[] getAvailableActionSpace() {
+    public boolean[] getAvailableTowerActionSpace(int tower) {
 
-        String[] availableActionSpace = new String[Board.NUMBER_ACTION_SPACES];
+        boolean[] availableActionSpace = new boolean[Board.FIXED_NUMBER_OF_CARD];
 
         //Get available Tower spaces.
-        for(int i = 0; i < Board.NUMBER_ACTION_SPACES - 9 ; i++) {
-            if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
-                availableActionSpace[i] = "Not Available";
+        for(int i = 0; i < Board.FIXED_NUMBER_OF_CARD ; i++) {
+            if (this.getTower(tower).getSpace(i).getOccupied()) {
+                availableActionSpace[i] = false;
             } else {
-                availableActionSpace[i] = String.valueOf(i);
+                availableActionSpace[i] = true;
             }
         }
 
-        //The Council Palace is always available.
-        availableActionSpace[16] = String.valueOf(16);
+        /*//The Council Palace is always available.
+        availableActionSpace[16] = true;
 
         //Harvest Single space could be occupied, Multiple space always available.
         if (this.getActionSpacesByIndex(17).get(0).getOccupied()) {
-            availableActionSpace[17] = "Not Available";
+            availableActionSpace[17] = false;
         } else {
-            availableActionSpace[17] = String.valueOf(17);
+            availableActionSpace[17] = true;
         }
-        availableActionSpace[18] = String.valueOf(18);
+        availableActionSpace[18] = true;
 
         ///Production Single space could be occupied, Multiple space always available.
         if (this.getActionSpacesByIndex(19).get(0).getOccupied()) {
-            availableActionSpace[19] = "Not Available";
+            availableActionSpace[19] = false;
         } else {
-            availableActionSpace[19] = String.valueOf(19);
+            availableActionSpace[19] = true;
         }
-        availableActionSpace[20] = String.valueOf(20);
+        availableActionSpace[20] = true;
 
         for (int i = 21; i < Board.NUMBER_ACTION_SPACES; i++){
             if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
-                availableActionSpace[i] = "Not Available";
+                availableActionSpace[i] = false;
             } else {
-                availableActionSpace[i] = String.valueOf(i);
+                availableActionSpace[i] = true;
             }
-        }
-
-
+        }*/
 
         return availableActionSpace;
     }

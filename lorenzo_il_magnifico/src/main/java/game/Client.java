@@ -163,8 +163,6 @@ public class Client {
     private static void clientInit() {
         gameView            = new GameView();
         board               = new Board(TheGame.MAXIMUM_PLAYERS_NUMBER);
-        personalBoard       = new PersonalBoard();
-        personalBonusTile   = new PersonalBonusTile();
     }
 
     /**
@@ -237,6 +235,7 @@ public class Client {
             public void run() {
                 switch (fsmState){
                     case BOARD_UPDATES:{
+                        client.getPlayerUpdates();
                         client.getBoardUpdates();
                         fsmState = FSMClient.TURN_UPDATE;
                     }break;
@@ -249,12 +248,24 @@ public class Client {
                     case SEND_ACTION:{
                         //Control if is my turn
                         if(myTurn) {
-                            int[] debugToken;
+                            //Get witch action user want to perform
+                            int actionType = client.getActionType();
                             //Get action from user and send it to the server
-                            debugToken = gameView.getAction(player, board);
-                            Action action = new Action(debugToken);
-                            client.sendAction(action);
-                            myTurn = false;
+                            switch (actionType) {
+                                case 0: {
+                                    Action action = client.getAction();
+                                    client.sendAction(action);
+                                    myTurn = false;
+                                }break;
+                                case 1:{
+
+                                }break;
+                                case 2: {
+                                    Action action = client.getHarvestAction();
+                                    client.sendAction(action);
+                                    myTurn = false;
+                                }break;
+                            }
                         }
                         fsmState = FSMClient.CASE3;
                     }break;

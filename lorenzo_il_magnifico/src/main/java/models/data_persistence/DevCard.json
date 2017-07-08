@@ -1,6 +1,6 @@
 [
   {	"name":"Commercial Hub",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -13,7 +13,7 @@
     "description":"This card is useful"
   },
   {	"name":"Woods",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -32,7 +32,7 @@
     "description":"This card is useful"
   },
   {	"name":"Village",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -46,7 +46,7 @@
     "description":"This card is useful"
   },
   {	"name":"Gravel Pit",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -65,7 +65,7 @@
     "description":"This card is useful"
   },
   {	"name":"Forest",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -83,7 +83,7 @@
     "description":"This card is useful"
   },
   {	"name":"Monastery",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -107,7 +107,7 @@
     "description":"This card is useful"
   },
   {	"name":"Citadel",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -123,7 +123,7 @@
     "description":"This card is useful"
   },
   {	"name":"City",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -146,7 +146,7 @@
     "description":"This card is useful"
   },
   {	"name":"Gold Mine",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -164,7 +164,7 @@
     "description":"This card is useful"
   },
   {	"name":"Mountain Town",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -185,7 +185,7 @@
     "description":"This card is useful"
   },
   {	"name":"Mining Town",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -205,7 +205,7 @@
     "description":"This card is useful"
   },
   {	"name":"Rock Pit",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -223,7 +223,7 @@
     "description":"This card is useful"
   },
   {	"name":"Estate",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -243,7 +243,7 @@
     "description":"This card is useful"
   },
   {	"name":"Hermitage",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -261,7 +261,7 @@
     "description":"This card is useful"
   },
   {	"name":"Manor House",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -277,7 +277,7 @@
     "description":"This card is useful"
   },
   {	"name":"Dukedom",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -297,7 +297,7 @@
     "description":"This card is useful"
   },
   {	"name":"Trading Town",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -316,7 +316,7 @@
     "description":"This card is useful"
   },
   {	"name":"Farm",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -340,7 +340,7 @@
     "description":"This card is useful"
   },
   {	"name":"Colony",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -362,7 +362,7 @@
   },
   {
     "name":"Province",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
       },
@@ -385,7 +385,7 @@
     "description":"This card is useful"
   },
   {	"name":"Marble Pit",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -406,7 +406,7 @@
     "description":"This card is useful"
   },
   {	"name":"Sanctuary",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -427,7 +427,7 @@
     "description":"This card is useful"
   },
   {	"name":"Castle",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -451,7 +451,7 @@
     "description":"This card is useful"
   },
   {	"name":"Fortified Town",
-    "cardtype":1,
+    "cardType":1,
     "period":{
       "numberOfPeriod":1
     },
@@ -483,7 +483,7 @@
 
   {
     "name":"Mint",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -509,7 +509,7 @@
   },
   {
     "name":"Tax Office",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -535,7 +535,7 @@
   },
   {
     "name":"Triumphal Arch",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
 
@@ -562,7 +562,7 @@
   },
   {
     "name":"Theater",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
 
@@ -589,7 +589,7 @@
   },
   {
     "name":"Carpeter's Shop",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -604,13 +604,13 @@
     },
     "PermanentEffect":{
     "Exchange":[{
-      "exresources": {
+      "exResources": {
         "coins": 3
       },
       "firstP": {
         "woods": 1
       },
-      "exresources": {
+      "exResources": {
         "coins": 5
       },
       "firstP": {
@@ -624,7 +624,7 @@
   },
   {
     "name":"Stonemason's Shop",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -639,13 +639,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "exresources": {
+        "exResources": {
           "coins": 3
         },
         "firstP": {
           "stones": 1
         },
-        "exresources": {
+        "exResources": {
           "coins": 5
         },
         "firstP": {
@@ -659,7 +659,7 @@
   },
   {
     "name":"Chapel",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
 
@@ -674,7 +674,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "faith": 1
         },
         "firstP": {
@@ -720,7 +720,7 @@
   },
   {
     "name": "Marketplace",
-    "cardtype":3,
+    "cardType":3,
     "period": {
       "numberOfPeriod": 1
     },
@@ -735,7 +735,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "exresources": {
+        "exResources": {
           "stones":2,
           "woods":2
         },
@@ -766,13 +766,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 3
         },
         "firstP": {
           "coins": 1
         },
-        "expoints": {
+        "exPoints": {
           "victory": 5
         },
         "firstP": {
@@ -803,13 +803,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 3
         },
         "firstP": {
           "woods": 1
         },
-        "expoints": {
+        "exPoints": {
           "victory": 7
         },
         "firstP": {
@@ -839,13 +839,13 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 3
         },
         "firstP": {
           "stones": 1
         },
-        "expoints": {
+        "exPoints": {
           "victory": 7
         },
         "firstP": {
@@ -858,7 +858,7 @@
   },
   {
     "name":"Stonemasons' Guild",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -873,7 +873,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "victory": 6
         },
         "firstP": {
@@ -889,7 +889,7 @@
   },
   {
     "name":"Baptistery",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -904,10 +904,10 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "exresources": {
+        "exResources": {
           "coins": 2
         },
-        "expoints":{
+        "exPoints":{
           "victory":1
          },
         "firstP": {
@@ -921,7 +921,7 @@
   },
   {
     "name":"Barracks",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -936,7 +936,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "military": 3
         },
         "firstP": {
@@ -950,7 +950,7 @@
   },
   {
     "name":"Stronghold",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -975,7 +975,7 @@
   },
   {
     "name":"Bank",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -1002,7 +1002,7 @@
   },
   {
     "name":"Fair",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -1025,7 +1025,7 @@
   },
   {
     "name":"Garden",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -1048,7 +1048,7 @@
     "description":"This card is useful"
   },
   {	"name":"Fortress",
-    "cardtype":3,
+    "cardType":3,
     "period":{
       "numberOfPeriod":1
     },
@@ -1074,7 +1074,7 @@
   },
   {
     "name": "Palace",
-    "cardtype":3,
+    "cardType":3,
     "period": {
       "numberOfPeriod": 1
     },
@@ -1090,10 +1090,10 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "military":3
         },
-        "exresources": {
+        "exResources": {
           "servants":2
         },
         "firstP": {
@@ -1107,7 +1107,7 @@
   },
   {
     "name": "Church",
-    "cardtype":3,
+    "cardType":3,
     "period": {
       "numberOfPeriod": 1
     },
@@ -1123,7 +1123,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "faith":2
           },
         "firstP": {
@@ -1138,7 +1138,7 @@
   },
   {
     "name": "Military Academy",
-    "cardtype":3,
+    "cardType":3,
     "period": {
       "numberOfPeriod": 1
     },
@@ -1154,7 +1154,7 @@
     },
     "PermanentEffect":{
       "Exchange":[{
-        "expoints": {
+        "exPoints": {
           "military":3,
           "victory":1
         },
@@ -1201,7 +1201,7 @@
 
   {
     "name":"Warlord",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1225,7 +1225,7 @@
   },
   {
     "name":"Stonemason",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1234,7 +1234,7 @@
         "coins":4
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction":{
       "increase": 2,
       "cardType": 3,
@@ -1248,7 +1248,7 @@
   },
   {
     "name":"Dame",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1257,7 +1257,7 @@
         "coins":4
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "cardType": 2,
@@ -1270,7 +1270,7 @@
   },
   {
     "name":"Knight",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1283,7 +1283,7 @@
       "privilege":true,
       "numberOfprivilege":1
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "cardType": 4
@@ -1293,7 +1293,7 @@
   },
   {
     "name":"Farmer",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1302,7 +1302,7 @@
         "coins":2
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "actionType": 1
@@ -1312,7 +1312,7 @@
   },
   {
     "name":"Artisan",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1321,7 +1321,7 @@
         "coins":3
       }
     },
-    "Permanenteffect":{
+    "permanentEffect":{
     "IncreaseAction": {
       "increase": 2,
       "actionType": 3
@@ -1331,7 +1331,7 @@
   },
   {
     "name":"Preacher",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1345,14 +1345,14 @@
         "faith":4
       }
     },
-    "Permanenteffect":{
+    "PermanentEffect":{
       "noBonus":true
       },
     "description":"This card is useful"
   },
   {
     "name":"Abbess",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1373,7 +1373,7 @@
   },
   {
     "name":"Captain",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1395,7 +1395,7 @@
   },
   {
     "name":"Architect",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1421,7 +1421,7 @@
   },
   {
     "name":"Patron",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
       },
@@ -1443,7 +1443,7 @@
     },
   {
     "name":"Hero",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1457,14 +1457,14 @@
       "numberOfPrivilege":1,
       "immediateTakeCard":{
         "dice":6,
-        "cardtype":4
+        "cardType":4
       }
     },
     "description":"This card is useful"
   },
   {
     "name":"Peasant",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1483,7 +1483,7 @@
   },
   {
     "name":"Scholar",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1502,7 +1502,7 @@
   },
   {
     "name":"Papal Messenger",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1520,7 +1520,7 @@
   },
   {
     "name":"Royal Messenger",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1537,7 +1537,7 @@
   },
   {
     "name":"Noble",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1558,7 +1558,7 @@
   },
   {
     "name":"Governor",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1579,7 +1579,7 @@
   },
   {
     "name":"Paramour",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1600,7 +1600,7 @@
   },
   {
     "name":"Herald",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1621,7 +1621,7 @@
   },
   {
     "name":"Cardinal",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1642,7 +1642,7 @@
   },
   {
     "name":"Bishop",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1663,7 +1663,7 @@
   },
   {
     "name":"General",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1684,7 +1684,7 @@
   },
   {
     "name":"Ambassador",
-    "cardtype":2,
+    "cardType":2,
     "period":{
       "numberOfPeriod":1
     },
@@ -1710,7 +1710,7 @@
 
   {
     "name":"Hiring Recruits",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1731,7 +1731,7 @@
   },
   {
     "name":"Repairing the Church",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1754,7 +1754,7 @@
   },
   {
     "name":"Building the walls",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1777,7 +1777,7 @@
   },
   {
     "name":"Building the Walls",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1800,7 +1800,7 @@
   },
   {
     "name":"Raising a statue",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1824,7 +1824,7 @@
   },
   {
     "name":"Military Campaign",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1848,7 +1848,7 @@
   },
   {
     "name":"Hosting Panhandlers",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1869,7 +1869,7 @@
   },
   {
     "name":"Fighting Heresies",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1893,7 +1893,7 @@
   },
   {
     "name":"Support the Bishop",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1924,7 +1924,7 @@
   },
   {
     "name":"Hiring soldiers",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1945,7 +1945,7 @@
   },
   {
     "name":"Repairing the Abbey",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1968,7 +1968,7 @@
   },
   {
     "name":"Building the Bastions",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -1991,7 +1991,7 @@
   },
   {
     "name":"Support to the king",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2017,7 +2017,7 @@
   },
   {
     "name":"Improving the Canals",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2041,7 +2041,7 @@
   },
   {
     "name":"Hosting Foreigners",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2062,7 +2062,7 @@
   },
   {
     "name":"Crusade",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2089,7 +2089,7 @@
   },
   {
     "name":"Support the Cardinal",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2120,7 +2120,7 @@
   },
   {
     "name":"Hiring Mercenaries",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2141,7 +2141,7 @@
   },
   {
     "name":"Repairing the cathedral",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2168,7 +2168,7 @@
   },
   {
     "name":"Building the towers",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2191,7 +2191,7 @@
   },
   {
     "name":"Promoting sacred Art",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2212,7 +2212,7 @@
   },
   {
     "name":"Military Conquest",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2238,7 +2238,7 @@
   },
   {
     "name":"Improving the Roads",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2262,7 +2262,7 @@
   },
   {
     "name":"Support the Pope",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },
@@ -2286,7 +2286,7 @@
   },
   {
     "name":"Support the Pope",
-    "cardtype":4,
+    "cardType":4,
     "period":{
       "numberOfPeriod":1
     },

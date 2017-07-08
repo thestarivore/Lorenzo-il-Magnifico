@@ -1,6 +1,7 @@
 package game.network.client;
 
 import controllers.Player;
+import models.board.Board;
 import views.cli.GameView;
 import controllers.game_course.Action;
 
@@ -28,6 +29,11 @@ public interface ClientInterface extends Runnable {
     public void setPlayer(Player player);
 
     /**
+     * Get updated Player
+     */
+    public void getPlayerUpdates();
+
+    /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
      */
@@ -42,5 +48,14 @@ public interface ClientInterface extends Runnable {
      * Send Action done to the Server
      */
     public void sendAction(Action action);
+
+    public int getActionType();
+
+    public Action getAction();
+
+    public Action getHarvestAction();
+
+
+
 
 }

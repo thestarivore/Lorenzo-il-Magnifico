@@ -24,8 +24,8 @@ public class Points implements Serializable {
         this.military = 0;
         this.faith = 0;
         if (tower == 3)
-            if(floor > 2)
-                this.military = floor -2;
+            if(floor < 2)
+                this.military = 2 - floor;
     }
 
     public int getVictory() {
@@ -82,7 +82,7 @@ public class Points implements Serializable {
 
     @Override
     public String toString(){
-        return "Victory Points " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;
+        return "Victory Points: " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;
     }
 
     /**

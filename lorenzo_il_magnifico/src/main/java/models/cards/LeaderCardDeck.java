@@ -13,7 +13,6 @@ public class LeaderCardDeck extends Deck implements Serializable {
     private FileManagerImport cardFromFile;
 
     public LeaderCardDeck(ArrayList<LeaderCard> leaderCards, FileManagerImport cardFromFile) {
-        super(new LeaderCard());
         this.leaderCards = new ArrayList<LeaderCard>();
         this.cardFromFile = new FileManagerImport();
     }

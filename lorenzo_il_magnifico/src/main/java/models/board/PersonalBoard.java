@@ -1,5 +1,6 @@
 package models.board;
 
+import models.cards.Building;
 import models.cards.DevelopmentCard;
 
 import java.io.Serializable;

@@ -97,6 +97,7 @@ public class Round {
      */
     private void doRoundSetup(){
         //...
+        //controller.fillTheTower();
 
         //Pass at the actions
         phaseIndex = PHASE1_ACTION;

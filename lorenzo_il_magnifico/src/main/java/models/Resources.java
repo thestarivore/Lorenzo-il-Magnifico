@@ -18,6 +18,9 @@ public class Resources implements Serializable {
 
     public Resources(){
         this.servants = 5;
+        this.coins=0;
+        this.woods=0;
+        this.stones=0;
     }
 
     public Resources(int turnOrder){
@@ -37,16 +40,16 @@ public class Resources implements Serializable {
 
        switch (tower) {
            case 0:
-               if (floor > 2)
-                   this.woods = floor - 2;
+               if (floor < 2)
+                   this.woods = 2 - floor;
                break;
            case 1:
-               if (floor > 2)
-                   this.stones = floor - 2;
+               if (floor < 2)
+                   this.stones = 2 - floor;
                break;
            case 3:
-               if (floor > 2)
-                   this.coins = floor - 2;
+               if (floor < 2)
+                   this.coins = 2 - floor;
                break;
        }
     }

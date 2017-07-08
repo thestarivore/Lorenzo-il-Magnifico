@@ -2,6 +2,7 @@ package game.network.client;
 
 import controllers.Player;
 import controllers.game_course.Action;
+import controllers.game_course.HarvestAction;
 import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
@@ -159,6 +160,11 @@ public class SocketClient implements ClientInterface{
         cmdObjectList.add(object);
     }
 
+    @Override
+    public void getPlayerUpdates() {
+        sendCmdToClient(ProtocolCommands.ASK_PLAYER_UPDATES.getCommand());
+    }
+
     /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
@@ -244,6 +250,11 @@ public class SocketClient implements ClientInterface{
                 manageColorSelection(line, obj);
             }
 
+            //Update Player after color selection
+            if(ProtocolCommands.UPDATED_PLAYER.isThisCmd(line)){
+                manageUpdatedPlayer(line, obj);
+            }
+
             //Board Update
             if(ProtocolCommands.UPDATED_BOARD.isThisCmd(line)){
                 manageUpdatedBoard(line, obj);
@@ -310,7 +321,7 @@ public class SocketClient implements ClientInterface{
 
         //If any changes, update the map
         if(board.equals(oldBoard) == false) {
-            gameView.printBoard(board);
+            gameView.printAllBoard(player, board);
         }
 
         // Save the old board
@@ -348,11 +359,33 @@ public class SocketClient implements ClientInterface{
      * @param obj Object instance of the object received
      */
     private void manageActionProcessed(String command, Object obj) {
-        // nothing to manage for now...
-        // maybe a control in the future, as the server sends back
-        // the action we've sent.
-        //manageUpdatedBoard(command, obj);
-        //gameView.printBoard((Board)obj);
+        Player newPlayer = (Player)obj;
+
+        player = newPlayer;
+    }
+
+    private void manageUpdatedPlayer(String command, Object obj) {
+        Player updatedPlayer = (Player)obj;
+
+        player = updatedPlayer;
+    }
+
+    public int getActionType(){
+        int actionType = gameView.getActionType(oldBoard);
+        return actionType;
+    }
+
+
+    @Override
+    public Action getAction() {
+        int[] action = gameView.getAction(player, oldBoard);
+        return new Action(action);
+    }
+
+    @Override
+    public Action getHarvestAction() {
+        int[] harvestAction = gameView.getHarvestAction(player, oldBoard);
+        return new HarvestAction(harvestAction);
     }
 
 }

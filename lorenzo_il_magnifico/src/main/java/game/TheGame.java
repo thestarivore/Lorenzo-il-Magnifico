@@ -74,7 +74,7 @@ public class TheGame implements Serializable {
     public static final int FORTH_PLAYER    = 3;
 
     //TODO: sostituire con l'uso di un valore caricato da file
-    public static final int GAME_TIMEOUT    = 15000; //in ms
+    public static final int GAME_TIMEOUT    = 5000; //in ms
 
     /**
      * Enum - Possible TheGame's colors constants.
@@ -111,10 +111,6 @@ public class TheGame implements Serializable {
     public TheGame() {
         this.players = new ArrayList<RemotePlayer>();
 
-        //Initialize the Model and the Controller
-        theModel        = new GameFacadeModel(TheGame.MAXIMUM_PLAYERS_NUMBER);
-        theController   = new GameFacadeController(theModel, this);
-
         //Initialize colors available for players
         colorAvailable = new ArrayList<COLORS>();
         colorAvailable.add(COLORS.RED);
@@ -128,6 +124,12 @@ public class TheGame implements Serializable {
 
         //Start the Game Timeout for players
         startGameTimeOut();
+
+        //Initialize the Model and the Controller
+        theModel        = new GameFacadeModel(getPlayersAllowed());
+        theController   = new GameFacadeController(theModel, this);
+
+
     }
 
     /**
@@ -333,6 +335,12 @@ public class TheGame implements Serializable {
 
         //Set the current maximum allowed number of players
         setPlayersAllowed(getNumberOfPlayers());
+
+        //Create new Board with correct number of players
+        if (getPlayersAllowed() < MAXIMUM_PLAYERS_NUMBER) {
+            theModel.setBoard(new Board(getPlayersAllowed()));
+        }
+
 
         //Set the first player
         getTheController().setPlayerInTurn(getPlayer(0));

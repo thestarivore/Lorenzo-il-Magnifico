@@ -3,8 +3,10 @@ package game.network.client;
 
 import controllers.Player;
 import controllers.game_course.Action;
+import controllers.game_course.HarvestAction;
 import game.TheGame;
 import game.network.protocol.RMIProtocol;
+import models.board.Board;
 import views.cli.GameView;
 
 import javax.naming.Context;
@@ -24,6 +26,7 @@ public class RMIClient implements ClientInterface{
     private static RMIClient ourInstance = null;
     private GameView gameView;
     private Player player;
+    private Board oldBoard;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -114,6 +117,8 @@ public class RMIClient implements ClientInterface{
         this.player = player;
     }
 
+    public void getPlayerUpdates(){}
+
     /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
@@ -135,6 +140,22 @@ public class RMIClient implements ClientInterface{
     public void sendAction(Action action) {
 
     }
+
+    @Override
+    public int getActionType() {
+        return 0;
+    }
+
+    @Override
+    public Action getAction() {
+        return new Action();
+    }
+
+    @Override
+    public Action getHarvestAction() {
+        return new HarvestAction();
+    }
+
 
 
 }

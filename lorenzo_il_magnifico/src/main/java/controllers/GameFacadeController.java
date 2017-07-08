@@ -123,23 +123,7 @@ public class GameFacadeController {
 
 
 
-    /**
-     * If harvest choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    /*public boolean harvestActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
 
-        while (!(valid)) {
-                FamilyMember familyMember = selectFamilyMember(player, type, servant);
-                if (checkFamilyMemberChoice(familyMember)) {
-                    harvestAction.placeFamilyMemberOnHarvestArea(familyMember);
-                    valid = true;
-                }
-        }
-        return true;
-    }*/
 
     /**
      * If production choice, request to the player whitch family member use, and select the corresponding action.
@@ -190,56 +174,7 @@ public class GameFacadeController {
         }*/
 
 
-    /**
-     * When family member is placed, this method perform all the corresponding action of this choice.
-     * @param player
-     * @param tower
-     * @param space
-     * @return
-     */
-    /*public boolean performTowerAction(Player player, int tower, int space, int choice) {
 
-        boolean valid;
-        Resources res = facadeModel.getBoard().getTower(tower).getSpace(space).getBonus();
-        player.getRes().addResources(res);
-
-        DevelopmentCard devCard = facadeModel.getBoard().getTower(tower).getSpace(space).getCard();
-
-        valid = checkCardRequest(player,devCard);
-
-        if (valid) {
-
-            switch (tower) {
-                case 0:
-                    player.getPersonalBoard().getTerritories().add(devCard);
-                    break;
-                case 1:
-                    player.getPersonalBoard().getCharacters().add(devCard);
-                    break;
-                case 2:
-                    player.getPersonalBoard().getBuildings().add(devCard);
-                    break;
-                case 3:
-                    player.getPersonalBoard().getVentures().add(devCard);
-                    break;
-                default:
-                    break;
-            }
-
-            devCard.removePoints(player);
-            devCard.removeRes(player);
-            devCard.getImmediateEffect().addPoints(player);
-            devCard.getImmediateEffect().addResources(player);
-
-            if(devCard.getImmediateEffect().getIsBonus())
-                if(devCard.getImmediateEffect().getBonusAction().getCheckPrivilege()) {
-                    devCard.getImmediateEffect().getBonusAction().chooseCouncilPrivilege(choice);
-                }
-                //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
-                    //takeBonusCard(player, devCard);
-        }
-       return valid;
-    }*/
 
 
     /**
@@ -277,13 +212,6 @@ public class GameFacadeController {
         return true;
     }
 
-    public boolean checkCardRequest(Player player, DevelopmentCard card) {
-        Resources cardRes = card.getCost();
-        Resources playerRes = player.getRes();
-        Points cardPoints = card.getPointsReq();
-        Points playerPoints = player.getPoints();
-        return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
-    }
 
     /**
      * Get Period instance at the current index in the controller
@@ -397,6 +325,9 @@ public class GameFacadeController {
         action.setBoard(getBoard());
         action.execute(getPlayerInTurn());
 
+        GameView gameView = new GameView();
+        gameView.printAllBoard(getPlayerInTurn(), getBoard());
+
         //Get Player's turn number
         Player playerInTurn = getPlayerInTurn();
         int playersTurnNum = game.getPlayerTurnNumber(playerInTurn);
@@ -404,5 +335,13 @@ public class GameFacadeController {
         if(playersTurnNum != -1)
             getCurrentRound().updateActionPlayerTurn(playersTurnNum);
 
+    }
+
+    public void fillTheTower(){
+        for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
+            for (int j = 0; j < Board.FIXED_NUMBER_OF_CARD; j++) {
+                getBoard().getTower(i).getSpace(j).setCard(getFacadeModel().getDeck(i).getCardToFillTower());
+            }
+        }
     }
 }
