@@ -96,8 +96,11 @@ public class Round {
      * Is the first thing to do at the beginning of the round.
      */
     private void doRoundSetup(){
-        //...
+        //Fill the towers with the new cards
         controller.fillTheTower();
+
+        //Throw the dice
+        controller.ThrowDice();
 
         //Pass at the actions
         phaseIndex = PHASE1_ACTION;
