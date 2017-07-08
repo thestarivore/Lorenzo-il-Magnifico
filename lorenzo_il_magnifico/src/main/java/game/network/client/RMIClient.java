@@ -136,10 +136,42 @@ public class RMIClient implements ClientInterface{
 
     }
 
+    /**
+     * Send Action done to the Server
+     */
     @Override
     public void sendAction(Action action) {
 
     }
+
+    /**
+     * Ask the server if there is any task that needs
+     * to be managed by the client. One example would be the
+     * choise of sustaining or not sustaining the church during
+     * the vatican report.
+     */
+    @Override
+    public void isSomethingToDo() {
+
+    }
+
+    /**
+     * Tell the server that the client does or does not
+     * sustain the church in the Vatican Report phase.
+     * It will support the church if the passed variable is
+     * "true".
+     * @param sustain boolean variable, if "true" it means that
+     *                the client will support the church.
+     */
+    @Override
+    public void sustainChurch(boolean sustain) {
+
+    }
+
+
+    /*******************************************************
+     ************** User Interaction Methods ***************
+     *******************************************************/
 
     @Override
     public int getActionType() {

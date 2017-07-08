@@ -154,6 +154,21 @@ public class GameView {
         return Integer.parseInt(getValidParameter(list));
     }
 
+    /**
+     * Ask for church support type and control if input is valid
+     * @return the protocol chosen
+     */
+    public String askForChurchSustain() {
+        printLine("Choose to sustain or not the church(y - Yes | n - No): ");
+        ArrayList<String> list = new ArrayList<String>() {
+            {
+                add("y");
+                add("n");
+            }
+        };
+        return getValidParameter(list);
+    }
+
     /***************************************************************************************************************/
 
     public int getActionType(Board board) {
@@ -874,6 +889,9 @@ public class GameView {
     public void printPlayerTurn(String playerName) {
         printLine("*********************It's " + playerName + "'s turn!******************");
     }
+
+
+
 
 
 

@@ -7,6 +7,8 @@ import game.Lobby;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mattia on 22/05/2017.
@@ -16,7 +18,6 @@ public class SocketServer implements ServerInterface{
     private ServerSocket serverSocket;
     private static SocketServer ourInstance = null;
     private static Lobby lobby;
-
 
     /**
      * Get Istance of the Server, creat a new one if none is present

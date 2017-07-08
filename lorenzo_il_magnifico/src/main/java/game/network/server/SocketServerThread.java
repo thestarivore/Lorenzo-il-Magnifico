@@ -14,6 +14,7 @@ import views.cli.GameView;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,10 +26,22 @@ public class SocketServerThread extends Thread{
     private ObjectInputStream in;
     private ObjectOutputStream out;
 
+    /**
+     * Command List - used for string commands to send
+     */
+    private List<String> cmdList;
+
+    /**
+     * Command Object List - used for objects to send
+     */
+    private List<Object> cmdObjectList;
+
 
     public SocketServerThread(RemotePlayer remotePlayer, Socket clientSocket) {
         this.remotePlayer = remotePlayer;
         this.socket = clientSocket;
+        this.cmdList = new ArrayList<String>();
+        this.cmdObjectList = new ArrayList<Object>();
     }
 
     public void run() {
@@ -106,6 +119,21 @@ public class SocketServerThread extends Thread{
         if (ProtocolCommands.PLAYER_ACTION.isThisCmd(cmd)) {
             managePlayerAction(cmd, obj);
         }
+
+        //ASK_NEED_SOMETHING - player needs to be asked something?
+        if (ProtocolCommands.ASK_NEED_SOMETHING.isThisCmd(cmd)) {
+            manageAskNeedSomething(cmd, obj);
+        }
+
+        //SUSTAIN_CHURCH - player sustains the church
+        if (ProtocolCommands.SUSTAIN_CHURCH.isThisCmd(cmd)) {
+            manageSustainChurch(cmd, obj);
+        }
+
+        //DONT_SUSTAIN_CHURCH - player doesn't sustain the church
+        if (ProtocolCommands.DONT_SUSTAIN_CHURCH.isThisCmd(cmd)) {
+            manageDontSustainChurch(cmd, obj);
+        }
     }
 
     /**
@@ -127,6 +155,25 @@ public class SocketServerThread extends Thread{
     /****************************************************************************************
      ************************ Protocol Received Commands Management *************************
      ****************************************************************************************/
+
+    /**
+     * Send Command to the client (No object Version)
+     * @param cmd command String to send
+     */
+    public void sendCmdToClient(String cmd){
+        cmdList.add(cmd);
+        cmdObjectList.add(new String(ProtocolCommands.NONE.getCommand()));
+    }
+
+    /**
+     * Send Command and the object to the client
+     * @param cmd command String to send
+     * @param object object to send
+     */
+    public void sendCmdToClient(String cmd, Object object){
+        cmdList.add(cmd);
+        cmdObjectList.add(object);
+    }
 
     /**
      * Respond back to the client.
@@ -258,5 +305,38 @@ public class SocketServerThread extends Thread{
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
         respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
     }
+    
+    /**
+     * Manage ASK_NEED_SOMETHING command
+     * @param command String of the command received via socket
+     * @param obj Object received via socket
+     */
+    private void manageAskNeedSomething(String command, Object obj) throws IOException {
+        boolean cmdToSend = !cmdList.isEmpty();
+
+        //If are there any command to send, send them
+        if(cmdToSend) {
+            respondToClient(cmdList.remove(0), cmdObjectList.remove(0));
+        }
+    }
+
+    /**
+     * Manage SUSTAIN_CHURCH command
+     * @param command String of the command received via socket
+     * @param obj Object received via socket
+     */
+    private void manageSustainChurch(String command, Object obj) throws IOException {
+
+    }
+
+    /**
+     * Manage DONT_SUSTAIN_CHURCH command
+     * @param command String of the command received via socket
+     * @param obj Object received via socket
+     */
+    private void manageDontSustainChurch(String command, Object obj) throws IOException {
+
+    }
+
 
 }

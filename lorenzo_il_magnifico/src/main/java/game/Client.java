@@ -88,7 +88,7 @@ public class Client {
         BOARD_UPDATES(0),
         TURN_UPDATE(1),
         SEND_ACTION(2),
-        CASE3(3),
+        SOMETHNG_TO_DO(3),
 
         ;
         int state;
@@ -266,15 +266,16 @@ public class Client {
                                 }break;
                             }
                         }
-                        fsmState = FSMClient.CASE3;
+                        fsmState = FSMClient.SOMETHNG_TO_DO;
                     }break;
 
-                    case CASE3:{
+                    case SOMETHNG_TO_DO:{
+                        client.isSomethingToDo();
                         fsmState = FSMClient.TURN_UPDATE;
                     }break;
                 }
             }
-        }, 50, 100);
+        }, 50, 50);
 
         //Cancel the timer at the end
         //timer.cancel();
