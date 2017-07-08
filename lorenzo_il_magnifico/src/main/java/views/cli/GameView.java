@@ -27,9 +27,8 @@ import static java.lang.Integer.parseInt;
  * information entered by the user to whomever needs it.
  */
 public class GameView {
-
     private TheGame game;
-
+    private boolean gettingAction;
 
     //Constants
     public static final int ACTION_SPACE_HEIGHT = 4;
@@ -37,6 +36,7 @@ public class GameView {
 
 
     public GameView() {
+        this.gettingAction = false;
 
         /*
             Here we initialize all the graphical parts.
@@ -223,10 +223,13 @@ public class GameView {
     public int[] getAction(Player player, Board board){
         int[] action = new int[Action.NUMBER_OF_ACTION_INFO];
 
+        //Get all the info required for the action definition
+        setGettingAction(true);
         action[0] = getFamilyMember(player);
         action[1] = getServant(player);
         action[2] = getTower(board);
         action[3] = getSpace(board, action[2]);
+        setGettingAction(false);
 
         return action;
     }
@@ -271,7 +274,6 @@ public class GameView {
 
 
     public int getFamilyMember(Player player) {
-
         String[] familyMemberAvailable = player.getAvailableFamilyMember();
 
         //Print the message.
@@ -291,17 +293,17 @@ public class GameView {
         };
 
         return parseInt(getValidParameter(list));
-
     }
 
 
     public int getServant(Player player) {
-
         String servant = "0";
         printLine("Do you want to add Servant? [Y/N]");
         ArrayList<String> list = new ArrayList<String>(){
             {
+                add("y");
                 add("Y");
+                add("n");
                 add("N");
             }
         };
@@ -349,17 +351,6 @@ public class GameView {
     }
 
 
-    public void printBoard(Board board) {
-        for (int i=0; i< Constants.FIXED_NUM_OF_TOWER; i++) {
-            printLine("Tower " + (i+1) + ":");
-            for (int j = 0; j < Constants.FIXED_TOWER_CARDS; j++) {
-                printCard(board.getTower(i).getSpace(j).getCard());
-
-            }
-        }
-
-    }
-
     public void printCard(DevelopmentCard card) {
         printLine(card.getName());
         System.out.println(card.getPeriod());
@@ -371,6 +362,21 @@ public class GameView {
     }
 
     /*********************************************************************************************************************************/
+    /**
+     * Is the view getting the action from the player/user?
+     * @return "true" if it does
+     */
+    public boolean isGettingAction() {
+        return gettingAction;
+    }
+
+    /**
+     * Set if we are getting or not action from the player/user.
+     * @param gettingAction boolean variable
+     */
+    public void setGettingAction(boolean gettingAction) {
+        this.gettingAction = gettingAction;
+    }
 
 
 
@@ -452,16 +458,16 @@ public class GameView {
     }
 
     public void printAllBoard(Player player, Board board) {
-        printMap(board);
+        printBoard(board);
         printLine("");
         printPlayerInfo(player);
     }
 
     /**
-     * Print updated Board to the console.
+     * Print the Updated Board to the console.
      * @param board
      */
-    public void printMap(Board board){
+    public void printBoard(Board board){
         printLine(" _______  _______  _______  ______    ______ ");
         printLine("|  _    ||       ||   _   ||    _ |  |      |");
         printLine("| |_|   ||   _   ||  |_|  ||   | ||  |  _    |");
@@ -489,7 +495,6 @@ public class GameView {
         printLine("");
 
         printMarket(board);
-
     }
 
     /**
@@ -874,7 +879,9 @@ public class GameView {
      * Print Message to let know the user that it's his turn now
      */
     public void printYourTurn() {
-        printLine("*********************It's your turn!******************");
+        //Only print if player's still not inserting the action
+        if(this.isGettingAction() == false)
+            printLine("*********************It's your turn!******************");
     }
 
     /**
@@ -924,7 +931,7 @@ public class GameView {
         board.getMarket().getSpace(2).setOccupied();
 
 
-        view.printMap(board);
+        view.printBoard(board);
 
        /* view.printFourTime(s,s,s,s);
         view.printLine("");

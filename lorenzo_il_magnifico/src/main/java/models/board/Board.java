@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -20,7 +19,7 @@ public class Board implements Serializable {
     private Dice[] dice;
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
-    private String playerIsTurn;
+    //private String playerInTurn;
     private int period;
     private int round;
     private int numberOfPlayer;
@@ -30,7 +29,6 @@ public class Board implements Serializable {
     /**
      * Board Constants
      */
-
     public final static int FIXED_NUMBER_OF_TOWER = 4;
     public final static int FIXED_NUMBER_OF_CARD = 4;
     public final static int ACTION_AREAS = 5;
@@ -294,17 +292,13 @@ public class Board implements Serializable {
         return towerIndex;
     }
 
-    public int getNumberOfPlayer() {
-        return numberOfPlayer;
+   /* public String getPlayerInTurn() {
+        return playerInTurn;
     }
 
-    public String getPlayerIsTurn() {
-        return playerIsTurn;
-    }
-
-    public void setPlayerIsTurn(String playerIsTurn) {
-        this.playerIsTurn = playerIsTurn;
-    }
+    public void setPlayerInTurn(String playerInTurn) {
+        this.playerInTurn = playerInTurn;
+    }*/
 
     public int getPeriod() {
         return period;
@@ -359,7 +353,7 @@ public class Board implements Serializable {
         if (harvestArea != null ? !harvestArea.equals(board.harvestArea) : board.harvestArea != null) return false;
         if (productionArea != null ? !productionArea.equals(board.productionArea) : board.productionArea != null)
             return false;
-        if (playerIsTurn != null ? !playerIsTurn.equals(board.playerIsTurn) : board.playerIsTurn != null) return false;
+        //if (playerInTurn != null ? !playerInTurn.equals(board.playerInTurn) : board.playerInTurn != null) return false;
         return phase != null ? phase.equals(board.phase) : board.phase == null;
     }
 
@@ -380,11 +374,18 @@ public class Board implements Serializable {
         result = 31 * result + Arrays.hashCode(dice);
         result = 31 * result + (harvestArea != null ? harvestArea.hashCode() : 0);
         result = 31 * result + (productionArea != null ? productionArea.hashCode() : 0);
-        result = 31 * result + (playerIsTurn != null ? playerIsTurn.hashCode() : 0);
+        //result = 31 * result + (playerInTurn != null ? playerInTurn.hashCode() : 0);
         result = 31 * result + period;
         result = 31 * result + round;
         result = 31 * result + (phase != null ? phase.hashCode() : 0);
         return result;
+    }
+
+    /**
+     * Get number of players
+     */
+    public int getNumberOfPlayer() {
+        return numberOfPlayer;
     }
 }
 

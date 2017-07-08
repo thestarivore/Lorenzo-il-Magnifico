@@ -8,14 +8,11 @@ import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 
 import models.board.Board;
-import models.board.Dice;
-import models.board.FamilyMember;
 import views.cli.GameView;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.*;
 
@@ -39,11 +36,6 @@ public class SocketClient implements ClientInterface{
      * represents this player.
      */
     private Player player;
-
-    /**
-     * Player instance of the last Player in turn.
-     */
-    private Player playerInTurn;
 
     /**
      * Command List - used for string commands to send
@@ -89,7 +81,6 @@ public class SocketClient implements ClientInterface{
         this.port = port;
         this.cmdList = new ArrayList<String>();
         this.cmdObjectList = new ArrayList<Object>();
-        playerInTurn = new Player("");
     }
 
     /**
@@ -353,9 +344,9 @@ public class SocketClient implements ClientInterface{
                 gameView.printYourTurn();
                 Client.setMyTurn(true);
             }
-            else if (this.playerInTurn.isSameAs(player) == false) {
+            else if (Client.getPlayerInTurn().isSameAs(player) == false) {
                 //Turn has changed -> New player
-                this.playerInTurn = player;
+                Client.setPlayerInTurn(player);
                 Client.setMyTurn(false);
                 gameView.printPlayerTurn(player.getName());
             }

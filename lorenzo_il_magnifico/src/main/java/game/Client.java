@@ -38,6 +38,12 @@ public class Client {
     private static Player               player;
 
     /**
+     * Player instance of the Player whose turn is right now.
+     * (So it could be different than this client's player).
+     */
+    private static Player playerInTurn;
+
+    /**
      * It's the Board of the game.
      * Within it there is all that happens in the game.
      */
@@ -128,6 +134,7 @@ public class Client {
     public static void main(String[] args){
         //Client's initialization
         clientInit();
+        playerInTurn = new Player("");
 
         //Ask User's Name and create local player
         askUsersName();
@@ -295,5 +302,22 @@ public class Client {
      */
     public static void setMyTurn(boolean turn){
         myTurn = turn;
+    }
+
+    /**
+     * Get the current Player in turn. I could be a different
+     * player rather than the player associated with this client.
+     * @return Player instance of the player whose turn is right now
+     */
+    public static Player getPlayerInTurn() {
+        return playerInTurn;
+    }
+
+    /**
+     * Sets the current player whose turn is.
+     * @param playerInTurn Payers instance of the player in turn
+     */
+    public static void setPlayerInTurn(Player playerInTurn) {
+        Client.playerInTurn = playerInTurn;
     }
 }

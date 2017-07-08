@@ -3,16 +3,11 @@ package views.gui;
 import controllers.Player;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.AnchorPane;
 import models.board.Board;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -125,7 +120,7 @@ public class PlayerInfoController {
 
     public void showGameInfo(Board board) {
         if (board != null) {
-            gameTurnLabel.setText(board.getPlayerIsTurn());
+            //gameTurnLabel.setText(board.getPlayerInTurn());
             periodLabel.setText(String.valueOf(board.getPeriod()));
             roundLabel.setText(String.valueOf(board.getRound()));
             phaseLabel.setText(board.getPhase());

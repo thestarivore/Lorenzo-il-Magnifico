@@ -15,8 +15,6 @@ import models.board.FamilyMember;
 import models.cards.DevelopmentCard;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Mattia on 02/07/2017.
@@ -61,7 +59,7 @@ public class GraphicalUserInterface extends Application{
         board.setPeriod(0);
         board.setPhase("prova");
         board.setRound(2);
-        board.setPlayerIsTurn("mattia");
+        //board.setPlayerInTurn("mattia");
         board.getTower(1).getSpace(0).setFamilyMember(new FamilyMember());
         board.getTower(1).getSpace(0).getFamilyMember().setPlayerColor(TheGame.COLORS.RED);
         board.getTower(1).getSpace(0).getFamilyMember().setDiceColor(Dice.COLORS.WHITE);
@@ -81,7 +79,7 @@ public class GraphicalUserInterface extends Application{
         board.setPeriod(0);
         board.setPhase("prova");
         board.setRound(2);
-        board.setPlayerIsTurn("mattia");
+        //board.setPlayerInTurn("mattia");
 
 
 
