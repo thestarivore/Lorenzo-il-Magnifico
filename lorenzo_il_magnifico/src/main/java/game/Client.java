@@ -246,15 +246,15 @@ public class Client {
                             //Get action from user and send it to the server
                             switch (actionType) {
                                 case 0: {
-                                    Action action = client.getAction();
+                                    Action action = client.getAction(actionType);
                                     client.sendAction(action);
                                     myTurn = false;
                                 }break;
                                 case 1:{
-
+                                    Action action = client.getCouncilAction(actionType);
                                 }break;
                                 case 2: {
-                                    Action action = client.getHarvestAction();
+                                    Action action = client.getHarvestAction(actionType);
                                     client.sendAction(action);
                                     myTurn = false;
                                 }break;

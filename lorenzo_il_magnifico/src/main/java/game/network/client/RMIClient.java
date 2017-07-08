@@ -147,13 +147,18 @@ public class RMIClient implements ClientInterface{
     }
 
     @Override
-    public Action getAction() {
+    public Action getAction(int actionType) {
         return new Action();
     }
 
     @Override
-    public Action getHarvestAction() {
+    public Action getHarvestAction(int actionType) {
         return new HarvestAction();
+    }
+
+    @Override
+    public Action getCouncilAction(int actionType) {
+        return new Action();
     }
 
 

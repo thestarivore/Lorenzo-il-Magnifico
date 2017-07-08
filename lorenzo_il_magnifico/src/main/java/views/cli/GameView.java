@@ -4,6 +4,7 @@ import controllers.Player;
 import controllers.game_course.Action;
 import controllers.game_course.HarvestAction;
 import game.TheGame;
+import models.CouncilPrivilege;
 import models.Points;
 import models.Resources;
 import models.board.*;
@@ -190,6 +191,17 @@ public class GameView {
 
     }
 
+    public int[] getCouncilAction(Player player, Board board){
+
+        int[] councilAction = new int[Action.NUMBER_OF_COUNCIL_INFO];
+
+        councilAction[0] = getFamilyMember(player);
+        councilAction[1] = getServant(player);
+        councilAction[3] = getCouncilPrivilege();
+
+        return councilAction;
+    }
+
     public int[] getHarvestAction(Player player, Board board) {
 
         int[] harvestAction = new int[HarvestAction.NUMBER_OF_HARVESTACTION_INFO];
@@ -311,16 +323,21 @@ public class GameView {
     }
 
     public int getCouncilPrivilege() {
-        printLine("Select Council Privilege");
-        String str;
-        int i;
+        printLine("Select Council Privilege (" +
+                "0 - 1 Woods & 1 Stones, " +
+                "1 - 2 Servants, " +
+                "2 - 2 Coins, " +
+                "3 - 2 Military Points, " +
+                "4 - 1 Faith Point )");
 
-        do {
-            str = getLine();
-            i = parseInt(str);
-        } while (i>3);
+        ArrayList<String> list = new ArrayList<String>(){
+            {
+                for (int i = 0; i < CouncilPrivilege.NUMBER_OF_COUNCIL_PRIVILEGE; i++)
+                    add(String.valueOf(i));
+            }
+        };
 
-        return i;
+        return parseInt(getValidParameter(list));
     }
 
     public void printAvailableFamilyMember(Player player) {

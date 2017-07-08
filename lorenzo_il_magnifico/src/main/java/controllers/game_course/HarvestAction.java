@@ -13,8 +13,8 @@ public class HarvestAction extends Action {
 
     public HarvestAction() {}
 
-    public HarvestAction(int[] choice){
-        super(choice);
+    public HarvestAction(int[] userInfo, int actionChoice){
+        super(userInfo, actionChoice);
 
     }
 

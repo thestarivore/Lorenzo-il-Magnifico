@@ -10,6 +10,10 @@ public class CouncilPrivilege implements Serializable {
     private Resources res;
     private Points points;
 
+    //Constants
+    public static final int NUMBER_OF_COUNCIL_PRIVILEGE = 5;
+
+
     public CouncilPrivilege() {
         this.res = new Resources();
         this.points = new Points();

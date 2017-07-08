@@ -51,10 +51,11 @@ public interface ClientInterface extends Runnable {
 
     public int getActionType();
 
-    public Action getAction();
+    public Action getAction(int actionType);
 
-    public Action getHarvestAction();
+    public Action getHarvestAction(int actionType);
 
+    public Action getCouncilAction(int actionType);
 
 
 

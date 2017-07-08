@@ -31,11 +31,11 @@ public class DevelopmentCard implements Card, Serializable {
     public static final int MAX_DESCRIPTION_LENGTH = 75;
 
     public DevelopmentCard() {
-        /*this.name  = "commercial_hub";
+        this.name  = "commercial_hub";
         this.pointsCost = new Points();
         this.cost = new Resources(1);
         this.pointsReq = new Points();
-        this.description = "ciao                                                                       ";*/
+        this.description = "ciao                                                                       ";
        }
 
 

@@ -386,15 +386,22 @@ public class SocketClient implements ClientInterface{
 
 
     @Override
-    public Action getAction() {
+    public Action getAction(int actionType) {
         int[] action = gameView.getAction(player, oldBoard);
-        return new Action(action);
+        return new Action(action, actionType);
     }
 
     @Override
-    public Action getHarvestAction() {
+    public Action getHarvestAction(int actionType) {
         int[] harvestAction = gameView.getHarvestAction(player, oldBoard);
-        return new HarvestAction(harvestAction);
+        return new HarvestAction(harvestAction, actionType);
+    }
+
+    @Override
+    public Action getCouncilAction(int actionType) {
+        int[] councilAction = gameView.getCouncilAction(player, oldBoard);
+
+        return new Action(councilAction, actionType);
     }
 
 }

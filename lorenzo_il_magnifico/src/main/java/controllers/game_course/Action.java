@@ -35,6 +35,7 @@ public class Action implements Serializable {
 
     //Constants
     public final static int NUMBER_OF_ACTION_INFO = 4;
+    public final static int NUMBER_OF_COUNCIL_INFO = 3;
 
 
     /**
@@ -45,14 +46,14 @@ public class Action implements Serializable {
     /**
      * Basic Action Constructor used for debug
      */
-    public Action(int[] choice) {
+    public Action(int[] userInfo, int actionChoice) {
 
-        this.familyMember = choice[0];
-        this.servants = choice[1];
+        this.familyMember = userInfo[0];
+        this.servants = userInfo[1];
 
-        if (choice.length > 2) {
-            this.tower = choice[2];
-            this.space = choice[3];
+        if (userInfo.length > 2) {
+            this.tower = userInfo[2];
+            this.space = userInfo[3];
         }
     }
 
