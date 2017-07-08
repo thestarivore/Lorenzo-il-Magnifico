@@ -27,7 +27,7 @@ public class FileManagerImport implements Serializable{
 
 
 
-    // public static void main(String[] args) {
+     //public static void main(String[] args) {
     public ArrayList<DevelopmentCard> acquireDevCard(){
        // ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
@@ -38,7 +38,7 @@ public class FileManagerImport implements Serializable{
             for(int i = 0; i < list.size(); i++) {
                 System.out.print(list.get(i));
             }
-            //developmentCards = list;
+            developmentCards = list;
         } catch (IOException e) {
             e.printStackTrace();
         }

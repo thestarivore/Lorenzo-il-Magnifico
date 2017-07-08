@@ -451,7 +451,10 @@
         "coins":1
       },
       "pointsForCharacters": {
-        "tower": 3
+        "towerNum": 3,
+        "characterResourses":{
+          "coins":1
+        }
       }
     },
     "dice":5,
@@ -475,7 +478,7 @@
         "coins":1
         },
       "pointsForCharacters":{
-        "tower":1
+        "towerNum":1
       }
     },
     "dice":5,
@@ -499,7 +502,7 @@
         "victory":1
       },
       "pointsForCharacters": {
-        "tower": 4
+        "towerNum": 4
       }
     },
     "dice":6,
@@ -523,7 +526,7 @@
         "victory":1
       },
       "pointsForCharacters": {
-        "tower": 2
+        "towerNum": 2
       }
     },
     "dice":6,
@@ -1391,10 +1394,10 @@
     },
     "immediateEffect":{
       "pointsForCharacters":{
-        "tower":1
-      },
-      "points":{
-        "victory":2
+        "towerNum":1,
+        "characterPoints":{
+          "victory":2
+        }
       }
     },
     "description":"This card is useful"
@@ -1410,10 +1413,10 @@
     },
     "immediateEffect":{
       "pointsForCharacters":{
-        "tower":3
-      },
-      "points":{
-        "victory":2
+        "towerNum":3,
+        "characterPoints":{
+          "victory":2
+      }
       }
     },
     "description":"This card is useful"
@@ -1429,10 +1432,10 @@
     },
     "immediateEffect":{
       "pointsForCharacters":{
-        "tower":2
-      },
-      "points":{
-        "victory":2
+        "towerNum":2,
+        "characterPoints":{
+          "victory":2
+      }
       }
     },
     "description":"This card is useful"
@@ -1448,10 +1451,10 @@
     },
     "immediateEffect":{
       "pointsForCharacters":{
-        "tower":4
-      },
-      "points":{
-        "victory":2
+        "towerNum":4,
+        "characterPoints":{
+          "victory":2
+        }
       }
     },
     "description":"This card is useful"
@@ -1467,7 +1470,8 @@
     },
     "immediateEffect":{
       "immediateTakeCard":{
-        "dice":4
+        "dice":4,
+        "harvest":true
       },
       "points":{
         "faith":2
@@ -1486,7 +1490,8 @@
     },
     "immediateEffect":{
       "immediateTakeCard":{
-        "dice":4
+        "dice":4,
+        "production":true
       },
       "points":{
         "faith":1
@@ -1505,10 +1510,10 @@
     },
     "immediateEffect":{
       "pointsForCharacters":{
-        "tower":3
-      },
-      "points":{
-        "victory":2
+        "towerNum":3,
+        "characterPoints":{
+          "victory":2
+        }
       }
     },
     "description":"This card is useful"
@@ -1830,7 +1835,8 @@
     },
     "ImmediateEffect":{
     "immediateTakeCard": {
-      "dice": 4
+      "dice": 4,
+      "harvest":true
     }
     },
     "permanentEffect":{
@@ -2033,7 +2039,8 @@
     },
     "immediateEffect":{
     "immediateTakeCard":{
-      "dice":3
+      "dice":3,
+      "production":true
     },
     "permanentEffect": {
       "points": {
