@@ -17,7 +17,10 @@ public class Resources implements Serializable {
     public static final int FIXED_NUM_OF_RESOURCES = 4;
 
     public Resources(){
-        //this.servants = 5;
+        this.servants = 5;
+        this.coins=0;
+        this.woods=0;
+        this.stones=0;
     }
 
     public Resources(int turnOrder){
