@@ -31,11 +31,11 @@ public class DevelopmentCard implements Card, Serializable {
     public static final int MAX_DESCRIPTION_LENGTH = 75;
 
     public DevelopmentCard() {
-        this.name  = "commercial_hub";
+        /*this.name  = "commercial_hub";
         this.pointsCost = new Points();
         this.cost = new Resources(1);
         this.pointsReq = new Points();
-        this.description = "ciao                                                                        ";
+        this.description = "ciao                                                                       ";*/
        }
 
 
@@ -132,13 +132,13 @@ public class DevelopmentCard implements Card, Serializable {
         return  "Card Name: " + this.name + "\n" +
                 "Card Period: " + this.period + "\n"+
                 "Card Type: " + this.cardType + "\n" +
-                "Card Cost: " + this.cost+"\n" +
-                "Points Cost: " + this.pointsCost+"\n" +
+                "Card Cost: " + this.cost + "\n" +
+                "Points Cost: " + this.pointsCost + "\n" +
                 "Card Point: " + this.pointsReq + "\n" +
-                "Immediate Effect: "+this.immediateEffect+ "\n" +
-                "Permanent effect: " + this.permanentEffect +"\n" +
-                "Dice Cost: " + this.dice +"\n" +
-                "Description: " + this.description+ "\n\n";
+                "Immediate Effect: "+ this.immediateEffect + "\n" +
+                "Permanent effect: " + this.permanentEffect + "\n" +
+                "Dice Cost: " + this.dice + "\n" +
+                "Description: " + this.description + "\n\n";
     }
 
     /**
