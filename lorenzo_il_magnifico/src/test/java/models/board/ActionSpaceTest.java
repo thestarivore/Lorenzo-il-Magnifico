@@ -15,7 +15,7 @@ public class ActionSpaceTest {
     @Test
     public void checkBonus1() throws Exception {
         a = new ActionSpace();
-        a.setBonus( new Resources(2));
+        //a.setBonus( new Resources(2));
         assertTrue( a.checkBonus() );
     }
 

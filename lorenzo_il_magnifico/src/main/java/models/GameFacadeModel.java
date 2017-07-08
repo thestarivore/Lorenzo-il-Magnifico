@@ -3,6 +3,7 @@ package models;
 import models.board.ActionSpace;
 import models.board.Board;
 import models.board.TheMarket;
+import models.board.Tower;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
 import models.data_persistence.FileManagerImport;
@@ -95,6 +96,28 @@ public class GameFacadeModel {
             boardMSpace.setBonusPoints(configMSpace.getBonusPoints());
             boardMSpace.setResourcesBonus(configMSpace.getResourcesBonus());
             boardMSpace.setBonusCouncilPrivileges(configMSpace.getBonusCouncilPrivileges());
+        }
+
+        //Get configuration Tower
+        Tower[] configTowers = gameConfig.getTower();
+
+        //Iterate each tower
+        for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
+            //Get config Tower and board Tower
+            Tower boardTower = getBoard().getTower(i);
+            Tower configTower = configTowers[i];
+
+            //Iterate each Action Space in the Tower
+            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
+                //Get Action spaces on the market of the board and of the config instance
+                ActionSpace boardTSpace = boardTower.getSpace(j);
+                ActionSpace configTSpace = configTower.getSpace(j);
+
+                //Update Bonus Points, Resources and CouncilPrivileges
+                boardTSpace.setBonusPoints(configTSpace.getBonusPoints());
+                boardTSpace.setResourcesBonus(configTSpace.getResourcesBonus());
+                boardTSpace.setBonusCouncilPrivileges(configTSpace.getBonusCouncilPrivileges());
+            }
         }
     }
 

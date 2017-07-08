@@ -119,12 +119,12 @@ public class TheGame implements Serializable {
         gameStarted = false;
         playersAllowed = MAXIMUM_PLAYERS_NUMBER;
 
-        //Start the Game Timeout for players
-        startGameTimeOut();
-
         //Initialize the Model and the Controller
         theModel        = new GameFacadeModel(getPlayersAllowed());
         theController   = new GameFacadeController(theModel, this);
+
+        //Start the Game Timeout for players
+        startGameTimeOut();
     }
 
     /**

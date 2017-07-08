@@ -27,7 +27,7 @@ public class Config {
         this.timeOutMove = 0;
         this.market = new TheMarket();
         this.tower  = new Tower[4];
-        this.faithPoints[16]= 0;
+        this.faithPoints = new int[16];
     }
 
     public int getTimeOutGame() {
@@ -46,7 +46,9 @@ public class Config {
         this.timeOutMove = timeOutMove;
     }
 
-
+    public Tower[] getTower() {
+        return tower;
+    }
 
     public TheMarket getMarket() {
         return market;

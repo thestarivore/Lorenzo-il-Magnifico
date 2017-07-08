@@ -41,7 +41,7 @@ public class FileManagerImport implements Serializable{
     }
 
     /**
-     *Method to import all leaderCard from file
+     * Method to import all leaderCard from file
      **/
     public ArrayList<LeaderCard> acquireLeaderCard(){
         ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
