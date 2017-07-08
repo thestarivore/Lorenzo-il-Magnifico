@@ -305,7 +305,7 @@ public class SocketServerThread extends Thread{
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
         respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
     }
-    
+
     /**
      * Manage ASK_NEED_SOMETHING command
      * @param command String of the command received via socket
