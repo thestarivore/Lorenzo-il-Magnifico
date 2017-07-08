@@ -19,13 +19,10 @@ import models.cards.Deck;
  * Created by cp18393 on 11/06/17.
  */
 public class FileManagerImport implements Serializable{
-    
-    private ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
-    private ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
-    private ArrayList<ExcommunicationTile> excommunicationTiles = new ArrayList<ExcommunicationTile>();
-    private Config config;
 
-    //method to import all developmentCard from file
+    /**
+     * Method to import all developmentCard from file
+     * */
     public ArrayList<DevelopmentCard> acquireDevCard(){
         ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
@@ -43,17 +40,18 @@ public class FileManagerImport implements Serializable{
 
     }
 
-
-    //method to import all leaderCard from file
+    /**
+     *Method to import all leaderCard from file
+     **/
     public ArrayList<LeaderCard> acquireLeaderCard(){
-        ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
+        ArrayList<LeaderCard> leaderCards = new ArrayList<LeaderCard>();
         final Type lCardType = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
         Gson gson = new Gson();
         String lCardFile = "lorenzo_il_magnifico/src/main/resources/LeaderCard.json";
         try (Reader reader = new FileReader(lCardFile)) {
-            developmentCards = gson.fromJson(reader, lCardType);
-            for(int i = 0; i < developmentCards.size(); i++) {
-                System.out.print(developmentCards.get(i));
+            leaderCards = gson.fromJson(reader, lCardType);
+            for(int i = 0; i < leaderCards.size(); i++) {
+                System.out.print(leaderCards.get(i));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,12 +59,14 @@ public class FileManagerImport implements Serializable{
         return leaderCards;
 }
 
-    //method to import the excommunicatioTiles from files
+    /**
+     * Method to import the excommunicatioTiles from files
+     **/
     public ArrayList<ExcommunicationTile> acquireTiles(){
         ArrayList<ExcommunicationTile> excommunicationTiles = new ArrayList<ExcommunicationTile>();
         final Type tilesType = new TypeToken<ArrayList<ExcommunicationTile>>(){}.getType();
         Gson gson = new Gson();
-        String tilesFiles = "lorenzo_il_magnifico/src/main/resources/LeaderCard.json";
+        String tilesFiles = "lorenzo_il_magnifico/src/main/resources/ExcommunicationTiles.json";
         try (Reader reader = new FileReader(tilesFiles)) {
             excommunicationTiles = gson.fromJson(reader, tilesType);
             for(int i = 0; i < excommunicationTiles.size(); i++) {
@@ -78,7 +78,9 @@ public class FileManagerImport implements Serializable{
         return excommunicationTiles;
     }
 
-    //method to import the configuration files
+    /**
+     * Method to import the configuration files
+     **/
     public Config acquireConfigurations(){
         Gson gson = new Gson();
         Config configFile = new Config();
