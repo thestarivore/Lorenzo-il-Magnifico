@@ -7,6 +7,7 @@ import java.io.*;
 
 import models.Config;
 import models.board.ExcommunicationTile;
+import models.board.PersonalBoard;
 import models.cards.*;
 
 import java.lang.reflect.Type;
@@ -92,5 +93,26 @@ public class FileManagerImport implements Serializable{
             e.printStackTrace();
         }
         return configFile;
+    }
+
+
+    /**
+     * Method to import the personal board from file
+     **/
+    public ArrayList<PersonalBoard> acquirePersonalBoard() {
+        ArrayList<PersonalBoard> personalBoards = new ArrayList<PersonalBoard>();
+        final Type boardType = new TypeToken<ArrayList<PersonalBoard>>() {
+        }.getType();
+        Gson gson = new Gson();
+        String boardFiles = "lorenzo_il_magnifico/src/main/resources/PlayerBoard.json";
+        try (Reader reader = new FileReader(boardFiles)) {
+            personalBoards = gson.fromJson(reader, boardType);
+            for (int i = 0; i < personalBoards.size(); i++) {
+                System.out.print(personalBoards.get(i));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return personalBoards;
     }
 }
