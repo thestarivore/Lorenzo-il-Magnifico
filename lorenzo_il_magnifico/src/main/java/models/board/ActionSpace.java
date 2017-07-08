@@ -14,6 +14,7 @@ public class ActionSpace implements Serializable {
     private DevelopmentCard card;
     private Resources bonusRes;
     private Points bonusPoints;
+    private int bonusCouncilPrivileges;
     private FamilyMember familyMember;
     private int diceCost;
     private boolean isOccupied;
@@ -28,6 +29,7 @@ public class ActionSpace implements Serializable {
         this.familyMember   = null;
         this.isOccupied     = false;
         this.diceCost       = 1;
+        this.bonusCouncilPrivileges = 0;
     }
 
     /**

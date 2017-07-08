@@ -1,6 +1,6 @@
 {
-  "timeOutPlayer": 10,
-  "timeOutMove": 10,
+  "timeOutGame": 5000,
+  "timeOutMove": 10000,
   "tower": [{
     "numberOfTower": 1,
     "space": [

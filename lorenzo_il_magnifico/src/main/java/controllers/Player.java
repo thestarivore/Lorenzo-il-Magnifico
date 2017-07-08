@@ -30,7 +30,6 @@ public class Player implements Serializable {
     protected TheGame.COLORS color;
     protected PersonalBonusTile personalBonusTile;
     protected FamilyMember[] familyMember;
-    protected MarkerDiscs markerDiscs;
     protected ExcommunicationCubes excommunicationCubes;
     protected int turnOrder;
     protected boolean myTurn;
@@ -72,7 +71,6 @@ public class Player implements Serializable {
         this.leaderCards = new ArrayList<LeaderCard>();
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.personalBonusTile = new PersonalBonusTile();
-        this.markerDiscs = new MarkerDiscs();
         this.excommunicationCubes = new ExcommunicationCubes();
 
         //Create Family Members
@@ -170,14 +168,6 @@ public class Player implements Serializable {
 
     public void setFamilyMember(FamilyMember familyMember, int i) {
         this.familyMember[i] = familyMember;
-    }
-
-    public MarkerDiscs getMarkerDiscs() {
-        return markerDiscs;
-    }
-
-    public void setMarkerDiscs(MarkerDiscs markerDiscs) {
-        this.markerDiscs = markerDiscs;
     }
 
     public ExcommunicationCubes getExcommunicationCubes() {

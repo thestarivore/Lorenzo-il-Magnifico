@@ -15,7 +15,6 @@ public class Board implements Serializable {
     private Tower[] tower;
     private TheMarket market;
     private TheCouncilPalace councilPalace;
-    private Track[] tracks;
     private Dice[] dice;
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
@@ -81,9 +80,9 @@ public class Board implements Serializable {
 
         this.market = new TheMarket(numberOfPlayer);
         this.councilPalace = new TheCouncilPalace();
-        this.tracks = new Track[Constants.FIXED_NUM_OF_TRACK];
+        /*this.tracks = new Track[Constants.FIXED_NUM_OF_TRACK];
         for (int i=0; i<Constants.FIXED_NUM_OF_TRACK; i++)
-            this.tracks[i] = new Track();
+            this.tracks[i] = new Track();*/
 
         //Dice init
         this.dice = new Dice[FIXED_NUM_OF_DICE];
@@ -123,20 +122,6 @@ public class Board implements Serializable {
 
     public void setCouncilPalace(TheCouncilPalace coincilPalace) {
         this.councilPalace = coincilPalace;
-    }
-
-    public Track[] getTracks() { return tracks; }
-
-    public void setTracks(Track[] tracks) {
-        this.tracks = tracks;
-    }
-
-    /**
-     * Returns Track at index
-     * @param index
-     */
-    public Track getTrack(int index){
-        return tracks[index];
     }
 
     /**
@@ -369,8 +354,6 @@ public class Board implements Serializable {
         if (councilPalace != null ? !councilPalace.equals(board.councilPalace) : board.councilPalace != null)
             return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        if (!Arrays.equals(tracks, board.tracks)) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
         if (!Arrays.equals(dice, board.dice)) return false;
         if (harvestArea != null ? !harvestArea.equals(board.harvestArea) : board.harvestArea != null) return false;
         if (productionArea != null ? !productionArea.equals(board.productionArea) : board.productionArea != null)
@@ -392,7 +375,6 @@ public class Board implements Serializable {
         int result = Arrays.hashCode(tower);
         result = 31 * result + (market != null ? market.hashCode() : 0);
         result = 31 * result + (councilPalace != null ? councilPalace.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(tracks);
         result = 31 * result + Arrays.hashCode(dice);
         result = 31 * result + (harvestArea != null ? harvestArea.hashCode() : 0);
         result = 31 * result + (productionArea != null ? productionArea.hashCode() : 0);

@@ -3,6 +3,7 @@ package models;
 import models.board.Board;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
+import models.data_persistence.FileManagerImport;
 
 
 /**
@@ -17,6 +18,8 @@ import models.cards.DevelopmentCardDeck;
 public class GameFacadeModel {
     private Board board;
     private Deck[] deck;
+    private Config gameConfig;
+    private FileManagerImport fileImporter;
 
     public static final int FIXED_NUMBER_OF_DEVELOPMENTDECK = 4;
 
@@ -26,8 +29,62 @@ public class GameFacadeModel {
      */
     public GameFacadeModel (int numberOfPlayer) {
         //Create a new Board
-        this.board = new Board(numberOfPlayer);
+        initBoard(numberOfPlayer);
 
+        //Create 4 Decks of Development cards and shuffle
+        //all the decks based on periods.
+        initDeck();
+
+        //Get configurations
+        initConfigurations();
+    }
+
+    /**
+     * Get Board instance of the game
+     * @return board
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
+     * Set Board instance of the game
+     * @param board
+     */
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    /**
+     * Get Deck of cards by id, used on the game.
+     */
+    public Deck getDeck(int i) {
+        return deck[i];
+    }
+
+    /**
+     * Get game configuration, which are configurations
+     * read from a config file, and contain infos about timeouts
+     * and custom bonuses in the game.
+     * @return
+     */
+    public Config getGameConfig() {
+        return gameConfig;
+    }
+
+    /**
+     * Board Initialization
+     * @param numberOfPlayer
+     */
+    private void initBoard(int numberOfPlayer){
+        //Create a new Board
+        this.board = new Board(numberOfPlayer);
+    }
+
+    /**
+     * Deck Acquisition and Initialization
+     */
+    private void initDeck(){
         //Get the Development cards from JSON file
         DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
         developmentCardDeck.setDeck();
@@ -39,24 +96,15 @@ public class GameFacadeModel {
             this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
             this.deck[i].shuffleByPeriod();
         }
-
-        //Print cards
-        for (int i = 0; i < Deck.MAX_DECK_CARDS_NUMBER; i++)
-            System.out.println(deck[1].getCard().get(i).getName());
     }
 
-    public Board getBoard() {
-        return board;
+    /**
+     * Configuration Initialization
+     */
+    private void initConfigurations(){
+        //Get configurations
+        fileImporter = new FileManagerImport();
+        gameConfig = fileImporter.acquireConfigurations();
     }
-
-    public void setBoard(Board board) {
-        this.board = board;
-    }
-
-    public Deck getDeck(int i) {
-        return deck[i];
-    }
-
-
 
 }

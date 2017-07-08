@@ -32,7 +32,7 @@ public class FileManagerImport implements Serializable{
        // ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = "/home/starivore/Workspace/Eclipse/java/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/resources/DevCard.json";
+        String dCardFile = "lorenzo_il_magnifico/src/main/resources/DevCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
             ArrayList<DevelopmentCard> list = gson.fromJson(reader, dCardType);
             for(int i = 0; i < list.size(); i++) {
@@ -94,14 +94,15 @@ public class FileManagerImport implements Serializable{
     //public static void main(String[] args){
     public Config acquireConfigurations(){
         Gson gson = new Gson();
+        Config configFile = new Config();
         String configFiles = "lorenzo_il_magnifico/src/main/resources/Config.json";
         try (Reader reader = new FileReader(configFiles)) {
-            Config configFile = gson.fromJson(reader, Config.class);
+            configFile = gson.fromJson(reader, Config.class);
                 System.out.println(configFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return this.config;
+        return configFile;
     }
 }
 
