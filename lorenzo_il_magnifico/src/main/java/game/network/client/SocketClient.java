@@ -330,6 +330,9 @@ public class SocketClient implements ClientInterface{
         //If any changes, update the map
         if(player != null) {
             if(this.player.isSameAs(player)){
+                //Update player
+                this.player = player;
+
                 //My Turn now --> inform the client
                 gameView.printYourTurn();
                 Client.setMyTurn(true);

@@ -88,7 +88,7 @@ public class Action implements Serializable {
         //Get game reference
         this.game = gameReference;
 
-        this.councilPrivilege = new CouncilPrivilege();
+        //this.councilPrivilege = new CouncilPrivilege();
         this.cardType = "";
         this.checkCard = false;
         this.diceCost = 1;
@@ -400,7 +400,9 @@ public class Action implements Serializable {
             devCard.getImmediateEffect().addPoints(player);
             devCard.getImmediateEffect().addResources(player);
 
-            if (devCard.getImmediateEffect().getPrivilege()){}
+            if (devCard.getImmediateEffect().getPrivilege()){
+
+            }
             return true;
     }
                 //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
@@ -413,6 +415,10 @@ public class Action implements Serializable {
         Points cardPoints = card.getPointsCost();
         Points playerPoints = player.getPoints();
         return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
+    }
+
+    public void performCouncilPalace(Player player, int councilPrivilegeChoice) {
+        
     }
 
 
