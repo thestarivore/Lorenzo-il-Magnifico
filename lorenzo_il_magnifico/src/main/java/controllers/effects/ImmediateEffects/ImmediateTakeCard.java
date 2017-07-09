@@ -22,19 +22,43 @@ public class ImmediateTakeCard implements Serializable {
         this.production  =false;
     }
 
-    public int getCardType() {
-        return cardType;
+    public Resources getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Resources discount) {
+        this.discount = discount;
     }
 
     public int getDice() {
         return dice;
     }
 
+    public void setDice(int dice) {
+        this.dice = dice;
+    }
+
+    public int getCardType() {
+        return cardType;
+    }
+
+    public void setCardType(int cardType) {
+        this.cardType = cardType;
+    }
+
     public boolean isHarvest() {
         return harvest;
     }
 
+    public void setHarvest(boolean harvest) {
+        this.harvest = harvest;
+    }
+
     public boolean isProduction() {
         return production;
+    }
+
+    public void setProduction(boolean production) {
+        this.production = production;
     }
 }

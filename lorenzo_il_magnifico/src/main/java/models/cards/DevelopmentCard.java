@@ -183,4 +183,8 @@ public class DevelopmentCard implements Card, Serializable {
         result = 31 * result + (pointsCost != null ? pointsCost.hashCode() : 0);
         return result;
     }
+    /**Constructor to create a card with a name**/
+    public DevelopmentCard(String name){
+        this.name  = name;
+    }
 }

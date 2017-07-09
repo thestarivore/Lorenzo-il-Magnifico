@@ -3,10 +3,12 @@ package models;
 import models.board.TheMarket;
 import models.board.Tower;
 
+import java.io.Serializable;
+
 /**
  * Created by cp18393 on 07/07/17.
  */
-public class Config {
+public class Config implements Serializable{
     /**
      * Game Starting timeout in ms.
      * Time it waits for players to connect.
@@ -71,6 +73,7 @@ public class Config {
         this.rewardFaithTrack = rewardFaithTrack;
     }
 
+    @Override
     public String toString(){
         return "Time out Move: " + this.timeOutMove + "\n"+
                 "Time out player: " + this.timeOutGame +"\n"+

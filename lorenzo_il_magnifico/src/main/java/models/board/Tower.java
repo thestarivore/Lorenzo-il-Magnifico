@@ -23,6 +23,7 @@ public class Tower implements Serializable {
     public Tower(){
         this.space  = new ActionSpace[4];
         this.numberOfTower = 0;
+        this.bonusCouncilPrivileges = 0;
     }
     /**
      * Basic Constructor
@@ -30,8 +31,8 @@ public class Tower implements Serializable {
      */
     public Tower(int numberOfTower){
         this.numberOfTower = numberOfTower;
-        this.space = new ActionSpace[Constants.FIXED_TOWER_CARDS];
-        for (int i=0; i<Constants.FIXED_TOWER_CARDS; i++)
+        this.space = new ActionSpace[Board.CARDS_PER_TOWER];
+        for (int i=0; i<Board.CARDS_PER_TOWER; i++)
             this.space[i] = new ActionSpace(numberOfTower, i);
         this.isEmpty = false;
 
@@ -59,6 +60,10 @@ public class Tower implements Serializable {
 
     public void setNumberOfTower(int numberOfTower) {
         this.numberOfTower = numberOfTower;
+    }
+
+    public int getBonusCouncilPrivileges() {
+        return bonusCouncilPrivileges;
     }
 
     /**

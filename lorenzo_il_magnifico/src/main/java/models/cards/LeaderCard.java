@@ -43,6 +43,14 @@ public class LeaderCard implements Card, Serializable {
         this.name = name;
     }
 
+    public boolean isPermanent() {
+        return isPermanent;
+    }
+
+    public void setPermanent(boolean permanent) {
+        isPermanent = permanent;
+    }
+
     @Override
     public String toString(){
         return "Card Name: " + this.name + "\n"+ "Card Requirements: " + this.requirements+"\n"+"Special Ability: "+this.specialAbility ;

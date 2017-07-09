@@ -83,8 +83,8 @@ public class Board implements Serializable {
      * @param numberOfPlayer
      */
     public Board(int numberOfPlayer){
-        this.tower = new Tower[Constants.FIXED_NUM_OF_TOWER];
-        for (int i=0; i<Constants.FIXED_NUM_OF_TOWER; i++)
+        this.tower = new Tower[FIXED_NUMBER_OF_TOWER];
+        for (int i=0; i<FIXED_NUMBER_OF_TOWER; i++)
             this.tower[i] = new Tower(i);
 
         this.market = new TheMarket(numberOfPlayer);

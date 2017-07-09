@@ -74,17 +74,23 @@ public class Player implements Serializable {
         this.defects = new Defect();
 
         //Create Family Members
-        this.familyMember = new FamilyMember[FamilyMember.FIXED_FAMILY_MEMBER];
-        this.familyMember[0] = new FamilyMember(Dice.COLORS.NEUTER, this.color);
-        this.familyMember[1] = new FamilyMember(Dice.COLORS.BLACK, this.color);
-        this.familyMember[2] = new FamilyMember(Dice.COLORS.ORANGE, this.color);
-        this.familyMember[3] = new FamilyMember(Dice.COLORS.WHITE, this.color);
+        createNewFamilyMembers();
 
         //Turn initialization
         this.turnOrder = 0;
         this.myTurn = false;
     }
 
+    /**
+     * Create new family members to be used
+     */
+    public void createNewFamilyMembers(){
+        this.familyMember = new FamilyMember[FamilyMember.FIXED_FAMILY_MEMBER];
+        this.familyMember[0] = new FamilyMember(Dice.COLORS.NEUTER, this.color);
+        this.familyMember[1] = new FamilyMember(Dice.COLORS.BLACK, this.color);
+        this.familyMember[2] = new FamilyMember(Dice.COLORS.ORANGE, this.color);
+        this.familyMember[3] = new FamilyMember(Dice.COLORS.WHITE, this.color);
+    }
 
     public String getName() {
         return name;
