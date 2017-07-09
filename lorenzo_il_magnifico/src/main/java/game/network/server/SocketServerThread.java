@@ -351,6 +351,12 @@ public class SocketServerThread extends Thread{
         }
     }
 
+    /**
+     * Manage IMMEDIATE_TAKE_CARD_CHOICE command
+     * @param command
+     * @param obj
+     * @throws IOException
+     */
     private void manageImmediateTakeCardChoice(String command, Object obj) throws IOException {
         //Get Action from Object
         Action action = (Action) obj;

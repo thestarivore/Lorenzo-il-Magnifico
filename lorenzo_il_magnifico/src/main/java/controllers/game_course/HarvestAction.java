@@ -1,6 +1,7 @@
 package controllers.game_course;
 
 import controllers.Player;
+import controllers.RemotePlayer;
 import models.board.FamilyMember;
 
 /**
@@ -17,7 +18,14 @@ public class HarvestAction extends Action {
 
     }
 
-    public boolean execute(Player player) {
+    /**
+     * This method should execute the action registered in this class,
+     * on the game reference passed.
+     * This method should only be called on the Server side and only
+     * when we have the game reference of the game which this action is
+     * related to.
+     */
+    public boolean execute(RemotePlayer player) {
         boolean check;
 
         check = harvestActionChoice(player, familyMember, servants);
@@ -41,10 +49,14 @@ public class HarvestAction extends Action {
     }
 
 
-
+    /**
+     * Place family member on Harvest Area
+     * @param famMember
+     * @return
+     */
     public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
         boolean free;
-
+        //Check if singleSpace is free, then place family member
         free = checkFreeActionSpace();
         if (free) {
             board.getHarvestArea().getSingleSpace().setFamilyMember(famMember);
@@ -52,17 +64,17 @@ public class HarvestAction extends Action {
             return free;
         }
 
+        //If multipleSpace is available, place family member
         if (board.getNumberOfPlayer() > 2) {
             board.getHarvestArea().addMultipleSpace();
             int i = board.getHarvestArea().getMultipleSpace().size();
-            System.out.println(i);
             board.getHarvestArea().getMultipleSingleSpace(i - 1).setFamilyMember(famMember);
             board.getHarvestArea().getMultipleSingleSpace(i - 1).setOccupied();
 
+            //Family member value on multipleSingle space decrease
             int value = famMember.getValue();
             famMember.setValue(value - 3);
         }
-
         return free;
     }
 
@@ -78,7 +90,10 @@ public class HarvestAction extends Action {
         return valid;
     }
 
-
+    /**
+     * Check if harvest area action space is free
+     * @return
+     */
     public boolean checkFreeActionSpace() {
         return (!(board.getHarvestArea().getSingleSpace().isOccupied()));
     }

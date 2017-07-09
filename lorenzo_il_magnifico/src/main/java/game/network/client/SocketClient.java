@@ -416,7 +416,7 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
-     * Manage Action Processed Command from server.
+     * Manage Church Sustain Question Command from server.
      * @param command String of the command received
      * @param obj Object instance of the object received
      */
@@ -433,6 +433,11 @@ public class SocketClient implements ClientInterface{
         }
     }
 
+    /**
+     * Manage NONE command
+     * @param command
+     * @param obj
+     */
     private void manageNone(String command, Object obj){
         Client.setIgnoreAction();
     }

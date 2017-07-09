@@ -240,7 +240,7 @@ public class GameFacadeController {
     public void managePlayerAction(Action action) {
         boolean actionExecute = false;
 
-        //Set game reference and execute action
+        //Set board reference and execute action
         action.setBoard(getBoard());
         for (int i = 0; i < game.getPlayersAllowed(); i++)
             if (game.getPlayer(i) == getPlayerInTurn())
@@ -260,9 +260,14 @@ public class GameFacadeController {
 
     }
 
+    /**
+     * Manage Bonus Card Immediate Effect
+     * @param action
+     */
     public void manageImmediateTakeCardChoice (Action action) {
         boolean actionExecute;
 
+        //Set board reference and execute action
         action.setBoard(getBoard());
         actionExecute = action.takeBonusCard(getPlayerInTurn());
 

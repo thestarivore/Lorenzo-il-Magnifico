@@ -172,6 +172,12 @@ public class GameView {
 
     /***************************************************************************************************************/
 
+    /**
+     * Get action type from the player
+     * @param player
+     * @param board
+     * @return int with selected action type
+     */
     public int getActionType(Player player, Board board) {
         setGettingAction(true);
         printLine("Action you want to perform: (" +
@@ -189,18 +195,23 @@ public class GameView {
 
         int actionType = -1;
         boolean valid = false;
+        //Get Personal Board Areas size
         int territorySize = player.getPersonalBoard().getTerritories().size();
         int buildingSize = player.getPersonalBoard().getBuildings().size();
         int characterSize = player.getPersonalBoard().getCharacters().size();
         int ventureSize = player.getPersonalBoard().getVentures().size();
 
+        //Get input while is not valid
         while (!valid) {
             actionType = parseInt(getValidParameter(list));
             valid = true;
+            //Check if Personal Board is not full
             if (actionType == 0 && territorySize == 6 && buildingSize == 6 && characterSize == 6 && ventureSize == 6) {
                 valid = false;
                 printLine("[WARNING] PersonalBoard is full");
             }
+
+            //Check if MultipleSpace is available
             if (actionType == 2 && board.getNumberOfPlayer() < 3 && board.getHarvestArea().getSingleSpace().isOccupied()) {
                 valid = false;
                 printLine("[WARNING] Harvest action not available, insert new action");
@@ -211,28 +222,46 @@ public class GameView {
             }
 
         }
-
+        setGettingAction(false);
         return actionType;
 
     }
 
+    /**
+     * Get Council Action choices
+     * @param player
+     * @param board
+     * @return int with action choices
+     */
     public int[] getCouncilAction(Player player, Board board){
 
         int[] councilAction = new int[Action.NUMBER_OF_COUNCIL_INFO];
 
+        //Get all the info required for the action definition
+        setGettingAction(true);
         councilAction[0] = getFamilyMember(player);
         councilAction[1] = getServant(player);
         councilAction[2] = getCouncilPrivilege();
+        setGettingAction(false);
 
         return councilAction;
     }
 
+    /**
+     * Get Harvest Action choices
+     * @param player
+     * @param board
+     * @return
+     */
     public int[] getHarvestAction(Player player, Board board) {
 
         int[] harvestAction = new int[HarvestAction.NUMBER_OF_HARVESTACTION_INFO];
 
+        //Get all the info required for the action definition
+        setGettingAction(true);
         harvestAction[0] = getFamilyMember(player);
         harvestAction[1] = getServant(player);
+        setGettingAction(false);
 
         return harvestAction;
     }
@@ -271,41 +300,36 @@ public class GameView {
             printLine("This card have a Council Privilege Immediate Effect!");
             action[4] = getCouncilPrivilege();
         }
-
-        //Check if there is Take Another Card Immedaiate effect or Harvest/Production Immediate effect
-        /*if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
-            printLine("This Card have a Bonus Card Immediate Effect!");
-            if (devCard.getImmediateEffect().getImmediateTakeCard().getCardType() == 0) {
-                printLine("Tower of Bonus Card = All Tower!");
-                action[5] = getTower(board);
-            } else {
-                action[5] = devCard.getImmediateEffect().getImmediateTakeCard().getCardType();
-                printLine("Tower of Bonus Card = " + String.valueOf(action[5]));
-            }
-            action[6] = getSpace(board, action[5], action[3]);
-            action[7] = getServant(player);
-        } else {
-            //TODO: fare richiesta per produzione e raccolto di effetti immediati
-        }*/
         setGettingAction(false);
 
         return action;
     }
 
+    /**
+     * Get information about the Bonus Card to take
+     * @param player
+     * @param board
+     * @return int with all the information
+     */
     public int[] getImmediateTakeCardInfo(Player player, Board board) {
         int[] action = new int[Action.NUMBER_OF_IMMEDIATE_TAKE_CARD_INFO];
-
         printLine("This Card has Bonus Card Immediate Effect!");
 
+        //Get all the info required for the action definition
+        setGettingAction(true);
         action[0] = getTower(board);
         action[1] = getSpace(board, action[0], NO_SPACE_BONUS);
         action[2] = getServant(player);
+        setGettingAction(false);
 
         return action;
     }
 
-
-
+    /**
+     * Get the tower of the Card choose
+     * @param board
+     * @return
+     */
     public int getTower(Board board){
         printLine("Choose Tower:");
 
@@ -315,10 +339,16 @@ public class GameView {
                     add(String.valueOf(i));
             }
         };
-
         return parseInt(getValidParameter(list));
     }
 
+    /**
+     * Get Action Space of the tower choose
+     * @param board
+     * @param tower
+     * @param spaceBonus
+     * @return
+     */
     public int getSpace(Board board, int tower, int spaceBonus) {
 
         boolean[] availableTowerActionSpace = board.getAvailableTowerActionSpace(tower);
@@ -342,7 +372,11 @@ public class GameView {
         return parseInt(getValidParameter(list));
     }
 
-
+    /**
+     * Get Family Member to place on the Board
+     * @param player
+     * @return
+     */
     public int getFamilyMember(Player player) {
         String[] familyMemberAvailable = player.getAvailableFamilyMember();
 
@@ -365,7 +399,11 @@ public class GameView {
         return parseInt(getValidParameter(list));
     }
 
-
+    /**
+     * Get servant to add to Family Member value
+     * @param player
+     * @return
+     */
     public int getServant(Player player) {
         String servant = "0";
         printLine("Do you want to add Servant? [Y/N]");
@@ -378,14 +416,15 @@ public class GameView {
             }
         };
         String choice = getValidParameter(list);
-
         list.clear();
 
+        //If choice is "No servants", return 0
         if (("n").equalsIgnoreCase(choice)) {
             return parseInt(servant);
-
         } else {
+            //Get servant
             printLine("Select Servant");
+            list.add(String.valueOf(0));
             for(int i = 0; i < player.getRes().getServants(); i++)
                 list.add(String.valueOf(i + 1 ));
             }
@@ -394,6 +433,10 @@ public class GameView {
         return parseInt(servant);
     }
 
+    /**
+     * Get the type of Council Privilege to activate
+     * @return
+     */
     public int getCouncilPrivilege() {
         printLine("Select Council Privilege (" +
                 "0 - 1 Woods & 1 Stones, " +
@@ -412,24 +455,6 @@ public class GameView {
         return parseInt(getValidParameter(list));
     }
 
-    public void printAvailableFamilyMember(Player player) {
-        for (int i = 0; i< FamilyMember.FIXED_FAMILY_MEMBER; i++)
-            if (!player.getFamilyMember(i).getUsed()) {
-                printLine("Family Member " + i);
-                System.out.println(player.getFamilyMember(i).getValue());
-            }
-    }
-
-
-    public void printCard(DevelopmentCard card) {
-        printLine(card.getName());
-        System.out.println(card.getPeriod());
-    }
-
-    public void printPlayer(Player player) {
-        printLine(player.getName());
-        System.out.println(player.getRes());
-    }
 
     /*********************************************************************************************************************************/
     /**
@@ -977,61 +1002,4 @@ public class GameView {
     public void printPlayerTurn(String playerName) {
         printLine("*********************It's " + playerName + "'s turn!******************");
     }
-
-
-
-
-
-
-
-
-    /*public static void main(String[] args) {
-
-        GameView view = new GameView();
-        String s = view.formatCardSize("");
-        Resources res = new Resources();
-        Points points = new Points();
-        res.setWoods(1);
-        res.setStones(2);
-        res.setCoins(3);
-        res.setServants(4);
-
-        String s1 = view.formatResourcesCost(res, points);
-        String s2 = view.formatCardSize("");
-        String s3 = view.formatBonusSpace("");
-
-        Board board = new Board(4);
-
-        board.getCouncilPalace().addSpaces();
-        board.getCouncilPalace().addSpaces();
-        board.getTower(0).getSpace(0).setFamilyMember(new NeutralFamilyMember("pippo",0));
-        board.getTower(0).getSpace(0).setOccupied();
-        /*board.getCouncilPalace().getSpace(0).setFamilyMember(new NeutralFamilyMember("pippo", 0));
-        board.getCouncilPalace().getSpace(1).setFamilyMember(new FamilyMember("pio", 1, 2));
-        board.getCouncilPalace().addSpaces();
-
-        board.getHarvestArea().addMultipleSpace();
-        board.getHarvestArea().addMultipleSpace();
-        board.getHarvestArea().getMultipleSingleSpace(0).setFamilyMember(new FamilyMember("nonno", 5, 2));
-        board.getHarvestArea().getMultipleSingleSpace(1).setFamilyMember(new FamilyMember("nonnca", 34, 1));
-        board.getProductionArea().getSingleSpace().setFamilyMember(new NeutralFamilyMember("pio",0));
-        board.getProductionArea().getSingleSpace().setOccupied();
-
-        board.getMarket().getSpace(2).setFamilyMember(new FamilyMember("mattia", 23, 3));
-        board.getMarket().getSpace(2).setOccupied();
-
-
-        view.printBoard(board);
-
-       /* view.printFourTime(s,s,s,s);
-        view.printLine("");
-        view.printFourTime(s + "    __7_______ ", s + "    __7_______ ", s + "    __7_______ ", s + "    __7_______ ");
-        System.out.println();
-        view.printFourTime(s1 + "   " + s3, s1 + "   " + s3, s1 + "   " + s3, s1 + "   " + s3);
-        view.printLine("");
-        view.printFourTime(s + "   " + view.formatBonusSpace("__________"), s + "   " + view.formatBonusSpace("__________"), s + "   " + view.formatBonusSpace("__________"), s + "   " + view.formatBonusSpace("__________"));
-
-
-
-    }      */
 }
