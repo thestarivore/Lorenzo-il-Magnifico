@@ -14,6 +14,7 @@ public class ActionSpace implements Serializable {
     private DevelopmentCard card;
     private Resources bonusRes;
     private Points bonusPoints;
+    private int bonusCouncilPrivileges;
     private FamilyMember familyMember;
     private int diceCost;
     private boolean isOccupied;
@@ -28,6 +29,7 @@ public class ActionSpace implements Serializable {
         this.familyMember   = null;
         this.isOccupied     = false;
         this.diceCost       = 1;
+        this.bonusCouncilPrivileges = 0;
     }
 
     /**
@@ -65,12 +67,28 @@ public class ActionSpace implements Serializable {
         this.card = card;
     }
 
-    public Resources getBonus() {
+    public Resources getResourcesBonus() {
         return bonusRes;
     }
 
-    public void setBonus(Resources bonus) {
+    public void setResourcesBonus(Resources bonus) {
         this.bonusRes = bonus;
+    }
+
+    public Points getBonusPoints() {
+        return bonusPoints;
+    }
+
+    public void setBonusPoints(Points bonusPoints) {
+        this.bonusPoints = bonusPoints;
+    }
+
+    public int getBonusCouncilPrivileges() {
+        return bonusCouncilPrivileges;
+    }
+
+    public void setBonusCouncilPrivileges(int bonusCouncilPrivileges) {
+        this.bonusCouncilPrivileges = bonusCouncilPrivileges;
     }
 
     public FamilyMember getFamilyMember() {
@@ -152,6 +170,6 @@ public class ActionSpace implements Serializable {
 
     @Override
     public String toString(){
-        return "Resources: " + this.bonusRes + "\t"+ "Points: " + this.bonusPoints;
+        return "Resources: " + this.bonusRes + "\t"+ "Points: " + this.bonusPoints+ "\t"+ "Privileges: " + this.bonusCouncilPrivileges;
     }
 }

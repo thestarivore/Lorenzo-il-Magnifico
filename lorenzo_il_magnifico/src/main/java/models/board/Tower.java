@@ -17,6 +17,7 @@ public class Tower implements Serializable {
     private ActionSpace[] space;
     private int numberOfTower;
     private boolean isEmpty;
+    private int bonusCouncilPrivileges;
 
 
     public Tower(){
@@ -102,6 +103,6 @@ public class Tower implements Serializable {
                 "\n\t"+"Space 1: " + this.space[0] +
                 "\n\t"+"Space 2: " + this.space[1] +
                 "\n\t"+"Space 3: " + this.space[2] +
-                "\n\t"+"Space 4: " + this.space[3];
+                "\n\t"+"Space 4: " + this.space[3] ;
     }
 }

@@ -2,7 +2,6 @@ package controllers.game_course;
 
 import controllers.Player;
 import game.TheGame;
-import models.CouncilPrivilege;
 import models.Points;
 import models.Resources;
 import models.board.Board;
@@ -23,7 +22,6 @@ public class Action implements Serializable {
     private TheGame game;
 
     protected Board board;
-    private CouncilPrivilege councilPrivilege;
     private boolean checkPrivilege;
     private String cardType;
     private boolean checkCard;
@@ -88,8 +86,8 @@ public class Action implements Serializable {
         //Get game reference
         this.game = gameReference;
 
-        //this.councilPrivilege = new CouncilPrivilege();
         this.cardType = "";
+        this.checkPrivilege = false;
         this.checkCard = false;
         this.diceCost = 1;
     }
@@ -148,7 +146,6 @@ public class Action implements Serializable {
                 board.getTower(tower).getSpace(space).setOccupied();
             }
         }
-
         return free;
     }
 
@@ -418,7 +415,7 @@ public class Action implements Serializable {
     }
 
     public void performCouncilPalace(Player player, int councilPrivilegeChoice) {
-        
+
     }
 
 

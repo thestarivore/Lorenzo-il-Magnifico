@@ -9,14 +9,13 @@ import java.io.Serializable;
  */
 public class FaithPointsTrack extends Track implements Serializable {
 
-    public FaithPointsTrack() {
-        this.trackMarker = new String[15];
+    public FaithPointsTrack(){
     }
 
     public void setFaithTrack(Player player) {
         int i = player.getPoints().getFaith();
 
-        this.trackMarker[i] = player.getName();
+
     }
 
 

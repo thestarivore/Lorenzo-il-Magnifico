@@ -166,7 +166,7 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public void getBoardUpdates() {
-        sendCmdToClient(ProtocolCommands.ASK_BOARD_UPDATES.getCommand());
+        sendCmdToServer(ProtocolCommands.ASK_BOARD_UPDATES.getCommand());
     }
 
     /**
@@ -174,12 +174,44 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public void getPLayersTurn() {
-        sendCmdToClient(ProtocolCommands.WHOSE_TURN.getCommand());
+        sendCmdToServer(ProtocolCommands.WHOSE_TURN.getCommand());
     }
 
+    /**
+     * Send Action done to the Server
+     */
     @Override
     public void sendAction(Action action) {
-        sendCmdToClient(ProtocolCommands.PLAYER_ACTION.getCommand(), action);
+        sendCmdToServer(ProtocolCommands.PLAYER_ACTION.getCommand(), action);
+    }
+
+    /**
+     * Ask the server if there is any task that needs
+     * to be managed by the client. One example would be the
+     * choise of sustaining or not sustaining the church during
+     * the vatican report.
+     */
+    @Override
+    public void isSomethingToDo() {
+        sendCmdToServer(ProtocolCommands.ASK_NEED_SOMETHING.getCommand());
+    }
+
+    /**
+     * Tell the server that the client does or does not
+     * sustain the church in the Vatican Report phase.
+     * It will support the church if the passed variable is
+     * "true".
+     * @param sustain boolean variable, if "true" it means that
+     *                the client will support the church.
+     */
+    @Override
+    public void sustainChurch(boolean sustain) {
+        if(sustain){
+            sendCmdToServer(ProtocolCommands.SUSTAIN_CHURCH.getCommand());
+        }
+        else{
+            sendCmdToServer(ProtocolCommands.DONT_SUSTAIN_CHURCH.getCommand());
+        }
     }
 
 
@@ -190,7 +222,7 @@ public class SocketClient implements ClientInterface{
      * Send Command to the client (No object Version)
      * @param cmd command String to send
      */
-    public void sendCmdToClient(String cmd){
+    public void sendCmdToServer(String cmd){
         cmdList.add(cmd);
         cmdObjectList.add(new String(ProtocolCommands.NONE.getCommand()));
     }
@@ -200,7 +232,7 @@ public class SocketClient implements ClientInterface{
      * @param cmd command String to send
      * @param object object to send
      */
-    public void sendCmdToClient(String cmd, Object object){
+    public void sendCmdToServer(String cmd, Object object){
         cmdList.add(cmd);
         cmdObjectList.add(object);
     }
@@ -259,8 +291,14 @@ public class SocketClient implements ClientInterface{
             if(ProtocolCommands.ACTION_PROCESSED.isThisCmd(line)){
                 manageActionProcessed(line, obj);
             }
+
+            // Church Sustain Question
+            if(ProtocolCommands.ASk_CHURCH_SUSTAIN.isThisCmd(line)){
+                manageChurchSustainQuestion(line, obj);
+            }
         }
     }
+
 
     /**
      * Manage Acknowledgement
@@ -296,7 +334,7 @@ public class SocketClient implements ClientInterface{
         int color_index = gameView.askColor(newColors);
 
         //Send the selected color selection
-        sendCmdToClient(ProtocolCommands.COLOR_SELECTION.getCommand(), colors.get(color_index));
+        sendCmdToServer(ProtocolCommands.COLOR_SELECTION.getCommand(), colors.get(color_index));
     }
 
     /**
@@ -357,18 +395,54 @@ public class SocketClient implements ClientInterface{
         player = updatedPlayer;
     }
 
+    /**
+     * Manage Action Processed Command from server.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
+     */
+    private void manageChurchSustainQuestion(String command, Object obj) {
+        String choice = gameView.askForChurchSustain();
+
+        // If player answered yes then sustain the church, don't sustain
+        // it otherwise.
+        if(choice.equals("y")) {
+            sustainChurch(true);
+        }
+        else if(choice.equals("n")) {
+            sustainChurch(false);
+        }
+    }
+
+
+
+    /*******************************************************
+     ************** User Interaction Methods ***************
+     *******************************************************/
+
+    /**
+     * Get Action type before asking the real action
+     * @return integer type
+     */
+    @Override
     public int getActionType(){
         int actionType = gameView.getActionType(oldBoard);
         return actionType;
     }
 
-
+    /**
+     * Get the action from the user
+     * @return Action instance
+     */
     @Override
     public Action getAction(int actionType) {
         int[] action = gameView.getAction(player, oldBoard);
         return new Action(action, actionType);
     }
 
+    /**
+     * Get the harvest action from the user
+     * @return Action instance
+     */
     @Override
     public Action getHarvestAction(int actionType) {
         int[] harvestAction = gameView.getHarvestAction(player, oldBoard);
@@ -381,6 +455,10 @@ public class SocketClient implements ClientInterface{
 
         return new Action(councilAction, actionType);
     }
+
+
+
+
 
 }
 

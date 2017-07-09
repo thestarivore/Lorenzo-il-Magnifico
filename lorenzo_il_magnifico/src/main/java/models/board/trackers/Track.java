@@ -1,34 +1,21 @@
 package models.board.trackers;
 
-import models.board.MarkerDiscs;
+import game.TheGame;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
  */
 public class Track implements Serializable{
-    protected MarkerDiscs markerDiscs;
-    protected String[] trackMarker;
+    protected TheGame.COLORS markerDiscs;
 
-
+    /**
+     * Basic Track constructor
+     */
     public Track(){
-
     }
 
-    public String[] getTrackMarker() {
-        return trackMarker;
-    }
-
-
-    public MarkerDiscs getMarkerDiscs() {
-        return markerDiscs;
-    }
-
-    public void setMarkerDiscs(MarkerDiscs markerDiscs) {
-        this.markerDiscs = markerDiscs;
-    }
 
     /**
      * Indicates whether some other object is "equal to" this one.
@@ -44,9 +31,7 @@ public class Track implements Serializable{
 
         Track track = (Track) o;
 
-        if (markerDiscs != null ? !markerDiscs.equals(track.markerDiscs) : track.markerDiscs != null) return false;
-        // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        return Arrays.equals(trackMarker, track.trackMarker);
+        return markerDiscs == track.markerDiscs;
     }
 
     /**
@@ -59,8 +44,6 @@ public class Track implements Serializable{
      */
     @Override
     public int hashCode() {
-        int result = markerDiscs != null ? markerDiscs.hashCode() : 0;
-        result = 31 * result + Arrays.hashCode(trackMarker);
-        return result;
+        return markerDiscs != null ? markerDiscs.hashCode() : 0;
     }
 }

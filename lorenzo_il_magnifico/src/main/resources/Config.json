@@ -1,6 +1,7 @@
 {
-  "timeOutPlayer": 10,
-  "timeOutMove": 10,
+  "timeOutGame": 5000,
+  "timeOutMove": 10000,
+  "faithPoints":[0,1,2,3,4,5,7,9,11,13,15,17,19,22,25,30],
   "tower": [{
     "numberOfTower": 1,
     "space": [
@@ -274,6 +275,7 @@
         }
       },
       {
+        "bonusCouncilPrivileges":2,
         "bonusPoints": {
           "military": 0,
           "faith": 0,

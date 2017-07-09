@@ -75,9 +75,6 @@ public class TheGame implements Serializable {
     public static final int THIRD_PLAYER    = 2;
     public static final int FORTH_PLAYER    = 3;
 
-    //TODO: sostituire con l'uso di un valore caricato da file
-    public static final int GAME_TIMEOUT    = 5000; //in ms
-
     /**
      * Enum - Possible TheGame's colors constants.
      */
@@ -124,14 +121,12 @@ public class TheGame implements Serializable {
         gameStarted = false;
         playersAllowed = MAXIMUM_PLAYERS_NUMBER;
 
-        //Start the Game Timeout for players
-        startGameTimeOut();
-
         //Initialize the Model and the Controller
         theModel        = new GameFacadeModel(getPlayersAllowed());
         theController   = new GameFacadeController(theModel, this);
 
-
+        //Start the Game Timeout for players
+        startGameTimeOut();
     }
 
     /**
@@ -293,7 +288,8 @@ public class TheGame implements Serializable {
         // Schedule a timer that ticks every 100ms, it's used as time base
         // for the server's automata(final state machine).
         timer.schedule( new TimerTask() {
-            int timeout = GAME_TIMEOUT; //in ms
+            //Get timeout from the configuration instance
+            int timeout = getTheModel().getGameConfig().getTimeOutGame(); //in ms
             boolean startTimeout = false;
 
             //Run Function

@@ -49,16 +49,47 @@ public interface ClientInterface extends Runnable {
      */
     public void sendAction(Action action);
 
+    /**
+     * Ask the server if there is any task that needs
+     * to be managed by the client. One example would be the
+     * choise of sustaining or not sustaining the church during
+     * the vatican report.
+     */
+    public void isSomethingToDo();
+
+    /**
+     * Tell the server that the client does or does not
+     * sustain the church in the Vatican Report phase.
+     * It will support the church if the passed variable is
+     * "true".
+     * @param sustain boolean variable, if "true" it means that
+     *                the client will support the church.
+     */
+    public void sustainChurch(boolean sustain);
+
+
 
     /*******************************************************
      ************** User Interaction Methods ***************
      *******************************************************/
 
+    /**
+     * Get Action type before asking the real action
+     * @return integer type
+     */
     public int getActionType();
 
-    public Action getAction(int actionType);
+    /**
+     * Get the action from the user
+     * @return Action instance
+     */
+    public Action getAction();
 
-    public Action getHarvestAction(int actionType);
+    /**
+     * Get the harvest action from the user
+     * @return Action instance
+     */
+    public Action getHarvestAction();
 
     public Action getCouncilAction(int actionType);
 

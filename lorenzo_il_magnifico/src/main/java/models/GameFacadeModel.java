@@ -1,8 +1,12 @@
 package models;
 
+import models.board.ActionSpace;
 import models.board.Board;
+import models.board.TheMarket;
+import models.board.Tower;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
+import models.data_persistence.FileManagerImport;
 
 
 /**
@@ -17,6 +21,8 @@ import models.cards.DevelopmentCardDeck;
 public class GameFacadeModel {
     private Board board;
     private Deck[] deck;
+    private Config gameConfig;
+    private FileManagerImport fileImporter;
 
     public static final int FIXED_NUMBER_OF_DEVELOPMENTDECK = 4;
 
@@ -25,9 +31,100 @@ public class GameFacadeModel {
      * @param numberOfPlayer
      */
     public GameFacadeModel (int numberOfPlayer) {
+        //Create 4 Decks of Development cards and shuffle
+        //all the decks based on periods.
+        initDeck();
+
+        //Get configurations
+        initConfigurations();
+
+        //Create a new Board
+        initBoard(numberOfPlayer);
+    }
+
+    /**
+     * Get Board instance of the game
+     * @return board
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
+     * Set Board instance of the game
+     * @param board
+     */
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    /**
+     * Get Deck of cards by id, used on the game.
+     */
+    public Deck getDeck(int i) {
+        return deck[i];
+    }
+
+    /**
+     * Get game configuration, which are configurations
+     * read from a config file, and contain infos about timeouts
+     * and custom bonuses in the game.
+     * @return
+     */
+    public Config getGameConfig() {
+        return gameConfig;
+    }
+
+    /**
+     * Board Initialization
+     * @param numberOfPlayer
+     */
+    private void initBoard(int numberOfPlayer){
         //Create a new Board
         this.board = new Board(numberOfPlayer);
 
+        //Get configuration Market
+        TheMarket configMarket = gameConfig.getMarket();
+
+        //Iterate Action Spaces in the Market
+        for(int i=0; i< configMarket.getArraySpace().length; i++){
+            //Get Action spaces on the market of the board and of the config instance
+            ActionSpace boardMSpace = board.getMarket().getSpace(i);
+            ActionSpace configMSpace = configMarket.getSpace(i);
+
+            //Update Bonus Points, Resources and CouncilPrivileges
+            boardMSpace.setBonusPoints(configMSpace.getBonusPoints());
+            boardMSpace.setResourcesBonus(configMSpace.getResourcesBonus());
+            boardMSpace.setBonusCouncilPrivileges(configMSpace.getBonusCouncilPrivileges());
+        }
+
+        //Get configuration Tower
+        Tower[] configTowers = gameConfig.getTower();
+
+        //Iterate each tower
+        for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
+            //Get config Tower and board Tower
+            Tower boardTower = getBoard().getTower(i);
+            Tower configTower = configTowers[i];
+
+            //Iterate each Action Space in the Tower
+            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
+                //Get Action spaces on the market of the board and of the config instance
+                ActionSpace boardTSpace = boardTower.getSpace(j);
+                ActionSpace configTSpace = configTower.getSpace(j);
+
+                //Update Bonus Points, Resources and CouncilPrivileges
+                boardTSpace.setBonusPoints(configTSpace.getBonusPoints());
+                boardTSpace.setResourcesBonus(configTSpace.getResourcesBonus());
+                boardTSpace.setBonusCouncilPrivileges(configTSpace.getBonusCouncilPrivileges());
+            }
+        }
+    }
+
+    /**
+     * Deck Acquisition and Initialization
+     */
+    private void initDeck(){
         //Get the Development cards from JSON file
         DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
         developmentCardDeck.setDeck();
@@ -39,24 +136,15 @@ public class GameFacadeModel {
             this.deck[i] = new Deck(developmentCardDeck.getDeck(), i);
             this.deck[i].shuffleByPeriod();
         }
-
-        //Print cards
-        for (int i = 0; i < Deck.MAX_DECK_CARDS_NUMBER; i++)
-            System.out.println(deck[1].getCard().get(i).getName());
     }
 
-    public Board getBoard() {
-        return board;
+    /**
+     * Configuration Initialization
+     */
+    private void initConfigurations(){
+        //Get configurations
+        fileImporter = new FileManagerImport();
+        gameConfig = fileImporter.acquireConfigurations();
     }
-
-    public void setBoard(Board board) {
-        this.board = board;
-    }
-
-    public Deck getDeck(int i) {
-        return deck[i];
-    }
-
-
 
 }

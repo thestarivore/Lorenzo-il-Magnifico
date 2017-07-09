@@ -11,37 +11,23 @@ import java.io.Serializable;
  */
 public class ExcommunicationTile implements Serializable {
 
-    private int ruond;
-    private int reduceValue;
+    private int period;
+    private Defect defect;
     private boolean noFinalPoints;
     private int cardType;
     private Points points;
     private Resources resources;
 
     public ExcommunicationTile(){
-        this.ruond=0;
+        this.defect = new Defect();
+        this.period=0;
         this.resources=new Resources();
-        this.reduceValue=0;
         this.noFinalPoints= false;
         this.cardType=0;
         this.points = new Points();
     }
 
-    public int getRuond() {
-        return ruond;
-    }
 
-    public void setRuond(int ruond) {
-        this.ruond = ruond;
-    }
-
-    public int getReduceValue() {
-        return reduceValue;
-    }
-
-    public void setReduceValue(int reduceValue) {
-        this.reduceValue = reduceValue;
-    }
 
     public boolean isNoFinalPoints() {
         return noFinalPoints;
@@ -73,5 +59,21 @@ public class ExcommunicationTile implements Serializable {
 
     public void setResources(Resources resources) {
         this.resources = resources;
+    }
+
+    public int getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(int period) {
+        this.period = period;
+    }
+
+    public Defect getDefect() {
+        return defect;
+    }
+
+    public void setDefect(Defect defect) {
+        this.defect = defect;
     }
 }
