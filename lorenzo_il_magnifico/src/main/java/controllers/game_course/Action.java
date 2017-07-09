@@ -233,7 +233,7 @@ public class Action implements Serializable {
         RemotePlayer remotePlayer = player;
 
         //Tower choice
-        if(actionChoice == 0 && checkCardRequest(player,board.getTower(tower).getSpace(space).getCard())) {
+        if(actionChoice == 0){ //#&& checkCardRequest(player,board.getTower(tower).getSpace(space).getCard())) {
             //Perform tower action choice
             towerAction(player, tower, space, familyMember, servants);
             //performTowerAction(player, actionSpaceID,)
@@ -293,7 +293,7 @@ public class Action implements Serializable {
         DevelopmentCard developmentCard = board.getTower(tower).getSpace(space).getCard();
 
         //Check if the family member satisfied action space request and if Player satisfied card request
-        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space) && checkCardRequest(player, developmentCard))
+        //#if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space) && checkCardRequest(player, developmentCard))
             check = placeFamilyMemberOnTower(tower, space, familyMemberSelected, player);
 
         //Add bonus space to the player if there is bonus on action space

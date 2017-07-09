@@ -294,7 +294,7 @@ public class Round {
         //The number of actions is equal to hte number of players;
         //So if we have 4 player, we'll have 4 actions with playerTurn = 0,1,2,3;
         //If i'm starting the fifth loop than i've finished this round
-        if(actionLoops == 5)
+        if(actionLoops == 4)
             return true;
         else
             return false;

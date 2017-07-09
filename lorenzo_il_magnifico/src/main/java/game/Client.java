@@ -67,7 +67,7 @@ public class Client {
     /**
      * Boolean variable indicating that action is not finished
      */
-    private static boolean ignoreAction;
+    private static int ignoreAction;
 
 
 
@@ -254,7 +254,7 @@ public class Client {
                     case SEND_ACTION: {
                         int actionType = -1;
                         //Control if is my turn
-                        if (myTurn && ignoreAction == false) {
+                        if (myTurn && ignoreAction-- == 0) {
                             //Get witch action user want to perform
                             actionType = client.getActionType();
                             //Get action from user and send it to the server
@@ -262,28 +262,23 @@ public class Client {
                                 case 0: {
                                     Action action = client.getAction(actionType);
                                     client.sendAction(action);
-                                    myTurn = false;
-                                    ignoreAction = true;
+                                    //myTurn = false;
                                 }
                                 break;
                                 case 1: {
                                     Action action = client.getCouncilAction(actionType);
                                     client.sendAction(action);
-                                    myTurn = false;
+                                    //myTurn = false;
                                 }
                                 break;
                                 case 2: {
                                     Action action = client.getHarvestAction(actionType);
                                     client.sendAction(action);
-                                    myTurn = false;
+                                    //myTurn = false;
                                 }
                                 break;
                             }
-                            } else {
-                            ignoreAction = false;
-                            //if (actionType == -1 || actionType == 0) {
-                            //fsmState = FSMClient.SOMETHNG_TO_DO;
-                            // } else {
+                            ignoreAction = 3;
                         }
                         fsmState = FSMClient.SOMETHNG_TO_DO;
 
@@ -291,7 +286,7 @@ public class Client {
 
                     case SOMETHNG_TO_DO:{
                         client.isSomethingToDo();
-                        if (ignoreAction == false)
+                        //if (ignoreAction == false)
                          fsmState = FSMClient.TURN_UPDATE;
                     }break;
 
@@ -299,10 +294,11 @@ public class Client {
                         Action action = client.getImmediateTakeCard();
                         client.sendExtendedAction(action);
                         fsmState = FSMClient.BOARD_UPDATES;
+                        ignoreAction = 3;
                     }break;
                 }
             }
-        }, 50, 50);
+        }, 0, 100);
 
         //Cancel the timer at the end
         //timer.cancel();
@@ -332,10 +328,17 @@ public class Client {
     }
 
     /**
+     * Is this client's player turn?
+     */
+    public static boolean isMyTurn(){
+        return myTurn;
+    }
+
+    /**
      * Sets ignoreAction to false
      */
     public static void setIgnoreAction() {
-        ignoreAction = false;
+       // ignoreAction = false;
     }
 
 

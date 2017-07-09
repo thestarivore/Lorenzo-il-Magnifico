@@ -383,7 +383,7 @@ public class SocketClient implements ClientInterface{
 
         //If any changes, update the map
         if(player != null) {
-            if(this.player.isSameAs(player)){
+            if(this.player.isSameAs(player) && Client.isMyTurn() == false){
                 //Update player
                 this.player = player;
 
@@ -439,7 +439,7 @@ public class SocketClient implements ClientInterface{
      * @param obj
      */
     private void manageNone(String command, Object obj){
-        Client.setIgnoreAction();
+        //Client.setIgnoreAction();
     }
 
 
