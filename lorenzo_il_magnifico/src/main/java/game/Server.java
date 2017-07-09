@@ -26,7 +26,7 @@ public class Server {
      * - Starts the Socket and the RMI Servers;
      * @param args
      */
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         lobby = new Lobby();
 
         //prova json

@@ -110,6 +110,14 @@ public class Round {
         }
     }
 
+    public int getPhaseIndex() {
+        return phaseIndex;
+    }
+
+    public void setPhaseIndex(int phaseIndex) {
+        this.phaseIndex = phaseIndex;
+    }
+
     /**
      * Do all the actions required in the RoundSetup.
      * Is the first thing to do at the beginning of the round.
