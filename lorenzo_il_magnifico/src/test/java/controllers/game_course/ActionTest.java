@@ -63,20 +63,23 @@ public class ActionTest {
 
     }
 
+    /**
+     * check if the player can take the card with his resources
+     * */
     @Test
     public void checkCardRequest() throws Exception {
         Action action = new Action();
+        DevelopmentCard card =new DevelopmentCard();
         Player player = new Player("test");
-        Resources resources = new Resources();
-        Points points = new Points();
-        DevelopmentCard developmentCard = new DevelopmentCard("testcard");
-        resources.setCoins(3);
-        points.setVictory(2);
-        developmentCard.setPointsCost(points);
-        developmentCard.setPointsCost(points);
-        player.setRes(resources);
-        developmentCard.setCost(resources);
-        assertFalse(action.checkCardRequest(player,developmentCard));
+        Resources cardRes = card.getCost();
+        Resources playerRes = player.getRes();
+        Points cardPoints = card.getPointsCost();
+        Points playerPoints = player.getPoints();
+        cardRes.setCoins(3);
+        playerRes.setCoins(2);
+        player.setRes(playerRes);
+        card.setCost(cardRes);
+        assertFalse(action.checkCardRequest(player,card));
     }
 
 }
