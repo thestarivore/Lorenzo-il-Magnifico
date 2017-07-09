@@ -38,6 +38,14 @@ public class Points implements Serializable {
         this.victory = victory;
     }
 
+    /**
+     * Add points to the current victory points.
+     * @param victoryPoints
+     */
+    public void addVictory(int victoryPoints){
+        this.victory += victoryPoints;
+    }
+
     public int getMilitary() {
         return military;
     }

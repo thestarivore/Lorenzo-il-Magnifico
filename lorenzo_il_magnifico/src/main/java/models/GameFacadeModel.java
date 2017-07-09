@@ -54,7 +54,7 @@ public class GameFacadeModel {
      * Set Board instance of the game
      * @param board
      */
-    public void setBoard(Board board) {
+    private void setBoard(Board board) {
         this.board = board;
     }
 
@@ -91,6 +91,9 @@ public class GameFacadeModel {
 
         //Init ExcommunicationTiles configs on the Board
         initExcommunicationTilesOnBoard();
+
+        //Init the rewards for the Faith Track slots
+        board.setRewardFaithTrack(gameConfig.getRewardFaithTrack());
     }
 
     /**
