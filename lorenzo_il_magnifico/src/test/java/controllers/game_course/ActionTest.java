@@ -1,6 +1,5 @@
 package controllers.game_course;
 
-import com.sun.tools.internal.xjc.generator.util.WhitespaceNormalizer;
 import controllers.Player;
 import game.TheGame;
 import models.board.Dice;
