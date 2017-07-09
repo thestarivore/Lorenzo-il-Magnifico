@@ -26,15 +26,17 @@ public class Defect implements Serializable{
     private int moreServants; /**servants spent to increase the value of the action**/
     private boolean looseFirstAction; /**if it's true the player loose his first action**/
 
-
+    /**
+     * Basic Constructor
+     */
     public Defect(){
         this.points = new Points();
         this.resources = new Resources();
-        this.harvest = false;
+        this.harvest =
         this.production=false;
         this.familyMember = false;
         this.dice = 0;
-        this.noFinalPoints=false;
+        this.noFinalPoints=
         this.noMarketSpace = false;
         this.looseVictoryPoints=false;
         this.loosePointsCard = false;
@@ -171,6 +173,28 @@ public class Defect implements Serializable{
 
     public void setLooseFirstAction(boolean looseFirstAction) {
         this.looseFirstAction = looseFirstAction;
+    }
+
+    /**
+     * Adds the Defects found in the defect passed as an argument
+     * @param defect the other Defect instance passed as argument
+     */
+    public void addFormOther(Defect defect){
+        this.points.add(defect.points);
+        this.resources.addResources(defect.resources);
+        this.harvest                    |= defect.harvest;
+        this.production                 |= defect.production;
+        this.familyMember               |= defect.familyMember;
+        this.noFinalPoints              |= defect.noFinalPoints;
+        this.noMarketSpace              |= defect.noMarketSpace;
+        this.looseFirstAction           |= defect.looseFirstAction;
+        this.looseVictoryPoints         |= defect.looseVictoryPoints;
+        this.loosePointsCard            |= defect.loosePointsCard;
+        this.loosePointsEveryResources  |= defect.loosePointsEveryResources;
+        this.dice           += defect.dice;
+        this.victory        += defect.victory;
+        this.military       += defect.military;
+        this.moreServants   += defect.moreServants;
     }
 }
 

@@ -242,6 +242,28 @@ public class Player implements Serializable {
         }
         return familyMemberAvailable;
     }
+
+    /**
+     * Get Player's defects from vatican report excommunication
+     * @return Defect instance
+     */
+    public Defect getDefects() {
+        return defects;
+    }
+
+    /**
+     * Set Player's defects, example during vatican report excommunication
+     */
+    public void setDefects(Defect defects) {
+        this.defects = defects;
+    }
+
+    /**
+     * Add Defects to Player's defects, example during vatican report excommunication
+     */
+    public void addDefects(Defect defects) {
+        this.defects.addFormOther(defects);
+    }
 }
 
 
