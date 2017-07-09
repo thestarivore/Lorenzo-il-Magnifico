@@ -554,9 +554,11 @@ public class GameView {
     }
 
     public void printAllBoard(Player player, Board board) {
-        printBoard(board);
-        printLine("");
-        printPlayerInfo(player);
+        if(isGettingAction() == false) {
+            printBoard(board);
+            printLine("");
+            printPlayerInfo(player);
+        }
     }
 
     /**
@@ -571,17 +573,10 @@ public class GameView {
         printLine("|  _   | |  |_|  ||       ||    __  || |_|   |");
         printLine("| |_|   ||       ||   _   ||   |  | ||       |");
         printLine("|_______||_______||__| |__||___|  |_||______|");
-
-        printLine("");
         printLine("");
 
         printTowers(board);
-        printLine("");
-
         printCouncilPalace(board);
-
-        printLine("");
-
         printLine("HARVEST AREA");
         printHarvestProductionArea(board, board.getHarvestArea().getSingleSpace(), board.getHarvestArea().getMultipleSpace());
         printLine("");

@@ -230,7 +230,7 @@ public class GameFacadeController {
                     }
                 }
             }
-        }, 50, 100);
+        }, 0, 100);
     }
 
     /**

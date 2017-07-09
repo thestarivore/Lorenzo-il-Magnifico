@@ -1,0 +1,143 @@
+[
+  {	"period":1,
+    "defect":{
+      "points":{
+        "military":1
+      }
+    }
+  },
+  {	"period":1,
+    "defect":{
+      "resources":{
+        "coins":1
+      }
+    }
+  },
+  {	"period":1,
+    "defect":{
+      "resources":{
+        "servants":1
+      }
+    }
+  },
+  {	"period":1,
+    "defect":{
+      "resources":{
+        "woods":1,
+        "stones":1
+      }
+    }
+  },
+  {	"period":1,
+    "defect":{
+      "dice":3,
+      "harvest":true
+    }
+  },
+  {	"period":1,
+    "defect":{
+      "dice":3,
+      "production":true
+    }
+  },
+  {	"period":1,
+    "defect":{
+      "dice":3,
+      "familyMember":true
+    }
+  },
+
+
+
+  {	"period":2,
+    "defect":{
+      "dice":4,
+      "cardType":1
+    }
+  },
+  {	"period":2,
+    "defect":{
+      "dice":4,
+      "cardType":3
+    }
+  },
+  {	"period":2,
+    "defect":{
+      "dice":4,
+      "cardType":2
+    }
+  },
+  {	"period":2,
+    "defect":{
+      "dice":4,
+      "cardType":4
+    }
+  },
+  {	"period":2,
+    "defect":{
+      "noMarketSpace":true
+    }
+  },
+  {	"period":2,
+    "defect":{
+      "moreServants":2
+    }
+  },
+  {	"period":2,
+    "defect":{
+      "looseFirstAction":true
+    }
+  },
+
+
+
+
+
+
+
+  {
+    "period": 3,
+    "defect": {
+      "noFinalPoints":true,
+      "cardType": 2
+    }
+  },
+  {
+    "period": 3,
+    "defect": {
+      "noFinalPoints":true,
+      "cardType":4
+    }
+  },
+  {
+    "period": 3,
+    "defect": {
+      "noFinalPoints":true,
+      "cardType":1
+    }
+  },
+  {
+    "period": 3,
+    "defect": {
+      "looseVictoryPoints":true,
+      "victory":5
+    }
+  },
+  {
+    "period": 3,
+    "defect": {
+      "looseVictoryPoints":true,
+      "military":1
+    }
+  },
+  {	"period":3,
+    "defect":{
+      "loosePointsCard":true
+    }
+  },
+  {	"period":3,
+    "defect":{
+      "loosePointsEveryResources":true
+    }
+  }
+]

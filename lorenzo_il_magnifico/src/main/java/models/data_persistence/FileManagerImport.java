@@ -22,9 +22,14 @@ import models.cards.Deck;
 public class FileManagerImport implements Serializable{
 
     /**
+     * basic constructor
+     * */
+    public FileManagerImport(){}
+
+    /**
      * Method to import all developmentCard from file
      * */
-    public ArrayList<DevelopmentCard> acquireDevCard(){
+    public ArrayList<DevelopmentCard> acquireDevCard() {
         ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();

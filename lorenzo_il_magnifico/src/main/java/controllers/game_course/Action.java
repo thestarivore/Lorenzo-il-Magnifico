@@ -85,6 +85,7 @@ public class Action implements Serializable {
      * Basic Action Constructor
      */
     public Action() {
+        this.board = new Board(0);
     }
 
     /**
