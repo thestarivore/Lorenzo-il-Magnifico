@@ -125,6 +125,11 @@ public class SocketServerThread extends Thread{
             manageAskNeedSomething(cmd, obj);
         }
 
+        //IMMEDIATE_TAKE_CARD_CHOICE - player choice about bonus card
+        if (ProtocolCommands.IMMEDIATE_TAKE_CARD_CHOICE.isThisCmd(cmd)) {
+            manageImmediateTakeCardChoice(cmd, obj);
+        }
+
         //SUSTAIN_CHURCH - player sustains the church
         if (ProtocolCommands.SUSTAIN_CHURCH.isThisCmd(cmd)) {
             manageSustainChurch(cmd, obj);
@@ -347,6 +352,13 @@ public class SocketServerThread extends Thread{
         else{
             respondNothingToClient();
         }
+    }
+
+    private void manageImmediateTakeCardChoice(String command, Object obj) throws IOException {
+        //Get Action from Object
+        Action action = (Action) obj;
+
+        getTheController().manageImmediateTakeCardChoice(action);
     }
 
     /**

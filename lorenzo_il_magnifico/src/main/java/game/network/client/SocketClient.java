@@ -287,13 +287,18 @@ public class SocketClient implements ClientInterface{
                 managePlayersTurn(line, obj);
             }
 
+            //Immediate Take Card Effect
+            if(ProtocolCommands.ASK_IMMEDIATE_TAKE_BONUS.isThisCmd(line))
+                manageImmediateTakeCard(line, obj);
+
             //Action processed
             if(ProtocolCommands.ACTION_PROCESSED.isThisCmd(line)){
                 manageActionProcessed(line, obj);
             }
 
+
             // Church Sustain Question
-            if(ProtocolCommands.ASk_CHURCH_SUSTAIN.isThisCmd(line)){
+            if(ProtocolCommands.ASK_CHURCH_SUSTAIN.isThisCmd(line)){
                 manageChurchSustainQuestion(line, obj);
             }
         }
@@ -382,6 +387,15 @@ public class SocketClient implements ClientInterface{
                 gameView.printPlayerTurn(player.getName());
             }
         }
+    }
+
+    private void manageImmediateTakeCard(String command, Object obj) {
+        int[] immediateTakeCardInfo = gameView.getImmediateTakeCardInfo(player, oldBoard);
+
+        Action action = new Action(immediateTakeCardInfo, Action.IMMEDIATE_TAKE_CARD_TYPE);
+
+        sendCmdToServer(new String(ProtocolCommands.IMMEDIATE_TAKE_CARD_CHOICE.getCommand()), action);
+
     }
 
     /**

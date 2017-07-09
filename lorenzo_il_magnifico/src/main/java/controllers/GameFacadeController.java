@@ -238,9 +238,13 @@ public class GameFacadeController {
      * @param action Action instance of the action to manage
      */
     public void managePlayerAction(Action action) {
+        boolean actionExecute = false;
+
         //Set game reference and execute action
         action.setBoard(getBoard());
-        action.execute(getPlayerInTurn());
+        for (int i = 0; i < game.getPlayersAllowed(); i++)
+            if (game.getPlayer(i) == getPlayerInTurn())
+        actionExecute = action.execute(game.getPlayer(i));
 
         GameView gameView = new GameView();
         gameView.printAllBoard(getPlayerInTurn(), getBoard());
@@ -249,9 +253,29 @@ public class GameFacadeController {
         Player playerInTurn = getPlayerInTurn();
         int playersTurnNum = game.getPlayerTurnNumber(playerInTurn);
 
-        if(playersTurnNum != -1)
-            getCurrentRound().updateActionPlayerTurn(playersTurnNum);
+        if(actionExecute) {
+            if (playersTurnNum != -1)
+                getCurrentRound().updateActionPlayerTurn(playersTurnNum);
+        }
 
+    }
+
+    public void manageImmediateTakeCardChoice (Action action) {
+        boolean actionExecute = false;
+
+        action.setBoard(getBoard());
+        actionExecute = action.takeBonusCard(getPlayerInTurn());
+
+        //Get Player's turn number
+        Player playerInTurn = getPlayerInTurn();
+        int playersTurnNum = game.getPlayerTurnNumber(playerInTurn);
+
+        if (actionExecute) {
+
+
+            if (playersTurnNum != -1)
+                getCurrentRound().updateActionPlayerTurn(playersTurnNum);
+        }
     }
 
     /**
@@ -263,13 +287,13 @@ public class GameFacadeController {
             //Iterate each space in the tower
             for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
                 getBoard().getTower(i).getSpace(j).setCard(getFacadeModel().getDeck(i).getCardToFillTower());
-                /*if (i == 2)
+                if (i == 2)
                  for (int x = 0; x < facadeModel.getDeck(i).getCard().size(); x++)
                      if (facadeModel.getDeck(i).getCard().get(x).getName().equals("Abbess")) {
                          getBoard().getTower(i).getSpace(j).setCard(facadeModel.getDeck(i).getCard().get(x));
                          System.err.println("Sono qui");
                          System.err.println(facadeModel.getDeck(i).getCard().get(x).getImmediateEffect().getImmediateTakeCard().getDice());
-                     }*/
+                     }
 
             }
         }

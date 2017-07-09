@@ -272,7 +272,7 @@ public class Client {
                     }break;
 
                     case SOMETHNG_TO_DO:{
-                        //client.isSomethingToDo();
+                        client.isSomethingToDo();
                         fsmState = FSMClient.TURN_UPDATE;
                     }break;
                 }

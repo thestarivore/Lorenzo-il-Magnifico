@@ -3,11 +3,8 @@ package controllers.game_course;
 import controllers.GameFacadeController;
 import controllers.Player;
 import controllers.RemotePlayer;
-import game.Lobby;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
-
-import javax.naming.ldap.Control;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -146,7 +143,7 @@ public class Round {
 
                 //Only ask for sustain if the player has the required faith
                 if(player.getPoints().getFaith() >= faithNeeded) {
-                    player.sendCmdToClient(ProtocolCommands.ASk_CHURCH_SUSTAIN.getCommand());
+                    player.sendCmdToClient(ProtocolCommands.ASK_CHURCH_SUSTAIN.getCommand());
                 }
                 //Otherwise automatically punish the player
                 else{

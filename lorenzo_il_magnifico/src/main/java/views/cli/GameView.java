@@ -31,6 +31,7 @@ public class GameView {
 
     //Constants
     public static final int ACTION_SPACE_HEIGHT = 4;
+    public static final int NO_SPACE_BONUS = -1;
 
 
 
@@ -259,7 +260,7 @@ public class GameView {
         action[0] = getFamilyMember(player);
         action[1] = getServant(player);
         action[2] = getTower(board);
-        action[3] = getSpace(board, action[2]);
+        action[3] = getSpace(board, action[2], NO_SPACE_BONUS);
 
 
         //Get card from Action Space selected
@@ -272,17 +273,33 @@ public class GameView {
         }
 
         //Check if there is Take Another Card Immedaiate effect or Harvest/Production Immediate effect
-        if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
+        /*if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
             printLine("This Card have a Bonus Card Immediate Effect!");
-            if (devCard.getImmediateEffect().getImmediateTakeCard().getCardType() == 0)
+            if (devCard.getImmediateEffect().getImmediateTakeCard().getCardType() == 0) {
+                printLine("Tower of Bonus Card = All Tower!");
                 action[5] = getTower(board);
-            else action[5] = devCard.getImmediateEffect().getImmediateTakeCard().getCardType();
-            action[6] = getSpace(board, action[5]);
+            } else {
+                action[5] = devCard.getImmediateEffect().getImmediateTakeCard().getCardType();
+                printLine("Tower of Bonus Card = " + String.valueOf(action[5]));
+            }
+            action[6] = getSpace(board, action[5], action[3]);
             action[7] = getServant(player);
         } else {
             //TODO: fare richiesta per produzione e raccolto di effetti immediati
-        }
+        }*/
         setGettingAction(false);
+
+        return action;
+    }
+
+    public int[] getImmediateTakeCardInfo(Player player, Board board) {
+        int[] action = new int[Action.NUMBER_OF_IMMEDIATE_TAKE_CARD_INFO];
+
+        printLine("This Card has Bonus Card Immediate Effect!");
+
+        action[0] = getTower(board);
+        action[1] = getSpace(board, action[0], NO_SPACE_BONUS);
+        action[2] = getServant(player);
 
         return action;
     }
@@ -302,7 +319,7 @@ public class GameView {
         return parseInt(getValidParameter(list));
     }
 
-    public int getSpace(Board board, int tower) {
+    public int getSpace(Board board, int tower, int spaceBonus) {
 
         boolean[] availableTowerActionSpace = board.getAvailableTowerActionSpace(tower);
 
@@ -313,14 +330,14 @@ public class GameView {
         ArrayList<String> list = new ArrayList<String>() {
             {
                 for (int i = 0; i < Board.CARDS_PER_TOWER; i++){
-                    if (availableTowerActionSpace[i] == true)
+                    if (availableTowerActionSpace[i] == true && i != spaceBonus)
                         add(String.valueOf(i));
                 }
             }
         };
 
         for (int i = 0; i < list.size(); i++)
-            System.out.println(list.get(i));
+            printLine(list.get(i));
 
         return parseInt(getValidParameter(list));
     }
@@ -928,6 +945,9 @@ public class GameView {
 
         for (int i = 0; i < player.getPersonalBoard().getCharacters().size(); i++)
             printLine(player.getPersonalBoard().getCharacter(i).getName());
+        for (int i = 0; i < player.getPersonalBoard().getBuildings().size(); i++)
+            printLine(player.getPersonalBoard().getBuilding(i).getName());
+
 
     }
 

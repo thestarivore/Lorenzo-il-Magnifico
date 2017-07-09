@@ -1,7 +1,9 @@
 package controllers.game_course;
 
 import controllers.Player;
+import controllers.RemotePlayer;
 import game.TheGame;
+import game.network.protocol.ProtocolCommands;
 import models.Points;
 import models.Resources;
 import models.board.Board;
@@ -41,6 +43,8 @@ public class Action implements Serializable {
     public final static int NUMBER_OF_ACTION_INFO = 8;
     public final static int NUMBER_OF_COUNCIL_INFO = 3;
     public final static int NUMBER_OF_COUNCIL_PRIVILEGE = 5;
+    public final static int NUMBER_OF_IMMEDIATE_TAKE_CARD_INFO = 3;
+    public final static int IMMEDIATE_TAKE_CARD_TYPE = 6;
 
 
     /**
@@ -65,12 +69,15 @@ public class Action implements Serializable {
                 this.towerImmediateEffect = userInfo[5];
                 this.spaceImmediateEffect = userInfo[6];
                 this.servantImmediateEffect = userInfo[7];
-            }
-            break;
+            }break;
             case 1: {
                 this.councilPrivilegeChoice = userInfo[2];
+            }break;
+            case 6: {
+                this.tower = userInfo[0];
+                this.space = userInfo[1];
+                this.servants = userInfo[2];
             }
-            break;
         }
     }
 
@@ -247,25 +254,28 @@ public class Action implements Serializable {
      * when we have the game reference of the game which this action is
      * related to.
      */
-    public boolean execute(Player player) {
-        boolean check = false;
+    public boolean execute(RemotePlayer player) {
+        boolean isImmediateTakeCard = false;
+        RemotePlayer remotePlayer = player;
 
         //Tower choice
         if(actionChoice == 0 && checkCardRequest(player,board.getTower(tower).getSpace(space).getCard())) {
             //Perform tower action choice
-            check = towerAction(player, tower, space, familyMember, servants);
+            towerAction(player, tower, space, familyMember, servants);
             //performTowerAction(player, actionSpaceID,)
-            performTowerAction(player, tower, space);
+            isImmediateTakeCard = performTowerAction(player, tower, space);
+            if (isImmediateTakeCard)
+                player.sendCmdToClient(new String(ProtocolCommands.ASK_IMMEDIATE_TAKE_BONUS.getCommand()));
+
         }
         //The Council Palace choice
         if(actionChoice == 1) {
-            check = councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice);
-            if (check)
+            if (councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice))
                 performCouncilPalace(player, councilPrivilegeChoice);
         }
 
 
-        return check;
+        return !isImmediateTakeCard;
     }
 
     /**
@@ -371,6 +381,7 @@ public class Action implements Serializable {
      * @return
      */
     public boolean performTowerAction(Player player, int tower, int space) {
+        boolean isImmediateTakeCard = false;
 
         DevelopmentCard devCard = board.getTower(tower).getSpace(space).getCard();
 
@@ -404,17 +415,18 @@ public class Action implements Serializable {
                 performCouncilPalace(player, councilPrivilegeChoice);
             }
 
-            if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
-                if (devCard.getImmediateEffect().getImmediateTakeCard().isHarvest()) {
+            if (devCard.getImmediateEffect().getImmediateTakeCard() != null)
+                isImmediateTakeCard = true;
+
+            return isImmediateTakeCard;
+        /* if (devCard.getImmediateEffect().getImmediateTakeCard().isHarvest()) {
                 } else if (devCard.getImmediateEffect().getImmediateTakeCard().isProduction()) {
                 } else {
                     takeBonusCard(player, devCard, towerImmediateEffect, spaceImmediateEffect, servants);
                 }
             }
-        return true;
+        return true;*/
     }
-                //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
-                    //takeBonusCard(player, devCard);
 
 
     public boolean checkCardRequest(Player player, DevelopmentCard card) {
@@ -449,10 +461,12 @@ public class Action implements Serializable {
      * @param player
      * @return
      */
-    public boolean takeBonusCard(Player player, DevelopmentCard card, int tower, int space, int servant) {
+    public boolean takeBonusCard(Player player) {
         boolean valid = false;
 
-        if (checkBonusCardChoice(card, tower, space, servant) && checkCardRequest(player, card)) {
+        DevelopmentCard card = board.getTower(tower).getSpace(space).getCard();
+
+        if (checkBonusCardChoice(card, tower, space, servants) && checkCardRequest(player, card)) {
             valid = performTowerAction(player, tower, space);
             board.getTower(tower).getSpace(space).setNoCard();
             }
