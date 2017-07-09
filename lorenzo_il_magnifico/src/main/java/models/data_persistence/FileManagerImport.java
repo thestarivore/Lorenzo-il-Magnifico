@@ -33,7 +33,7 @@ public class FileManagerImport implements Serializable{
         ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = "lorenzo_il_magnifico/src/main/resources/DevCard.json";
+        String dCardFile = "/Users/cp18393/IdeaProjects/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/resources/DevCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
             developmentCards = gson.fromJson(reader, dCardType);
             for(int i = 0; i < developmentCards.size(); i++) {
@@ -75,7 +75,7 @@ public class FileManagerImport implements Serializable{
         ArrayList<ExcommunicationTile> excommunicationTiles = new ArrayList<ExcommunicationTile>();
         final Type tilesType = new TypeToken<ArrayList<ExcommunicationTile>>(){}.getType();
         Gson gson = new Gson();
-        String tilesFiles = "orenzo_il_magnifico/src/main/resources/ExcommunicationsTiles.json";
+        String tilesFiles = "lorenzo_il_magnifico/src/main/resources/ExcommunicationsTiles.json";
         try (Reader reader = new FileReader(tilesFiles)) {
             excommunicationTiles = gson.fromJson(reader, tilesType);
             for(int i = 0; i < excommunicationTiles.size(); i++) {
