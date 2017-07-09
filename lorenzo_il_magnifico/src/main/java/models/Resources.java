@@ -105,6 +105,28 @@ public class Resources implements Serializable {
         return false;
 
     }
+
+    /**
+     * Get Resources associated to the Player's Council Privilege choice
+     * @param councilPrivilegeChoices
+     * @return
+     */
+    public void getCouncilPrivilegeChoices (int councilPrivilegeChoices) {
+        switch (councilPrivilegeChoices) {
+            case 0 : {
+                setWoods(1);
+                setStones(1);
+            }break;
+            case 1 : {
+                setServants(2);
+            }break;
+            case 2 : {
+                setCoins(2);
+            }
+        }
+    }
+
+
     @Override
     public String toString(){
         return "Woods: "+this.woods + " Stones: "+this.stones+ " Servants: "+this.servants +" Coins: "+this.coins;

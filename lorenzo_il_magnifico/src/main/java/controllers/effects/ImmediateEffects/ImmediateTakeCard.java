@@ -25,4 +25,16 @@ public class ImmediateTakeCard implements Serializable {
     public int getCardType() {
         return cardType;
     }
+
+    public int getDice() {
+        return dice;
+    }
+
+    public boolean isHarvest() {
+        return harvest;
+    }
+
+    public boolean isProduction() {
+        return production;
+    }
 }

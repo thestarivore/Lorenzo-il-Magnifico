@@ -392,7 +392,7 @@ public class SocketClient implements ClientInterface{
     private void manageActionProcessed(String command, Object obj) {
         Player updatedPlayer = (Player)obj;
 
-        player = updatedPlayer;
+        this.player = updatedPlayer;
     }
 
     /**
@@ -425,7 +425,7 @@ public class SocketClient implements ClientInterface{
      */
     @Override
     public int getActionType(){
-        int actionType = gameView.getActionType(oldBoard);
+        int actionType = gameView.getActionType(player, oldBoard);
         return actionType;
     }
 

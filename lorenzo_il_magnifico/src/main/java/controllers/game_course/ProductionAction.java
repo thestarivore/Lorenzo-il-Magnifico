@@ -34,7 +34,7 @@ public class ProductionAction extends Action {
     }
 
     public boolean checkFreeActionSpaceTowerSpace() {
-        if (!(model.getBoard().getProductionArea().getSingleSpace().getOccupied()))
+        if (!(model.getBoard().getProductionArea().getSingleSpace().isOccupied()))
             return true;
         return false;
     }*/

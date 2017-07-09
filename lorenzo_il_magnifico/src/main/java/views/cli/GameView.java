@@ -4,7 +4,6 @@ import controllers.Player;
 import controllers.game_course.Action;
 import controllers.game_course.HarvestAction;
 import game.TheGame;
-import models.CouncilPrivilege;
 import models.Points;
 import models.Resources;
 import models.board.*;
@@ -172,7 +171,7 @@ public class GameView {
 
     /***************************************************************************************************************/
 
-    public int getActionType(Board board) {
+    public int getActionType(Player player, Board board) {
         setGettingAction(true);
         printLine("Action you want to perform: (" +
                 "0 - Tower, " +
@@ -189,14 +188,23 @@ public class GameView {
 
         int actionType = -1;
         boolean valid = false;
+        int territorySize = player.getPersonalBoard().getTerritories().size();
+        int buildingSize = player.getPersonalBoard().getBuildings().size();
+        int characterSize = player.getPersonalBoard().getCharacters().size();
+        int ventureSize = player.getPersonalBoard().getVentures().size();
+
         while (!valid) {
             actionType = parseInt(getValidParameter(list));
             valid = true;
-            if (actionType == 2 && board.getNumberOfPlayer() < 3 && board.getHarvestArea().getSingleSpace().getOccupied()) {
+            if (actionType == 0 && territorySize == 6 && buildingSize == 6 && characterSize == 6 && ventureSize == 6) {
+                valid = false;
+                printLine("[WARNING] PersonalBoard is full");
+            }
+            if (actionType == 2 && board.getNumberOfPlayer() < 3 && board.getHarvestArea().getSingleSpace().isOccupied()) {
                 valid = false;
                 printLine("[WARNING] Harvest action not available, insert new action");
             }
-            if (actionType == 3 && board.getNumberOfPlayer() < 3 && board.getProductionArea().getSingleSpace().getOccupied()) {
+            if (actionType == 3 && board.getNumberOfPlayer() < 3 && board.getProductionArea().getSingleSpace().isOccupied()) {
                 valid = false;
                 printLine("[WARNING] Production action not available, insert new action");
             }
@@ -258,11 +266,14 @@ public class GameView {
         DevelopmentCard devCard = board.getTower(action[2]).getSpace(action[3]).getCard();
 
         //Check if there is Council Privilege Immediate effect
-        if (devCard.getImmediateEffect().getPrivilege())
+        if (devCard.getImmediateEffect().getPrivilege()) {
+            printLine("This card have a Council Privilege Immediate Effect!");
             action[4] = getCouncilPrivilege();
+        }
 
         //Check if there is Take Another Card Immedaiate effect or Harvest/Production Immediate effect
         if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
+            printLine("This Card have a Bonus Card Immediate Effect!");
             if (devCard.getImmediateEffect().getImmediateTakeCard().getCardType() == 0)
                 action[5] = getTower(board);
             else action[5] = devCard.getImmediateEffect().getImmediateTakeCard().getCardType();
@@ -376,7 +387,7 @@ public class GameView {
 
         ArrayList<String> list = new ArrayList<String>(){
             {
-                for (int i = 0; i < CouncilPrivilege.NUMBER_OF_COUNCIL_PRIVILEGE; i++)
+                for (int i = 0; i < Action.NUMBER_OF_COUNCIL_PRIVILEGE; i++)
                     add(String.valueOf(i));
             }
         };
@@ -565,7 +576,7 @@ public class GameView {
             for (int i = 0; i < board.FIXED_NUMBER_OF_TOWER; i++) {
 
                 //If tower is occupied, get information about the player that occupied this action space, else print card
-                if (board.getTower(i).getSpace(j).getOccupied()) {
+                if (board.getTower(i).getSpace(j).isOccupied()) {
 
                     card[i] = formatCardSize("");
                     cost[i] = formatCardSize("");
@@ -710,7 +721,7 @@ public class GameView {
         line += "__________ ";
 
         //If Harvest or Production single space is occupied, get information about the player that occupied this action space
-        if (singleSpace.getOccupied()) {
+        if (singleSpace.isOccupied()) {
 
             harvestSpace[0] += formatActionSpace(singleSpace.getFamilyMember().getPlayerColor().getColor());
             harvestSpace[1] += formatActionSpace("");
@@ -801,7 +812,7 @@ public class GameView {
 
             line += "__________   ";
 
-            if (board.getMarket().getSpace(i).getOccupied()) {
+            if (board.getMarket().getSpace(i).isOccupied()) {
 
                 marketSpace[0] += formatActionSpace(board.getMarket().getSpace(i).getFamilyMember().getPlayerColor().getColor()) + "| ";
                 marketSpace[1] += formatActionSpace("") + "| ";
@@ -913,6 +924,10 @@ public class GameView {
         printLine("Faith Points: " + player.getPoints().getFaith());
         printLine("Military Points: " + player.getPoints().getMilitary());
         printLine("Victory Points: " + player.getPoints().getVictory());
+        printLine("Card of the Player: ");
+
+        for (int i = 0; i < player.getPersonalBoard().getCharacters().size(); i++)
+            printLine(player.getPersonalBoard().getCharacter(i).getName());
 
     }
 

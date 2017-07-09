@@ -80,6 +80,22 @@ public class Points implements Serializable {
         this.finalVictoryPoints = finalVictoryPoints;
     }
 
+    /**
+     * Get Points associated to the Player's Council Privilege choice
+     * @param councilPrivilegeChoice
+     * @return
+     */
+    public void getCouncilPrivilegeChoice(int councilPrivilegeChoice) {
+        switch (councilPrivilegeChoice) {
+            case 3: {
+                setMilitary(2);
+            }break;
+            case 4: {
+                setFaith(1);
+            }
+        }
+    }
+
     @Override
     public String toString(){
         return "Victory Points: " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;

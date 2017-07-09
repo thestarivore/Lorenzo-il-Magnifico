@@ -1,7 +1,6 @@
 package models.board;
 
 import utility.Constants;
-import models.board.trackers.Track;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -243,7 +242,7 @@ public class Board implements Serializable {
 
         //Get available Tower spaces.
         for(int i = 0; i < Board.CARDS_PER_TOWER; i++) {
-            if (this.getTower(tower).getSpace(i).getOccupied()) {
+            if (this.getTower(tower).getSpace(i).isOccupied()) {
                 availableActionSpace[i] = false;
             } else {
                 availableActionSpace[i] = true;
@@ -254,7 +253,7 @@ public class Board implements Serializable {
         availableActionSpace[16] = true;
 
         //Harvest Single space could be occupied, Multiple space always available.
-        if (this.getActionSpacesByIndex(17).get(0).getOccupied()) {
+        if (this.getActionSpacesByIndex(17).get(0).isOccupied()) {
             availableActionSpace[17] = false;
         } else {
             availableActionSpace[17] = true;
@@ -262,7 +261,7 @@ public class Board implements Serializable {
         availableActionSpace[18] = true;
 
         ///Production Single space could be occupied, Multiple space always available.
-        if (this.getActionSpacesByIndex(19).get(0).getOccupied()) {
+        if (this.getActionSpacesByIndex(19).get(0).isOccupied()) {
             availableActionSpace[19] = false;
         } else {
             availableActionSpace[19] = true;
@@ -270,7 +269,7 @@ public class Board implements Serializable {
         availableActionSpace[20] = true;
 
         for (int i = 21; i < Board.NUMBER_ACTION_SPACES; i++){
-            if (this.getActionSpacesByIndex(i).get(0).getOccupied()) {
+            if (this.getActionSpacesByIndex(i).get(0).isOccupied()) {
                 availableActionSpace[i] = false;
             } else {
                 availableActionSpace[i] = true;

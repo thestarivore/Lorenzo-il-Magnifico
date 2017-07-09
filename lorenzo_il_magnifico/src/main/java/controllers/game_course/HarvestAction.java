@@ -1,7 +1,6 @@
 package controllers.game_course;
 
 import controllers.Player;
-import models.GameFacadeModel;
 import models.board.FamilyMember;
 
 /**
@@ -81,7 +80,7 @@ public class HarvestAction extends Action {
 
 
     public boolean checkFreeActionSpace() {
-        return (!(board.getHarvestArea().getSingleSpace().getOccupied()));
+        return (!(board.getHarvestArea().getSingleSpace().isOccupied()));
     }
 
 }

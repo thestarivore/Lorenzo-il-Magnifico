@@ -40,6 +40,7 @@ public class Action implements Serializable {
     //Constants
     public final static int NUMBER_OF_ACTION_INFO = 8;
     public final static int NUMBER_OF_COUNCIL_INFO = 3;
+    public final static int NUMBER_OF_COUNCIL_PRIVILEGE = 5;
 
 
     /**
@@ -133,7 +134,7 @@ public class Action implements Serializable {
 
             //Check if there are other family member on the same tower and if player got enough coins to place family member
             for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++) {
-                if ((board.getTower(tower).getSpace(space).getOccupied()) && (player.getRes().getCoins() >= 3)) {
+                if ((board.getTower(tower).getSpace(space).isOccupied()) && (player.getRes().getCoins() >= 3)) {
                     int coins = player.getRes().getCoins() - 3;
                     player.getRes().setCoins(coins);
                 }
@@ -161,7 +162,7 @@ public class Action implements Serializable {
     }*/
 
     /*public boolean checkFreeMarketSpace(int space) {
-        return (!(board.getMarket().getSpace(space).getOccupied()));
+        return (!(board.getMarket().getSpace(space).isOccupied()));
     }*/
 
     /**
@@ -171,7 +172,7 @@ public class Action implements Serializable {
      * @return
      */
     public boolean checkFreeActionSpace(int tower, int space) {
-        return (!(board.getTower(tower).getSpace(space).getOccupied()));
+        return (!(board.getTower(tower).getSpace(space).isOccupied()));
 
     }
 
@@ -254,10 +255,15 @@ public class Action implements Serializable {
             //Perform tower action choice
             check = towerAction(player, tower, space, familyMember, servants);
             //performTowerAction(player, actionSpaceID,)
+            performTowerAction(player, tower, space);
         }
         //The Council Palace choice
-        if(actionChoice == 1)
+        if(actionChoice == 1) {
             check = councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice);
+            if (check)
+                performCouncilPalace(player, councilPrivilegeChoice);
+        }
+
 
         return check;
     }
@@ -365,9 +371,6 @@ public class Action implements Serializable {
      * @return
      */
     public boolean performTowerAction(Player player, int tower, int space) {
-        boolean valid = true;
-        Resources res = board.getTower(tower).getSpace(space).getBonus();
-        player.getRes().addResources(res);
 
         DevelopmentCard devCard = board.getTower(tower).getSpace(space).getCard();
 
@@ -398,9 +401,17 @@ public class Action implements Serializable {
             devCard.getImmediateEffect().addResources(player);
 
             if (devCard.getImmediateEffect().getPrivilege()){
-
+                performCouncilPalace(player, councilPrivilegeChoice);
             }
-            return true;
+
+            if (devCard.getImmediateEffect().getImmediateTakeCard() != null) {
+                if (devCard.getImmediateEffect().getImmediateTakeCard().isHarvest()) {
+                } else if (devCard.getImmediateEffect().getImmediateTakeCard().isProduction()) {
+                } else {
+                    takeBonusCard(player, devCard, towerImmediateEffect, spaceImmediateEffect, servants);
+                }
+            }
+        return true;
     }
                 //else if(devCard.getImmediateEffect().getBonusAction().getCheckCard())
                     //takeBonusCard(player, devCard);
@@ -414,8 +425,56 @@ public class Action implements Serializable {
         return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
     }
 
+    /**
+     * Perform the Council Privilege choice of the Player, adding resources or points.
+     * @param player
+     * @param councilPrivilegeChoice
+     */
     public void performCouncilPalace(Player player, int councilPrivilegeChoice) {
+        Resources resToAdd = new Resources();
+        Points pointsToAdd = new Points();
 
+        //Get resources or points associated to the choice
+        resToAdd.getCouncilPrivilegeChoices(councilPrivilegeChoice);
+        pointsToAdd.getCouncilPrivilegeChoice(councilPrivilegeChoice);
+
+        //Add resources or points to the Player
+        player.getRes().addResources(resToAdd);
+        player.getPoints().addPoints(pointsToAdd);
+
+    }
+
+    /**
+     * If choose card have bonus card in the Immediate effect, perform this action without place family member.
+     * @param player
+     * @return
+     */
+    public boolean takeBonusCard(Player player, DevelopmentCard card, int tower, int space, int servant) {
+        boolean valid = false;
+
+        if (checkBonusCardChoice(card, tower, space, servant) && checkCardRequest(player, card)) {
+            valid = performTowerAction(player, tower, space);
+            board.getTower(tower).getSpace(space).setNoCard();
+            }
+
+        return valid;
+    }
+
+    /**
+     * Check if player can take choose bonus card
+     * @param card
+     * @param tower
+     * @param space
+     * @param servant
+     * @return
+     */
+    public boolean checkBonusCardChoice(DevelopmentCard card, int tower, int space, int servant){
+        int valueAction = card.getImmediateEffect().getImmediateTakeCard().getDice() + 1000;
+
+        if (valueAction >= board.getTower(tower).getSpace(space).getDiceCost())
+            return true;
+
+        return false;
     }
 
 

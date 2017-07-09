@@ -82,41 +82,6 @@ public class GameFacadeController {
 
 
 
-    /**
-     * Choose action requested by player.
-     * @param player
-     * @return
-     */
-
-    public boolean chooseAction(Player player, String message, String where) {
-        boolean check;
-        if (("Place").equalsIgnoreCase(message)) {
-            if (("Tower").equalsIgnoreCase(where)) {
-                //check = towerActionChoice(player);
-                //return check;
-            }
-
-            if (("Harvest".equalsIgnoreCase(where))) {
-                //check = harvestActionChoice(player);
-               // return check;
-            }
-
-            if (("Production").equalsIgnoreCase(where)) {
-               /* check = productionActionChoice(player);
-                return check; */
-            }
-
-            if (("Council".equalsIgnoreCase(where))) {
-               /* check = councilActionChoice(player);
-                return check; */
-            }
-        }
-        return true;
-    }
-
-
-
-
 
 
 
@@ -140,24 +105,7 @@ public class GameFacadeController {
         return true;
     }*/
 
-    /**
-     * If council choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    /*public boolean councilActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
 
-        while (!(valid)) {
-            FamilyMember familyMember = selectFamilyMember(player, type, servant);
-            if (checkFamilyMemberChoice(familyMember)) {
-                action.placeFamilyMemberCouncilPalace(familyMember);
-                valid = true;
-            }
-        }
-
-        return true;
-    }*/
 
     /*public void marketActionChoice(Player player, int type, int servant) {
         boolean valid = false;
@@ -173,34 +121,7 @@ public class GameFacadeController {
 
 
 
-    /**
-     * If choosen card have bonus card in the Immediate effect, perform this action without place family member.
-     * @param player
-     * @return
-     */
-    /*public boolean takeBonusCard(Player player, DevelopmentCard card, int tower, int space) {
-        boolean valid = false;
-        String cardType = card.getImmediateEffect().getBonusAction().getCard();
 
-        if ("territory".equalsIgnoreCase(cardType))
-            tower = 0;
-
-        if ("character".equalsIgnoreCase(cardType))
-            tower = 1;
-
-        if ("building".equalsIgnoreCase(cardType))
-            tower = 2;
-
-        if ("venture".equalsIgnoreCase(cardType))
-            tower = 3;
-
-        while (!valid) {
-            valid = action.checkFreeActionSpaceTowerSpace(tower,space);
-        }
-
-        //valid = performTowerAction(player,tower,space);
-        return valid;
-    }*/
 
     public boolean performHarvestAction(Player player, boolean check){
         if (check) {
@@ -342,8 +263,17 @@ public class GameFacadeController {
             //Iterate each space in the tower
             for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
                 getBoard().getTower(i).getSpace(j).setCard(getFacadeModel().getDeck(i).getCardToFillTower());
+                /*if (i == 2)
+                 for (int x = 0; x < facadeModel.getDeck(i).getCard().size(); x++)
+                     if (facadeModel.getDeck(i).getCard().get(x).getName().equals("Abbess")) {
+                         getBoard().getTower(i).getSpace(j).setCard(facadeModel.getDeck(i).getCard().get(x));
+                         System.err.println("Sono qui");
+                         System.err.println(facadeModel.getDeck(i).getCard().get(x).getImmediateEffect().getImmediateTakeCard().getDice());
+                     }*/
+
             }
         }
+
     }
 
     /**

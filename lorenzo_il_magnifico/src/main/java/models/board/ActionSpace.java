@@ -18,6 +18,7 @@ public class ActionSpace implements Serializable {
     private FamilyMember familyMember;
     private int diceCost;
     private boolean isOccupied;
+    private boolean noCard;
 
     /**
      * Basic ActionSpace Constructor
@@ -107,12 +108,20 @@ public class ActionSpace implements Serializable {
         this.diceCost = diceCost;
     }
 
-    public boolean getOccupied() {
+    public boolean isOccupied() {
         return isOccupied;
     }
 
     public void setOccupied() {
         this.isOccupied = true;
+    }
+
+    public boolean isNoCard() {
+        return noCard;
+    }
+
+    public void setNoCard() {
+        this.noCard = true;
     }
 
     public boolean checkBonus() {

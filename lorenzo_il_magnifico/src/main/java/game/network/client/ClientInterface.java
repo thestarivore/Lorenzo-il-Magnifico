@@ -83,13 +83,13 @@ public interface ClientInterface extends Runnable {
      * Get the action from the user
      * @return Action instance
      */
-    public Action getAction();
+    public Action getAction(int actionType);
 
     /**
      * Get the harvest action from the user
      * @return Action instance
      */
-    public Action getHarvestAction();
+    public Action getHarvestAction(int actionType);
 
     public Action getCouncilAction(int actionType);
 

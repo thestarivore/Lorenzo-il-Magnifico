@@ -302,6 +302,9 @@ public class SocketServerThread extends Thread{
         //Send Action to the controller so that he can manage it
         getTheController().managePlayerAction(action);
 
+        GameView gameView = new GameView();
+        gameView.printPlayerInfo(remotePlayer);
+
         //Send the ACTION_PROCESSED command back + the Player object whose turn is
         respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
     }

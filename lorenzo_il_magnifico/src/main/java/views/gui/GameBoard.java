@@ -81,7 +81,7 @@ public class GameBoard{
         for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
             for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
 
-                if (!board.getTower(i).getSpace(j).getOccupied()) {
+                if (!board.getTower(i).getSpace(j).isOccupied()) {
                     String url = GuiUtil.getDevCardURL(board.getTower(i).getSpace(j).getCard().getName());
                     ImageView image = new ImageView(url);
                     image.setPreserveRatio(true);
@@ -100,7 +100,7 @@ public class GameBoard{
         for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
             for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
 
-                if(board.getTower(i).getSpace(j).getOccupied()) {
+                if(board.getTower(i).getSpace(j).isOccupied()) {
 
                     if(board.getTower(i).getSpace(j).getFamilyMember().getDiceColor() == Dice.COLORS.NEUTER ) {
                         String color = board.getTower(i).getSpace(j).getFamilyMember().getPlayerColor().getColor();
