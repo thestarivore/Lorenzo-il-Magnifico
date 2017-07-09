@@ -200,6 +200,29 @@ public class SocketServerThread extends Thread{
     }
 
     /**
+     * Respond Nothing back to the client.
+     * We still have to send something however, but it
+     * won't be an actual command.
+     * This method will reset the Object Output Stream,
+     * will send the command and the object passed as argument
+     * and finally flush the stream.
+     * Must be done after every received command managed.
+     */
+    private void respondNothingToClient() throws IOException {
+        //Firstly reset the Object Output Stream
+        out.reset();
+
+        //Send The command object (usually a String)
+        out.writeObject(ProtocolCommands.NONE.getCommand());
+
+        //Send The Object
+        out.writeObject(ProtocolCommands.NONE.getCommand());
+
+        //Finally flush the output stream
+        out.flush();
+    }
+
+    /**
      * Manage PLAYER_IDENTIFIACTION command.
      * @param command String of the command received via socket
      * @param obj Object received via socket
@@ -320,6 +343,9 @@ public class SocketServerThread extends Thread{
         //If are there any command to send, send them
         if(cmdToSend) {
             respondToClient(cmdList.remove(0), cmdObjectList.remove(0));
+        }
+        else{
+            respondNothingToClient();
         }
     }
 

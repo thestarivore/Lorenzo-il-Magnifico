@@ -295,4 +295,12 @@ public class GameFacadeController {
             getBoard().setDie(die, i);
         }
     }
+
+    /**
+     * Get period index
+     * @return integer
+     */
+    public int getPeriodIndex() {
+        return periodIndex;
+    }
 }

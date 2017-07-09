@@ -2,7 +2,12 @@ package controllers.game_course;
 
 import controllers.GameFacadeController;
 import controllers.Player;
+import controllers.RemotePlayer;
+import game.Lobby;
 import game.TheGame;
+import game.network.protocol.ProtocolCommands;
+
+import javax.naming.ldap.Control;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -23,6 +28,10 @@ public class Round {
      */
     private int playerTurn;
 
+    private boolean churchSustainers[];
+    private int     playersResponded;
+    private boolean vaticanReportAlert;
+
     /**
      * Period Constants - Number of phases in a round
      */
@@ -32,6 +41,9 @@ public class Round {
     public static final int PHASE2_VATICAN_REPORT   = 2;
     public static final int PHASE3_END_OF_ROUND     = 3;
     public static final int FINISHED_ROUND          = 4;
+    public static final int FAITH_NEEDED_PERIOD1    = 3;
+    public static final int FAITH_NEEDED_PERIOD2    = 4;
+    public static final int FAITH_NEEDED_PERIOD3    = 5;
 
     /**
      * Basic Round Constructor
@@ -44,6 +56,11 @@ public class Round {
         //Create phases
         phaseIndex = PHASE0_ROUND_SETUP;
         playerTurn = 0;
+
+        //Church Sustainers array
+        churchSustainers = new boolean[TheGame.MAXIMUM_PLAYERS_NUMBER];
+        playersResponded = 0;
+        vaticanReportAlert = false;
     }
 
     /**
@@ -112,10 +129,40 @@ public class Round {
      * require to show the faith to the church.
      */
     private void doVaticanReport(){
-        //...
+        //Get round and period indexes
+        int round = controller.getPeriodIndex();
+        int period= controller.getCurrentPeriod().getRoundIndex();
 
-        //Pass at the end of round
-        phaseIndex = PHASE3_END_OF_ROUND;
+        //Do Vatican Report only on the second round of each period
+        if(round == Period.SECOND_ROUND){
+            int faithNeeded = getFaithNeededByPeriod(period);
+
+            // Alert all players about the Vatican Report and
+            // ask if they sustain or not
+            int numPlayers = controller.getGame().getNumberOfPlayers();
+            for(int i = 0; i < numPlayers; i++){
+                //Get player of this index
+                RemotePlayer player = controller.getGame().getPlayer(i);
+
+                //Only ask for sustain if the player has the required faith
+                if(player.getPoints().getFaith() >= faithNeeded) {
+                    player.sendCmdToClient(ProtocolCommands.ASk_CHURCH_SUSTAIN.getCommand());
+                }
+                //Otherwise automatically punish the player
+                else{
+                    playersResponded++;
+                }
+            }
+            vaticanReportAlert = true;
+        }
+        else if(vaticanReportAlert == true){
+
+
+        }
+        else {
+            //Pass at the end of round
+            phaseIndex = PHASE3_END_OF_ROUND;
+        }
     }
 
     /**
@@ -170,5 +217,27 @@ public class Round {
     private void updatePlayerInTurn(){
         Player player= controller.getGame().getPlayerByTurnNumber(playerTurn);
         controller.setPlayerInTurn(player);
+    }
+
+    /**
+     * Get the faith needed for the vatican report
+     * based on the period we're at.
+     * @param period integer indicating the period
+     * @return faith needed
+     */
+    private int getFaithNeededByPeriod(int period){
+        int faithNeeded = FAITH_NEEDED_PERIOD1;
+
+        //Get number of faith needed in this period
+        if(period == TheGame.FIRST_PERIOD) {
+            faithNeeded = FAITH_NEEDED_PERIOD1;
+        }
+        else if(period == TheGame.SECOND_PERIOD) {
+            faithNeeded = FAITH_NEEDED_PERIOD2;
+        }
+        else if(period == TheGame.THIRD_PERIOD) {
+            faithNeeded = FAITH_NEEDED_PERIOD3;
+        }
+        return faithNeeded;
     }
 }

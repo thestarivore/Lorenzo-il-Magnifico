@@ -17,12 +17,12 @@ public class Board implements Serializable {
     private Dice[] dice;
     private HarvestArea harvestArea;
     private ProductionArea productionArea;
+    private ExcommunicationTile excommunicationTiles[];
     //private String playerInTurn;
     private int period;
     private int round;
     private int numberOfPlayer;
     private String phase;
-
 
     /**
      * Board Constants
@@ -66,6 +66,8 @@ public class Board implements Serializable {
     public final static int MARKET1_INDEX       = 22;
     public final static int MARKET2_INDEX       = 23;
     public final static int MARKET3_INDEX       = 24;
+    // Excommunication Tiles
+    public final static int NUMBER_OF_EXCOMMUNICATION_TILES = 3;
 
 
     /**
@@ -93,6 +95,7 @@ public class Board implements Serializable {
         this.numberOfPlayer = numberOfPlayer;
         this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
+        this.excommunicationTiles = new ExcommunicationTile[NUMBER_OF_EXCOMMUNICATION_TILES];
     }
 
     /**
@@ -121,6 +124,38 @@ public class Board implements Serializable {
 
     public void setCouncilPalace(TheCouncilPalace coincilPalace) {
         this.councilPalace = coincilPalace;
+    }
+
+    /**
+     * Get all ExcommunicationTile
+     * @return
+     */
+    public ExcommunicationTile[] getExcommunicationTiles() {
+        return excommunicationTiles;
+    }
+
+    /**
+     * Set all ExcommunicationTile
+     * @return
+     */
+    public void setExcommunicationTiles(ExcommunicationTile[] excommunicationTiles) {
+        this.excommunicationTiles = excommunicationTiles;
+    }
+
+    /**
+     * Returns ExcommunicationTile at index
+     * @param index
+     */
+    public ExcommunicationTile getExcommunicationTiles(int index) {
+        return excommunicationTiles[index];
+    }
+
+    /**
+     * Sets ExcommunicationTile at index
+     * @param index
+     */
+    public void setExcommunicationTiles(ExcommunicationTile excommunicationTile, int index) {
+        this.excommunicationTiles[index] = excommunicationTile;
     }
 
     /**

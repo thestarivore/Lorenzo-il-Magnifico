@@ -27,7 +27,11 @@ public class ExcommunicationTile implements Serializable {
         this.points = new Points();
     }
 
-
+    /**
+     * Constants
+     */
+    public final static int TOTAL_NUMBER_TILES  = 21;
+    public final static int TILES_PER_PERIOD    = 7;
 
     public boolean isNoFinalPoints() {
         return noFinalPoints;
