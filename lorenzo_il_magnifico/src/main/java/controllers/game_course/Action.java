@@ -229,29 +229,25 @@ public class Action implements Serializable {
      * related to.
      */
     public boolean execute(RemotePlayer player) {
-        boolean isImmediateTakeCard;
-        RemotePlayer remotePlayer = player;
+        boolean check = false;
 
         //Tower choice
         if(actionChoice == 0 && checkCardRequest(player,board.getTower(tower).getSpace(space).getCard())) {
             //Perform tower action choice
-            towerAction(player, tower, space, familyMember, servants);
-            //performTowerAction(player, actionSpaceID,)
-            isImmediateTakeCard = performTowerAction(player, tower, space);
+            check = towerAction(player, tower, space, familyMember, servants);
             //If there is Bonus Card Immediate Effect, ask player for info
-            if (isImmediateTakeCard)
+            if (check)
                 player.sendCmdToClient(new String(ProtocolCommands.ASK_IMMEDIATE_TAKE_BONUS.getCommand()));
-            return !isImmediateTakeCard;
+            return !check;
         }
 
         //The Council Palace choice
         if(actionChoice == 1) {
             if (councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice))
-                performCouncilPalace(player, councilPrivilegeChoice);
+              check = performCouncilPalace(player, councilPrivilegeChoice);
         }
 
-
-        return true;
+        return check;
     }
 
     /**
@@ -293,12 +289,15 @@ public class Action implements Serializable {
         DevelopmentCard developmentCard = board.getTower(tower).getSpace(space).getCard();
 
         //Check if the family member satisfied action space request and if Player satisfied card request
-        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space) && checkCardRequest(player, developmentCard))
-            check = placeFamilyMemberOnTower(tower, space, familyMemberSelected, player);
+        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space) && checkCardRequest(player, developmentCard)) {
+            if (placeFamilyMemberOnTower(tower, space, familyMemberSelected, player))
+                check = performTowerAction(player, tower, space);
+        }
 
         //Add bonus space to the player if there is bonus on action space
         if (check && board.getTower(tower).getSpace(space).checkBonus())
             board.getTower(tower).getSpace(space).addBonus(player);
+
         return check;
     }
 

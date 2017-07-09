@@ -31,6 +31,7 @@ public class GameView {
 
     //Constants
     public static final int ACTION_SPACE_HEIGHT = 4;
+    public static final int DICE_HEIGHT = 6;
     public static final int NO_SPACE_BONUS = -1;
 
 
@@ -548,7 +549,7 @@ public class GameView {
      * Print Line to the console. A newline is added at the end of the line.
      * @param line String of the line to be printed
      */
-    private void printLine(String line){
+    public void printLine(String line){
         System.out.println(line);
     }
 
@@ -590,6 +591,9 @@ public class GameView {
         printLine("");
 
         printMarket(board);
+        printLine("");
+        printLine("");
+        printDice(board);
     }
 
     /**
@@ -956,6 +960,7 @@ public class GameView {
         System.out.printf("%-45s %-45s %-45s %-45s", a, b, c, d);
     }
 
+
     /**
      * Print updated Player info.
      * @param player
@@ -981,6 +986,27 @@ public class GameView {
         printLine(player.getPersonalBoard().getVenture(i).getName());
         for (int i = 0; i < player.getPersonalBoard().getTerritories().size(); i++)
         printLine(player.getPersonalBoard().getTerritory(i).getName());
+
+
+    }
+
+    public void printDice(Board board) {
+        String[] dice = new String[GameView.DICE_HEIGHT];
+        for (int i = 0; i < GameView.DICE_HEIGHT; i++)
+            dice[i] = "";
+
+        for (int i = 0; i < Board.FIXED_NUM_OF_DICE; i++) {
+            dice[0] += board.getDice(i).getColor().getColor().toUpperCase() + " DICE      ";
+            dice[1] += " _________      ";
+            dice[2] += String.format("|%-9s|", "") + "     ";
+            dice[3] += String.format("|%-9s|", board.getDice(i).getNumber()) + "     ";
+            dice[4] += String.format("|%-9s|", "") + "     ";
+            dice[5] += "|_________|     ";
+        }
+
+        printLine(String.format("%181s", dice[0]));
+        for (int i = 1; i < GameView.DICE_HEIGHT; i++)
+            printLine(String.format("%180s", dice[i]));
 
 
     }

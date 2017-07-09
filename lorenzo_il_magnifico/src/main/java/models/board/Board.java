@@ -97,8 +97,10 @@ public class Board implements Serializable {
         this.dice = new Dice[FIXED_NUM_OF_DICE];
         for (int i=0 ; i < FIXED_NUM_OF_DICE ; i++) {
             this.dice[i]=new Dice();
-            this.dice[i].setColor(i);
         }
+        this.dice[0].setColor(Dice.COLORS.BLACK);
+        this.dice[1].setColor(Dice.COLORS.WHITE);
+        this.dice[2].setColor(Dice.COLORS.ORANGE);
 
         this.rewardFaithTrack = new int[FAITH_TRACK_SLOTS];
         this.numberOfPlayer = numberOfPlayer;

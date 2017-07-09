@@ -410,9 +410,16 @@ public class SocketClient implements ClientInterface{
      * @param obj Object instance of the object received
      */
     private void manageActionProcessed(String command, Object obj) {
-        Player updatedPlayer = (Player)obj;
+      if (obj instanceof Player) {
+          Player updatedPlayer = (Player) obj;
+          this.player = updatedPlayer;
+      }
 
-        this.player = updatedPlayer;
+      if (obj instanceof String) {
+          String warning = (String) obj;
+          gameView.printLine(warning);
+          Client.setFsmState(Client.FSMClient.SEND_ACTION);
+      }
     }
 
     /**
