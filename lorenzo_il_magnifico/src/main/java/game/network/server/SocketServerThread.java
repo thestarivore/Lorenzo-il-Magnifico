@@ -352,7 +352,8 @@ public class SocketServerThread extends Thread{
      * @param obj Object received via socket
      */
     private void manageSustainChurch(String command, Object obj) throws IOException {
-
+        
+        respondNothingToClient();
     }
 
     /**
@@ -361,7 +362,7 @@ public class SocketServerThread extends Thread{
      * @param obj Object received via socket
      */
     private void manageDontSustainChurch(String command, Object obj) throws IOException {
-
+        respondNothingToClient();
     }
 
 

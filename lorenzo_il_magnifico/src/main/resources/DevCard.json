@@ -433,650 +433,6 @@
 
 
 
-  {
-    "name":"Mint",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "woods":1,
-      "stones":3
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":5
-      }
-    },
-    "permanentEffect":{
-      "resources":{
-        "coins":1
-      },
-      "pointsForCharacters": {
-        "towerNum": 3,
-        "characterResourses":{
-          "coins":1
-        }
-      }
-    },
-    "dice":5,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Tax Office",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "woods":1,
-      "stones":3
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":5
-      }
-    },
-    "permanentEffect":{
-      "resources":{
-        "coins":1
-        },
-      "pointsForCharacters":{
-        "towerNum":1
-      }
-    },
-    "dice":5,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Triumphal Arch",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "coins":2,
-      "stones":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":6
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1
-      },
-      "pointsForCharacters": {
-        "towerNum": 4
-      }
-    },
-    "dice":6,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Theater",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "woods":2,
-      "coins":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":6
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1
-      },
-      "pointsForCharacters": {
-        "towerNum": 2
-      }
-    },
-    "dice":6,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Carpeter's Shop",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "woods":2,
-      "coins":1
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":3
-      }
-    },
-    "permanentEffect":{
-    "exchange":{
-      "exResources":[ {
-        "coins": 3
-      },{
-        "coins": 5
-      }],
-      "firstP": [{
-        "woods": 1
-      },
-        {
-          "woods": 2
-        }]
-    }
-    },
-    "dice":4,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Stonemason's Shop",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "coins":1,
-      "stones":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":2
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exResources": [{
-          "coins": 3
-        },
-          {
-            "coins": 5
-          }],
-        "firstP": [{
-          "stones": 1
-        },
-        {
-          "stones": 2
-        }]
-      }
-
-    },
-    "dice":3,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Chapel",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "woods":2
-    },
-    "immediateEffect":{
-      "points":{
-        "faith":1
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "faith": 1
-        }],
-        "firstP":[ {
-          "coins":1
-        }]
-      }
-    },
-    "dice":2,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Residence",
-    "cardType":3,
-    "period":1,
-    "cost":{
-      "stones":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":1
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1,
-        "military":2,
-        "faith":3
-      },
-      "resources":{
-        "woods":1,
-        "stones":2,
-        "servants":3,
-        "coins":4
-      }
-    },
-    "dice":1,
-    "description":"This card is useful"
-  },
-  {
-    "name": "Marketplace",
-    "cardType":3,
-    "period":2,
-    "cost": {
-      "woods": 2,
-      "stones": 1
-    },
-    "immediateEffect": {
-      "points": {
-        "victory": 3
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exResources":[ {
-          "stones":2,
-          "woods":2
-        }],
-        "firstP": [{
-          "coins": 3
-        }]
-      }
-    },
-    "dice": 3,
-    "description": "This card is useful"
-  },
-  {
-    "name":"Treasury",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "stones":3
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":4
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints":[ {
-          "victory": 3
-        },
-          {
-            "victory": 5
-          }],
-        "firstP":[ {
-          "coins": 1
-        },
-          {
-            "coins": 2
-          }]
-      }
-    },
-    "dice":3,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Painters' Guild",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "woods":4
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":5
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "victory": 3
-        },
-          {
-            "victory": 7
-          }],
-        "firstP":[{
-          "woods": 1
-        },
-          {
-            "woods": 3
-          }]
-      }
-    },
-    "dice":4,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Sculptors' Guild",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "stones":4
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":6
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "victory": 3
-        },{
-          "victory": 7
-        }],
-        "firstP": [{
-          "stones": 1
-        },{
-          "stones": 2
-        }]
-      }
-    },
-    "description":"This card is useful"
-  },
-  {
-    "name":"Stonemasons' Guild",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "stones":4,
-      "woods":1
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":4
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "victory": 6
-        }],
-        "firstP":[ {
-          "woods": 1,
-          "stones":1,
-          "servants":1
-        }]
-      }
-
-    },
-    "dice":4,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Baptistery",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "stones":3
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":2,
-        "faith":1
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exResources":[ {
-          "coins": 2
-        }],
-        "exPoints":[{
-          "victory":1
-         }],
-        "firstP":[ {
-          "woods": 1
-        }]
-      }
-
-    },
-    "dice":2,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Barracks",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "stones":1,
-      "woods":1
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":3
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints":[ {
-          "military": 3
-        }],
-        "firstP": [{
-          "servants": 1
-        }]
-      }
-    },
-    "dice":1,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Stronghold",
-    "cardType":3,
-    "period":2,
-    "cost":{
-      "stones":2,
-      "coins":2,
-      "woods":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":8
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":2,
-        "military":2
-      }
-    },
-    "dice":6,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Bank",
-    "cardType":3,
-    "period":3,
-    "cost":{
-      "stones":3,
-      "coins":3,
-      "woods":1
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":7
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1
-      },
-      "resources":{
-        "coins":5
-      }
-    },
-    "dice":5,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Fair",
-    "cardType":3,
-    "period":3,
-    "cost":{
-      "coins":2,
-      "woods":3
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":8
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":3
-      }
-    },
-    "dice":1,
-    "description":"This card is useful"
-  },
-  {
-    "name":"Garden",
-    "cardType":3,
-    "period":3,
-    "cost":{
-      "stones":2,
-      "woods":4,
-      "servants":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":10
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":3
-      }
-    },
-    "dice":1,
-    "description":"This card is useful"
-  },
-  {	"name":"Fortress",
-    "cardType":3,
-    "period":3,
-    "cost":{
-      "stones":4,
-      "woods":2,
-      "coins":2
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":9
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1
-      },
-      "privilege":true,
-      "numberOfPrivilege":1
-    },
-    "dice":5,
-    "description":"This card is useful"
-  },
-  {
-    "name": "Palace",
-    "cardType":3,
-    "period":3,
-    "cost": {
-      "woods": 3,
-      "stones":1,
-      "coins":3
-    },
-    "immediateEffect": {
-      "points": {
-        "victory": 7
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "military":3
-        }],
-        "exResources": [{
-          "servants":2
-        }],
-        "firstP":[ {
-          "coins": 1
-        }]
-      }
-    },
-    "dice": 3,
-    "description": "This card is useful"
-  },
-  {
-    "name": "Church",
-    "cardType":3,
-    "period":3,
-    "cost": {
-      "woods": 2,
-      "stones":4
-    },
-    "immediateEffect": {
-      "points": {
-        "victory": 5,
-        "faith":1
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "faith":2
-          }],
-        "firstP": [{
-          "woods": 1,
-          "stones":1
-        }]
-      }
-    },
-    "dice": 3,
-    "description": "This card is useful"
-  },
-  {
-    "name": "Military Academy",
-    "cardType":3,
-    "period":3,
-    "cost": {
-      "woods": 2,
-      "stones":2,
-      "servants":1
-    },
-    "immediateEffect": {
-      "points": {
-        "victory": 7
-      }
-    },
-    "permanentEffect":{
-      "exchange":{
-        "exPoints": [{
-          "military":3,
-          "victory":1
-        }],
-        "firstP": [{
-          "servants": 3
-        }]
-      }
-    },
-    "dice": 3,
-    "description": "This card is useful"
-  },
-  {
-    "name":"Cathedral",
-    "cardType":3,
-    "period":3,
-    "cost":{
-      "stones":4,
-      "woods":4
-    },
-    "immediateEffect":{
-      "points":{
-        "victory":7,
-        "faith":3
-      }
-    },
-    "permanentEffect":{
-      "points":{
-        "victory":1
-      }
-    },
-    "dice":2,
-    "description":"This card is useful"
-  },
-
-
-
-
 
 
   {
@@ -1534,6 +890,651 @@
       "privilege":true,
       "numberOfPrivilege":1
     },
+    "description":"This card is useful"
+  },
+
+
+
+
+
+  {
+    "name":"Mint",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "woods":1,
+      "stones":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":5
+      }
+    },
+    "permanentEffect":{
+      "resources":{
+        "coins":1
+      },
+      "pointsForCharacters": {
+        "towerNum": 3,
+        "characterResourses":{
+          "coins":1
+        }
+      }
+    },
+    "dice":5,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Tax Office",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "woods":1,
+      "stones":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":5
+      }
+    },
+    "permanentEffect":{
+      "resources":{
+        "coins":1
+      },
+      "pointsForCharacters":{
+        "towerNum":1
+      }
+    },
+    "dice":5,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Triumphal Arch",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "coins":2,
+      "stones":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":6
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":1
+      },
+      "pointsForCharacters": {
+        "towerNum": 4
+      }
+    },
+    "dice":6,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Theater",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "woods":2,
+      "coins":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":6
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":1
+      },
+      "pointsForCharacters": {
+        "towerNum": 2
+      }
+    },
+    "dice":6,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Carpeter's Shop",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "woods":2,
+      "coins":1
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":3
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exResources":[ {
+          "coins": 3
+        },{
+          "coins": 5
+        }],
+        "firstP": [{
+          "woods": 1
+        },
+          {
+            "woods": 2
+          }]
+      }
+    },
+    "dice":4,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Stonemason's Shop",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "coins":1,
+      "stones":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":2
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exResources": [{
+          "coins": 3
+        },
+          {
+            "coins": 5
+          }],
+        "firstP": [{
+          "stones": 1
+        },
+          {
+            "stones": 2
+          }]
+      }
+
+    },
+    "dice":3,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Chapel",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "woods":2
+    },
+    "immediateEffect":{
+      "points":{
+        "faith":1
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "faith": 1
+        }],
+        "firstP":[ {
+          "coins":1
+        }]
+      }
+    },
+    "dice":2,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Residence",
+    "cardType":3,
+    "period":1,
+    "cost":{
+      "stones":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":1
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":1,
+        "military":2,
+        "faith":3
+      },
+      "resources":{
+        "woods":1,
+        "stones":2,
+        "servants":3,
+        "coins":4
+      }
+    },
+    "dice":1,
+    "description":"This card is useful"
+  },
+  {
+    "name": "Marketplace",
+    "cardType":3,
+    "period":2,
+    "cost": {
+      "woods": 2,
+      "stones": 1
+    },
+    "immediateEffect": {
+      "points": {
+        "victory": 3
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exResources":[ {
+          "stones":2,
+          "woods":2
+        }],
+        "firstP": [{
+          "coins": 3
+        }]
+      }
+    },
+    "dice": 3,
+    "description": "This card is useful"
+  },
+  {
+    "name":"Treasury",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "stones":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":4
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints":[ {
+          "victory": 3
+        },
+          {
+            "victory": 5
+          }],
+        "firstP":[ {
+          "coins": 1
+        },
+          {
+            "coins": 2
+          }]
+      }
+    },
+    "dice":3,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Painters' Guild",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "woods":4
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":5
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "victory": 3
+        },
+          {
+            "victory": 7
+          }],
+        "firstP":[{
+          "woods": 1
+        },
+          {
+            "woods": 3
+          }]
+      }
+    },
+    "dice":4,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Sculptors' Guild",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "stones":4
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":6
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "victory": 3
+        },{
+          "victory": 7
+        }],
+        "firstP": [{
+          "stones": 1
+        },{
+          "stones": 2
+        }]
+      }
+    },
+    "description":"This card is useful"
+  },
+  {
+    "name":"Stonemasons' Guild",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "stones":4,
+      "woods":1
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":4
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "victory": 6
+        }],
+        "firstP":[ {
+          "woods": 1,
+          "stones":1,
+          "servants":1
+        }]
+      }
+
+    },
+    "dice":4,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Baptistery",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "stones":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":2,
+        "faith":1
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exResources":[ {
+          "coins": 2
+        }],
+        "exPoints":[{
+          "victory":1
+        }],
+        "firstP":[ {
+          "woods": 1
+        }]
+      }
+
+    },
+    "dice":2,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Barracks",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "stones":1,
+      "woods":1
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":3
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints":[ {
+          "military": 3
+        }],
+        "firstP": [{
+          "servants": 1
+        }]
+      }
+    },
+    "dice":1,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Stronghold",
+    "cardType":3,
+    "period":2,
+    "cost":{
+      "stones":2,
+      "coins":2,
+      "woods":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":8
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":2,
+        "military":2
+      }
+    },
+    "dice":6,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Bank",
+    "cardType":3,
+    "period":3,
+    "cost":{
+      "stones":3,
+      "coins":3,
+      "woods":1
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":7
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":1
+      },
+      "resources":{
+        "coins":5
+      }
+    },
+    "dice":5,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Fair",
+    "cardType":3,
+    "period":3,
+    "cost":{
+      "coins":2,
+      "woods":3
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":8
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":3
+      }
+    },
+    "dice":1,
+    "description":"This card is useful"
+  },
+  {
+    "name":"Garden",
+    "cardType":3,
+    "period":3,
+    "cost":{
+      "stones":2,
+      "woods":4,
+      "servants":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":10
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":3
+      }
+    },
+    "dice":1,
+    "description":"This card is useful"
+  },
+  {	"name":"Fortress",
+    "cardType":3,
+    "period":3,
+    "cost":{
+      "stones":4,
+      "woods":2,
+      "coins":2
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":9
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":1
+      },
+      "privilege":true,
+      "numberOfPrivilege":1
+    },
+    "dice":5,
+    "description":"This card is useful"
+  },
+  {
+    "name": "Palace",
+    "cardType":3,
+    "period":3,
+    "cost": {
+      "woods": 3,
+      "stones":1,
+      "coins":3
+    },
+    "immediateEffect": {
+      "points": {
+        "victory": 7
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "military":3
+        }],
+        "exResources": [{
+          "servants":2
+        }],
+        "firstP":[ {
+          "coins": 1
+        }]
+      }
+    },
+    "dice": 3,
+    "description": "This card is useful"
+  },
+  {
+    "name": "Church",
+    "cardType":3,
+    "period":3,
+    "cost": {
+      "woods": 2,
+      "stones":4
+    },
+    "immediateEffect": {
+      "points": {
+        "victory": 5,
+        "faith":1
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "faith":2
+        }],
+        "firstP": [{
+          "woods": 1,
+          "stones":1
+        }]
+      }
+    },
+    "dice": 3,
+    "description": "This card is useful"
+  },
+  {
+    "name": "Military Academy",
+    "cardType":3,
+    "period":3,
+    "cost": {
+      "woods": 2,
+      "stones":2,
+      "servants":1
+    },
+    "immediateEffect": {
+      "points": {
+        "victory": 7
+      }
+    },
+    "permanentEffect":{
+      "exchange":{
+        "exPoints": [{
+          "military":3,
+          "victory":1
+        }],
+        "firstP": [{
+          "servants": 3
+        }]
+      }
+    },
+    "dice": 3,
+    "description": "This card is useful"
+  },
+  {
+    "name":"Cathedral",
+    "cardType":3,
+    "period":3,
+    "cost":{
+      "stones":4,
+      "woods":4
+    },
+    "immediateEffect":{
+      "points":{
+        "victory":7,
+        "faith":3
+      }
+    },
+    "permanentEffect":{
+      "points":{
+        "victory":1
+      }
+    },
+    "dice":2,
     "description":"This card is useful"
   },
 

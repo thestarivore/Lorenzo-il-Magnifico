@@ -16,6 +16,9 @@ public class Resources implements Serializable {
     //Constants
     public static final int FIXED_NUM_OF_RESOURCES = 4;
 
+    /**
+     * Basic Constructor
+     */
     public Resources(){
         this.servants = 5;
         this.coins=0;
@@ -54,7 +57,10 @@ public class Resources implements Serializable {
        }
     }
 
-
+    /**
+     * Add Resources from another Resources instance.
+     * @param res Resources instance other the other resources.
+     */
     public void addResources(Resources res) {
         this.woods += res.woods;
         this.stones += res.stones;

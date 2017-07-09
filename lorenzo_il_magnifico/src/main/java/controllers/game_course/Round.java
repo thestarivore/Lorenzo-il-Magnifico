@@ -6,6 +6,8 @@ import controllers.RemotePlayer;
 import game.Lobby;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
+import models.board.Defect;
+import models.board.ExcommunicationTile;
 
 import javax.naming.ldap.Control;
 
@@ -132,6 +134,21 @@ public class Round {
         //Get round and period indexes
         int round = controller.getPeriodIndex();
         int period= controller.getCurrentPeriod().getRoundIndex();
+        int numPlayers = controller.getGame().getNumberOfPlayers();
+        Defect defect = new Defect();
+        ExcommunicationTile excomTile = new ExcommunicationTile();
+
+        //Get Defect based on period
+        if(period == TheGame.FIRST_PERIOD){
+            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.FIRST_PERIOD);
+        }
+        else if(period == TheGame.SECOND_PERIOD){
+            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.SECOND_PERIOD);
+        }
+        else if(period == TheGame.THIRD_PERIOD){
+            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.THIRD_PERIOD);
+        }
+        defect = excomTile.getDefect();
 
         //Do Vatican Report only on the second round of each period
         if(round == Period.SECOND_ROUND){
@@ -139,7 +156,7 @@ public class Round {
 
             // Alert all players about the Vatican Report and
             // ask if they sustain or not
-            int numPlayers = controller.getGame().getNumberOfPlayers();
+
             for(int i = 0; i < numPlayers; i++){
                 //Get player of this index
                 RemotePlayer player = controller.getGame().getPlayer(i);
@@ -150,14 +167,18 @@ public class Round {
                 }
                 //Otherwise automatically punish the player
                 else{
+                    //TODO:show the munishment on the board
+                    player.addDefects(defect);
                     playersResponded++;
                 }
             }
             vaticanReportAlert = true;
         }
         else if(vaticanReportAlert == true){
-
-
+            if(playersResponded == numPlayers){
+                //Pass at the end of round if Vatican Report Has concluded
+                phaseIndex = PHASE3_END_OF_ROUND;
+            }
         }
         else {
             //Pass at the end of round

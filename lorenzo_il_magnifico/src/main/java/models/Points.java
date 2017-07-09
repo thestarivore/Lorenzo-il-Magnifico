@@ -11,7 +11,9 @@ public class Points implements Serializable {
     private int faith;
     private int finalVictoryPoints; //points of each card that will be added at the end of the game
 
-
+    /**
+     * Basic Constructor
+     */
     public Points() {
         this.victory=0;
         this.military=0;
@@ -83,6 +85,17 @@ public class Points implements Serializable {
     @Override
     public String toString(){
         return "Victory Points: " + this.victory + "\t"+ "Military Points: " + this.military+"\t"+"Faith Points: "+this.faith+"\t"+"Final Victory Points: "+this.finalVictoryPoints;
+    }
+
+    /**
+     * Add Points from another Points instance.
+     * @param points Points instance other the other points.
+     */
+    public void add(Points points) {
+        this.victory    += points.victory;
+        this.military   += points.military;
+        this.faith      += points.faith;
+        this.finalVictoryPoints += points.finalVictoryPoints;
     }
 
     /**
