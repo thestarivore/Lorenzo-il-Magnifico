@@ -33,7 +33,7 @@ public class FileManagerImport implements Serializable{
         ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
-        String dCardFile = "/Users/cp18393/IdeaProjects/Lorenzo-il-Magnifico/lorenzo_il_magnifico/src/main/resources/DevCard.json";
+        String dCardFile = "lorenzo_il_magnifico/src/main/resources/DevCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
             developmentCards = gson.fromJson(reader, dCardType);
             for(int i = 0; i < developmentCards.size(); i++) {
