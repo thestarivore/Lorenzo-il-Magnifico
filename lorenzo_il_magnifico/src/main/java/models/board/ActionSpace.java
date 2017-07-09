@@ -23,10 +23,10 @@ public class ActionSpace implements Serializable {
      * Basic ActionSpace Constructor
      */
     public ActionSpace() {
-        this.card           = null;
-        this.bonusRes       = null;
-        this.bonusPoints    = null;
-        this.familyMember   = null;
+        this.card           = new DevelopmentCard();
+        this.bonusRes       = new Resources();
+        this.bonusPoints    = new Points();
+        this.familyMember   = new FamilyMember();
         this.isOccupied     = false;
         this.diceCost       = 1;
         this.bonusCouncilPrivileges = 0;

@@ -60,6 +60,18 @@ public class PermanentEffect implements Serializable {
         this.numberOfPrivilege = numberOfPrivilege;
     }
 
+    public PermanentIncreaseAction getIncreaseAction() {
+        return increaseAction;
+    }
+
+    public Exchange getExchange() {
+        return exchange;
+    }
+
+    public boolean isNoBonus() {
+        return noBonus;
+    }
+
     @Override
     public String toString(){
         return "\n\tPoints " + this.points +"\n\tResources " + this.resources+"\n\tPrivileges " + this.privilege;

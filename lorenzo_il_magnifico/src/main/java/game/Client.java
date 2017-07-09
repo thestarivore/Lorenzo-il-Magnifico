@@ -259,6 +259,7 @@ public class Client {
                                 case 1:{
 
                                 }break;
+                                
                                 case 2: {
                                     Action action = client.getHarvestAction();
                                     client.sendAction(action);
@@ -270,7 +271,7 @@ public class Client {
                     }break;
 
                     case SOMETHNG_TO_DO:{
-                        client.isSomethingToDo();
+                        //client.isSomethingToDo();
                         fsmState = FSMClient.TURN_UPDATE;
                     }break;
                 }

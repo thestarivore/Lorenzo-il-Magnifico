@@ -58,6 +58,9 @@ public class Action implements Serializable {
      * Basic Action Constructor
      */
     public Action() {
+        this.diceCost = 0;
+        this.checkCard = false;
+        this.game  =new TheGame();
     }
 
     /**
