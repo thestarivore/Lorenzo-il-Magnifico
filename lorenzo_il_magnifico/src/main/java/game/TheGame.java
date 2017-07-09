@@ -281,7 +281,9 @@ public class TheGame implements Serializable {
         this.gameStarted = gameStarted;
     }
 
-
+    /**
+     * Starts a game timeout for the client connection
+     */
     private void startGameTimeOut() {
         //Create new timer
         Timer timer = new Timer();
@@ -324,6 +326,52 @@ public class TheGame implements Serializable {
             }
         }, 0, 100);
     }
+
+    /**
+     * Starts a Player Move timeout
+     */
+   /* private void startPlayerMoveTimeOut() {
+        //Create new timer
+        Timer timer = new Timer();
+
+        // Schedule a timer that ticks every 100ms, it's used as time base
+        // for the server's automata(final state machine).
+        timer.schedule( new TimerTask() {
+            //Get timeout from the configuration instance
+            int timeout = getTheModel().getGameConfig().getTimeOutGame(); //in ms
+            boolean startTimeout = false;
+
+            //Run Function
+            public void run() {
+                //If game isn't started yet, do the timeout thing
+                if(!isGameStarted()) {
+                    //Wait for 2 or more players, before starting the controller
+                    if (getNumberOfPlayers() >= 2) {
+                        startTimeout = true;
+
+                        //Stops if we've already reached the maximum number of players
+                        if(getNumberOfPlayers() == MAXIMUM_PLAYERS_NUMBER){
+                            startGameWithCurrentPlayers();
+                        }
+                    }
+
+                    //If timeout control is enabled
+                    if (startTimeout) {
+                        if (timeout > 0) {
+                            timeout -= 100;
+                        }
+                        //Timeout finished
+                        else {
+                            startGameWithCurrentPlayers();
+                        }
+                    }
+                }
+                else{
+                    timer.cancel();
+                }
+            }
+        }, 0, 100);
+    }*/
 
     /**
      * Starts this game with the current number uf players connected
