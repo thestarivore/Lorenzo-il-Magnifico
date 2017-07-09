@@ -306,6 +306,12 @@ public class SocketClient implements ClientInterface{
             if(ProtocolCommands.ASK_CHURCH_SUSTAIN.isThisCmd(line)){
                 manageChurchSustainQuestion(line, obj);
             }
+
+            if(ProtocolCommands.NONE.isThisCmd(line)){
+                manageNone(line, obj);
+            }
+
+
         }
     }
 
@@ -427,6 +433,9 @@ public class SocketClient implements ClientInterface{
         }
     }
 
+    private void manageNone(String command, Object obj){
+        Client.setIgnoreAction();
+    }
 
 
     /*******************************************************

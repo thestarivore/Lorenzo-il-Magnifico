@@ -261,7 +261,7 @@ public class GameFacadeController {
     }
 
     public void manageImmediateTakeCardChoice (Action action) {
-        boolean actionExecute = false;
+        boolean actionExecute;
 
         action.setBoard(getBoard());
         actionExecute = action.takeBonusCard(getPlayerInTurn());

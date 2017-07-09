@@ -64,6 +64,9 @@ public class Client {
      */
     private static boolean myTurn;
 
+    private static boolean ignoreAction;
+
+
 
     /****************************Constants****************************/
     /**
@@ -242,20 +245,22 @@ public class Client {
 
                     case BOARD_UPDATES:{
                         client.getBoardUpdates();
-                        fsmState = FSMClient.SEND_ACTION;
+                            fsmState = FSMClient.SEND_ACTION;
                     }break;
 
                     case SEND_ACTION:{
+                        int actionType = -1;
                         //Control if is my turn
-                        if(myTurn) {
+                        if(myTurn && ignoreAction == false) {
                             //Get witch action user want to perform
-                            int actionType = client.getActionType();
+                            actionType = client.getActionType();
                             //Get action from user and send it to the server
                             switch (actionType) {
                                 case 0: {
                                     Action action = client.getAction(actionType);
                                     client.sendAction(action);
                                     myTurn = false;
+                                    ignoreAction = true;
                                 }break;
                                 case 1:{
                                     Action action = client.getCouncilAction(actionType);
@@ -268,19 +273,25 @@ public class Client {
                                     myTurn = false;
                                 }break;
                             }
+                        } else { ignoreAction = false; }
+                        if (actionType == -1 || actionType == 0) {
+                            fsmState = FSMClient.SOMETHNG_TO_DO;
+                        } else {
+                            fsmState = FSMClient.TURN_UPDATE;
                         }
-                        fsmState = FSMClient.SOMETHNG_TO_DO;
+
                     }break;
 
                     case SOMETHNG_TO_DO:{
                         client.isSomethingToDo();
-                        fsmState = FSMClient.TURN_UPDATE;
+                        if (ignoreAction == false)
+                         fsmState = FSMClient.TURN_UPDATE;
                     }break;
 
                     case EXTENDED_ACTION: {
                         Action action = client.getImmediateTakeCard();
                         client.sendExtendedAction(action);
-                        fsmState = FSMClient.SOMETHNG_TO_DO;
+                        fsmState = FSMClient.BOARD_UPDATES;
                     }break;
                 }
             }
@@ -312,6 +323,11 @@ public class Client {
     public static void setMyTurn(boolean turn){
         myTurn = turn;
     }
+
+    public static void setIgnoreAction() {
+        ignoreAction = false;
+    }
+
 
     /**
      * Get the current Player in turn. I could be a different

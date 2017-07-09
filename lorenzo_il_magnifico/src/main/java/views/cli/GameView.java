@@ -593,15 +593,20 @@ public class GameView {
             for (int i = 0; i < board.FIXED_NUMBER_OF_TOWER; i++) {
 
                 //If tower is occupied, get information about the player that occupied this action space, else print card
-                if (board.getTower(i).getSpace(j).isOccupied()) {
+                if (board.getTower(i).getSpace(j).isOccupied() || board.getTower(i).getSpace(j).isNoCard()) {
 
                     card[i] = formatCardSize("");
                     cost[i] = formatCardSize("");
                     description1[i] = formatCardSize("");
                     description2[i] = formatCardSize("");
                     description3[i] = formatCardSize("");
-                    playerColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getPlayerColor().getColor());
-                    familyMemberColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getDiceColor().getColor());
+                    if (board.getTower(i).getSpace(j).isOccupied()) {
+                        playerColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getPlayerColor().getColor());
+                        familyMemberColor[i] = formatBonusSpace(board.getTower(i).getSpace(j).getFamilyMember().getDiceColor().getColor());
+                    } else {
+                        playerColor[i] = formatBonusSpace("");
+                        familyMemberColor[i] = formatBonusSpace("");
+                    }
 
                 }
                 else {
@@ -947,6 +952,10 @@ public class GameView {
             printLine(player.getPersonalBoard().getCharacter(i).getName());
         for (int i = 0; i < player.getPersonalBoard().getBuildings().size(); i++)
             printLine(player.getPersonalBoard().getBuilding(i).getName());
+        for (int i = 0; i < player.getPersonalBoard().getVentures().size(); i++)
+        printLine(player.getPersonalBoard().getVenture(i).getName());
+        for (int i = 0; i < player.getPersonalBoard().getTerritories().size(); i++)
+        printLine(player.getPersonalBoard().getTerritory(i).getName());
 
 
     }
