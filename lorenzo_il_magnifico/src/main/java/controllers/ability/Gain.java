@@ -14,4 +14,5 @@ public class Gain {
         this.points = new Points();
         this.resources=new Resources();
     }
+
 }

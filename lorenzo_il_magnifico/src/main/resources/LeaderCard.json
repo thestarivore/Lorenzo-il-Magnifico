@@ -2,14 +2,14 @@
     "name":"Francesco Sforza",
     "requirements":{
       "numberOfCard":5,
-      "typeofcards":4
+      "typeOfCards":4
     }
   },
   {
     "name":"Ludovico Ariosto",
     "requirements":{
       "numberOfCard":5,
-      "typeofcards":2
+      "typeOfCards":2
     },
     "isPermanent":true
   },
@@ -17,7 +17,7 @@
     "name":"Filippo Brunelleschi",
     "requirements":{
       "numberOfCard":5,
-      "typeofcards":3
+      "typeOfCards":3
     },
     "isPermanent":true
   },
@@ -82,7 +82,7 @@
     "name":"Lucrezia Borgia",
     "requirements":{
       "numberOfCard":6,
-      "typeofcards":3
+      "typeOfCards":3
     },
     "isPermanent":true
   },
@@ -90,7 +90,7 @@
     "name":"Federico da Montefeltro",
     "requirements":{
       "numberOfCard":5,
-      "typeofcards":1
+      "typeOfCards":1
     }
   },
   {
@@ -125,7 +125,7 @@
       }
     },
     "numberOfCard":3,
-    "typeofcards":3
+    "typeOfCards":3
   },
   {
     "name":"Santa Rita",
@@ -140,7 +140,7 @@
     "name":"Cosimo de Medici",
     "requirements":{
       "numberOfCard":4,
-      "typeofcards":3
+      "typeOfCards":3
     },
     "SpecialAbility":{
       "gain":{
