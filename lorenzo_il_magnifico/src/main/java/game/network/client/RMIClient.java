@@ -144,6 +144,10 @@ public class RMIClient implements ClientInterface{
 
     }
 
+    public void sendExtendedAction(Action action) {
+
+    }
+
     /**
      * Ask the server if there is any task that needs
      * to be managed by the client. One example would be the
@@ -190,6 +194,10 @@ public class RMIClient implements ClientInterface{
 
     @Override
     public Action getCouncilAction(int actionType) {
+        return new Action();
+    }
+
+    public Action getImmediateTakeCard() {
         return new Action();
     }
 

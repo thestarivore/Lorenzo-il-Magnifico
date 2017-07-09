@@ -463,15 +463,19 @@ public class Action implements Serializable {
      */
     public boolean takeBonusCard(Player player) {
         boolean valid = false;
+        System.err.println("takebonuscard");
+        System.err.println(tower);
+        System.err.println(space);
 
-        DevelopmentCard card = board.getTower(tower).getSpace(space).getCard();
+        int characterSize = player.getPersonalBoard().getCharacters().size();
+        DevelopmentCard card = player.getPersonalBoard().getCharacter(characterSize - 1);
 
         if (checkBonusCardChoice(card, tower, space, servants) && checkCardRequest(player, card)) {
             valid = performTowerAction(player, tower, space);
             board.getTower(tower).getSpace(space).setNoCard();
             }
 
-        return valid;
+        return !valid;
     }
 
     /**
@@ -483,7 +487,7 @@ public class Action implements Serializable {
      * @return
      */
     public boolean checkBonusCardChoice(DevelopmentCard card, int tower, int space, int servant){
-        int valueAction = card.getImmediateEffect().getImmediateTakeCard().getDice() + 1000;
+        int valueAction = card.getImmediateEffect().getImmediateTakeCard().getDice() + servant;
 
         if (valueAction >= board.getTower(tower).getSpace(space).getDiceCost())
             return true;

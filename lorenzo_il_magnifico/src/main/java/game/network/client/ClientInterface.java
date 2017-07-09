@@ -49,6 +49,8 @@ public interface ClientInterface extends Runnable {
      */
     public void sendAction(Action action);
 
+    public void sendExtendedAction(Action action);
+
     /**
      * Ask the server if there is any task that needs
      * to be managed by the client. One example would be the
@@ -92,6 +94,8 @@ public interface ClientInterface extends Runnable {
     public Action getHarvestAction(int actionType);
 
     public Action getCouncilAction(int actionType);
+
+    public Action getImmediateTakeCard();
 
 
 

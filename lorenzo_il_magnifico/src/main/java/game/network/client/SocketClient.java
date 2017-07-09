@@ -196,6 +196,11 @@ public class SocketClient implements ClientInterface{
         sendCmdToServer(ProtocolCommands.ASK_NEED_SOMETHING.getCommand());
     }
 
+    @Override
+    public void sendExtendedAction(Action action) {
+        sendCmdToServer(ProtocolCommands.IMMEDIATE_TAKE_CARD_CHOICE.getCommand(), action);
+    }
+
     /**
      * Tell the server that the client does or does not
      * sustain the church in the Vatican Report phase.
@@ -390,12 +395,7 @@ public class SocketClient implements ClientInterface{
     }
 
     private void manageImmediateTakeCard(String command, Object obj) {
-        int[] immediateTakeCardInfo = gameView.getImmediateTakeCardInfo(player, oldBoard);
-
-        Action action = new Action(immediateTakeCardInfo, Action.IMMEDIATE_TAKE_CARD_TYPE);
-
-        sendCmdToServer(new String(ProtocolCommands.IMMEDIATE_TAKE_CARD_CHOICE.getCommand()), action);
-
+        Client.setFsmState(Client.FSMClient.EXTENDED_ACTION);
     }
 
     /**
@@ -445,6 +445,7 @@ public class SocketClient implements ClientInterface{
 
     /**
      * Get the action from the user
+     * @param actionType
      * @return Action instance
      */
     @Override
@@ -455,6 +456,7 @@ public class SocketClient implements ClientInterface{
 
     /**
      * Get the harvest action from the user
+     * @param actionType
      * @return Action instance
      */
     @Override
@@ -463,11 +465,24 @@ public class SocketClient implements ClientInterface{
         return new HarvestAction(harvestAction, actionType);
     }
 
+    /**
+     * Get the council action from the user
+     * @param actionType
+     * @return Action instance
+     */
     @Override
     public Action getCouncilAction(int actionType) {
         int[] councilAction = gameView.getCouncilAction(player, oldBoard);
-
         return new Action(councilAction, actionType);
+    }
+
+    /**
+     * Get the immediate take card info from the user
+     * @return Action instance
+     */
+    public Action getImmediateTakeCard() {
+        int[] immediateTakeCardInfo = gameView.getImmediateTakeCardInfo(player, oldBoard);
+    return new Action(immediateTakeCardInfo, Action.IMMEDIATE_TAKE_CARD_TYPE);
     }
 
 

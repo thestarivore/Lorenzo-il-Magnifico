@@ -89,6 +89,7 @@ public class Client {
         TURN_UPDATE(1),
         SEND_ACTION(2),
         SOMETHNG_TO_DO(3),
+        EXTENDED_ACTION(4),
 
         ;
         int state;
@@ -274,6 +275,12 @@ public class Client {
                     case SOMETHNG_TO_DO:{
                         client.isSomethingToDo();
                         fsmState = FSMClient.TURN_UPDATE;
+                    }break;
+
+                    case EXTENDED_ACTION: {
+                        Action action = client.getImmediateTakeCard();
+                        client.sendExtendedAction(action);
+                        fsmState = FSMClient.SOMETHNG_TO_DO;
                     }break;
                 }
             }

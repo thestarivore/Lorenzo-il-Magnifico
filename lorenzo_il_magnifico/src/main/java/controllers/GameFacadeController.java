@@ -271,8 +271,6 @@ public class GameFacadeController {
         int playersTurnNum = game.getPlayerTurnNumber(playerInTurn);
 
         if (actionExecute) {
-
-
             if (playersTurnNum != -1)
                 getCurrentRound().updateActionPlayerTurn(playersTurnNum);
         }
@@ -287,7 +285,7 @@ public class GameFacadeController {
             //Iterate each space in the tower
             for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
                 getBoard().getTower(i).getSpace(j).setCard(getFacadeModel().getDeck(i).getCardToFillTower());
-                if (i == 2)
+                if (i == 1)
                  for (int x = 0; x < facadeModel.getDeck(i).getCard().size(); x++)
                      if (facadeModel.getDeck(i).getCard().get(x).getName().equals("Abbess")) {
                          getBoard().getTower(i).getSpace(j).setCard(facadeModel.getDeck(i).getCard().get(x));
