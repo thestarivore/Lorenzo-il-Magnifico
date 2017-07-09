@@ -30,9 +30,9 @@ public class Player implements Serializable {
     protected TheGame.COLORS color;
     protected PersonalBonusTile personalBonusTile;
     protected FamilyMember[] familyMember;
-    protected ExcommunicationCubes excommunicationCubes;
     protected int turnOrder;
     protected boolean myTurn;
+    protected Defect defects;
 
     /**
      * Game Reference, is the game where the player si currently sitting
@@ -71,7 +71,7 @@ public class Player implements Serializable {
         this.leaderCards = new ArrayList<LeaderCard>();
         this.developmentCards = new ArrayList<DevelopmentCard>();
         this.personalBonusTile = new PersonalBonusTile();
-        this.excommunicationCubes = new ExcommunicationCubes();
+        this.defects = new Defect();
 
         //Create Family Members
         this.familyMember = new FamilyMember[FamilyMember.FIXED_FAMILY_MEMBER];
@@ -168,14 +168,6 @@ public class Player implements Serializable {
 
     public void setFamilyMember(FamilyMember familyMember, int i) {
         this.familyMember[i] = familyMember;
-    }
-
-    public ExcommunicationCubes getExcommunicationCubes() {
-        return excommunicationCubes;
-    }
-
-    public void setExcommunicationCubes(ExcommunicationCubes excommunicationCubes) {
-        this.excommunicationCubes = excommunicationCubes;
     }
 
     public boolean isMyTurn() {

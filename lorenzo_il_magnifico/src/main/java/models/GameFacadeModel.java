@@ -1,12 +1,12 @@
 package models;
 
-import models.board.ActionSpace;
-import models.board.Board;
-import models.board.TheMarket;
-import models.board.Tower;
+import models.board.*;
 import models.cards.Deck;
 import models.cards.DevelopmentCardDeck;
 import models.data_persistence.FileManagerImport;
+
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 /**
@@ -83,42 +83,14 @@ public class GameFacadeModel {
         //Create a new Board
         this.board = new Board(numberOfPlayer);
 
-        //Get configuration Market
-        TheMarket configMarket = gameConfig.getMarket();
+        //Init Market configs on the Board
+        initMarketOnBoard();
 
-        //Iterate Action Spaces in the Market
-        for(int i=0; i< configMarket.getArraySpace().length; i++){
-            //Get Action spaces on the market of the board and of the config instance
-            ActionSpace boardMSpace = board.getMarket().getSpace(i);
-            ActionSpace configMSpace = configMarket.getSpace(i);
+        //Init Towers configs on the Board
+        initTowersOnBoard();
 
-            //Update Bonus Points, Resources and CouncilPrivileges
-            boardMSpace.setBonusPoints(configMSpace.getBonusPoints());
-            boardMSpace.setResourcesBonus(configMSpace.getResourcesBonus());
-            boardMSpace.setBonusCouncilPrivileges(configMSpace.getBonusCouncilPrivileges());
-        }
-
-        //Get configuration Tower
-        Tower[] configTowers = gameConfig.getTower();
-
-        //Iterate each tower
-        for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
-            //Get config Tower and board Tower
-            Tower boardTower = getBoard().getTower(i);
-            Tower configTower = configTowers[i];
-
-            //Iterate each Action Space in the Tower
-            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
-                //Get Action spaces on the market of the board and of the config instance
-                ActionSpace boardTSpace = boardTower.getSpace(j);
-                ActionSpace configTSpace = configTower.getSpace(j);
-
-                //Update Bonus Points, Resources and CouncilPrivileges
-                boardTSpace.setBonusPoints(configTSpace.getBonusPoints());
-                boardTSpace.setResourcesBonus(configTSpace.getResourcesBonus());
-                boardTSpace.setBonusCouncilPrivileges(configTSpace.getBonusCouncilPrivileges());
-            }
-        }
+        //Init ExcommunicationTiles configs on the Board
+        initExcommunicationTilesOnBoard();
     }
 
     /**
@@ -145,6 +117,79 @@ public class GameFacadeModel {
         //Get configurations
         fileImporter = new FileManagerImport();
         gameConfig = fileImporter.acquireConfigurations();
+    }
+
+    /**
+     * Initialize the Market's configurations from file,
+     * and put them on the board.
+     */
+    private void initMarketOnBoard(){
+        //Get configuration Market
+        TheMarket configMarket = gameConfig.getMarket();
+
+        //Iterate Action Spaces in the Market
+        for(int i=0; i< configMarket.getArraySpace().length; i++){
+            //Get Action spaces on the market of the board and of the config instance
+            ActionSpace boardMSpace = board.getMarket().getSpace(i);
+            ActionSpace configMSpace = configMarket.getSpace(i);
+
+            //Update Bonus Points, Resources and CouncilPrivileges
+            boardMSpace.setBonusPoints(configMSpace.getBonusPoints());
+            boardMSpace.setResourcesBonus(configMSpace.getResourcesBonus());
+            boardMSpace.setBonusCouncilPrivileges(configMSpace.getBonusCouncilPrivileges());
+        }
+    }
+
+    /**
+     * Initialize the Towers configurations from file,
+     * and put them on the board.
+     */
+    private void initTowersOnBoard(){
+        //Get configuration Tower
+        Tower[] configTowers = gameConfig.getTower();
+
+        //Iterate each tower
+        for (int i = 0; i < Board.FIXED_NUMBER_OF_TOWER; i++) {
+            //Get config Tower and board Tower
+            Tower boardTower = getBoard().getTower(i);
+            Tower configTower = configTowers[i];
+
+            //Iterate each Action Space in the Tower
+            for (int j = 0; j < Board.CARDS_PER_TOWER; j++) {
+                //Get Action spaces on the market of the board and of the config instance
+                ActionSpace boardTSpace = boardTower.getSpace(j);
+                ActionSpace configTSpace = configTower.getSpace(j);
+
+                //Update Bonus Points, Resources and CouncilPrivileges
+                boardTSpace.setBonusPoints(configTSpace.getBonusPoints());
+                boardTSpace.setResourcesBonus(configTSpace.getResourcesBonus());
+                boardTSpace.setBonusCouncilPrivileges(configTSpace.getBonusCouncilPrivileges());
+            }
+        }
+    }
+
+    /**
+     * Initialize the ExcommunicationTiles configurations from file,
+     * and put them on the board.
+     */
+    private void initExcommunicationTilesOnBoard(){
+        //Get Excommunication Tiles from file
+        fileImporter = new FileManagerImport();
+        ArrayList<ExcommunicationTile> configExcomTiles = fileImporter.acquireTiles();
+        ArrayList<ExcommunicationTile> randomExcomTiles;
+
+        // Get a random indexes for the three tiles for each period
+        int firstPeriodTile = ThreadLocalRandom.current().
+                nextInt(0, ExcommunicationTile.TILES_PER_PERIOD);
+        int secondPeriodTile = ThreadLocalRandom.current().
+                nextInt(ExcommunicationTile.TILES_PER_PERIOD, 2*ExcommunicationTile.TILES_PER_PERIOD);
+        int thirdPeriodTile = ThreadLocalRandom.current().
+                nextInt(ExcommunicationTile.TILES_PER_PERIOD, 3*ExcommunicationTile.TILES_PER_PERIOD);
+
+        //Set the Excommunication Tiles randomly picked
+        board.setExcommunicationTiles(configExcomTiles.get(firstPeriodTile), 0);
+        board.setExcommunicationTiles(configExcomTiles.get(secondPeriodTile), 1);
+        board.setExcommunicationTiles(configExcomTiles.get(thirdPeriodTile), 2);
     }
 
 }

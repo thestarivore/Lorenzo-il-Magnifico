@@ -1,6 +1,7 @@
 package controllers;
 
 import game.TheGame;
+import game.network.protocol.ProtocolCommands;
 import game.network.server.SocketServerThread;
 
 import java.io.Serializable;
@@ -59,6 +60,23 @@ public class RemotePlayer extends Player {
      */
     public void setRemoteClient(SocketServerThread remoteClient) {
         this.remoteClientThread = remoteClient;
+    }
+
+    /**
+     * Send Command to the client (No object Version)
+     * @param cmd command String to send
+     */
+    public void sendCmdToClient(String cmd){
+        remoteClientThread.sendCmdToClient(cmd);
+    }
+
+    /**
+     * Send Command and the object to the client
+     * @param cmd command String to send
+     * @param object object to send
+     */
+    public void sendCmdToClient(String cmd, Object object){
+        remoteClientThread.sendCmdToClient(cmd, object);
     }
 
 }

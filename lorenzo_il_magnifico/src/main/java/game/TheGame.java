@@ -1,5 +1,6 @@
 package game;
 
+import com.sun.org.apache.regexp.internal.RE;
 import controllers.GameFacadeController;
 import controllers.Player;
 
@@ -139,7 +140,7 @@ public class TheGame implements Serializable {
      * @param index
      * @return player at index
      */
-    public Player getPlayer(int index) {
+    public RemotePlayer getPlayer(int index) {
        return this.players.get(index);
     }
 

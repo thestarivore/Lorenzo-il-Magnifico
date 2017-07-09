@@ -67,7 +67,7 @@ public class FileManagerImport implements Serializable{
         ArrayList<ExcommunicationTile> excommunicationTiles = new ArrayList<ExcommunicationTile>();
         final Type tilesType = new TypeToken<ArrayList<ExcommunicationTile>>(){}.getType();
         Gson gson = new Gson();
-        String tilesFiles = "lorenzo_il_magnifico/src/main/resources/ExcommunicationTiles.json";
+        String tilesFiles = "lorenzo_il_magnifico/src/main/resources/ExcommunicationsTiles.json";
         try (Reader reader = new FileReader(tilesFiles)) {
             excommunicationTiles = gson.fromJson(reader, tilesType);
             for(int i = 0; i < excommunicationTiles.size(); i++) {

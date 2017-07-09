@@ -76,12 +76,6 @@ public class GameFacadeController {
         return facadeModel;
     }
 
-
-
-
-
-
-
     /**
      * Choose action requested by player.
      * @param player
@@ -113,12 +107,6 @@ public class GameFacadeController {
         }
         return true;
     }
-
-
-
-
-
-
 
 
     /**
@@ -364,5 +352,13 @@ public class GameFacadeController {
             die.setNumber(randomNum);
             getBoard().setDie(die, i);
         }
+    }
+
+    /**
+     * Get period index
+     * @return integer
+     */
+    public int getPeriodIndex() {
+        return periodIndex;
     }
 }
