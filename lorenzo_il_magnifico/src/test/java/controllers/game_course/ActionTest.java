@@ -16,8 +16,10 @@ import static org.junit.Assert.*;
  */
 public class ActionTest {
 
+
     @Test
     public void placeFamilyMemberOnTower() throws Exception {
+
     }
 
     @Test
@@ -26,6 +28,7 @@ public class ActionTest {
 
     @Test
     public void checkNoSameColorFamilyMember() throws Exception {
+
     }
 
     @Test

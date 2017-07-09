@@ -10,12 +10,8 @@ import static org.junit.Assert.*;
  * Created by cp18393 on 09/07/17.
  */
 public class GameFacadeControllerTest {
-    TheGame game =new TheGame();
-    GameFacadeModel gameFacadeModel = new GameFacadeModel(4);
-    GameFacadeController gameFacadeController = new GameFacadeController(gameFacadeModel,game);
-    @Test
-    public void chooseAction1() throws Exception {
-    }
+
+
 
     @Test
     public void managePlayerAction() throws Exception {
@@ -23,8 +19,6 @@ public class GameFacadeControllerTest {
 
     @Test
     public void fillTheTower() throws Exception {
-        gameFacadeController.fillTheTower();
-
     }
 
     @Test
@@ -33,6 +27,7 @@ public class GameFacadeControllerTest {
 
     @Test
     public void chooseAction() throws Exception {
+    //GameFacadeController gameController = new GameFacadeController();
     }
 
     @Test
