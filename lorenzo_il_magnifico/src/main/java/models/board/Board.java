@@ -1,7 +1,6 @@
 package models.board;
 
 import utility.Constants;
-import models.board.trackers.Track;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,6 +23,12 @@ public class Board implements Serializable {
     private int round;
     private int numberOfPlayer;
     private String phase;
+
+    /**
+     * Are the rewards in victory points for the
+     * advancements into the faith track.
+     */
+    private int[] rewardFaithTrack;
 
     /**
      * Board Constants
@@ -69,6 +74,8 @@ public class Board implements Serializable {
     public final static int MARKET3_INDEX       = 24;
     // Excommunication Tiles
     public final static int NUMBER_OF_EXCOMMUNICATION_TILES = 3;
+    // Tracks
+    public final static int FAITH_TRACK_SLOTS   = 16;
 
 
     /**
@@ -93,10 +100,21 @@ public class Board implements Serializable {
             this.dice[i].setColor(i);
         }
 
+        this.rewardFaithTrack = new int[FAITH_TRACK_SLOTS];
         this.numberOfPlayer = numberOfPlayer;
         this.harvestArea = new HarvestArea(numberOfPlayer);
         this.productionArea = new ProductionArea(numberOfPlayer);
         this.excommunicationTiles = new ExcommunicationTile[NUMBER_OF_EXCOMMUNICATION_TILES];
+    }
+
+    /**
+     * Update the number the players, this is needed
+     * when the real game starts as all players
+     * have connected.
+     */
+    public void updateNumberOfPlayers(int numberOfPlayer){
+        this.numberOfPlayer = numberOfPlayer;
+        //TODO: update other things like market slots ecc
     }
 
     /**
@@ -204,6 +222,30 @@ public class Board implements Serializable {
 
     public void setProductionArea(ProductionArea productionArea) {
         this.productionArea = productionArea;
+    }
+
+    /**
+     * Get the Rewards for the slots accomplished in the Faith Track.
+     * @return Array of integers representing victory points
+     */
+    public int[] getRewardFaithTrack() {
+        return rewardFaithTrack;
+    }
+
+    /**
+     * Get the Reward at index for the slots accomplished in the Faith Track.
+     * @return Integer representing victory points
+     */
+    public int getRewardFaithTrack(int index) {
+        return rewardFaithTrack[index];
+    }
+
+    /**
+     * Set the Rewards for the slots accomplished in the Faith Track.
+     * @param rewardFaithTrack
+     */
+    public void setRewardFaithTrack(int[] rewardFaithTrack) {
+        this.rewardFaithTrack = rewardFaithTrack;
     }
 
     /**

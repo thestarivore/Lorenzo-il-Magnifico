@@ -335,7 +335,7 @@ public class TheGame implements Serializable {
 
         //Create new Board with correct number of players
         if (getPlayersAllowed() < MAXIMUM_PLAYERS_NUMBER) {
-            theModel.setBoard(new Board(getPlayersAllowed()));
+            theModel.getBoard().updateNumberOfPlayers(getPlayersAllowed());
         }
 
 

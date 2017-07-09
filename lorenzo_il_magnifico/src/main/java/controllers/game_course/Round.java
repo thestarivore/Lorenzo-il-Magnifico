@@ -3,13 +3,10 @@ package controllers.game_course;
 import controllers.GameFacadeController;
 import controllers.Player;
 import controllers.RemotePlayer;
-import game.Lobby;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 import models.board.Defect;
 import models.board.ExcommunicationTile;
-
-import javax.naming.ldap.Control;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -135,20 +132,6 @@ public class Round {
         int round = controller.getPeriodIndex();
         int period= controller.getCurrentPeriod().getRoundIndex();
         int numPlayers = controller.getGame().getNumberOfPlayers();
-        Defect defect = new Defect();
-        ExcommunicationTile excomTile = new ExcommunicationTile();
-
-        //Get Defect based on period
-        if(period == TheGame.FIRST_PERIOD){
-            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.FIRST_PERIOD);
-        }
-        else if(period == TheGame.SECOND_PERIOD){
-            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.SECOND_PERIOD);
-        }
-        else if(period == TheGame.THIRD_PERIOD){
-            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.THIRD_PERIOD);
-        }
-        defect = excomTile.getDefect();
 
         //Do Vatican Report only on the second round of each period
         if(round == Period.SECOND_ROUND){
@@ -167,7 +150,8 @@ public class Round {
                 }
                 //Otherwise automatically punish the player
                 else{
-                    //TODO:show the munishment on the board
+                    //TODO:show the punishment on the board
+                    Defect defect = getDefectByPeriod();
                     player.addDefects(defect);
                     playersResponded++;
                 }
@@ -178,12 +162,36 @@ public class Round {
             if(playersResponded == numPlayers){
                 //Pass at the end of round if Vatican Report Has concluded
                 phaseIndex = PHASE3_END_OF_ROUND;
+                vaticanReportAlert = false;
             }
         }
         else {
             //Pass at the end of round
             phaseIndex = PHASE3_END_OF_ROUND;
         }
+    }
+
+    /**
+     * Get defect for this Period, where for defect
+     * we intend the punishment that comes for not
+     * sustaining the church.
+     * @return
+     */
+    private Defect getDefectByPeriod(){
+        int period= controller.getCurrentPeriod().getRoundIndex();
+        ExcommunicationTile excomTile = new ExcommunicationTile();
+
+        //Get Defect based on period
+        if(period == TheGame.FIRST_PERIOD){
+            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.FIRST_PERIOD);
+        }
+        else if(period == TheGame.SECOND_PERIOD){
+            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.SECOND_PERIOD);
+        }
+        else if(period == TheGame.THIRD_PERIOD){
+            excomTile = controller.getBoard().getExcommunicationTiles(TheGame.THIRD_PERIOD);
+        }
+        return excomTile.getDefect();
     }
 
     /**
@@ -260,5 +268,28 @@ public class Round {
             faithNeeded = FAITH_NEEDED_PERIOD3;
         }
         return faithNeeded;
+    }
+
+    /**
+     * Sustain the church command management.
+     * @param sustain
+     * @param remotePlayer
+     */
+    public void sustainTheChurch(boolean sustain, RemotePlayer remotePlayer) {
+        if(sustain == true){
+            // Get the points from the faith track and reset the faith
+            int faithPoints = remotePlayer.getPoints().getFaith();
+            int victoryPointsBonus = controller.getBoard().getRewardFaithTrack(faithPoints);
+
+            //Set the new faith and add the bonus victory points
+            remotePlayer.getPoints().setFaith(0);
+            remotePlayer.getPoints().addVictory(victoryPointsBonus);
+        }
+        else{
+            //TODO:show the punishment on the board
+            Defect defect = getDefectByPeriod();
+            remotePlayer.addDefects(defect);
+        }
+        playersResponded++;
     }
 }

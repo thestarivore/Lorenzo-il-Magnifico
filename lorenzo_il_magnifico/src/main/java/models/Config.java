@@ -22,14 +22,19 @@ public class Config implements Serializable{
 
     private Tower[] tower;
     private TheMarket market;
-    private int[] faithPoints;
+
+    /**
+     * Are the rewards in victory points for the
+     * advancements into the faith track.
+     */
+    private int[] rewardFaithTrack;
 
     public Config(){
         this.timeOutGame = 0 ;
         this.timeOutMove = 0;
         this.market = new TheMarket();
         this.tower  = new Tower[4];
-        this.faithPoints = new int[16];
+        this.rewardFaithTrack = new int[16];
     }
 
     public int getTimeOutGame() {
@@ -60,12 +65,12 @@ public class Config implements Serializable{
         this.market = market;
     }
 
-    public int[] getFaithPoints() {
-        return faithPoints;
+    public int[] getRewardFaithTrack() {
+        return rewardFaithTrack;
     }
 
-    public void setFaithPoints(int[] faithPoints) {
-        this.faithPoints = faithPoints;
+    public void setRewardFaithTrack(int[] rewardFaithTrack) {
+        this.rewardFaithTrack = rewardFaithTrack;
     }
 
     @Override
