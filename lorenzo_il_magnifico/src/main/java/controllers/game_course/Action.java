@@ -108,7 +108,7 @@ public class Action implements Serializable {
         if (free) {
 
             //Check if there are other family member on the same tower and if player got enough coins to place family member
-            for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++) {
+            for (int i = 0; i < Board.CARDS_PER_TOWER; i++) {
                 if ((board.getTower(tower).getSpace(space).getOccupied()) && (player.getRes().getCoins() >= 3)) {
                     int coins = player.getRes().getCoins() - 3;
                     player.getRes().setCoins(coins);
@@ -159,7 +159,7 @@ public class Action implements Serializable {
         if (familyMember.getDiceColor() == Dice.COLORS.NEUTER)
             return true;
 
-        for (int i = 0; i < Constants.FIXED_TOWER_CARDS; i++)
+        for (int i = 0; i < Board.CARDS_PER_TOWER; i++)
             if (!(checkFreeActionSpace(tower, i)))
                 if (familyMember.getPlayerColor().equals(board.getTower(tower).getSpace(i).getFamilyMember().getPlayerColor()))
                     return false;

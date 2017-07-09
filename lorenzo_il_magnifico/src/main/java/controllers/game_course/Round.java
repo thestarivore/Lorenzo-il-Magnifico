@@ -5,8 +5,9 @@ import controllers.Player;
 import controllers.RemotePlayer;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
-import models.board.Defect;
-import models.board.ExcommunicationTile;
+import models.board.*;
+
+import java.util.List;
 
 /**
  * Created by Eduard Chirica on 5/7/17.
@@ -30,6 +31,7 @@ public class Round {
     private boolean churchSustainers[];
     private int     playersResponded;
     private boolean vaticanReportAlert;
+    private int     actionLoops;
 
     /**
      * Period Constants - Number of phases in a round
@@ -60,6 +62,7 @@ public class Round {
         churchSustainers = new boolean[TheGame.MAXIMUM_PLAYERS_NUMBER];
         playersResponded = 0;
         vaticanReportAlert = false;
+        actionLoops = 0;
     }
 
     /**
@@ -112,6 +115,12 @@ public class Round {
      * Is the first thing to do at the beginning of the round.
      */
     private void doRoundSetup(){
+        //Delete all family members on the board
+        clearFamilyMembersInBoard();
+
+        //Reset the family members
+        resetPlayerFamilyMembers();
+
         //Fill the towers with the new cards
         controller.fillTheTower();
 
@@ -120,6 +129,68 @@ public class Round {
 
         //Pass at the actions
         phaseIndex = PHASE1_ACTION;
+    }
+
+    /**
+     * Eliminate all the family members in the board after a full round.
+     */
+    public void clearFamilyMembersInBoard(){
+        Board board = controller.getBoard();
+
+        //Iterate Towers
+        for (int i=0; i< Board.FIXED_NUMBER_OF_TOWER; i++) {
+            Tower tower = board.getTower(i);
+
+            //Iterate Action Spaces
+            for (int j=0; j<Board.CARDS_PER_TOWER; j++) {
+                ActionSpace actionSpace = tower.getSpace(j);
+                actionSpace.setFamilyMember(null);
+            }
+        }
+
+        //Get action spaces from The Market and delete family members
+        TheMarket market = board.getMarket();
+        ActionSpace[] actionSpace = market.getArraySpace();
+        for(ActionSpace space: actionSpace){
+            space.setFamilyMember(null);
+        }
+
+        //Get action spaces from The Council Palace and delete family members
+        TheCouncilPalace councilPalace = board.getCouncilPalace();
+        List<ActionSpace> actionSpaces = councilPalace.getSpaces();
+        for(ActionSpace space: actionSpaces){
+            space.setFamilyMember(null);
+        }
+
+        //Get action spaces from The Harvest Area and delete family members
+        HarvestArea harvestArea = board.getHarvestArea();
+        harvestArea.getSingleSpace().setFamilyMember(null);
+        actionSpaces = harvestArea.getMultipleSpace();
+        for(ActionSpace space: actionSpaces){
+            space.setFamilyMember(null);
+        }
+
+        //Get action spaces from The Production Area and delete family members
+        ProductionArea productionAction = board.getProductionArea();
+        productionAction.getSingleSpace().setFamilyMember(null);
+        actionSpaces = productionAction.getMultipleSpace();
+        for(ActionSpace space: actionSpaces){
+            space.setFamilyMember(null);
+        }
+    }
+
+
+    /**
+     * Reset the family members in all the players
+     * of this game.
+     */
+    private void resetPlayerFamilyMembers(){
+        int numPlayers = controller.getGame().getNumberOfPlayers();
+        for(int i = 0; i < numPlayers; i++){
+            //Get player of this index
+            RemotePlayer player = controller.getGame().getPlayer(i);
+            player.createNewFamilyMembers();
+        }
     }
 
     /**
@@ -139,7 +210,6 @@ public class Round {
 
             // Alert all players about the Vatican Report and
             // ask if they sustain or not
-
             for(int i = 0; i < numPlayers; i++){
                 //Get player of this index
                 RemotePlayer player = controller.getGame().getPlayer(i);
@@ -199,7 +269,8 @@ public class Round {
      * Are the actions required to do just before the round ends.
      */
     private void doEndOfRound(){
-        //...
+
+        //TODO: Modificare turno giocatore
 
         //Finish round
         phaseIndex = FINISHED_ROUND;
@@ -222,9 +293,8 @@ public class Round {
     private boolean isLastActionDone(){
         //The number of actions is equal to hte number of players;
         //So if we have 4 player, we'll have 4 actions with playerTurn = 0,1,2,3;
-        //So we know that we've done all action when playerTurn = 4 which should
-        //be action number 5 and does not exist.
-        if(playerTurn == controller.getGame().getPlayersAllowed())
+        //If i'm starting the fifth loop than i've finished this round
+        if(actionLoops == 5)
             return true;
         else
             return false;
@@ -237,7 +307,13 @@ public class Round {
     public void updateActionPlayerTurn(int playerInTurn) {
         //Change player turn with the next one
         //If was the last player just let the round finish
-        playerTurn = playerInTurn + 1;
+        if(playerInTurn == controller.getGame().getNumberOfPlayers()-1){
+            actionLoops++;
+            playerTurn = TheGame.FIRST_PLAYER;
+        }
+        else {
+            playerTurn = playerInTurn + 1;
+        }
     }
 
     /**

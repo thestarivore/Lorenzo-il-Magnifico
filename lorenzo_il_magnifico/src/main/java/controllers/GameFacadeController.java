@@ -361,4 +361,5 @@ public class GameFacadeController {
     public int getPeriodIndex() {
         return periodIndex;
     }
+
 }
