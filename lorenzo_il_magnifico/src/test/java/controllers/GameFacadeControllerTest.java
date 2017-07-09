@@ -2,6 +2,8 @@ package controllers;
 
 import game.TheGame;
 import models.GameFacadeModel;
+import models.cards.DevelopmentCard;
+import models.cards.DevelopmentCardDeck;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -25,10 +27,17 @@ public class GameFacadeControllerTest {
     public void throwDice() throws Exception {
     }
 
-    @Test
+  /*  @Test
     public void chooseAction() throws Exception {
-    //GameFacadeController gameController = new GameFacadeController();
-    }
+        DevelopmentCardDeck developmentCardDeck = new DevelopmentCardDeck();
+        DevelopmentCard card = new DevelopmentCard("MINT");
+        developmentCardDeck.setCard(card);
+        TheGame game  = new TheGame();
+        Player player = new Player("test Player");
+        GameFacadeModel gameModel = new GameFacadeModel(2);
+        GameFacadeController gameController = new GameFacadeController(gameModel,game);
+        assertTrue(gameController.chooseAction(player,"testMessage","tower"));
+        }*/
 
     @Test
     public void performHarvestAction() throws Exception {
