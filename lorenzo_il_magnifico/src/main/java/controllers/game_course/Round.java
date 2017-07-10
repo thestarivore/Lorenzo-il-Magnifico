@@ -7,6 +7,7 @@ import game.TheGame;
 import game.network.protocol.ProtocolCommands;
 import models.board.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -153,6 +154,8 @@ public class Round {
             for (int j=0; j<Board.CARDS_PER_TOWER; j++) {
                 ActionSpace actionSpace = tower.getSpace(j);
                 actionSpace.setFamilyMember(null);
+                actionSpace.setNotOccupied();
+                actionSpace.resetNoCard();
             }
         }
 
@@ -161,30 +164,22 @@ public class Round {
         ActionSpace[] actionSpace = market.getArraySpace();
         for(ActionSpace space: actionSpace){
             space.setFamilyMember(null);
+            space.setNotOccupied();
         }
 
         //Get action spaces from The Council Palace and delete family members
         TheCouncilPalace councilPalace = board.getCouncilPalace();
-        List<ActionSpace> actionSpaces = councilPalace.getSpaces();
-        for(ActionSpace space: actionSpaces){
-            space.setFamilyMember(null);
-        }
+        councilPalace.setSpaces(new ArrayList<ActionSpace>());
 
         //Get action spaces from The Harvest Area and delete family members
         HarvestArea harvestArea = board.getHarvestArea();
         harvestArea.getSingleSpace().setFamilyMember(null);
-        actionSpaces = harvestArea.getMultipleSpace();
-        for(ActionSpace space: actionSpaces){
-            space.setFamilyMember(null);
-        }
+        harvestArea.setMultipleSpace(new ArrayList<ActionSpace>());
 
         //Get action spaces from The Production Area and delete family members
         ProductionArea productionAction = board.getProductionArea();
         productionAction.getSingleSpace().setFamilyMember(null);
-        actionSpaces = productionAction.getMultipleSpace();
-        for(ActionSpace space: actionSpaces){
-            space.setFamilyMember(null);
-        }
+        productionAction.setMultipleSpace(new ArrayList<ActionSpace>());
     }
 
 

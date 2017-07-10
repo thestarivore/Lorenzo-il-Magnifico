@@ -27,6 +27,9 @@ public class TheCouncilPalace implements Serializable {
         this.spaces.add(new ActionSpace());
     }
 
+    public void setSpaces(List<ActionSpace> spaces) {
+        this.spaces = spaces;
+    }
 
     /**
      * Indicates whether some other object is "equal to" this one.

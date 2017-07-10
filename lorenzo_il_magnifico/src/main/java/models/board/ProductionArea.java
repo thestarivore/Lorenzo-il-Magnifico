@@ -41,6 +41,10 @@ public class ProductionArea implements Serializable {
         this.multipleSpace.add(new ActionSpace());
     }
 
+    public void setMultipleSpace(List<ActionSpace> multipleSpace) {
+        this.multipleSpace = multipleSpace;
+    }
+
     /**
      * Indicates whether some other object is "equal to" this one.
      * <p>

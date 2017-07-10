@@ -116,12 +116,20 @@ public class ActionSpace implements Serializable {
         this.isOccupied = true;
     }
 
+    public void setNotOccupied() {
+        this.isOccupied = false;
+    }
+
     public boolean isNoCard() {
         return noCard;
     }
 
     public void setNoCard() {
         this.noCard = true;
+    }
+
+    public void resetNoCard() {
+        this.noCard = false;
     }
 
     public boolean checkBonus() {
