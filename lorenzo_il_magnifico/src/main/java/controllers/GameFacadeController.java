@@ -4,6 +4,7 @@ import controllers.game_course.Action;
 import controllers.game_course.Period;
 import controllers.game_course.Round;
 import game.TheGame;
+import game.network.protocol.ProtocolCommands;
 import models.GameFacadeModel;
 import models.board.Board;
 import models.board.Dice;
@@ -171,6 +172,7 @@ public class GameFacadeController {
                         break;
                         //End of Game
                         case TheGame.END_OF_GAME: {
+                            manageEndOfGame();
                         }
                         break;
                     }
@@ -272,6 +274,26 @@ public class GameFacadeController {
      */
     public int getPeriodIndex() {
         return periodIndex;
+    }
+
+    /**
+     * Manage End of game
+     */
+    private void manageEndOfGame() {
+        int[] victoryPoints = new int[game.getPlayersAllowed()];
+        int maxIndex=0;
+
+        for (int i = 0; i < game.getPlayersAllowed(); i++)
+            victoryPoints[i]=game.getPlayer(i).getPoints().getVictory();
+
+        for (int i = 0; i < game.getPlayersAllowed(); i++){
+            if(victoryPoints[maxIndex]<victoryPoints[i]){
+                maxIndex = i;
+            }
+        }
+
+        game.getPlayer(maxIndex).sendCmdToClient(
+                ProtocolCommands.WINNER.getCommand(), game.getPlayer(maxIndex));
     }
 
 }
