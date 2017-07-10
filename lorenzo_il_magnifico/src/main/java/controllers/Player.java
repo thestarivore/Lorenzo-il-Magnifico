@@ -28,7 +28,6 @@ public class Player implements Serializable {
     protected ArrayList<LeaderCard> leaderCards;
     protected ArrayList<DevelopmentCard> developmentCards;
     protected TheGame.COLORS color;
-    protected PersonalBonusTile personalBonusTile;
     protected FamilyMember[] familyMember;
     protected int turnOrder;
     protected boolean myTurn;
@@ -70,7 +69,6 @@ public class Player implements Serializable {
         this.personalBoard = new PersonalBoard();
         this.leaderCards = new ArrayList<LeaderCard>();
         this.developmentCards = new ArrayList<DevelopmentCard>();
-        this.personalBonusTile = new PersonalBonusTile();
         this.defects = new Defect();
 
         //Create Family Members
@@ -158,14 +156,6 @@ public class Player implements Serializable {
         for (int i = 0; i < FamilyMember.FIXED_FAMILY_MEMBER; i++)
             this.getFamilyMember(i).setPlayerColor(color);
 
-    }
-
-    public PersonalBonusTile getPersonaBonusTile() {
-        return personalBonusTile;
-    }
-
-    public void setPersonalBonusTile(PersonalBonusTile personalBonusTile) {
-        this.personalBonusTile = personalBonusTile;
     }
 
     public FamilyMember getFamilyMember(int i) {

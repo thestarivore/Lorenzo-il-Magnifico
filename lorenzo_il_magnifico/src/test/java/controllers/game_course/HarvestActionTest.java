@@ -2,7 +2,6 @@ package controllers.game_course;
 
 import controllers.Player;
 import models.board.Board;
-import models.board.Dice;
 import models.board.FamilyMember;
 import org.junit.Test;
 
@@ -28,7 +27,7 @@ public class HarvestActionTest {
         FamilyMember familyMember = new FamilyMember();
         Board board = new Board(3);
 
-        assertTrue(action.placeFamilyMemberOnHarvestArea(familyMember));
+        assertTrue(action.placeFamilyMember(familyMember));
     }
     /**
      * Check if family member value is greater than 1.

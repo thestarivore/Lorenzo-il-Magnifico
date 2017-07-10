@@ -76,60 +76,6 @@ public class GameFacadeController {
         return facadeModel;
     }
 
-
-
-
-
-
-
-
-
-
-
-    /**
-     * If production choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    /*public boolean productionActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
-
-        while(!(valid)) {
-            FamilyMember familyMember = selectFamilyMember(player, type, servant);
-            if (checkFamilyMemberChoice(familyMember)) {
-                productionAction.placeFamilyMemberOnProductionArea(familyMember);
-                valid = true;
-            }
-        }
-
-        return true;
-    }*/
-
-
-
-    /*public void marketActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
-
-        while (!(valid)) {
-                FamilyMember familyMember = selectFamilyMember(player, type, servant);
-                if (checkFamilyMemberChoice(familyMember)){
-                }
-            }
-        }*/
-
-
-
-
-
-
-
-    public boolean performHarvestAction(Player player, boolean check){
-        if (check) {
-        }
-        return true;
-    }
-
-
     /**
      * Get Period instance at the current index in the controller
      * @return Period instance

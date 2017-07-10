@@ -3,6 +3,7 @@ package game.network.client;
 import controllers.Player;
 import controllers.game_course.Action;
 import controllers.game_course.HarvestAction;
+import controllers.game_course.ProductionAction;
 import game.Client;
 import game.TheGame;
 import game.network.protocol.ProtocolCommands;
@@ -487,6 +488,17 @@ public class SocketClient implements ClientInterface{
     }
 
     /**
+     * Get the production action from the user
+     * @param actionType
+     * @return
+     */
+    @Override
+    public Action getProductionAction(int actionType) {
+        int[] productionAction = gameView.getProductionAction(player, oldBoard);
+        return new ProductionAction(productionAction, actionType);
+    }
+
+    /**
      * Get the council action from the user
      * @param actionType
      * @return Action instance
@@ -495,6 +507,12 @@ public class SocketClient implements ClientInterface{
     public Action getCouncilAction(int actionType) {
         int[] councilAction = gameView.getCouncilAction(player, oldBoard);
         return new Action(councilAction, actionType);
+    }
+
+    @Override
+    public Action getMarketAction(int actionType) {
+        int[] marketAction = gameView.getMarketAction(player, oldBoard);
+        return new Action(marketAction, actionType);
     }
 
     /**

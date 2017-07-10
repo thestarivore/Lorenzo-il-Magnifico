@@ -252,7 +252,7 @@ public class Client {
                     }break;
 
                     case SEND_ACTION: {
-                        int actionType = -1;
+                        int actionType;
                         //Control if is my turn
                         if (myTurn && ignoreAction-- == 0) {
                             //Get witch action user want to perform
@@ -277,6 +277,15 @@ public class Client {
                                     //myTurn = false;
                                 }
                                 break;
+                                case 3: {
+                                    Action action = client.getProductionAction(actionType);
+                                    client.sendAction(action);
+                                }
+                                break;
+                                case 4: {
+                                    Action action = client.getMarketAction(actionType);
+                                    client.sendAction(action);
+                                }break;
                             }
                             ignoreAction = 3;
                         }

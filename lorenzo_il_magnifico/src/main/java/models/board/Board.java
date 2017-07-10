@@ -116,7 +116,8 @@ public class Board implements Serializable {
      */
     public void updateNumberOfPlayers(int numberOfPlayer){
         this.numberOfPlayer = numberOfPlayer;
-        //TODO: update other things like market slots ecc
+       /* this.harvestArea = new HarvestArea(numberOfPlayer);
+        this.productionArea = new ProductionArea(numberOfPlayer);*/
     }
 
     /**
@@ -329,62 +330,8 @@ public class Board implements Serializable {
             }
         }
 
-        /*//The Council Palace is always available.
-        availableActionSpace[16] = true;
-
-        //Harvest Single space could be occupied, Multiple space always available.
-        if (this.getActionSpacesByIndex(17).get(0).isOccupied()) {
-            availableActionSpace[17] = false;
-        } else {
-            availableActionSpace[17] = true;
-        }
-        availableActionSpace[18] = true;
-
-        ///Production Single space could be occupied, Multiple space always available.
-        if (this.getActionSpacesByIndex(19).get(0).isOccupied()) {
-            availableActionSpace[19] = false;
-        } else {
-            availableActionSpace[19] = true;
-        }
-        availableActionSpace[20] = true;
-
-        for (int i = 21; i < Board.NUMBER_ACTION_SPACES; i++){
-            if (this.getActionSpacesByIndex(i).get(0).isOccupied()) {
-                availableActionSpace[i] = false;
-            } else {
-                availableActionSpace[i] = true;
-            }
-        }*/
-
         return availableActionSpace;
     }
-
-    public int getTowerIndexFromActionSpaceIndex(int actionSpaceIndex) {
-
-        int towerIndex = -1;
-
-        if (actionSpaceIndex <= 3)
-            towerIndex = 0;
-
-        if (actionSpaceIndex >= 4 && actionSpaceIndex <= 7)
-            towerIndex = 1;
-
-        if (actionSpaceIndex >= 8 && actionSpaceIndex <= 11)
-            towerIndex = 2;
-
-        if (actionSpaceIndex >= 12 && actionSpaceIndex <= 15)
-            towerIndex = 4;
-
-        return towerIndex;
-    }
-
-   /* public String getPlayerInTurn() {
-        return playerInTurn;
-    }
-
-    public void setPlayerInTurn(String playerInTurn) {
-        this.playerInTurn = playerInTurn;
-    }*/
 
     public int getPeriod() {
         return period;

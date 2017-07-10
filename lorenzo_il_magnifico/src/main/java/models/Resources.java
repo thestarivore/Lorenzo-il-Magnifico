@@ -68,7 +68,13 @@ public class Resources implements Serializable {
         this.coins += res.coins;
     }
 
-    public void removeResources(Resources res) {}
+    public void removeResources(Resources res) {
+        this.woods -= res.woods;
+        this.stones -= res.stones;
+        this.servants -= res.servants;
+        this.coins -= res.coins;
+
+    }
 
     public int getWoods() {
         return woods;

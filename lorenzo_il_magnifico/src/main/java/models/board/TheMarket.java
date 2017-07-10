@@ -14,8 +14,11 @@ import java.util.Arrays;
 public class TheMarket implements Serializable {
     private ActionSpace[] space;
 
+    public static final int MAX_NUMBER_OF_MARKET_SPACE = 4;
+    public static final int MIN_NUMBER_OF_MARKET_SPACE = 2;
+
     public TheMarket(){
-        this.space = new ActionSpace[4];
+        this.space = new ActionSpace[MAX_NUMBER_OF_MARKET_SPACE];
     }
 
 
@@ -23,12 +26,12 @@ public class TheMarket implements Serializable {
 
         switch(numberOfPlayer) {
             case 4:
-                this.space = new ActionSpace[4];
+                this.space = new ActionSpace[MAX_NUMBER_OF_MARKET_SPACE];
                 for (int i = 0; i < 4; i++)
                     this.space[i] = new ActionSpace();
                 break;
             default:
-                this.space = new ActionSpace[2];
+                this.space = new ActionSpace[MIN_NUMBER_OF_MARKET_SPACE];
                 for (int i = 0; i < 2; i++)
                     this.space[i] = new ActionSpace();
                 break;

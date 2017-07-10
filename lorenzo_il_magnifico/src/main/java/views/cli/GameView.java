@@ -3,6 +3,7 @@ package views.cli;
 import controllers.Player;
 import controllers.game_course.Action;
 import controllers.game_course.HarvestAction;
+import controllers.game_course.ProductionAction;
 import game.TheGame;
 import models.Points;
 import models.Resources;
@@ -255,7 +256,6 @@ public class GameView {
      * @return
      */
     public int[] getHarvestAction(Player player, Board board) {
-
         int[] harvestAction = new int[HarvestAction.NUMBER_OF_HARVESTACTION_INFO];
 
         //Get all the info required for the action definition
@@ -265,6 +265,38 @@ public class GameView {
         setGettingAction(false);
 
         return harvestAction;
+    }
+
+    /**
+     * Get Production Action choices
+     * @param player
+     * @param board
+     * @return
+     */
+    public int[] getProductionAction(Player player, Board board) {
+        int[] productionAction = new int[ProductionAction.NUMBER_OF_PRODUCTION_INFO];
+
+        //Get all the info required for the action definition
+        setGettingAction(true);
+        productionAction[0] = getFamilyMember(player);
+        productionAction[1] = getServant(player);
+        setGettingAction(false);
+
+        return productionAction;
+
+    }
+
+    public int[] getMarketAction(Player player, Board board) {
+        int[] marketAction = new int[Action.NUMBER_OF_MARKET_INFO];
+
+        //Get all the info required for the action definition
+        setGettingAction(true);
+        marketAction[0] = getFamilyMember(player);
+        marketAction[1] = getServant(player);
+        marketAction[2] = getMarketChoice(board);
+        setGettingAction(false);
+
+        return marketAction;
     }
 
     /**
@@ -298,8 +330,9 @@ public class GameView {
 
         //Check if there is Council Privilege Immediate effect
         if (devCard.getImmediateEffect().getPrivilege()) {
-            printLine("This card have a Council Privilege Immediate Effect!");
-            action[4] = getCouncilPrivilege();
+            printLine("This card have " + devCard.getImmediateEffect().getNumberOfPrivilege() + " Council Privilege Immediate Effect!");
+            for (int i = 4; i < devCard.getImmediateEffect().getNumberOfPrivilege() + 4; i++ )
+            action[i] = getCouncilPrivilege();
         }
         setGettingAction(false);
 
@@ -456,6 +489,27 @@ public class GameView {
         return parseInt(getValidParameter(list));
     }
 
+    /**
+     * Get Market space choice
+     * @param board
+     * @return
+     */
+    public int getMarketChoice(Board board) {
+        printLine("Select Market Space (" +
+                "0 - 5 Coins, " +
+                "1 - 5 Servants, " +
+                "2 - 3 Military Points & 2 coins(4 Players), " +
+                "3 - 2 Different Council Privilege(4 Players)");
+        ArrayList<String> list = new ArrayList<String>(){
+            {
+                for (int i = 0; i < board.getMarket().getArraySpace().length; i++)
+                    if (!board.getMarket().getSpace(i).isOccupied())
+                        add(String.valueOf(i));
+            }
+        };
+        return parseInt(getValidParameter(list));
+    }
+
 
     /*********************************************************************************************************************************/
     /**
@@ -553,6 +607,11 @@ public class GameView {
         System.out.println(line);
     }
 
+    /**
+     * Print All Board + Player Info
+     * @param player
+     * @param board
+     */
     public void printAllBoard(Player player, Board board) {
         if(isGettingAction() == false) {
             printBoard(board);

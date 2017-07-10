@@ -2,6 +2,8 @@ package controllers.game_course;
 
 import controllers.Player;
 import controllers.RemotePlayer;
+import models.Points;
+import models.Resources;
 import models.board.FamilyMember;
 
 /**
@@ -43,7 +45,7 @@ public class HarvestAction extends Action {
         FamilyMember familyMember = selectFamilyMember(player, type, servant);
 
         if (checkFamilyMemberChoice(familyMember))
-            check = placeFamilyMemberOnHarvestArea(familyMember);
+            check = placeFamilyMember(familyMember);
 
         return check;
     }
@@ -54,7 +56,7 @@ public class HarvestAction extends Action {
      * @param famMember
      * @return
      */
-    public boolean placeFamilyMemberOnHarvestArea(FamilyMember famMember) {
+    public boolean placeFamilyMember(FamilyMember famMember) {
         boolean free;
         //Check if singleSpace is free, then place family member
         free = checkFreeActionSpace();
@@ -78,17 +80,7 @@ public class HarvestAction extends Action {
         return free;
     }
 
-    /**
-     * Check if family member value is greater than 1.
-     * @param familyMember
-     * @return
-     */
-    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
-        boolean valid = false;
-        if (familyMember.getValue() >= 1)
-            valid = true;
-        return valid;
-    }
+
 
     /**
      * Check if harvest area action space is free
@@ -97,5 +89,17 @@ public class HarvestAction extends Action {
     public boolean checkFreeActionSpace() {
         return (!(board.getHarvestArea().getSingleSpace().isOccupied()));
     }
+
+   /* public boolean performHarvestAction(Player player, FamilyMember familyMember) {
+        Resources resToAdd = new Resources();
+        Points pointsToAdd = new Points();
+
+        resToAdd = player.getPersonalBoard().getPersonalBonusTile().getHarvestPersonalResources();
+        pointsToAdd = player.getPersonalBoard().getPersonalBonusTile().getHarvestPersonalPoints();
+
+        for (int i = 0; i < player.getPersonalBoard().getTerritories().size(); i++)
+            pointsToAdd.addPoints(player.getPersonalBoard().getTerritory(i).getPermanentEffect().getPoints());
+
+    }*/
 
 }
