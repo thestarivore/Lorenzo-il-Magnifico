@@ -1,0 +1,1541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1589.3865544406954" y="820.0">models.cards.Territory</node>
+    <node x="712.9375" y="2080.0">controllers.game_course.Action</node>
+    <node x="698.0" y="2405.0">views.gui.GameBoardController</node>
+    <node x="1635.0" y="2405.0">controllers.game_course.RoundTest</node>
+    <node x="2072.7744690271657" y="1960.0">views.gui.GameBoard</node>
+    <node x="4081.967921408118" y="1680.0">models.cards.LeaderCardDeck</node>
+    <node x="4512.344475686117" y="1230.0">models.data_persistence.FileManagerImport</node>
+    <node x="3865.967921408118" y="1470.0">models.board.CustomPersonalBonusTile</node>
+    <node x="1329.1365544406954" y="440.0">models.board.Dice.COLORS</node>
+    <node x="1466.0" y="2405.0">models.board.CoveringTiles</node>
+    <node x="2076.6022137813547" y="990.0">models.board.TheMarket</node>
+    <node x="5018.063754741452" y="1680.0">models.cards.DevelopmentCardDeckTest</node>
+    <node x="473.0" y="2405.0">models.data_persistence.FileManagerImportTest</node>
+    <node x="3389.967921408118" y="1470.0">models.board.TheCouncilPalaceTest</node>
+    <node x="4383.448642352783" y="820.0">models.cards.Venture</node>
+    <node x="0.0" y="2330.0">controllers.game_course.HarvestActionTest</node>
+    <node x="296.53266249930357" y="1860.0">models.board.ActionSpaceTest</node>
+    <node x="927.5147620674586" y="2330.0">game.network.client.SocketClient</node>
+    <node x="3686.9278090194503" y="1960.0">views.cli.ConsoleInputReadTask</node>
+    <node x="5311.299036117922" y="1860.0">controllers.RemotePlayer</node>
+    <node x="1787.0" y="2405.0">views.gui.GuiUtil</node>
+    <node x="1341.0147620674586" y="1120.0">models.board.Defect</node>
+    <node x="1919.7744690271657" y="1860.0">views.gui.PlayerInfoController</node>
+    <node x="3699.967921408118" y="440.0">models.Requirements</node>
+    <node x="5003.105421408118" y="1230.0">models.cards.Deck</node>
+    <node x="3580.967921408118" y="1470.0">models.cards.LeaderCard</node>
+    <node x="0.0" y="2405.0">controllers.GameFacadeControllerTest</node>
+    <node x="1165.1365544406954" y="660.0">models.board.FamilyMember</node>
+    <node x="5307.80940934066" y="2200.0">game.network.server.ServerInterface</node>
+    <node x="3713.9278090194503" y="2080.0">views.cli.ConsoleInput</node>
+    <node x="4317.467921408118" y="2080.0">game.network.protocol.RMIProtocol</node>
+    <node x="2541.5694756861167" y="540.0">controllers.effects.ImmediateEffects.ImmediateEffect</node>
+    <node x="5085.509409340661" y="2080.0">game.Lobby</node>
+    <node x="244.78266249930357" y="2200.0">controllers.ability.OncePerRoundAbility</node>
+    <node x="3826.3679214081185" y="1230.0">models.board.PersonalBonusTile</node>
+    <node x="1558.0647620674586" y="1680.0">controllers.Player</node>
+    <node x="2862.0694756861167" y="0.0">models.Resources</node>
+    <node x="510.95361487250034" y="2200.0">controllers.game_course.ActionTest</node>
+    <node x="1528.6897620674586" y="540.0">models.board.Dice</node>
+    <node x="2645.342921408118" y="440.0">controllers.effects.ImmediateEffects.ImmediateTakeCard</node>
+    <node x="1035.1365544406954" y="440.0">controllers.ability.Gain</node>
+    <node x="80.78266249930357" y="2200.0">controllers.ability.PermanentAbility</node>
+    <node x="2930.699036117922" y="820.0">models.cards.Character</node>
+    <node x="2984.342921408118" y="440.0">controllers.effects.PermanentEffects.PermanentIncreaseAction</node>
+    <node x="3255.467921408118" y="540.0">models.cards.Card</node>
+    <node x="3714.967921408118" y="1470.0">models.board.PersonalBoard</node>
+    <node x="1294.0" y="2405.0">game.TheGameTest</node>
+    <node x="2082.316135693832" y="1470.0">models.board.Board</node>
+    <node x="4462.467921408118" y="2200.0">game.Client.FSMClient</node>
+    <node x="1471.3865544406954" y="660.0">models.board.DiceTest</node>
+    <node x="4639.990838074785" y="1860.0">controllers.GameFacadeController</node>
+    <node x="2817.699036117922" y="820.0">models.cards.Building</node>
+    <node x="4758.528338074785" y="2080.0">game.AdvancedGame</node>
+    <node x="4099.057369451255" y="2200.0">views.cli.GameView</node>
+    <node x="4610.7300710869085" y="2200.0">game.Server</node>
+    <node x="1357.0012339201194" y="1230.0">models.board.DefectTest</node>
+    <node x="2011.7744690271657" y="2080.0">views.gui.GraphicalUserInterface</node>
+    <node x="3530.592921408118" y="1120.0">models.Config</node>
+    <node x="4335.467921408118" y="2330.0">game.Client</node>
+    <node x="2299.9028090194497" y="0.0">models.Points</node>
+    <node x="2916.932326007326" y="540.0">controllers.effects.PermanentEffects.PermanentEffect</node>
+    <node x="469.53266249930334" y="1860.0">controllers.PlayerTest</node>
+    <node x="4672.990838074785" y="1680.0">controllers.game_course.Period</node>
+    <node x="247.0" y="2405.0">models.GameFacadeModelTest</node>
+    <node x="2360.499075262027" y="1230.0">models.board.ExcommunicationTile</node>
+    <node x="1947.7744690271657" y="1960.0">views.gui.PlayerInfo</node>
+    <node x="3401.842921408118" y="990.0">models.board.Tower</node>
+    <node x="4795.657504741452" y="1680.0">models.GameFacadeModel</node>
+    <node x="5414.840702784588" y="2330.0">game.network.server.SocketServer</node>
+    <node x="746.8286148725003" y="2330.0">game.network.client.RMIClient</node>
+    <node x="647.61182916597" y="2200.0">controllers.game_course.HarvestAction</node>
+    <node x="2875.342921408118" y="660.0">models.cards.DevelopmentCard</node>
+    <node x="1937.6022137813547" y="990.0">models.board.HarvestArea</node>
+    <node x="1782.6022137813547" y="990.0">models.board.ProductionArea</node>
+    <node x="5102.063754741452" y="1470.0">models.cards.DeckTest</node>
+    <node x="1118.0" y="2405.0">game.network.protocol.NanoHttpdApp</node>
+    <node x="2463.342921408118" y="440.0">controllers.effects.ImmediateEffects.PointsForCharacters</node>
+    <node x="2149.5218566384974" y="1230.0">models.board.TheCouncilPalace</node>
+    <node x="915.0" y="2405.0">game.network.protocol.ProtocolCommands</node>
+    <node x="1978.2688804480213" y="820.0">models.board.ActionSpace</node>
+    <node x="208.27104183711845" y="440.0">models.PointsTest</node>
+    <node x="4892.063754741452" y="1470.0">models.cards.DevelopmentCardDeck</node>
+    <node x="1621.6897620674586" y="540.0">game.TheGame.COLORS</node>
+    <node x="5154.471694309646" y="2330.0">game.network.server.RMIServer</node>
+    <node x="2862.342921408118" y="440.0">controllers.effects.PermanentEffects.Exchange</node>
+    <node x="4802.303338074786" y="1960.0">game.TheGame</node>
+    <node x="806.61182916597" y="2200.0">controllers.game_course.ProductionAction</node>
+    <node x="4689.240838074786" y="1470.0">controllers.game_course.Round</node>
+    <node x="3711.6778090194503" y="2200.0">game.network.client.ClientInterface</node>
+    <node x="5334.436492673993" y="1680.0">game.network.server.SocketServerThread</node>
+    <node x="5146.80940934066" y="2200.0">game.network.server.RMIProtocolImpl</node>
+    <node x="1011.1365544406954" y="1230.0">controllers.ability.SpecialAbility</node>
+    <node x="3227.967921408118" y="440.0">models.ResourcesTest</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="controllers.game_course.Round" target="models.board.ExcommunicationTile">
+      <point x="0.0" y="-15.0" />
+      <point x="4730.740838074786" y="1330.0" />
+      <point x="2499.6657419286935" y="1330.0" />
+      <point x="55.66666666666666" y="15.0" />
+    </edge>
+    <edge source="controllers.RemotePlayer" target="controllers.Player">
+      <point x="-42.0" y="-15.0" />
+      <point x="5332.299036117922" y="1770.0" />
+      <point x="1638.298095400792" y="1770.0" />
+      <point x="38.73333333333335" y="15.0" />
+    </edge>
+    <edge source="models.cards.LeaderCard" target="controllers.ability.SpecialAbility">
+      <point x="-22.799999999999955" y="-15.0" />
+      <point x="3615.167921408118" y="1340.0" />
+      <point x="1117.8865544406954" y="1340.0" />
+      <point x="45.75" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="models.board.PersonalBoard">
+      <point x="28.0" y="-15.0" />
+      <point x="4403.467921408118" y="2300.0" />
+      <point x="4576.967921408119" y="2300.0" />
+      <point x="4576.967921408119" y="1560.0" />
+      <point x="3824.134588074785" y="1560.0" />
+      <point x="43.66666666666674" y="15.0" />
+    </edge>
+    <edge source="models.GameFacadeModel" target="models.cards.Deck">
+      <point x="49.0625" y="-15.0" />
+      <point x="4923.220004741452" y="1650.0" />
+      <point x="5080.563754741452" y="1650.0" />
+      <point x="5080.563754741452" y="1440.0" />
+      <point x="5047.438754741452" y="1440.0" />
+      <point x="6.333333333333485" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.Points">
+      <point x="-31.923076923076906" y="-15.0" />
+      <point x="1567.6416851443817" y="1570.0" />
+      <point x="1154.6365544406954" y="1570.0" />
+      <point x="1154.6365544406954" y="230.0" />
+      <point x="2321.8670947337355" y="230.0" />
+      <point x="-19.035714285714334" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.TheCouncilPalace">
+      <point x="26.35714285714289" y="-15.0" />
+      <point x="2149.673278550975" y="1430.0" />
+      <point x="2223.0218566384974" y="1430.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.board.DefectTest" target="models.board.Defect">
+      <point x="0.0" y="-15.0" />
+      <point x="1411.5012339201194" y="1210.0" />
+      <point x="1390.5980954007919" y="1210.0" />
+      <point x="7.083333333333329" y="15.0" />
+    </edge>
+    <edge source="models.board.Tower" target="models.board.ActionSpace">
+      <point x="-20.75" y="-15.0" />
+      <point x="3422.592921408118" y="930.0" />
+      <point x="2075.7688804480213" y="930.0" />
+      <point x="39.0" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="game.network.client.ClientInterface">
+      <point x="-36.0" y="-15.0" />
+      <point x="4339.467921408118" y="2290.0" />
+      <point x="3820.8444756861168" y="2290.0" />
+      <point x="43.66666666666666" y="15.0" />
+    </edge>
+    <edge source="models.board.FamilyMember" target="models.board.Dice">
+      <point x="0.0" y="-15.0" />
+      <point x="1231.1365544406954" y="610.0" />
+      <point x="1535.9897620674585" y="610.0" />
+      <point x="-29.200000000000003" y="15.0" />
+    </edge>
+    <edge source="controllers.PlayerTest" target="models.board.Defect">
+      <point x="13.375" y="-15.0" />
+      <point x="536.4076624993033" y="1730.0" />
+      <point x="520.6576624993033" y="1730.0" />
+      <point x="520.6576624993033" y="1450.0" />
+      <point x="1143.6365544406954" y="1450.0" />
+      <point x="1143.6365544406954" y="1190.0" />
+      <point x="1348.0980954007919" y="1190.0" />
+      <point x="-35.41666666666674" y="15.0" />
+    </edge>
+    <edge source="models.board.TheMarket" target="models.board.ActionSpace">
+      <point x="-27.25" y="-15.0" />
+      <point x="2103.8522137813547" y="970.0" />
+      <point x="2044.5688804480212" y="970.0" />
+      <point x="7.7999999999999545" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="game.network.protocol.RMIProtocol">
+      <point x="6.375" y="-15.0" />
+      <point x="804.2036148725003" y="2300.0" />
+      <point x="796.11182916597" y="2300.0" />
+      <point x="796.11182916597" y="2180.0" />
+      <point x="4346.467921408118" y="2180.0" />
+      <point x="-29.0" y="15.0" />
+    </edge>
+    <edge source="views.gui.GraphicalUserInterface" target="views.gui.PlayerInfo">
+      <point x="-25.714285714285666" y="-15.0" />
+      <point x="2076.06018331288" y="2010.0" />
+      <point x="2000.2744690271657" y="2010.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpace" target="models.Resources">
+      <point x="7.3125" y="-15.0" />
+      <point x="2044.0813804480213" y="730.0" />
+      <point x="2042.2688804480213" y="730.0" />
+      <point x="2042.2688804480213" y="360.0" />
+      <point x="2890.2257256861167" y="360.0" />
+      <point x="-24.84375" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Action" target="models.board.Board">
+      <point x="16.59999999999991" y="-15.0" />
+      <point x="771.0374999999999" y="2060.0" />
+      <point x="768.2375000000002" y="2060.0" />
+      <point x="768.2375000000002" y="1840.0" />
+      <point x="2033.6911356938322" y="1840.0" />
+      <point x="2033.6911356938322" y="1620.0" />
+      <point x="2106.2328023604987" y="1620.0" />
+      <point x="-17.08333333333337" y="15.0" />
+    </edge>
+    <edge source="controllers.GameFacadeController" target="controllers.game_course.Period">
+      <point x="-11.125" y="-15.0" />
+      <point x="4717.865838074785" y="1840.0" />
+      <point x="4714.990838074785" y="1840.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.ResourcesTest" target="models.Resources">
+      <point x="0.0" y="-15.0" />
+      <point x="3292.967921408118" y="320.0" />
+      <point x="2943.2257256861167" y="320.0" />
+      <point x="28.15625" y="15.0" />
+    </edge>
+    <edge source="models.Requirements" target="models.Points">
+      <point x="-15.75" y="-15.0" />
+      <point x="3747.217921408118" y="130.0" />
+      <point x="2374.5813804480213" y="130.0" />
+      <point x="33.678571428571445" y="15.0" />
+    </edge>
+    <edge source="views.gui.GraphicalUserInterface" target="views.gui.GameBoard">
+      <point x="25.71428571428578" y="-15.0" />
+      <point x="2127.4887547414514" y="2010.0" />
+      <point x="2159.7744690271657" y="2010.0" />
+      <point x="29.0" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.HarvestAction" target="controllers.game_course.Action">
+      <point x="0.0" y="-15.0" />
+      <point x="711.11182916597" y="2180.0" />
+      <point x="754.4375" y="2180.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.ActionTest" target="models.cards.DevelopmentCard">
+      <point x="-13.375" y="-15.0" />
+      <point x="551.0786148725003" y="2130.0" />
+      <point x="598.0326624993033" y="2130.0" />
+      <point x="598.0326624993033" y="900.0" />
+      <point x="1716.7929005867861" y="900.0" />
+      <point x="1716.7929005867861" y="760.0" />
+      <point x="2900.342921408118" y="760.0" />
+      <point x="-50.0" y="15.0" />
+    </edge>
+    <edge source="models.Config" target="models.board.TheMarket">
+      <point x="-31.5" y="-15.0" />
+      <point x="3541.092921408118" y="1070.0" />
+      <point x="2144.7272137813547" y="1070.0" />
+      <point x="13.625" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="models.board.Board">
+      <point x="-44.625" y="-15.0" />
+      <point x="753.2036148725003" y="2300.0" />
+      <point x="431.06702397997583" y="2300.0" />
+      <point x="431.06702397997583" y="1940.0" />
+      <point x="587.0326624993033" y="1940.0" />
+      <point x="587.0326624993033" y="1750.0" />
+      <point x="738.8208333333337" y="1750.0" />
+      <point x="738.8208333333337" y="1600.0" />
+      <point x="2092.566135693832" y="1600.0" />
+      <point x="-30.75" y="15.0" />
+    </edge>
+    <edge source="game.network.server.RMIServer" target="game.network.server.ServerInterface">
+      <point x="35.66666666666663" y="-15.0" />
+      <point x="5243.638360976313" y="2310.0" />
+      <point x="5341.80940934066" y="2310.0" />
+      <point x="-34.0" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="game.network.client.ClientInterface">
+      <point x="33.428571428571445" y="-15.0" />
+      <point x="1019.4433334960299" y="2290.0" />
+      <point x="3777.1778090194503" y="2290.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="views.cli.GameView" target="models.Config">
+      <point x="-21.59999999999991" y="-15.0" />
+      <point x="4131.4573694512555" y="2160.0" />
+      <point x="4071.467921408118" y="2160.0" />
+      <point x="4071.467921408118" y="1190.0" />
+      <point x="3544.592921408118" y="1190.0" />
+      <point x="-28.0" y="15.0" />
+    </edge>
+    <edge source="models.board.TheCouncilPalace" target="models.board.ActionSpace">
+      <point x="36.75" y="-15.0" />
+      <point x="2259.7718566384974" y="1210.0" />
+      <point x="2235.2585599274453" y="1210.0" />
+      <point x="2235.2585599274453" y="940.0" />
+      <point x="2067.968880448021" y="940.0" />
+      <point x="31.199999999999932" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.HarvestActionTest" target="controllers.game_course.HarvestAction">
+      <point x="56.625" y="-15.0" />
+      <point x="132.125" y="2310.0" />
+      <point x="668.7784958326367" y="2310.0" />
+      <point x="-42.333333333333314" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="game.Client.FSMClient">
+      <point x="20.0" y="-15.0" />
+      <point x="4395.467921408118" y="2290.0" />
+      <point x="4514.467921408118" y="2290.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controllers.GameFacadeController" target="controllers.Player">
+      <point x="-77.875" y="-15.0" />
+      <point x="4651.115838074785" y="1790.0" />
+      <point x="1627.231428734125" y="1790.0" />
+      <point x="27.66666666666663" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpace" target="models.Points">
+      <point x="-21.9375" y="-15.0" />
+      <point x="2014.8313804480213" y="730.0" />
+      <point x="2020.2688804480213" y="730.0" />
+      <point x="2020.2688804480213" y="260.0" />
+      <point x="2330.6528090194497" y="260.0" />
+      <point x="-10.25" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="models.board.PersonalBonusTile">
+      <point x="36.0" y="-15.0" />
+      <point x="4411.467921408118" y="2310.0" />
+      <point x="4584.967921408119" y="2310.0" />
+      <point x="4584.967921408119" y="1380.0" />
+      <point x="3932.767921408118" y="1380.0" />
+      <point x="30.40000000000009" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.board.Defect">
+      <point x="-12.769230769230717" y="-15.0" />
+      <point x="1586.7955312982278" y="1540.0" />
+      <point x="1340.1166185355041" y="1540.0" />
+      <point x="1340.1166185355041" y="1200.0" />
+      <point x="1362.2647620674586" y="1200.0" />
+      <point x="-21.25" y="15.0" />
+    </edge>
+    <edge source="models.PointsTest" target="models.Points">
+      <point x="0.0" y="-15.0" />
+      <point x="261.27104183711845" y="160.0" />
+      <point x="2301.3670947337355" y="160.0" />
+      <point x="-39.535714285714334" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.PointsForCharacters" target="models.Resources">
+      <point x="20.25" y="-15.0" />
+      <point x="2564.592921408118" y="380.0" />
+      <point x="2896.8507256861167" y="380.0" />
+      <point x="-18.21875" y="15.0" />
+    </edge>
+    <edge source="models.board.Dice" target="models.board.Dice.COLORS">
+      <point x="0.0" y="-15.0" />
+      <point x="1565.1897620674586" y="520.0" />
+      <point x="1399.6365544406954" y="520.0" />
+      <point x="23.5" y="15.0" />
+    </edge>
+    <edge source="models.board.ExcommunicationTile" target="models.Points">
+      <point x="-13.916666666666657" y="-15.0" />
+      <point x="2430.0824085953604" y="1180.0" />
+      <point x="2383.2241187059562" y="1180.0" />
+      <point x="2383.2241187059562" y="260.0" />
+      <point x="2336.509951876593" y="260.0" />
+      <point x="-4.39285714285711" y="15.0" />
+    </edge>
+    <edge source="game.TheGame" target="game.TheGame.COLORS">
+      <point x="32.1875" y="-15.0" />
+      <point x="4885.990838074786" y="1930.0" />
+      <point x="5248.563754741452" y="1930.0" />
+      <point x="5248.563754741452" y="590.0" />
+      <point x="1700.023095400792" y="590.0" />
+      <point x="31.33333333333337" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.board.FamilyMember">
+      <point x="-19.15384615384619" y="-15.0" />
+      <point x="1580.4109159136124" y="1550.0" />
+      <point x="1258.368031305983" y="1550.0" />
+      <point x="1258.368031305983" y="730.0" />
+      <point x="1249.9936972978383" y="730.0" />
+      <point x="18.85714285714289" y="15.0" />
+    </edge>
+    <edge source="game.network.server.RMIProtocolImpl" target="game.Lobby">
+      <point x="0.0" y="-15.0" />
+      <point x="5217.30940934066" y="2150.0" />
+      <point x="5142.2094093406595" y="2150.0" />
+      <point x="16.200000000000045" y="15.0" />
+    </edge>
+    <edge source="game.Server" target="models.data_persistence.FileManagerImport">
+      <point x="-28.333333333333485" y="-15.0" />
+      <point x="4624.8967377535755" y="2180.0" />
+      <point x="4618.490838074785" y="2180.0" />
+      <point x="4618.490838074785" y="1420.0" />
+      <point x="4590.344475686117" y="1420.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="game.network.server.RMIProtocolImpl" target="game.network.protocol.RMIProtocol">
+      <point x="-47.0" y="-15.0" />
+      <point x="5170.30940934066" y="2160.0" />
+      <point x="4404.467921408118" y="2160.0" />
+      <point x="29.0" y="15.0" />
+    </edge>
+    <edge source="game.network.server.SocketServer" target="game.Lobby">
+      <point x="-15.25" y="-15.0" />
+      <point x="5460.590702784588" y="2310.0" />
+      <point x="5459.351076007327" y="2310.0" />
+      <point x="5459.351076007327" y="2140.0" />
+      <point x="5158.40940934066" y="2140.0" />
+      <point x="32.40000000000009" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Period" target="controllers.game_course.Round">
+      <point x="21.0" y="-15.0" />
+      <point x="4735.990838074785" y="1660.0" />
+      <point x="4730.740838074786" y="1660.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="game.TheGame" target="controllers.RemotePlayer">
+      <point x="45.0625" y="-15.0" />
+      <point x="4898.865838074786" y="1940.0" />
+      <point x="5332.299036117922" y="1940.0" />
+      <point x="-42.0" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.Gain" target="models.Points">
+      <point x="-27.75" y="-15.0" />
+      <point x="1044.3865544406954" y="210.0" />
+      <point x="2316.009951876593" y="210.0" />
+      <point x="-24.89285714285711" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.ExcommunicationTile">
+      <point x="32.214285714285666" y="-15.0" />
+      <point x="2155.530421408118" y="1440.0" />
+      <point x="2388.3324085953604" y="1440.0" />
+      <point x="-55.666666666666664" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.PermanentEffect" target="models.Points">
+      <point x="-44.375" y="-15.0" />
+      <point x="2943.557326007326" y="510.0" />
+      <point x="2851.842921408118" y="510.0" />
+      <point x="2851.842921408118" y="170.0" />
+      <point x="2362.867094733736" y="170.0" />
+      <point x="21.96428571428578" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCardDeck" target="models.cards.DevelopmentCard">
+      <point x="66.75" y="-15.0" />
+      <point x="5047.813754741452" y="1450.0" />
+      <point x="5106.098777642979" y="1450.0" />
+      <point x="5106.098777642979" y="750.0" />
+      <point x="3000.342921408118" y="750.0" />
+      <point x="50.0" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.ActionTest" target="controllers.game_course.Action">
+      <point x="40.125" y="-15.0" />
+      <point x="604.5786148725003" y="2170.0" />
+      <point x="742.5803571428571" y="2170.0" />
+      <point x="-11.85714285714289" y="15.0" />
+    </edge>
+    <edge source="views.gui.GraphicalUserInterface" target="models.cards.DevelopmentCard">
+      <point x="77.14285714285711" y="-15.0" />
+      <point x="2178.9173261700225" y="2030.0" />
+      <point x="3379.467921408118" y="2030.0" />
+      <point x="3379.467921408118" y="1100.0" />
+      <point x="3573.092921408118" y="1100.0" />
+      <point x="3573.092921408118" y="790.0" />
+      <point x="2960.342921408118" y="790.0" />
+      <point x="10.0" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Action" target="game.TheGame">
+      <point x="33.200000000000045" y="-15.0" />
+      <point x="787.6375" y="2040.0" />
+      <point x="4812.603338074785" y="2040.0" />
+      <point x="-41.200000000000045" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.Exchange" target="models.Points">
+      <point x="-12.75" y="-15.0" />
+      <point x="2900.592921408118" y="150.0" />
+      <point x="2368.7242375908786" y="150.0" />
+      <point x="27.821428571428555" y="15.0" />
+    </edge>
+    <edge source="models.board.ExcommunicationTile" target="models.Resources">
+      <point x="41.75" y="-15.0" />
+      <point x="2485.749075262027" y="1200.0" />
+      <point x="3217.467921408118" y="1200.0" />
+      <point x="3217.467921408118" y="330.0" />
+      <point x="2939.9132256861167" y="330.0" />
+      <point x="24.84375" y="15.0" />
+    </edge>
+    <edge source="views.gui.PlayerInfo" target="models.board.Board">
+      <point x="35.0" y="-15.0" />
+      <point x="2035.2744690271657" y="1940.0" />
+      <point x="2141.857802360499" y="1940.0" />
+      <point x="2141.857802360499" y="1630.0" />
+      <point x="2119.8994690271657" y="1630.0" />
+      <point x="-3.4166666666666288" y="15.0" />
+    </edge>
+    <edge source="models.GameFacadeModel" target="models.cards.DevelopmentCardDeck">
+      <point x="29.4375" y="-15.0" />
+      <point x="4903.595004741452" y="1640.0" />
+      <point x="4936.563754741452" y="1640.0" />
+      <point x="-44.5" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.HarvestActionTest" target="models.board.Board">
+      <point x="-18.875" y="-15.0" />
+      <point x="56.625" y="2310.0" />
+      <point x="59.28266249930357" y="2310.0" />
+      <point x="59.28266249930357" y="1740.0" />
+      <point x="716.8208333333337" y="1740.0" />
+      <point x="716.8208333333337" y="1590.0" />
+      <point x="2085.7328023604987" y="1590.0" />
+      <point x="-37.58333333333337" y="15.0" />
+    </edge>
+    <edge source="views.cli.GameView" target="models.data_persistence.FileManagerImport">
+      <point x="0.0" y="-15.0" />
+      <point x="4153.057369451255" y="2150.0" />
+      <point x="4234.467921408118" y="2150.0" />
+      <point x="4234.467921408118" y="1410.0" />
+      <point x="4555.67780901945" y="1410.0" />
+      <point x="-34.666666666666515" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="game.TheGame">
+      <point x="22.133333333333326" y="15.0" />
+      <point x="1621.6980954007918" y="1800.0" />
+      <point x="4629.490838074785" y="1800.0" />
+      <point x="4629.490838074785" y="1940.0" />
+      <point x="4808.740838074786" y="1940.0" />
+      <point x="-45.0625" y="-15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.ImmediateEffect" target="models.Resources">
+      <point x="60.428571428571445" y="-15.0" />
+      <point x="2672.4980471146882" y="520.0" />
+      <point x="2829.842921408118" y="520.0" />
+      <point x="2829.842921408118" y="420.0" />
+      <point x="2910.1007256861167" y="420.0" />
+      <point x="-4.96875" y="15.0" />
+    </edge>
+    <edge source="models.board.FamilyMember" target="models.board.Dice.COLORS">
+      <point x="-44.0" y="-15.0" />
+      <point x="1187.1365544406954" y="640.0" />
+      <point x="1212.1875" y="640.0" />
+      <point x="1212.1875" y="520.0" />
+      <point x="1352.6365544406954" y="520.0" />
+      <point x="-23.5" y="15.0" />
+    </edge>
+    <edge source="game.TheGame" target="controllers.GameFacadeController">
+      <point x="-32.1875" y="-15.0" />
+      <point x="4821.615838074786" y="1930.0" />
+      <point x="4669.657504741452" y="1930.0" />
+      <point x="-59.33333333333334" y="15.0" />
+    </edge>
+    <edge source="views.gui.PlayerInfo" target="controllers.Player">
+      <point x="-35.0" y="-15.0" />
+      <point x="1965.2744690271657" y="1940.0" />
+      <point x="1432.4011631663598" y="1940.0" />
+      <point x="1432.4011631663598" y="1830.0" />
+      <point x="1599.5647620674586" y="1830.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.PermanentAbility" target="controllers.ability.SpecialAbility">
+      <point x="-36.0" y="-15.0" />
+      <point x="116.78266249930357" y="1430.0" />
+      <point x="1026.3865544406954" y="1430.0" />
+      <point x="-45.75" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Action" target="models.Points">
+      <point x="-33.200000000000045" y="-15.0" />
+      <point x="721.2375" y="2060.0" />
+      <point x="705.8208333333337" y="2060.0" />
+      <point x="705.8208333333337" y="870.0" />
+      <point x="584.4836906466426" y="870.0" />
+      <point x="584.4836906466426" y="190.0" />
+      <point x="2310.1528090194497" y="190.0" />
+      <point x="-30.75" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.HarvestArea">
+      <point x="-8.78571428571422" y="-15.0" />
+      <point x="2114.530421408118" y="1400.0" />
+      <point x="2012.1692742131597" y="1400.0" />
+      <point x="2012.1692742131597" y="1100.0" />
+      <point x="2026.8522137813547" y="1100.0" />
+      <point x="29.75" y="15.0" />
+    </edge>
+    <edge source="models.cards.LeaderCardDeck" target="models.cards.Deck">
+      <point x="56.799999999999955" y="-15.0" />
+      <point x="4209.767921408118" y="1660.0" />
+      <point x="4199.217921408118" y="1660.0" />
+      <point x="4199.217921408118" y="1430.0" />
+      <point x="5009.438754741452" y="1430.0" />
+      <point x="-31.666666666666515" y="15.0" />
+    </edge>
+    <edge source="models.board.ProductionArea" target="models.board.ActionSpace">
+      <point x="0.0" y="-15.0" />
+      <point x="1850.1022137813547" y="940.0" />
+      <point x="2005.5688804480212" y="940.0" />
+      <point x="-31.200000000000045" y="15.0" />
+    </edge>
+    <edge source="models.board.CustomPersonalBonusTile" target="models.board.PersonalBonusTile">
+      <point x="0.0" y="-15.0" />
+      <point x="3963.467921408118" y="1450.0" />
+      <point x="3902.3679214081185" y="1450.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.PermanentIncreaseAction" target="models.Resources">
+      <point x="-48.5" y="-15.0" />
+      <point x="3032.842921408118" y="390.0" />
+      <point x="2920.0382256861167" y="390.0" />
+      <point x="4.96875" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.Tower">
+      <point x="8.785714285714334" y="-15.0" />
+      <point x="2132.1018499795464" y="1370.0" />
+      <point x="2123.3343566384974" y="1370.0" />
+      <point x="2123.3343566384974" y="1080.0" />
+      <point x="3412.217921408118" y="1080.0" />
+      <point x="-31.125" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.OncePerRoundAbility" target="controllers.ability.SpecialAbility">
+      <point x="-41.25" y="-15.0" />
+      <point x="286.03266249930357" y="1440.0" />
+      <point x="1056.8865544406954" y="1440.0" />
+      <point x="-15.25" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.HarvestActionTest" target="models.board.FamilyMember">
+      <point x="-56.625" y="-15.0" />
+      <point x="18.875" y="2310.0" />
+      <point x="48.28266249930357" y="2310.0" />
+      <point x="48.28266249930357" y="870.0" />
+      <point x="498.25452397997583" y="870.0" />
+      <point x="498.25452397997583" y="710.0" />
+      <point x="1174.565125869267" y="710.0" />
+      <point x="-56.57142857142844" y="15.0" />
+    </edge>
+    <edge source="models.Config" target="models.board.Tower">
+      <point x="31.5" y="-15.0" />
+      <point x="3604.092921408118" y="1040.0" />
+      <point x="3474.467921408118" y="1040.0" />
+      <point x="31.125" y="15.0" />
+    </edge>
+    <edge source="models.cards.LeaderCardDeck" target="models.data_persistence.FileManagerImport">
+      <point x="0.0" y="-15.0" />
+      <point x="4152.967921408118" y="1390.0" />
+      <point x="4521.011142352783" y="1390.0" />
+      <point x="-69.33333333333348" y="15.0" />
+    </edge>
+    <edge source="controllers.RemotePlayer" target="game.network.server.SocketServerThread">
+      <point x="0.0" y="-15.0" />
+      <point x="5374.299036117922" y="1840.0" />
+      <point x="5361.436492673993" y="1840.0" />
+      <point x="-54.0" y="15.0" />
+    </edge>
+    <edge source="game.Server" target="game.Lobby">
+      <point x="28.333333333333258" y="-15.0" />
+      <point x="4681.563404420242" y="2180.0" />
+      <point x="5109.80940934066" y="2180.0" />
+      <point x="-16.200000000000045" y="15.0" />
+    </edge>
+    <edge source="models.cards.Deck" target="models.cards.DevelopmentCard">
+      <point x="0.0" y="-15.0" />
+      <point x="5041.105421408118" y="760.0" />
+      <point x="2990.342921408118" y="760.0" />
+      <point x="40.0" y="15.0" />
+    </edge>
+    <edge source="game.network.server.RMIProtocolImpl" target="controllers.RemotePlayer">
+      <point x="47.0" y="-15.0" />
+      <point x="5264.30940934066" y="2180.0" />
+      <point x="5389.799036117922" y="2180.0" />
+      <point x="5389.799036117922" y="1940.0" />
+      <point x="5374.299036117922" y="1940.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.Dice">
+      <point x="-32.214285714285666" y="-15.0" />
+      <point x="2091.1018499795464" y="1440.0" />
+      <point x="1772.1022137813547" y="1440.0" />
+      <point x="1772.1022137813547" y="600.0" />
+      <point x="1594.3897620674586" y="600.0" />
+      <point x="29.200000000000045" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.ProductionAction" target="controllers.game_course.Action">
+      <point x="0.0" y="-15.0" />
+      <point x="878.11182916597" y="2170.0" />
+      <point x="778.1517857142858" y="2170.0" />
+      <point x="23.714285714285666" y="15.0" />
+    </edge>
+    <edge source="game.Lobby" target="game.TheGame">
+      <point x="-27.0" y="-15.0" />
+      <point x="5099.009409340661" y="2040.0" />
+      <point x="4874.403338074785" y="2040.0" />
+      <point x="20.600000000000023" y="15.0" />
+    </edge>
+    <edge source="controllers.PlayerTest" target="models.cards.DevelopmentCard">
+      <point x="-13.375" y="-15.0" />
+      <point x="509.65766249930334" y="890.0" />
+      <point x="606.4836906466426" y="890.0" />
+      <point x="606.4836906466426" y="740.0" />
+      <point x="2880.342921408118" y="740.0" />
+      <point x="-70.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.LeaderCard" target="models.cards.Card">
+      <point x="0.0" y="-15.0" />
+      <point x="3637.967921408118" y="640.0" />
+      <point x="3311.717921408118" y="640.0" />
+      <point x="18.75" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="controllers.Player">
+      <point x="-4.0" y="-15.0" />
+      <point x="4371.467921408118" y="2250.0" />
+      <point x="4306.967921408118" y="2250.0" />
+      <point x="4306.967921408118" y="1810.0" />
+      <point x="1616.1647620674585" y="1810.0" />
+      <point x="16.600000000000023" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="game.network.client.ClientInterface">
+      <point x="31.875" y="-15.0" />
+      <point x="829.7036148725003" y="2280.0" />
+      <point x="3733.5111423527833" y="2280.0" />
+      <point x="-43.66666666666666" y="15.0" />
+    </edge>
+    <edge source="controllers.PlayerTest" target="controllers.Player">
+      <point x="40.125" y="-15.0" />
+      <point x="563.1576624993033" y="1780.0" />
+      <point x="1571.898095400792" y="1780.0" />
+      <point x="-27.66666666666663" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="views.cli.GameView">
+      <point x="50.14285714285714" y="-15.0" />
+      <point x="1036.1576192103157" y="2310.0" />
+      <point x="4139.557369451255" y="2310.0" />
+      <point x="-13.5" y="15.0" />
+    </edge>
+    <edge source="models.board.HarvestArea" target="models.board.ActionSpace">
+      <point x="-39.66666666666663" y="-15.0" />
+      <point x="1957.435547114688" y="960.0" />
+      <point x="2021.1688804480214" y="960.0" />
+      <point x="-15.600000000000023" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.ImmediateTakeCard" target="models.Resources">
+      <point x="0.0" y="-15.0" />
+      <point x="2726.842921408118" y="400.0" />
+      <point x="2903.4757256861167" y="400.0" />
+      <point x="-11.59375" y="15.0" />
+    </edge>
+    <edge source="models.cards.DeckTest" target="models.cards.DevelopmentCard">
+      <point x="25.0" y="-15.0" />
+      <point x="5177.063754741452" y="740.0" />
+      <point x="3010.342921408118" y="740.0" />
+      <point x="60.0" y="15.0" />
+    </edge>
+    <edge source="models.board.PersonalBonusTile" target="models.Points">
+      <point x="-57.0" y="-15.0" />
+      <point x="3845.3679214081185" y="1200.0" />
+      <point x="3903.1573694512554" y="1200.0" />
+      <point x="3903.1573694512554" y="100.0" />
+      <point x="2377.509951876593" y="100.0" />
+      <point x="36.60714285714289" y="15.0" />
+    </edge>
+    <edge source="controllers.GameFacadeController" target="models.cards.Deck">
+      <point x="55.625" y="-15.0" />
+      <point x="4785.157504741452" y="1440.0" />
+      <point x="5022.105421408118" y="1440.0" />
+      <point x="-19.0" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.ProductionArea">
+      <point x="-20.5" y="-15.0" />
+      <point x="2102.816135693832" y="1420.0" />
+      <point x="1869.1692742131597" y="1420.0" />
+      <point x="1869.1692742131597" y="1100.0" />
+      <point x="1883.8522137813547" y="1100.0" />
+      <point x="33.75" y="15.0" />
+    </edge>
+    <edge source="models.data_persistence.FileManagerImport" target="models.Config">
+      <point x="0.0" y="-15.0" />
+      <point x="4590.344475686117" y="1180.0" />
+      <point x="3572.592921408118" y="1180.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.GameFacadeModel" target="models.data_persistence.FileManagerImport">
+      <point x="-9.8125" y="-15.0" />
+      <point x="4864.345004741452" y="1520.0" />
+      <point x="4847.240838074785" y="1520.0" />
+      <point x="4847.240838074785" y="1310.0" />
+      <point x="4625.011142352783" y="1310.0" />
+      <point x="34.666666666666515" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCard" target="models.Resources">
+      <point x="50.0" y="-15.0" />
+      <point x="3000.342921408118" y="630.0" />
+      <point x="3214.155421408118" y="630.0" />
+      <point x="3214.155421408118" y="340.0" />
+      <point x="2936.6007256861167" y="340.0" />
+      <point x="21.53125" y="15.0" />
+    </edge>
+    <edge source="game.AdvancedGame" target="game.TheGame">
+      <point x="-34.25" y="-15.0" />
+      <point x="4792.778338074785" y="2060.0" />
+      <point x="4853.803338074786" y="2060.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.SpecialAbility" target="controllers.ability.Gain">
+      <point x="30.5" y="-15.0" />
+      <point x="1102.6365544406954" y="1210.0" />
+      <point x="1085.0147620674586" y="1210.0" />
+      <point x="1085.0147620674586" y="520.0" />
+      <point x="1090.6365544406954" y="520.0" />
+      <point x="18.5" y="15.0" />
+    </edge>
+    <edge source="models.board.Defect" target="models.Points">
+      <point x="-10.625" y="-15.0" />
+      <point x="1372.8897620674586" y="1090.0" />
+      <point x="1318.6365544406954" y="1090.0" />
+      <point x="1318.6365544406954" y="250.0" />
+      <point x="2327.7242375908786" y="250.0" />
+      <point x="-13.178571428571445" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpaceTest" target="models.Points">
+      <point x="-56.40000000000009" y="-15.0" />
+      <point x="310.6326624993035" y="1730.0" />
+      <point x="324.77104183711845" y="1730.0" />
+      <point x="324.77104183711845" y="170.0" />
+      <point x="2304.295666162307" y="170.0" />
+      <point x="-36.60714285714289" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="controllers.game_course.ProductionAction">
+      <point x="19.125" y="-15.0" />
+      <point x="816.9536148725003" y="2270.0" />
+      <point x="842.36182916597" y="2270.0" />
+      <point x="-35.75" y="15.0" />
+    </edge>
+    <edge source="models.cards.Territory" target="models.board.Dice">
+      <point x="-24.25" y="-15.0" />
+      <point x="1613.6365544406954" y="620.0" />
+      <point x="1565.1897620674586" y="620.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="views.gui.GraphicalUserInterface" target="controllers.Player">
+      <point x="-51.428571428571445" y="-15.0" />
+      <point x="2050.345897598594" y="2020.0" />
+      <point x="1426.8678298330265" y="2020.0" />
+      <point x="1426.8678298330265" y="1820.0" />
+      <point x="1594.0314287341253" y="1820.0" />
+      <point x="-5.533333333333303" y="15.0" />
+    </edge>
+    <edge source="views.gui.GraphicalUserInterface" target="models.board.Board">
+      <point x="51.42857142857133" y="-15.0" />
+      <point x="2153.203040455737" y="2020.0" />
+      <point x="2199.2744690271657" y="2020.0" />
+      <point x="2199.2744690271657" y="1620.0" />
+      <point x="2126.7328023604987" y="1620.0" />
+      <point x="3.4166666666666288" y="15.0" />
+    </edge>
+    <edge source="views.gui.GraphicalUserInterface" target="models.board.FamilyMember">
+      <point x="-77.14285714285711" y="-15.0" />
+      <point x="2024.6316118843085" y="2030.0" />
+      <point x="988.2904005945416" y="2030.0" />
+      <point x="988.2904005945416" y="890.0" />
+      <point x="1053.5147620674586" y="890.0" />
+      <point x="1053.5147620674586" y="730.0" />
+      <point x="1212.2794115835525" y="730.0" />
+      <point x="-18.85714285714289" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCard" target="models.Points">
+      <point x="-66.66666666666669" y="-15.0" />
+      <point x="2883.6762547414514" y="640.0" />
+      <point x="2427.9143499795464" y="640.0" />
+      <point x="2427.9143499795464" y="240.0" />
+      <point x="2342.3670947337355" y="240.0" />
+      <point x="1.4642857142856656" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpaceTest" target="models.board.ActionSpace">
+      <point x="28.199999999999818" y="-15.0" />
+      <point x="395.2326624993034" y="1730.0" />
+      <point x="390.4286148725" y="1730.0" />
+      <point x="390.4286148725" y="920.0" />
+      <point x="1989.9688804480213" y="920.0" />
+      <point x="-46.799999999999955" y="15.0" />
+    </edge>
+    <edge source="game.network.server.RMIServer" target="game.network.server.RMIProtocolImpl">
+      <point x="0.0" y="-15.0" />
+      <point x="5207.971694309646" y="2310.0" />
+      <point x="5217.30940934066" y="2310.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.Character" target="models.cards.DevelopmentCard">
+      <point x="0.0" y="-15.0" />
+      <point x="2982.699036117922" y="800.0" />
+      <point x="2950.342921408118" y="800.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.ActionTest" target="controllers.Player">
+      <point x="13.375" y="-15.0" />
+      <point x="577.8286148725003" y="2140.0" />
+      <point x="609.0326624993033" y="2140.0" />
+      <point x="609.0326624993033" y="1790.0" />
+      <point x="1577.4314287341253" y="1790.0" />
+      <point x="-22.133333333333326" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="game.TheGame.COLORS">
+      <point x="0.0" y="-15.0" />
+      <point x="1599.5647620674586" y="1520.0" />
+      <point x="1578.8865544406954" y="1520.0" />
+      <point x="1578.8865544406954" y="640.0" />
+      <point x="1668.6897620674586" y="640.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.Venture" target="models.Resources">
+      <point x="23.0" y="-15.0" />
+      <point x="4452.448642352783" y="60.0" />
+      <point x="2963.1007256861167" y="60.0" />
+      <point x="48.03125" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="controllers.game_course.Action">
+      <point x="-16.71428571428578" y="-15.0" />
+      <point x="969.3004763531728" y="2270.0" />
+      <point x="960.11182916597" y="2270.0" />
+      <point x="960.11182916597" y="2160.0" />
+      <point x="790.0089285714284" y="2160.0" />
+      <point x="35.57142857142844" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="controllers.game_course.HarvestAction">
+      <point x="-50.14285714285711" y="-15.0" />
+      <point x="935.8719049246015" y="2260.0" />
+      <point x="753.4451624993035" y="2260.0" />
+      <point x="42.33333333333337" y="15.0" />
+    </edge>
+    <edge source="controllers.GameFacadeController" target="models.GameFacadeModel">
+      <point x="77.875" y="-15.0" />
+      <point x="4806.865838074785" y="1840.0" />
+      <point x="4821.824171408118" y="1840.0" />
+      <point x="-52.333333333333336" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.Exchange" target="models.Resources">
+      <point x="38.25" y="-15.0" />
+      <point x="2951.592921408118" y="400.0" />
+      <point x="2916.7257256861167" y="400.0" />
+      <point x="1.65625" y="15.0" />
+    </edge>
+    <edge source="models.GameFacadeModel" target="models.Config">
+      <point x="9.8125" y="-15.0" />
+      <point x="4883.970004741452" y="1660.0" />
+      <point x="4879.657504741452" y="1660.0" />
+      <point x="4879.657504741452" y="1170.0" />
+      <point x="3600.592921408118" y="1170.0" />
+      <point x="28.0" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="views.cli.GameView">
+      <point x="44.625" y="-15.0" />
+      <point x="842.4536148725003" y="2300.0" />
+      <point x="4112.557369451255" y="2300.0" />
+      <point x="-40.5" y="15.0" />
+    </edge>
+    <edge source="views.cli.GameView" target="game.TheGame">
+      <point x="43.200000000000045" y="-15.0" />
+      <point x="4196.257369451256" y="2170.0" />
+      <point x="4272.217921408118" y="2170.0" />
+      <point x="4272.217921408118" y="2050.0" />
+      <point x="4833.203338074785" y="2050.0" />
+      <point x="-20.59999999999991" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.board.PersonalBoard">
+      <point x="31.923076923076906" y="-15.0" />
+      <point x="1631.4878389905355" y="1650.0" />
+      <point x="3736.8012547414514" y="1650.0" />
+      <point x="-43.66666666666663" y="15.0" />
+    </edge>
+    <edge source="models.GameFacadeModel" target="models.board.Board">
+      <point x="-68.6875" y="-15.0" />
+      <point x="4805.470004741452" y="1550.0" />
+      <point x="2154.066135693832" y="1550.0" />
+      <point x="30.75" y="15.0" />
+    </edge>
+    <edge source="game.AdvancedGame" target="models.board.PersonalBonusTile">
+      <point x="34.25" y="-15.0" />
+      <point x="4861.278338074785" y="2050.0" />
+      <point x="5259.563754741452" y="2050.0" />
+      <point x="5259.563754741452" y="1280.0" />
+      <point x="3963.167921408118" y="1280.0" />
+      <point x="60.799999999999955" y="15.0" />
+    </edge>
+    <edge source="views.gui.PlayerInfo" target="views.gui.PlayerInfoController">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="models.board.Board">
+      <point x="12.0" y="-15.0" />
+      <point x="4387.467921408118" y="2280.0" />
+      <point x="4451.967921408118" y="2280.0" />
+      <point x="4451.967921408118" y="1570.0" />
+      <point x="2147.2328023604987" y="1570.0" />
+      <point x="23.91666666666663" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCard" target="models.cards.Card">
+      <point x="66.66666666666669" y="-15.0" />
+      <point x="3017.009588074785" y="640.0" />
+      <point x="3274.217921408118" y="640.0" />
+      <point x="-18.75" y="15.0" />
+    </edge>
+    <edge source="game.TheGame" target="models.GameFacadeModel">
+      <point x="6.4375" y="-15.0" />
+      <point x="4860.240838074786" y="1910.0" />
+      <point x="4894.824171408118" y="1910.0" />
+      <point x="4894.824171408118" y="1840.0" />
+      <point x="4874.157504741452" y="1840.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.board.PersonalBoard" target="models.board.PersonalBonusTile">
+      <point x="43.66666666666663" y="-15.0" />
+      <point x="3824.134588074785" y="1450.0" />
+      <point x="3871.9679214081184" y="1450.0" />
+      <point x="-30.399999999999977" y="15.0" />
+    </edge>
+    <edge source="views.gui.PlayerInfoController" target="models.board.Board">
+      <point x="40.25" y="-15.0" />
+      <point x="2040.5244690271657" y="1630.0" />
+      <point x="2113.066135693832" y="1630.0" />
+      <point x="-10.25" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpaceTest" target="models.Resources">
+      <point x="-28.199999999999818" y="-15.0" />
+      <point x="338.83266249930375" y="1730.0" />
+      <point x="347.4326624993032" y="1730.0" />
+      <point x="347.4326624993032" y="280.0" />
+      <point x="2863.7257256861167" y="280.0" />
+      <point x="-51.34375" y="15.0" />
+    </edge>
+    <edge source="game.network.server.RMIServer" target="game.Lobby">
+      <point x="-35.666666666666515" y="-15.0" />
+      <point x="5172.30502764298" y="2310.0" />
+      <point x="5136.30940934066" y="2310.0" />
+      <point x="5136.30940934066" y="2180.0" />
+      <point x="5126.009409340661" y="2180.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.board.TheCouncilPalaceTest" target="models.board.ActionSpace">
+      <point x="42.75" y="-15.0" />
+      <point x="3518.217921408118" y="910.0" />
+      <point x="2091.368880448021" y="910.0" />
+      <point x="54.59999999999991" y="15.0" />
+    </edge>
+    <edge source="models.board.Board" target="models.board.TheMarket">
+      <point x="-2.928571428571445" y="-15.0" />
+      <point x="2120.3875642652606" y="1390.0" />
+      <point x="2096.937131356017" y="1390.0" />
+      <point x="2096.937131356017" y="1100.0" />
+      <point x="2090.2272137813547" y="1100.0" />
+      <point x="-40.875" y="15.0" />
+    </edge>
+    <edge source="game.network.server.SocketServerThread" target="controllers.RemotePlayer">
+      <point x="0.0" y="15.0" />
+      <point x="42.0" y="-15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCardDeckTest" target="models.cards.DevelopmentCardDeck">
+      <point x="-50.5" y="-15.0" />
+      <point x="5068.563754741452" y="1640.0" />
+      <point x="5025.563754741452" y="1640.0" />
+      <point x="44.5" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="controllers.game_course.HarvestAction">
+      <point x="-19.125" y="-15.0" />
+      <point x="778.7036148725003" y="2280.0" />
+      <point x="711.11182916597" y="2280.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.Territory" target="models.cards.DevelopmentCard">
+      <point x="24.25" y="-15.0" />
+      <point x="1662.1365544406954" y="750.0" />
+      <point x="2890.342921408118" y="750.0" />
+      <point x="-60.0" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpaceTest" target="controllers.Player">
+      <point x="56.40000000000009" y="-15.0" />
+      <point x="423.43266249930366" y="1760.0" />
+      <point x="1560.8314287341252" y="1760.0" />
+      <point x="-38.73333333333335" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="controllers.game_course.Action">
+      <point x="-6.375" y="-15.0" />
+      <point x="791.4536148725003" y="2310.0" />
+      <point x="785.11182916597" y="2310.0" />
+      <point x="785.11182916597" y="2180.0" />
+      <point x="766.2946428571429" y="2180.0" />
+      <point x="11.85714285714289" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.ImmediateEffect" target="controllers.effects.ImmediateEffects.PointsForCharacters">
+      <point x="-20.14285714285714" y="-15.0" />
+      <point x="2591.9266185432593" y="500.0" />
+      <point x="2503.842921408118" y="500.0" />
+      <point x="-40.5" y="15.0" />
+    </edge>
+    <edge source="game.network.server.SocketServer" target="game.network.server.ServerInterface">
+      <point x="-45.75" y="-15.0" />
+      <point x="5430.090702784588" y="2310.0" />
+      <point x="5409.80940934066" y="2310.0" />
+      <point x="34.0" y="15.0" />
+    </edge>
+    <edge source="views.cli.GameView" target="views.cli.ConsoleInput">
+      <point x="-43.19999999999999" y="-15.0" />
+      <point x="4109.857369451255" y="2170.0" />
+      <point x="3774.9278090194503" y="2170.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.Venture" target="models.cards.DevelopmentCard">
+      <point x="-23.0" y="-15.0" />
+      <point x="4406.448642352783" y="770.0" />
+      <point x="2980.342921408118" y="770.0" />
+      <point x="30.0" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.PointsForCharacters" target="models.Points">
+      <point x="-20.25" y="-15.0" />
+      <point x="2524.092921408118" y="190.0" />
+      <point x="2357.009951876593" y="190.0" />
+      <point x="16.10714285714289" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.ImmediateEffect" target="controllers.effects.ImmediateEffects.ImmediateTakeCard">
+      <point x="20.14285714285714" y="-15.0" />
+      <point x="2632.212332828974" y="500.0" />
+      <point x="2726.842921408118" y="500.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="controllers.game_course.ProductionAction">
+      <point x="-33.42857142857139" y="-15.0" />
+      <point x="952.5861906388873" y="2250.0" />
+      <point x="913.86182916597" y="2250.0" />
+      <point x="35.75" y="15.0" />
+    </edge>
+    <edge source="models.board.PersonalBoard" target="models.cards.DevelopmentCard">
+      <point x="-43.66666666666674" y="-15.0" />
+      <point x="3736.8012547414514" y="1430.0" />
+      <point x="3625.092921408118" y="1430.0" />
+      <point x="3625.092921408118" y="780.0" />
+      <point x="2970.342921408118" y="780.0" />
+      <point x="20.0" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="models.board.Board">
+      <point x="16.71428571428578" y="-15.0" />
+      <point x="1002.7290477817444" y="2270.0" />
+      <point x="3639.52780901945" y="2270.0" />
+      <point x="3639.52780901945" y="1610.0" />
+      <point x="2133.566135693832" y="1610.0" />
+      <point x="10.25" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.PermanentAbility" target="controllers.game_course.Action">
+      <point x="36.0" y="-15.0" />
+      <point x="188.78266249930357" y="2150.0" />
+      <point x="718.8660714285716" y="2150.0" />
+      <point x="-35.571428571428555" y="15.0" />
+    </edge>
+    <edge source="game.network.client.SocketClient" target="controllers.Player">
+      <point x="0.0" y="-15.0" />
+      <point x="986.0147620674586" y="2260.0" />
+      <point x="971.11182916597" y="2260.0" />
+      <point x="971.11182916597" y="1810.0" />
+      <point x="1588.498095400792" y="1810.0" />
+      <point x="-11.06666666666672" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.PermanentEffect" target="controllers.effects.PermanentEffects.Exchange">
+      <point x="-8.875" y="-15.0" />
+      <point x="2979.057326007326" y="490.0" />
+      <point x="2938.842921408118" y="490.0" />
+      <point x="25.5" y="15.0" />
+    </edge>
+    <edge source="models.cards.DeckTest" target="models.cards.Deck">
+      <point x="-25.0" y="-15.0" />
+      <point x="5127.063754741452" y="1420.0" />
+      <point x="5072.772088074785" y="1420.0" />
+      <point x="31.66666666666663" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.Gain" target="models.Resources">
+      <point x="27.75" y="-15.0" />
+      <point x="1099.8865544406954" y="310.0" />
+      <point x="2873.6632256861167" y="310.0" />
+      <point x="-41.40625" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.ActionTest" target="models.board.FamilyMember">
+      <point x="-40.125" y="-15.0" />
+      <point x="524.3286148725003" y="2140.0" />
+      <point x="459.03266249930334" y="2140.0" />
+      <point x="459.03266249930334" y="880.0" />
+      <point x="595.4836906466426" y="880.0" />
+      <point x="595.4836906466426" y="720.0" />
+      <point x="1193.4222687264096" y="720.0" />
+      <point x="-37.71428571428578" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Period" target="controllers.GameFacadeController">
+      <point x="28.0" y="15.0" />
+      <point x="4742.990838074785" y="1840.0" />
+      <point x="4740.115838074785" y="1840.0" />
+      <point x="11.125" y="-15.0" />
+    </edge>
+    <edge source="models.board.ExcommunicationTile" target="models.board.Defect">
+      <point x="-41.749999999999986" y="-15.0" />
+      <point x="2402.249075262027" y="1190.0" />
+      <point x="1418.9314287341253" y="1190.0" />
+      <point x="35.41666666666666" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Round" target="controllers.GameFacadeController">
+      <point x="27.666666666666515" y="15.0" />
+      <point x="4758.407504741452" y="1660.0" />
+      <point x="4767.490838074785" y="1660.0" />
+      <point x="4767.490838074785" y="1840.0" />
+      <point x="4762.365838074785" y="1840.0" />
+      <point x="33.375" y="-15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.PermanentEffect" target="models.Resources">
+      <point x="62.125" y="-15.0" />
+      <point x="3050.057326007326" y="520.0" />
+      <point x="3199.842921408118" y="520.0" />
+      <point x="3199.842921408118" y="360.0" />
+      <point x="2929.9757256861167" y="360.0" />
+      <point x="14.90625" y="15.0" />
+    </edge>
+    <edge source="models.cards.Building" target="models.cards.DevelopmentCard">
+      <point x="0.0" y="-15.0" />
+      <point x="2864.199036117922" y="800.0" />
+      <point x="2940.342921408118" y="800.0" />
+      <point x="-10.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCard" target="controllers.effects.PermanentEffects.PermanentEffect">
+      <point x="0.0" y="-15.0" />
+      <point x="2950.342921408118" y="640.0" />
+      <point x="2952.432326007326" y="640.0" />
+      <point x="-35.5" y="15.0" />
+    </edge>
+    <edge source="models.board.DiceTest" target="models.board.Dice">
+      <point x="0.0" y="-15.0" />
+      <point x="1519.8865544406954" y="620.0" />
+      <point x="1550.5897620674587" y="620.0" />
+      <point x="-14.599999999999994" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpace" target="models.board.FamilyMember">
+      <point x="-51.1875" y="-15.0" />
+      <point x="1985.5813804480213" y="730.0" />
+      <point x="1268.8508401549811" y="730.0" />
+      <point x="37.71428571428572" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.HarvestActionTest" target="controllers.Player">
+      <point x="18.875" y="-15.0" />
+      <point x="94.375" y="2310.0" />
+      <point x="70.28266249930357" y="2310.0" />
+      <point x="70.28266249930357" y="1930.0" />
+      <point x="448.03266249930334" y="1930.0" />
+      <point x="448.03266249930334" y="1770.0" />
+      <point x="1566.3647620674585" y="1770.0" />
+      <point x="-33.200000000000045" y="15.0" />
+    </edge>
+    <edge source="models.Requirements" target="models.Resources">
+      <point x="15.75" y="-15.0" />
+      <point x="3778.717921408118" y="120.0" />
+      <point x="2949.8507256861167" y="120.0" />
+      <point x="34.78125" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCardDeck" target="models.data_persistence.FileManagerImport">
+      <point x="-66.75" y="-15.0" />
+      <point x="4914.313754741452" y="1300.0" />
+      <point x="4642.344475686117" y="1300.0" />
+      <point x="52.0" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.cards.LeaderCard">
+      <point x="25.538461538461547" y="-15.0" />
+      <point x="1625.10322360592" y="1640.0" />
+      <point x="3599.967921408118" y="1640.0" />
+      <point x="-38.0" y="15.0" />
+    </edge>
+    <edge source="controllers.GameFacadeController" target="game.TheGame">
+      <point x="59.333333333333485" y="15.0" />
+      <point x="4788.324171408118" y="1910.0" />
+      <point x="4847.365838074786" y="1910.0" />
+      <point x="-6.4375" y="-15.0" />
+    </edge>
+    <edge source="views.cli.ConsoleInput" target="views.cli.ConsoleInputReadTask">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="game.network.client.RMIClient" target="controllers.Player">
+      <point x="-31.875" y="-15.0" />
+      <point x="765.9536148725003" y="2290.0" />
+      <point x="637.11182916597" y="2290.0" />
+      <point x="637.11182916597" y="1800.0" />
+      <point x="1582.9647620674587" y="1800.0" />
+      <point x="-16.600000000000023" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.PermanentEffects.PermanentEffect" target="controllers.effects.PermanentEffects.PermanentIncreaseAction">
+      <point x="8.875" y="-15.0" />
+      <point x="2996.807326007326" y="490.0" />
+      <point x="3032.842921408118" y="490.0" />
+      <point x="-48.5" y="15.0" />
+    </edge>
+    <edge source="models.board.ActionSpace" target="models.cards.DevelopmentCard">
+      <point x="36.5625" y="-15.0" />
+      <point x="2073.3313804480213" y="780.0" />
+      <point x="2920.342921408118" y="780.0" />
+      <point x="-30.0" y="15.0" />
+    </edge>
+    <edge source="controllers.effects.ImmediateEffects.ImmediateEffect" target="models.Points">
+      <point x="-40.28571428571428" y="-15.0" />
+      <point x="2571.7837614004025" y="510.0" />
+      <point x="2452.842921408118" y="510.0" />
+      <point x="2452.842921408118" y="210.0" />
+      <point x="2351.1528090194497" y="210.0" />
+      <point x="10.25" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCardDeckTest" target="models.cards.DevelopmentCard">
+      <point x="50.5" y="-15.0" />
+      <point x="5169.563754741452" y="1660.0" />
+      <point x="5212.563754741452" y="1660.0" />
+      <point x="5212.563754741452" y="730.0" />
+      <point x="3020.342921408118" y="730.0" />
+      <point x="70.0" y="15.0" />
+    </edge>
+    <edge source="models.board.FamilyMember" target="game.TheGame.COLORS">
+      <point x="44.0" y="-15.0" />
+      <point x="1275.1365544406954" y="630.0" />
+      <point x="1637.356428734125" y="630.0" />
+      <point x="-31.33333333333337" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCardDeck" target="models.cards.Deck">
+      <point x="22.25" y="-15.0" />
+      <point x="5003.313754741452" y="1450.0" />
+      <point x="5034.772088074785" y="1450.0" />
+      <point x="-6.333333333333371" y="15.0" />
+    </edge>
+    <edge source="game.Lobby" target="models.Resources">
+      <point x="27.0" y="-15.0" />
+      <point x="5153.009409340661" y="2060.0" />
+      <point x="5287.049036117922" y="2060.0" />
+      <point x="5287.049036117922" y="50.0" />
+      <point x="2966.4132256861167" y="50.0" />
+      <point x="51.34375" y="15.0" />
+    </edge>
+    <edge source="game.Client" target="views.cli.GameView">
+      <point x="-28.0" y="-15.0" />
+      <point x="4347.467921408118" y="2280.0" />
+      <point x="4166.557369451255" y="2280.0" />
+      <point x="13.5" y="15.0" />
+    </edge>
+    <edge source="models.board.PersonalBonusTile" target="models.Resources">
+      <point x="19.0" y="-15.0" />
+      <point x="3921.3679214081185" y="1210.0" />
+      <point x="3925.1573694512554" y="1210.0" />
+      <point x="3925.1573694512554" y="80.0" />
+      <point x="2956.4757256861167" y="80.0" />
+      <point x="41.40625" y="15.0" />
+    </edge>
+    <edge source="game.network.server.SocketServer" target="game.network.server.SocketServerThread">
+      <point x="45.75" y="-15.0" />
+      <point x="5522.090702784588" y="1840.0" />
+      <point x="5469.436492673993" y="1840.0" />
+      <point x="54.0" y="15.0" />
+    </edge>
+    <edge source="controllers.PlayerTest" target="models.Points">
+      <point x="-40.125" y="-15.0" />
+      <point x="482.15766249930334" y="180.0" />
+      <point x="2307.2242375908786" y="180.0" />
+      <point x="-33.678571428571445" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.cards.DevelopmentCard">
+      <point x="19.15384615384619" y="-15.0" />
+      <point x="1618.7186082213047" y="1580.0" />
+      <point x="1754.0307852099259" y="1580.0" />
+      <point x="1754.0307852099259" y="770.0" />
+      <point x="2910.342921408118" y="770.0" />
+      <point x="-40.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.LeaderCardDeck" target="models.cards.LeaderCard">
+      <point x="-28.399999999999977" y="-15.0" />
+      <point x="4124.567921408118" y="1590.0" />
+      <point x="3675.967921408118" y="1590.0" />
+      <point x="38.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.LeaderCard" target="models.Requirements">
+      <point x="22.799999999999955" y="-15.0" />
+      <point x="3660.767921408118" y="1440.0" />
+      <point x="3757.467921408118" y="1440.0" />
+      <point x="3757.467921408118" y="520.0" />
+      <point x="3731.467921408118" y="520.0" />
+      <point x="-31.5" y="15.0" />
+    </edge>
+    <edge source="views.gui.PlayerInfoController" target="controllers.Player">
+      <point x="-40.25" y="-15.0" />
+      <point x="1960.0244690271657" y="1830.0" />
+      <point x="1605.0980954007919" y="1830.0" />
+      <point x="5.533333333333303" y="15.0" />
+    </edge>
+    <edge source="controllers.ability.OncePerRoundAbility" target="controllers.game_course.Action">
+      <point x="41.25" y="-15.0" />
+      <point x="368.53266249930357" y="2160.0" />
+      <point x="730.7232142857142" y="2160.0" />
+      <point x="-23.714285714285722" y="15.0" />
+    </edge>
+    <edge source="game.network.server.SocketServer" target="controllers.RemotePlayer">
+      <point x="15.25" y="-15.0" />
+      <point x="5491.090702784588" y="2310.0" />
+      <point x="5500.840702784588" y="2310.0" />
+      <point x="5500.840702784588" y="1940.0" />
+      <point x="5416.299036117922" y="1940.0" />
+      <point x="42.0" y="15.0" />
+    </edge>
+    <edge source="models.cards.DevelopmentCard" target="controllers.effects.ImmediateEffects.ImmediateEffect">
+      <point x="-33.33333333333337" y="-15.0" />
+      <point x="2917.009588074785" y="620.0" />
+      <point x="2576.8194756861167" y="620.0" />
+      <point x="-35.25" y="15.0" />
+    </edge>
+    <edge source="controllers.Player" target="models.Resources">
+      <point x="12.769230769230717" y="-15.0" />
+      <point x="1612.3339928366893" y="1570.0" />
+      <point x="1747.6461698253106" y="1570.0" />
+      <point x="1747.6461698253106" y="350.0" />
+      <point x="2886.9132256861167" y="350.0" />
+      <point x="-28.15625" y="15.0" />
+    </edge>
+    <edge source="controllers.game_course.Action" target="models.Resources">
+      <point x="-16.59999999999991" y="-15.0" />
+      <point x="737.8375000000001" y="2060.0" />
+      <point x="727.8208333333337" y="2060.0" />
+      <point x="727.8208333333337" y="290.0" />
+      <point x="2867.0382256861167" y="290.0" />
+      <point x="-48.03125" y="15.0" />
+    </edge>
+    <edge source="models.board.TheCouncilPalaceTest" target="models.board.TheCouncilPalace">
+      <point x="-42.75" y="-15.0" />
+      <point x="3432.717921408118" y="1430.0" />
+      <point x="2272.0218566384974" y="1430.0" />
+      <point x="49.0" y="15.0" />
+    </edge>
+    <edge source="models.board.Defect" target="models.Resources">
+      <point x="10.625" y="-15.0" />
+      <point x="1394.1397620674586" y="1090.0" />
+      <point x="1433.6365544406954" y="1090.0" />
+      <point x="1433.6365544406954" y="320.0" />
+      <point x="2876.9757256861167" y="320.0" />
+      <point x="-38.09375" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.20000000000000015" x="1612.3333333333326" y="-2255.333333333325" />
+  <SelectedNodes>
+    <node>models.cards.Territory</node>
+    <node>controllers.game_course.Action</node>
+    <node>views.gui.GameBoardController</node>
+    <node>controllers.game_course.RoundTest</node>
+    <node>views.gui.GameBoard</node>
+    <node>models.cards.LeaderCardDeck</node>
+    <node>models.data_persistence.FileManagerImport</node>
+    <node>models.board.CustomPersonalBonusTile</node>
+    <node>models.board.Dice.COLORS</node>
+    <node>models.board.CoveringTiles</node>
+    <node>models.board.TheMarket</node>
+    <node>models.cards.DevelopmentCardDeckTest</node>
+    <node>models.data_persistence.FileManagerImportTest</node>
+    <node>models.board.TheCouncilPalaceTest</node>
+    <node>models.cards.Venture</node>
+    <node>controllers.game_course.HarvestActionTest</node>
+    <node>models.board.ActionSpaceTest</node>
+    <node>game.network.client.SocketClient</node>
+    <node>views.cli.ConsoleInputReadTask</node>
+    <node>controllers.RemotePlayer</node>
+    <node>views.gui.GuiUtil</node>
+    <node>models.board.Defect</node>
+    <node>views.gui.PlayerInfoController</node>
+    <node>models.Requirements</node>
+    <node>models.cards.Deck</node>
+    <node>models.cards.LeaderCard</node>
+    <node>controllers.GameFacadeControllerTest</node>
+    <node>models.board.FamilyMember</node>
+    <node>game.network.server.ServerInterface</node>
+    <node>views.cli.ConsoleInput</node>
+    <node>game.network.protocol.RMIProtocol</node>
+    <node>controllers.effects.ImmediateEffects.ImmediateEffect</node>
+    <node>game.Lobby</node>
+    <node>controllers.ability.OncePerRoundAbility</node>
+    <node>models.board.PersonalBonusTile</node>
+    <node>controllers.Player</node>
+    <node>models.Resources</node>
+    <node>controllers.game_course.ActionTest</node>
+    <node>models.board.Dice</node>
+    <node>controllers.effects.ImmediateEffects.ImmediateTakeCard</node>
+    <node>controllers.ability.Gain</node>
+    <node>controllers.ability.PermanentAbility</node>
+    <node>models.cards.Character</node>
+    <node>controllers.effects.PermanentEffects.PermanentIncreaseAction</node>
+    <node>models.cards.Card</node>
+    <node>models.board.PersonalBoard</node>
+    <node>game.TheGameTest</node>
+    <node>models.board.Board</node>
+    <node>game.Client.FSMClient</node>
+    <node>models.board.DiceTest</node>
+    <node>controllers.GameFacadeController</node>
+    <node>models.cards.Building</node>
+    <node>game.AdvancedGame</node>
+    <node>views.cli.GameView</node>
+    <node>game.Server</node>
+    <node>models.board.DefectTest</node>
+    <node>views.gui.GraphicalUserInterface</node>
+    <node>models.Config</node>
+    <node>game.Client</node>
+    <node>models.Points</node>
+    <node>controllers.effects.PermanentEffects.PermanentEffect</node>
+    <node>controllers.PlayerTest</node>
+    <node>controllers.game_course.Period</node>
+    <node>models.GameFacadeModelTest</node>
+    <node>models.board.ExcommunicationTile</node>
+    <node>views.gui.PlayerInfo</node>
+    <node>models.board.Tower</node>
+    <node>models.GameFacadeModel</node>
+    <node>game.network.server.SocketServer</node>
+    <node>game.network.client.RMIClient</node>
+    <node>controllers.game_course.HarvestAction</node>
+    <node>models.cards.DevelopmentCard</node>
+    <node>models.board.HarvestArea</node>
+    <node>models.board.ProductionArea</node>
+    <node>models.cards.DeckTest</node>
+    <node>game.network.protocol.NanoHttpdApp</node>
+    <node>controllers.effects.ImmediateEffects.PointsForCharacters</node>
+    <node>models.board.TheCouncilPalace</node>
+    <node>game.network.protocol.ProtocolCommands</node>
+    <node>models.board.ActionSpace</node>
+    <node>models.PointsTest</node>
+    <node>models.cards.DevelopmentCardDeck</node>
+    <node>game.TheGame.COLORS</node>
+    <node>game.network.server.RMIServer</node>
+    <node>controllers.effects.PermanentEffects.Exchange</node>
+    <node>game.TheGame</node>
+    <node>controllers.game_course.ProductionAction</node>
+    <node>controllers.game_course.Round</node>
+    <node>game.network.client.ClientInterface</node>
+    <node>game.network.server.SocketServerThread</node>
+    <node>game.network.server.RMIProtocolImpl</node>
+    <node>controllers.ability.SpecialAbility</node>
+    <node>models.ResourcesTest</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
