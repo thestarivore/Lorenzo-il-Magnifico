@@ -200,7 +200,6 @@ public class GameFacadeController {
             if (playersTurnNum != -1)
                 getCurrentRound().updateActionPlayerTurn(playersTurnNum);
         }
-
         return actionExecute;
     }
 
