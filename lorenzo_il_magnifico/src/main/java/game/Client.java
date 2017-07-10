@@ -69,6 +69,10 @@ public class Client {
      */
     private static int ignoreAction;
 
+    /**
+     *
+     */
+    private static boolean suspended = false;
 
 
     /****************************Constants****************************/
@@ -254,29 +258,35 @@ public class Client {
                     case SEND_ACTION: {
                         int actionType = -1;
                         //Control if is my turn
-                        if (myTurn && ignoreAction-- == 0) {
+                        if (!suspended && myTurn && ignoreAction-- == 0) {
                             //Get witch action user want to perform
-                            actionType = client.getActionType();
-                            //Get action from user and send it to the server
-                            switch (actionType) {
-                                case 0: {
-                                    Action action = client.getAction(actionType);
-                                    client.sendAction(action);
-                                    //myTurn = false;
+                            try {
+                                actionType = client.getActionType();
+
+                                //Get action from user and send it to the server
+                                switch (actionType) {
+                                    case 0: {
+                                        Action action = client.getAction(actionType);
+                                        client.sendAction(action);
+                                        //myTurn = false;
+                                    }
+                                    break;
+                                    case 1: {
+                                        Action action = client.getCouncilAction(actionType);
+                                        client.sendAction(action);
+                                        //myTurn = false;
+                                    }
+                                    break;
+                                    case 2: {
+                                        Action action = client.getHarvestAction(actionType);
+                                        client.sendAction(action);
+                                        //myTurn = false;
+                                    }
+                                    break;
                                 }
-                                break;
-                                case 1: {
-                                    Action action = client.getCouncilAction(actionType);
-                                    client.sendAction(action);
-                                    //myTurn = false;
-                                }
-                                break;
-                                case 2: {
-                                    Action action = client.getHarvestAction(actionType);
-                                    client.sendAction(action);
-                                    //myTurn = false;
-                                }
-                                break;
+                            }
+                            catch (Exception e){
+                                e.printStackTrace();
                             }
                             ignoreAction = 3;
                         }
@@ -302,6 +312,24 @@ public class Client {
 
         //Cancel the timer at the end
         //timer.cancel();
+    }
+
+    /**
+     * Manage Reconnection when a player has been suspended,
+     * or when network collapsed.
+     */
+    public static void manageReconnection() {
+        String choice = gameView.askIfAnyReconnect();
+        if(choice.equals("y")) {
+            client = SocketClient.getInstance(IP, SOCKET_PORT);
+            client.setGameView(gameView);
+            client.setPlayer(player);
+            clientThread = new Thread(client);
+            clientThread.start();
+        }
+        else if(choice.equals("n")) {
+           //end of this client
+        }
     }
 
     /**
@@ -339,6 +367,14 @@ public class Client {
      */
     public static void setIgnoreAction() {
        // ignoreAction = false;
+    }
+
+    /**
+     * Suspend this client
+     * @param suspend
+     */
+    public static void suspend(boolean suspend) {
+        suspended = suspend;
     }
 
 

@@ -35,7 +35,11 @@ public class SocketServerThread extends Thread{
      */
     private List<Object> cmdObjectList;
 
-
+    /**
+     * Basic Constructor
+     * @param remotePlayer
+     * @param clientSocket
+     */
     public SocketServerThread(RemotePlayer remotePlayer, Socket clientSocket) {
         this.remotePlayer = remotePlayer;
         this.socket = clientSocket;
@@ -43,6 +47,9 @@ public class SocketServerThread extends Thread{
         this.cmdObjectList = new ArrayList<Object>();
     }
 
+    /**
+     * Thread Running method
+     */
     public void run() {
         in = null;
         out = null;
@@ -81,6 +88,17 @@ public class SocketServerThread extends Thread{
             }
         }
 
+    }
+
+    /**
+     * Method to disconnect the socket
+     */
+    public void disconnect(){
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

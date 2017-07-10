@@ -5,6 +5,7 @@ import controllers.GameFacadeController;
 import controllers.Player;
 
 import controllers.RemotePlayer;
+import game.network.protocol.ProtocolCommands;
 import models.GameFacadeModel;
 import game.network.client.ClientInterface;
 import game.network.server.ServerInterface;
@@ -27,6 +28,11 @@ public class TheGame implements Serializable {
      * List of the players in this game
      */
     private List<RemotePlayer> players;
+
+    /**
+     * List of the suspended players in this game
+     */
+    private List<RemotePlayer> suspendedPlayers;
 
     /**
      * The Facade Model of the MVC
@@ -110,6 +116,7 @@ public class TheGame implements Serializable {
      */
     public TheGame() {
         this.players = new ArrayList<RemotePlayer>();
+        this.suspendedPlayers = new ArrayList<RemotePlayer>();
 
         //Initialize colors available for players
         colorAvailable = new ArrayList<COLORS>();
@@ -289,7 +296,6 @@ public class TheGame implements Serializable {
         Timer timer = new Timer();
 
         // Schedule a timer that ticks every 100ms, it's used as time base
-        // for the server's automata(final state machine).
         timer.schedule( new TimerTask() {
             //Get timeout from the configuration instance
             int timeout = getTheModel().getGameConfig().getTimeOutGame(); //in ms
@@ -317,6 +323,7 @@ public class TheGame implements Serializable {
                         //Timeout finished
                         else {
                             startGameWithCurrentPlayers();
+                            startPlayerMoveTimeOut();
                         }
                     }
                 }
@@ -330,48 +337,76 @@ public class TheGame implements Serializable {
     /**
      * Starts a Player Move timeout
      */
-   /* private void startPlayerMoveTimeOut() {
+    private void startPlayerMoveTimeOut() {
         //Create new timer
         Timer timer = new Timer();
 
         // Schedule a timer that ticks every 100ms, it's used as time base
-        // for the server's automata(final state machine).
         timer.schedule( new TimerTask() {
             //Get timeout from the configuration instance
-            int timeout = getTheModel().getGameConfig().getTimeOutGame(); //in ms
-            boolean startTimeout = false;
+            //This timeout is the timeout that each player has for doing his turn
+            int timeout = getTheModel().getGameConfig().getTimeOutMove(); //in ms
+            RemotePlayer lastPlayer = getPlayer(FIRST_PLAYER);
+            RemotePlayer currentPlayer = getPlayer(FIRST_PLAYER);
 
             //Run Function
             public void run() {
-                //If game isn't started yet, do the timeout thing
-                if(!isGameStarted()) {
-                    //Wait for 2 or more players, before starting the controller
-                    if (getNumberOfPlayers() >= 2) {
-                        startTimeout = true;
+                if(isGameStarted()){
+                    // Get current player
+                    currentPlayer = (RemotePlayer) theController.getPlayerInTurn();
 
-                        //Stops if we've already reached the maximum number of players
-                        if(getNumberOfPlayers() == MAXIMUM_PLAYERS_NUMBER){
-                            startGameWithCurrentPlayers();
-                        }
+                    // If the current player has changed since last time then
+                    // player turn changed and we need to reset the timeout
+                    if(currentPlayer.isSameAs(lastPlayer) == false){
+                        timeout = getTheModel().getGameConfig().getTimeOutMove();
+                        lastPlayer = currentPlayer;
                     }
 
-                    //If timeout control is enabled
-                    if (startTimeout) {
-                        if (timeout > 0) {
-                            timeout -= 100;
-                        }
-                        //Timeout finished
-                        else {
-                            startGameWithCurrentPlayers();
-                        }
+                    // Timeout counter
+                    if (timeout > 0) {
+                        timeout -= 100;
                     }
-                }
-                else{
-                    timer.cancel();
+                    //Timeout finished
+                    else {
+                        // Alert all players about their contender disconnection
+                        int numPlayers = getNumberOfPlayers();
+                        for(int i = 0; i < numPlayers; i++){
+                            //Get player of this index
+                            RemotePlayer player = getPlayer(i);
+                            player.sendCmdToClient(ProtocolCommands.PLAYER_SUSPENDED.getCommand(), currentPlayer);
+                        }
+
+                        //Suspend Player
+                        //currentPlayer.suspend();
+                        suspendPlayer(currentPlayer);
+                        playersAllowed--;
+
+                        //Reset timeout
+                        int timeout = getTheModel().getGameConfig().getTimeOutMove(); //in ms
+
+                        //Update Turns
+                        getTheController().getCurrentRound().updateActionPlayerTurn();
+
+                    }
                 }
             }
         }, 0, 100);
-    }*/
+    }
+
+    /**
+     * Suspend player in this game. Basically move
+     * it from the list of players to the list of
+     * suspended players.
+     * @param currentPlayer
+     */
+    private void suspendPlayer(RemotePlayer currentPlayer) {
+        //Get player that has been suspended
+        for(int i = 0; i < getNumberOfPlayers(); i++){
+            if(players.get(i).isSameAs(currentPlayer)){
+                suspendedPlayers.add(players.remove(i));
+            }
+        }
+    }
 
     /**
      * Starts this game with the current number uf players connected

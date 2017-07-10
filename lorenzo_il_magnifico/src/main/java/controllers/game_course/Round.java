@@ -305,12 +305,27 @@ public class Round {
 
     /**
      * Update Player Turn to do an action
+     */
+    public void updateActionPlayerTurn() {
+        //Change player turn with the next one
+        //If was the last player just let the round finish
+        if(playerTurn >= controller.getGame().getNumberOfPlayers()-1){
+            actionLoops++;
+            playerTurn = TheGame.FIRST_PLAYER;
+        }
+        else {
+            playerTurn++;
+        }
+    }
+
+    /**
+     * Update Player Turn to do an action
      * @param playerInTurn integer index/turn of the player
      */
     public void updateActionPlayerTurn(int playerInTurn) {
         //Change player turn with the next one
         //If was the last player just let the round finish
-        if(playerInTurn == controller.getGame().getNumberOfPlayers()-1){
+        if(playerInTurn >= controller.getGame().getNumberOfPlayers()-1){
             actionLoops++;
             playerTurn = TheGame.FIRST_PLAYER;
         }

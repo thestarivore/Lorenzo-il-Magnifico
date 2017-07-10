@@ -12,6 +12,7 @@ import models.cards.DevelopmentCard;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.Integer.parseInt;
 
@@ -161,6 +162,22 @@ public class GameView {
      */
     public String askForChurchSustain() {
         printLine("Choose to sustain or not the church(y - Yes | n - No): ");
+        ArrayList<String> list = new ArrayList<String>() {
+            {
+                add("y");
+                add("n");
+            }
+        };
+        return getValidParameter(list);
+    }
+
+    /**
+     * Ask if the user wants to attempt a reconnect
+     * @return the protocol chosen
+     */
+    public String askIfAnyReconnect() {
+        printLine("---------------------------------------------");
+        printLine("Do you want to reconnect?(y - Yes | n - No): ");
         ArrayList<String> list = new ArrayList<String>() {
             {
                 add("y");
@@ -520,8 +537,14 @@ public class GameView {
             //Get line
             line = getLine();
 
-            //Validity check
-            validChoice = choices.contains(line);
+            //If special character received, it means that timeout occurred
+            if(line.equals("TIMEOUT_OCCURRED!")){
+                validChoice = true;
+            }
+            else {
+                //Validity check
+                validChoice = choices.contains(line);
+            }
 
             //Show Warning
             if(!validChoice){
@@ -537,10 +560,23 @@ public class GameView {
      * @return String of the input line
      */
     private String getLine(){
-        Scanner input;
+        //Scanner input;
+        //input = new Scanner(System.in);
+        //return input.nextLine();
 
-        input = new Scanner(System.in);
-        return input.nextLine();
+        //Use consoleInput class to get input with a timeout
+        ConsoleInput con = new ConsoleInput(
+                20000,
+                TimeUnit.MILLISECONDS
+        );
+        String input = "TIMEOUT_OCCURRED!";
+        try {
+            input = con.readLine();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return  input;
     }
 
 
@@ -876,8 +912,25 @@ public class GameView {
         for (int i = 0; i < ACTION_SPACE_HEIGHT - 1; i++)
             printLine(String.format("%180s", marketSpace[i]));
         printLine(String.format("%180s", endLine));
+    }
 
+    /**
+     * Print the message for player suspended
+     * @param name
+     */
+    public void printPlayerSuspended(String name) {
+        printLine("######################################");
+        printLine("Player "+name+" has been suspended! ");
+        printLine("######################################");
+    }
 
+    /**
+     * Print the message for player suspended
+     */
+    public void printYouBeenSuspended() {
+        printLine("######################################");
+        printLine("You've been suspended! ");
+        printLine("######################################");
     }
 
     /**

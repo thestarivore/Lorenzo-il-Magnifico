@@ -79,4 +79,10 @@ public class RemotePlayer extends Player {
         remoteClientThread.sendCmdToClient(cmd, object);
     }
 
+    /**
+     * Suspend player and disconnect him
+     */
+    public void suspend(){
+        remoteClientThread.disconnect();
+    }
 }

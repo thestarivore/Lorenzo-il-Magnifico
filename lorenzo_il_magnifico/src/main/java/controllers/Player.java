@@ -53,7 +53,6 @@ public class Player implements Serializable {
 
     /**
      * Constructor with Player's Name
-     *
      * @param name
      */
     public Player(String name) {
@@ -190,8 +189,6 @@ public class Player implements Serializable {
 
     public void setTurnOrder(int turnOrder) {
         this.turnOrder = turnOrder;
-
-        
     }
 
     @Override
