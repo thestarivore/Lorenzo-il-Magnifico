@@ -76,60 +76,6 @@ public class GameFacadeController {
         return facadeModel;
     }
 
-
-
-
-
-
-
-
-
-
-
-    /**
-     * If production choice, request to the player whitch family member use, and select the corresponding action.
-     * @param player
-     * @return
-     */
-    /*public boolean productionActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
-
-        while(!(valid)) {
-            FamilyMember familyMember = selectFamilyMember(player, type, servant);
-            if (checkFamilyMemberChoice(familyMember)) {
-                productionAction.placeFamilyMemberOnProductionArea(familyMember);
-                valid = true;
-            }
-        }
-
-        return true;
-    }*/
-
-
-
-    /*public void marketActionChoice(Player player, int type, int servant) {
-        boolean valid = false;
-
-        while (!(valid)) {
-                FamilyMember familyMember = selectFamilyMember(player, type, servant);
-                if (checkFamilyMemberChoice(familyMember)){
-                }
-            }
-        }*/
-
-
-
-
-
-
-
-    public boolean performHarvestAction(Player player, boolean check){
-        if (check) {
-        }
-        return true;
-    }
-
-
     /**
      * Get Period instance at the current index in the controller
      * @return Period instance
@@ -237,7 +183,7 @@ public class GameFacadeController {
      * Manage action sent from the client Player
      * @param action Action instance of the action to manage
      */
-    public void managePlayerAction(Action action) {
+    public boolean managePlayerAction(Action action) {
         boolean actionExecute = false;
 
         //Set board reference and execute action
@@ -245,6 +191,9 @@ public class GameFacadeController {
         for (int i = 0; i < game.getPlayersAllowed(); i++)
             if (game.getPlayer(i) == getPlayerInTurn())
         actionExecute = action.execute(game.getPlayer(i));
+        System.err.println("manageplayeraction");
+        System.err.println(actionExecute);
+
 
         GameView gameView = new GameView();
         gameView.printAllBoard(getPlayerInTurn(), getBoard());
@@ -258,6 +207,7 @@ public class GameFacadeController {
                 getCurrentRound().updateActionPlayerTurn(playersTurnNum);
         }
 
+        return actionExecute;
     }
 
     /**

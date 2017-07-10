@@ -344,12 +344,15 @@ public class SocketServerThread extends Thread{
         //Get Action from Object
         Action action = (Action) obj;
 
+        boolean actionExecute;
         //Send Action to the controller so that he can manage it
-        getTheController().managePlayerAction(action);
-
-
-        //Send the ACTION_PROCESSED command back + the Player object whose turn is
-        respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
+        actionExecute = getTheController().managePlayerAction(action);
+        if (actionExecute) {
+            //Send the ACTION_PROCESSED command back + the Player object whose turn is
+            respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), remotePlayer);
+        } else {
+            respondToClient(new String(ProtocolCommands.ACTION_PROCESSED.getCommand()), new String("[WARNING] Action not performed or not ended!"));
+        }
     }
 
     /**

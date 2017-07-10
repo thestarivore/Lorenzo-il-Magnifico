@@ -72,7 +72,7 @@ public class ImmediateEffect implements Serializable {
         return immediateTakeCard;
     }
 
-    public PointsForCharacters pointsForCharacters() {
+    public PointsForCharacters getPointsForCharacters() {
         return pointsForCharacters;
     }
 

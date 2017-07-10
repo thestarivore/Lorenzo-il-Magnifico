@@ -10,7 +10,6 @@ import models.board.Board;
 import models.board.Dice;
 import models.board.FamilyMember;
 import models.cards.DevelopmentCard;
-import utility.Constants;
 
 import java.io.Serializable;
 
@@ -32,16 +31,15 @@ public class Action implements Serializable {
     protected int servants;
     private int tower;
     private int space;
-    private int councilPrivilegeChoice;
-    private int towerImmediateEffect;
-    private int spaceImmediateEffect;
-    private int servantImmediateEffect;
+    private int[] councilPrivilegeChoice;
+    private int marketChoice;
     private int actionChoice;
 
 
     //Constants
-    public final static int NUMBER_OF_ACTION_INFO = 8;
-    public final static int NUMBER_OF_COUNCIL_INFO = 3;
+    public final static int NUMBER_OF_ACTION_INFO = 7;
+    public final static int NUMBER_OF_COUNCIL_INFO = 5;
+    public final static int NUMBER_OF_MARKET_INFO = 3;
     public final static int NUMBER_OF_COUNCIL_PRIVILEGE = 5;
     public final static int NUMBER_OF_IMMEDIATE_TAKE_CARD_INFO = 3;
     public final static int IMMEDIATE_TAKE_CARD_TYPE = 6;
@@ -59,19 +57,22 @@ public class Action implements Serializable {
 
         this.familyMember = userInfo[0];
         this.servants = userInfo[1];
+        this.councilPrivilegeChoice = new int[Action.NUMBER_OF_ACTION_INFO];
         this.actionChoice = actionChoice;
 
         switch (actionChoice) {
             case 0: {
                 this.tower = userInfo[2];
                 this.space = userInfo[3];
-                this.councilPrivilegeChoice = userInfo[4];
-                this.towerImmediateEffect = userInfo[5];
-                this.spaceImmediateEffect = userInfo[6];
-                this.servantImmediateEffect = userInfo[7];
+                this.councilPrivilegeChoice[0] = userInfo[4];
+                this.councilPrivilegeChoice[1] = userInfo[5];
+                this.councilPrivilegeChoice[2] = userInfo[6];
             }break;
             case 1: {
-                this.councilPrivilegeChoice = userInfo[2];
+                this.councilPrivilegeChoice[0] = userInfo[2];
+            }break;
+            case 4: {
+                this.marketChoice = userInfo[2];
             }break;
             case 6: {
                 this.tower = userInfo[0];
@@ -110,6 +111,41 @@ public class Action implements Serializable {
     }
 
     /**
+     * This method should execute the action registered in this class,
+     * on the game reference passed.
+     * This method should only be called on the Server side and only
+     * when we have the game reference of the game which this action is
+     * related to.
+     */
+    public boolean execute(RemotePlayer player) {
+        boolean check = false;
+
+        //Tower choice
+        if(actionChoice == 0 && checkCardRequest(player, board.getTower(tower).getSpace(space).getCard())) {
+            //Perform tower action choice
+            check = towerAction(player, tower, space, familyMember, servants);
+            //If there is Bonus Card Immediate Effect, ask player for info
+            if (check)
+                player.sendCmdToClient(new String(ProtocolCommands.ASK_IMMEDIATE_TAKE_BONUS.getCommand()));
+            return !check;
+        }
+
+        //The Council Palace choice
+        if(actionChoice == 1) {
+            if (councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice[0]))
+                check = performCouncilPalace(player, councilPrivilegeChoice[0]);
+        }
+
+        //The Market choice
+        if(actionChoice == 4) {
+            if (marketActionChoice(player, familyMember, servants))
+                check = performMarketChoice(player, marketChoice);
+        }
+
+        return check;
+    }
+
+    /**
      * Place family member on Council Palace action space.
      * @param familyMember
      * @return
@@ -131,7 +167,7 @@ public class Action implements Serializable {
      * @param player
      * @return
      */
-    public boolean placeFamilyMemberOnTower(int tower, int space, FamilyMember famMember, Player player) {
+    public boolean placeFamilyMember(int tower, int space, FamilyMember famMember, Player player) {
 
         boolean free;
 
@@ -158,20 +194,60 @@ public class Action implements Serializable {
         return free;
     }
 
-    /*public boolean placeFamilyMemberMarket(FamilyMember neutralFamilyMember, Player player, int space) {
-        boolean free;
+    /**
+     * Select family member and check if Action Space request is satisfied
+     * @param player
+     * @param type
+     * @param servant
+     * @return
+     */
+    public boolean marketActionChoice(Player player, int type, int servant) {
+        boolean valid = false;
+        FamilyMember familyMember = selectFamilyMember(player, type, servant);
 
+        if (checkFamilyMemberChoice(familyMember))
+           valid = placeFamilyMemberMarket(familyMember, player, marketChoice);
+        return valid;
+    }
+
+    /**
+     * Place familyMember on Market Action Space
+     * @param familyMember
+     * @param player
+     * @param space
+     * @return
+     */
+    public boolean placeFamilyMemberMarket(FamilyMember familyMember, Player player, int space) {
+        boolean free;
         free = checkFreeMarketSpace(space);
 
         if (free)
-            board.getMarket().getSpace(space).setFamilyMember(neutralFamilyMember);
+            board.getMarket().getSpace(space).setFamilyMember(familyMember);
 
         return free;
-    }*/
+    }
 
-    /*public boolean checkFreeMarketSpace(int space) {
+    /**
+     * Perform Market Action choice
+     * @param player
+     * @param marketChoice
+     * @return
+     */
+    public boolean performMarketChoice(Player player, int marketChoice) {
+        //Get resources or points to add to the Player
+        Resources resToAdd = board.getMarket().getSpace(marketChoice).getResourcesBonus();
+        Points pointsToAdd = board.getMarket().getSpace(marketChoice).getBonusPoints();
+
+        //Add resources or points to the Player
+        player.getRes().addResources(resToAdd);
+        player.getPoints().addPoints(pointsToAdd);
+
+        return true;
+    }
+
+    public boolean checkFreeMarketSpace(int space) {
         return (!(board.getMarket().getSpace(space).isOccupied()));
-    }*/
+    }
 
     /**
      * Check if action space selected is free.
@@ -222,38 +298,7 @@ public class Action implements Serializable {
         this.game = game;
     }
 
-    /**
-     * This method should execute the action registered in this class,
-     * on the game reference passed.
-     * This method should only be called on the Server side and only
-     * when we have the game reference of the game which this action is
-     * related to.
-     */
-    public boolean execute(RemotePlayer player) {
-        boolean isImmediateTakeCard;
-        RemotePlayer remotePlayer = player;
 
-        //Tower choice
-        if(actionChoice == 0){ //#&& checkCardRequest(player,board.getTower(tower).getSpace(space).getCard())) {
-            //Perform tower action choice
-            towerAction(player, tower, space, familyMember, servants);
-            //performTowerAction(player, actionSpaceID,)
-            isImmediateTakeCard = performTowerAction(player, tower, space);
-            //If there is Bonus Card Immediate Effect, ask player for info
-            if (isImmediateTakeCard)
-                player.sendCmdToClient(new String(ProtocolCommands.ASK_IMMEDIATE_TAKE_BONUS.getCommand()));
-            return !isImmediateTakeCard;
-        }
-
-        //The Council Palace choice
-        if(actionChoice == 1) {
-            if (councilPalaceAction(player, familyMember, servants, councilPrivilegeChoice))
-                performCouncilPalace(player, councilPrivilegeChoice);
-        }
-
-
-        return true;
-    }
 
     /**
      * If requirements are satisfied, place family member on Council Palace.
@@ -294,12 +339,15 @@ public class Action implements Serializable {
         DevelopmentCard developmentCard = board.getTower(tower).getSpace(space).getCard();
 
         //Check if the family member satisfied action space request and if Player satisfied card request
-        //#if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space) && checkCardRequest(player, developmentCard))
-            check = placeFamilyMemberOnTower(tower, space, familyMemberSelected, player);
+        if (checkFamilyMemberTowerChoice(familyMemberSelected, tower, space)) {
+            if (placeFamilyMember(tower, space, familyMemberSelected, player))
+                check = performTowerAction(player, tower, space);
+        }
 
         //Add bonus space to the player if there is bonus on action space
         if (check && board.getTower(tower).getSpace(space).checkBonus())
             board.getTower(tower).getSpace(space).addBonus(player);
+
         return check;
     }
 
@@ -386,12 +434,39 @@ public class Action implements Serializable {
             devCard.removeRes(player);
             devCard.getImmediateEffect().addPoints(player);
             devCard.getImmediateEffect().addResources(player);
+
             //Perform immediate Effect
+            //Privilege Effect
             if (devCard.getImmediateEffect().getPrivilege()){
-                performCouncilPalace(player, councilPrivilegeChoice);
+                for (int i = 0; i < devCard.getImmediateEffect().getNumberOfPrivilege(); i++)
+                    performCouncilPalace(player, councilPrivilegeChoice[i]);
             }
+            //Bonus Card Effect
             if (devCard.getImmediateEffect().getImmediateTakeCard() != null)
                 isImmediateTakeCard = true;
+            //Points for Card Effect
+            if (devCard.getImmediateEffect().getPointsForCharacters() != null) {
+                int cardType = devCard.getImmediateEffect().getPointsForCharacters().getTowerNum();
+                int numberOfCard = -1;
+                switch (cardType) {
+                    case 0: {
+                        numberOfCard = player.getPersonalBoard().getTerritories().size();
+                    } break;
+                    case 1: {
+                        numberOfCard = player.getPersonalBoard().getCharacters().size();
+                    }break;
+                    case 2: {
+                        numberOfCard = player.getPersonalBoard().getBuildings().size();
+                    }break;
+                    case 3: {
+                        numberOfCard = player.getPersonalBoard().getVentures().size();
+                    }break;
+                }
+                if(numberOfCard != -1)
+                    for (int i = 0; i < numberOfCard; i++)
+                        player.getPoints().addPoints(devCard.getImmediateEffect().getPointsForCharacters().getCharacterPoints());
+            }
+
 
             return isImmediateTakeCard;
     }
@@ -439,11 +514,14 @@ public class Action implements Serializable {
         boolean valid = false;
         //Get dice info of Bonus Card Immediate Effect
         int characterSize = player.getPersonalBoard().getCharacters().size();
-        DevelopmentCard card = player.getPersonalBoard().getCharacter(characterSize - 1);
+        DevelopmentCard previousCard = player.getPersonalBoard().getCharacter(characterSize - 1);
+        //Get the Bonus Sale offer
+        Resources sale = player.getPersonalBoard().getCharacter(characterSize - 1).getImmediateEffect().getImmediateTakeCard().getDiscount();
         //Perform tower action, without place family member
-        if (checkBonusCardChoice(card, tower, space, servants) && checkCardRequest(player, card)) {
+        if (checkBonusCardChoice(previousCard, tower, space, servants) && checkBonusCardRequest(player, board.getTower(tower).getSpace(space).getCard(), sale)) {
             valid = performTowerAction(player, tower, space);
             board.getTower(tower).getSpace(space).setNoCard();
+            board.getTower(tower).getSpace(space).addBonus(player);
             }
 
         return !valid;
@@ -463,6 +541,28 @@ public class Action implements Serializable {
         if (valueAction >= board.getTower(tower).getSpace(space).getDiceCost())
             return true;
         return false;
+    }
+
+    public boolean checkBonusCardRequest(Player player, DevelopmentCard card, Resources sale) {
+        Resources cardRes = card.getCost();
+        //Remove the Sale offer of the Card
+        cardRes.removeResources(sale);
+        Resources playerRes = player.getRes();
+        Points cardPoints = card.getPointsCost();
+        Points playerPoints = player.getPoints();
+        return ((playerRes.resIsGreater(cardRes)) && (playerPoints.pointsIsGreater(cardPoints)));
+    }
+
+    /**
+     * Check if family member value is greater than 1.
+     * @param familyMember
+     * @return
+     */
+    public boolean checkFamilyMemberChoice(FamilyMember familyMember) {
+        boolean valid = false;
+        if (familyMember.getValue() >= 1)
+            valid = true;
+        return valid;
     }
 
 

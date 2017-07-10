@@ -8,7 +8,7 @@ import java.util.Random;
  * Created by Eduard Chirica on 5/7/17.
  */
 public class Dice implements Serializable {
-    private Color color;
+    private COLORS color;
     private int number;
 
     /**
@@ -55,22 +55,12 @@ public class Dice implements Serializable {
         return this.number;
     }
 
-    public Color getColor() {
+    public COLORS getColor() {
         return color;
     }
 
-    public void setColor(int i) {
-        switch(i) {
-            case 0:
-                this.color = Color.BLACK;
-                break;
-            case 1:
-                this.color = Color.ORANGE;
-                break;
-            default:
-                this.color = Color.WHITE;
-                break;
-        }
+    public void setColor(COLORS color) {
+        this.color = color;
     }
 
     public int getNumber() {

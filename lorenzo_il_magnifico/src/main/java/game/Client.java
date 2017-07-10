@@ -283,6 +283,15 @@ public class Client {
                                         //myTurn = false;
                                     }
                                     break;
+                                    case 3: {
+                                        Action action = client.getProductionAction(actionType);
+                                        client.sendAction(action);
+                                    }
+                                    break;
+                                    case 4: {
+                                        Action action = client.getMarketAction(actionType);
+                                        client.sendAction(action);
+                                    }break;
                                 }
                             }
                             catch (Exception e){

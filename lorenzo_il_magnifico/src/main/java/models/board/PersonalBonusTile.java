@@ -22,6 +22,21 @@ public class PersonalBonusTile implements Serializable {
         this.productionPersonalResources = new Resources();
     }
 
+    public Resources getHarvestPersonalResources() {
+        return harvestPersonalResources;
+    }
+
+    public Points getHarvestPersonalPoints() {
+        return harvestPersonalPoints;
+    }
+
+    public Resources getProductionPersonalResources() {
+        return productionPersonalResources;
+    }
+    public Points getProductionPersonalPoints() {
+        return productionPersonalPoints;
+    }
+
     public void setHarvestPersonalResources(Resources harvestPersonalResources) {
         this.harvestPersonalResources = harvestPersonalResources;
     }

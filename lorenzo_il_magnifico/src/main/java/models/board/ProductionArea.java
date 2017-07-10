@@ -37,8 +37,8 @@ public class ProductionArea implements Serializable {
         return multipleSpace.get(i);
     }
 
-    public void addMultipleSpace(ActionSpace singleSpace) {
-        this.multipleSpace.add(singleSpace);
+    public void addMultipleSpace() {
+        this.multipleSpace.add(new ActionSpace());
     }
 
     public void setMultipleSpace(List<ActionSpace> multipleSpace) {

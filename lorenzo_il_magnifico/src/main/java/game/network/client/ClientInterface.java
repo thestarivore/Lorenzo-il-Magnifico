@@ -93,7 +93,11 @@ public interface ClientInterface extends Runnable {
      */
     public Action getHarvestAction(int actionType);
 
+    public Action getProductionAction(int actionType);
+
     public Action getCouncilAction(int actionType);
+
+    public Action getMarketAction(int actionType);
 
     public Action getImmediateTakeCard();
 
