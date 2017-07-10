@@ -1,11 +1,16 @@
 package game.network.server;
 
 
+import controllers.GameFacadeController;
+import controllers.Player;
 import controllers.RemotePlayer;
 
+import controllers.game_course.Action;
 import game.Lobby;
 import game.TheGame;
 import game.network.protocol.RMIProtocol;
+import models.board.Board;
+
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -48,7 +53,7 @@ public class RMIProtocolImpl  extends UnicastRemoteObject implements RMIProtocol
      * @param id
      */
     @Override
-    public String[] getAvailableColors(int id) {
+    public String[] getAvailableColors(int id) throws RemoteException{
         //Get remote player by id
         RemotePlayer player = getRemotePlayerById(id);
 
@@ -67,7 +72,7 @@ public class RMIProtocolImpl  extends UnicastRemoteObject implements RMIProtocol
      * @param color
      */
     @Override
-    public void setPlayerColor(int id, String color) {
+    public void setPlayerColor(int id, String color) throws RemoteException{
         //Get Color
         TheGame.COLORS newColor = TheGame.COLORS.valueOf(color);
 
@@ -82,11 +87,45 @@ public class RMIProtocolImpl  extends UnicastRemoteObject implements RMIProtocol
     }
 
     /**
+     * Get Updated Board
+     * @param id
+     * @return
+     * @throws RemoteException
+     */
+    @Override
+    public Board getBoardUpdates(int id) throws RemoteException {
+        return getController(id).getBoard();
+    }
+
+    /**
+     * Get Updates on player whose turn is
+     * @param id
+     * @return
+     */
+    @Override
+    public Player getPlayersTurn(int id) throws RemoteException {
+        return getController(id).getPlayerInTurn();
+    }
+
+    /**
+     * Send Action done
+     * @param id
+     * @param action
+     */
+    @Override
+    public RemotePlayer sendAction(int id, Action action) throws RemoteException{
+        //Send Action to the controller so that he can manage it
+        getController(id).managePlayerAction(action);
+
+        return getRemotePlayerById(id);
+    }
+
+    /**
      * Get the remote player with the required id
      * @param id integer used to indentify the players uniquely
      * @return RemotePlayer of the required player
      */
-    private RemotePlayer getRemotePlayerById(int id){
+    private RemotePlayer getRemotePlayerById(int id) throws RemoteException{
         ArrayList<TheGame> games = lobby.getGames();
         RemotePlayer player = null;
 
@@ -97,5 +136,18 @@ public class RMIProtocolImpl  extends UnicastRemoteObject implements RMIProtocol
         }
 
         return player;
+    }
+
+    /**
+     * Get controller from user ID
+     * @param id of the player
+     * @return GameFacadeController instance
+     */
+    private GameFacadeController getController(int id) throws RemoteException{
+        //Get remote player by id
+        RemotePlayer player = getRemotePlayerById(id);
+
+        //Remove color from it's game
+        return  player.getGameReference().getTheController();
     }
 }

@@ -5,7 +5,7 @@ import controllers.Player;
 import controllers.game_course.Action;
 import controllers.game_course.HarvestAction;
 import controllers.game_course.ProductionAction;
-import game.TheGame;
+import game.Client;
 import game.network.protocol.RMIProtocol;
 import models.board.Board;
 import views.cli.GameView;
@@ -15,8 +15,8 @@ import javax.naming.InitialContext;
 import javax.naming.NameClassPair;
 import javax.naming.NamingException;
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.rmi.server.ServerNotActiveException;
-import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**
@@ -28,6 +28,7 @@ public class RMIClient implements ClientInterface{
     private GameView gameView;
     private Player player;
     private Board oldBoard;
+    RMIProtocol rmiProtocol;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -65,7 +66,7 @@ public class RMIClient implements ClientInterface{
 
         //Connect to RMI Server
         String url = "rmi://localhost:"+ this.port + "/rmi_protocol";
-        RMIProtocol rmiProtocol = (RMIProtocol) namingContext.lookup(url);
+        rmiProtocol = (RMIProtocol) namingContext.lookup(url);
 
         //Set a remote instance of this client on the server
         rmiProtocol.setInstance(player.getName(), player.getID());
@@ -118,15 +119,25 @@ public class RMIClient implements ClientInterface{
         this.player = player;
     }
 
-    public void getPlayerUpdates(){}
-
     /**
      * Get Updates On the Board.
      * That basically includes every thing that happens on the game.
      */
     @Override
     public void getBoardUpdates() {
+        try {
+            Board board = rmiProtocol.getBoardUpdates(player.getID());
 
+            //If any changes, update the map
+            if(board.equals(oldBoard) == false) {
+                gameView.printAllBoard(player, board);
+            }
+
+            // Save the old board
+            oldBoard = board;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -134,7 +145,30 @@ public class RMIClient implements ClientInterface{
      */
     @Override
     public void getPLayersTurn() {
+       /* try {
+            //Get the data from the object
+            Player newPlayer = rmiProtocol.getPlayersTurn(player.getID());
 
+            //If any changes, update the map
+            if(newPlayer != null) {
+                if(this.player.isSameAs(newPlayer) && Client.isMyTurn() == false){
+                    //Update player
+                    this.player = newPlayer;
+
+                    //My Turn now --> inform the client
+                    gameView.printYourTurn();
+                    Client.setMyTurn(true);
+                }
+                else if (Client.getPlayerInTurn().isSameAs(newPlayer) == false) {
+                    //Turn has changed -> New player
+                    Client.setPlayerInTurn(newPlayer);
+                    Client.setMyTurn(false);
+                    gameView.printPlayerTurn(newPlayer.getName());
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }*/
     }
 
     /**
@@ -142,7 +176,11 @@ public class RMIClient implements ClientInterface{
      */
     @Override
     public void sendAction(Action action) {
-
+        try{
+            rmiProtocol.sendAction(player.getID(), action);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     public void sendExtendedAction(Action action) {
