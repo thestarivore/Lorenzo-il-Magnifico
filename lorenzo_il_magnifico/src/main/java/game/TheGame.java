@@ -289,6 +289,30 @@ public class TheGame implements Serializable {
     }
 
     /**
+     * Get list of suspended players
+     */
+    public List<RemotePlayer> getSuspendedPlayers() {
+        return suspendedPlayers;
+    }
+
+    /**
+     * Set the list of suspended players
+     */
+    public void setSuspendedPlayers(List<RemotePlayer> suspendedPlayers) {
+        this.suspendedPlayers = suspendedPlayers;
+    }
+
+    /**
+     * Controls if there is any suspended player.
+     */
+    public boolean isAnySuspendedPlayer(){
+        if(suspendedPlayers.size() > 0)
+            return true;
+        else
+            return false;
+    }
+
+    /**
      * Starts a game timeout for the client connection
      */
     private void startGameTimeOut() {
@@ -404,6 +428,33 @@ public class TheGame implements Serializable {
         for(int i = 0; i < getNumberOfPlayers(); i++){
             if(players.get(i).isSameAs(currentPlayer)){
                 suspendedPlayers.add(players.remove(i));
+            }
+        }
+    }
+
+    /**
+     * Reconnect player in this game. Basically move
+     * it from the list of suspended players to the list of
+     * players.
+     * @param suspendedPlayer
+     */
+    public void reconnectPlayer(Player suspendedPlayer) {
+        //Get player that has been suspended
+        for(int i = 0; i < getSuspendedPlayers().size(); i++){
+            if(suspendedPlayers.get(i).isSameAs(suspendedPlayer)){
+                players.add(suspendedPlayers.remove(i));
+                playersAllowed++;
+
+                //Update Turns
+                getTheController().getCurrentRound().updateActionPlayerTurn();
+
+                // Alert all players about their contender reconnection
+                int numPlayers = getNumberOfPlayers();
+                for(int j = 0; j < numPlayers; j++){
+                    //Get player of this index
+                    RemotePlayer player = getPlayer(j);
+                    player.sendCmdToClient(ProtocolCommands.PLAYER_RECONNECTED.getCommand(), suspendedPlayer);
+                }
             }
         }
     }

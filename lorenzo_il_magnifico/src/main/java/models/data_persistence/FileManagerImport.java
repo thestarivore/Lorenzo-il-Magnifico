@@ -96,7 +96,7 @@ public class FileManagerImport implements Serializable{
         String configFiles = "lorenzo_il_magnifico/src/main/resources/Config.json";
         try (Reader reader = new FileReader(configFiles)) {
             configFile = gson.fromJson(reader, Config.class);
-                System.out.println(configFile);
+                //System.out.println(configFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
