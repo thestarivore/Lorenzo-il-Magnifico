@@ -1,0 +1,9 @@
+To start the server Run the SERVER class located in Game->Network
+To start the server Run the CLIENT class located in Game->Network
+
+insert your name (minimum 3 characters), then choose the protocol and your color,
+when the second client is connected starts the timeout of 15000ms
+if no other player connects to the game the game starts.
+in the config.json File you can change the parameters of the game.
+all the Cards are loaded from files from the folder Resources.
+
