@@ -316,6 +316,11 @@ public class SocketClient implements ClientInterface{
                 managePlayerSuspended(line, obj);
             }
 
+            // Alert of a contender player Reconnected
+            if(ProtocolCommands.PLAYER_RECONNECTED.isThisCmd(line)){
+                managePlayerReconnected(line, obj);
+            }
+
             if(ProtocolCommands.NONE.isThisCmd(line)){
                 manageNone(line, obj);
             }
@@ -470,6 +475,27 @@ public class SocketClient implements ClientInterface{
             }
             else {
                 gameView.printPlayerSuspended(suspendedPlayer.getName());
+            }
+        }
+    }
+
+    /**
+     * Manage Player Reconnected Command.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
+     */
+    private void managePlayerReconnected(String command, Object obj) {
+        //Get the data from the object
+        Player reconnectedPlayer = (Player) obj;
+
+        //If any changes, update the map
+        if(reconnectedPlayer != null) {
+            if(reconnectedPlayer.isSameAs(player)){
+                gameView.printYouBeenReconnected();
+                Client.suspend(false);
+            }
+            else {
+                gameView.printPlayerReconnected(reconnectedPlayer.getName());
             }
         }
     }

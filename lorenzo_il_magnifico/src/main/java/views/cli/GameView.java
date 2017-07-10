@@ -5,10 +5,12 @@ import controllers.game_course.Action;
 import controllers.game_course.HarvestAction;
 import controllers.game_course.ProductionAction;
 import game.TheGame;
+import models.Config;
 import models.Points;
 import models.Resources;
 import models.board.*;
 import models.cards.DevelopmentCard;
+import models.data_persistence.FileManagerImport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,9 @@ import static java.lang.Integer.parseInt;
 public class GameView {
     private TheGame game;
     private boolean gettingAction;
+    private Config gameConfig;
+    private FileManagerImport fileImporter;
+    private int getLineTimeout;
 
     //Constants
     public static final int ACTION_SPACE_HEIGHT = 4;
@@ -41,10 +46,23 @@ public class GameView {
     public GameView() {
         this.gettingAction = false;
 
+        //Read configs from file
+        initConfigurations();
+        getLineTimeout = gameConfig.getTimeOutMove();
+
         /*
             Here we initialize all the graphical parts.
             All listeners, must be passed to the Controller, witch will take action accordingly.
          */
+    }
+
+    /**
+     * Configuration Initialization
+     */
+    private void initConfigurations(){
+        //Get configurations
+        fileImporter = new FileManagerImport();
+        gameConfig = fileImporter.acquireConfigurations();
     }
 
     /**
@@ -621,7 +639,7 @@ public class GameView {
 
         //Use consoleInput class to get input with a timeout
         ConsoleInput con = new ConsoleInput(
-                20000,
+                getLineTimeout,
                 TimeUnit.MILLISECONDS
         );
         String input = "TIMEOUT_OCCURRED!";
@@ -993,6 +1011,25 @@ public class GameView {
     public void printYouBeenSuspended() {
         printLine("######################################");
         printLine("You've been suspended! ");
+        printLine("######################################");
+    }
+
+    /**
+     * Print the message for player suspended
+     * @param name
+     */
+    public void printPlayerReconnected(String name) {
+        printLine("######################################");
+        printLine("Player "+name+" has been reconnected! ");
+        printLine("######################################");
+    }
+
+    /**
+     * Print the message for player suspended
+     */
+    public void printYouBeenReconnected() {
+        printLine("######################################");
+        printLine("You've been reconnected! ");
         printLine("######################################");
     }
 

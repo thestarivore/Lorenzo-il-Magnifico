@@ -85,4 +85,5 @@ public class RemotePlayer extends Player {
     public void suspend(){
         remoteClientThread.disconnect();
     }
+
 }
