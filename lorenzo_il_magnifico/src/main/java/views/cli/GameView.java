@@ -1116,8 +1116,7 @@ public class GameView {
      */
     public void printPlayerInfo(Player player) {
 
-        printLine("Name: " + player.getName());
-//        printLine("Color: " + player.getColor().getColor());
+        printLine("Name: " + player.getName().toUpperCase());
         printLine("Servant: " + player.getRes().getServants());
         printLine("Stones: " + player.getRes().getStones());
         printLine("Woods: " + player.getRes().getWoods());
@@ -1125,20 +1124,32 @@ public class GameView {
         printLine("Faith Points: " + player.getPoints().getFaith());
         printLine("Military Points: " + player.getPoints().getMilitary());
         printLine("Victory Points: " + player.getPoints().getVictory());
+        printLine("");
         printLine("Card of the Player: ");
 
+        printLine("TERRITORIES");
+        for (int i = 0; i < player.getPersonalBoard().getTerritories().size(); i++)
+            printLine(player.getPersonalBoard().getTerritory(i).getName());
+        printLine("");
+        printLine("CHARACTERS");
         for (int i = 0; i < player.getPersonalBoard().getCharacters().size(); i++)
             printLine(player.getPersonalBoard().getCharacter(i).getName());
+        printLine("");
+        printLine("BUILDINGS");
         for (int i = 0; i < player.getPersonalBoard().getBuildings().size(); i++)
             printLine(player.getPersonalBoard().getBuilding(i).getName());
+        printLine("");
+        printLine("VENTURES");
         for (int i = 0; i < player.getPersonalBoard().getVentures().size(); i++)
         printLine(player.getPersonalBoard().getVenture(i).getName());
-        for (int i = 0; i < player.getPersonalBoard().getTerritories().size(); i++)
-        printLine(player.getPersonalBoard().getTerritory(i).getName());
-
-
+        printLine("");
     }
 
+
+    /**
+     * Print Dice on the Board
+     * @param board
+     */
     public void printDice(Board board) {
         String[] dice = new String[GameView.DICE_HEIGHT];
         for (int i = 0; i < GameView.DICE_HEIGHT; i++)
