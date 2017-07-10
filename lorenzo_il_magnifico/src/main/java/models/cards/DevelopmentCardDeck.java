@@ -24,8 +24,7 @@ public class DevelopmentCardDeck extends Deck implements Serializable {
     }
 
     public DevelopmentCard getCardFromDeck() {
-        DevelopmentCard card = new DevelopmentCard();
-        card = developmentCards.get(0);
+        DevelopmentCard card  = developmentCards.get(0);
         developmentCards.remove(0);
         return card;
     }

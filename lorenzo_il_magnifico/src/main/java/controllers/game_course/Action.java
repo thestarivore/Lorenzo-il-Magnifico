@@ -221,9 +221,10 @@ public class Action implements Serializable {
         boolean free;
         free = checkFreeMarketSpace(space);
 
-        if (free)
+        if (free) {
             board.getMarket().getSpace(space).setFamilyMember(familyMember);
-
+            board.getMarket().getSpace(space).setOccupied();
+        }
         return free;
     }
 

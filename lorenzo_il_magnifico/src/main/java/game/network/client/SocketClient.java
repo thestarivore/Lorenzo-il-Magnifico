@@ -311,6 +311,10 @@ public class SocketClient implements ClientInterface{
                 manageChurchSustainQuestion(line, obj);
             }
 
+            //Update Player
+            if(ProtocolCommands.PLAYER_UPDATE.isThisCmd(line))
+                managePlayerUpdate(line, obj);
+
             // Alert of a contender player Suspended
             if(ProtocolCommands.PLAYER_SUSPENDED.isThisCmd(line)){
                 managePlayerSuspended(line, obj);
@@ -412,6 +416,25 @@ public class SocketClient implements ClientInterface{
         }
     }
 
+    /**
+     * Manage Player Update
+     * @param command
+     * @param obj
+     */
+    private void managePlayerUpdate(String command, Object obj) {
+        Player player = (Player) obj;
+
+        if (this.player.isSameAs(player)) {
+            //Update player
+            this.player = player;
+        }
+    }
+
+    /**
+     * Manage Immediate Take Bonus Card
+     * @param command
+     * @param obj
+     */
     private void manageImmediateTakeCard(String command, Object obj) {
         Client.setFsmState(Client.FSMClient.EXTENDED_ACTION);
     }
@@ -440,6 +463,7 @@ public class SocketClient implements ClientInterface{
      * @param obj Object instance of the object received
      */
     private void manageChurchSustainQuestion(String command, Object obj) {
+        Client.setMyTurn(false);
         String choice = gameView.askForChurchSustain();
 
         // If player answered yes then sustain the church, don't sustain

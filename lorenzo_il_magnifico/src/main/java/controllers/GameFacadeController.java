@@ -191,12 +191,6 @@ public class GameFacadeController {
         for (int i = 0; i < game.getPlayersAllowed(); i++)
             if (game.getPlayer(i) == getPlayerInTurn())
         actionExecute = action.execute(game.getPlayer(i));
-        System.err.println("manageplayeraction");
-        System.err.println(actionExecute);
-
-
-        GameView gameView = new GameView();
-        gameView.printAllBoard(getPlayerInTurn(), getBoard());
 
         //Get Player's turn number
         Player playerInTurn = getPlayerInTurn();
@@ -206,7 +200,6 @@ public class GameFacadeController {
             if (playersTurnNum != -1)
                 getCurrentRound().updateActionPlayerTurn(playersTurnNum);
         }
-
         return actionExecute;
     }
 

@@ -173,13 +173,23 @@ public class Round {
 
         //Get action spaces from The Harvest Area and delete family members
         HarvestArea harvestArea = board.getHarvestArea();
+        harvestArea.getSingleSpace().setNotOccupied();
         harvestArea.getSingleSpace().setFamilyMember(null);
         harvestArea.setMultipleSpace(new ArrayList<ActionSpace>());
 
         //Get action spaces from The Production Area and delete family members
         ProductionArea productionAction = board.getProductionArea();
+        productionAction.getSingleSpace().setNotOccupied();
         productionAction.getSingleSpace().setFamilyMember(null);
         productionAction.setMultipleSpace(new ArrayList<ActionSpace>());
+
+        //Update Board Client Side
+        int numPlayers = controller.getGame().getNumberOfPlayers();
+        for(int i = 0; i < numPlayers; i++){
+            //Get player of this index
+            RemotePlayer player = controller.getGame().getPlayer(i);
+            player.sendCmdToClient(ProtocolCommands.UPDATED_BOARD.getCommand(), board);
+        }
     }
 
 
@@ -193,6 +203,7 @@ public class Round {
             //Get player of this index
             RemotePlayer player = controller.getGame().getPlayer(i);
             player.createNewFamilyMembers();
+            player.sendCmdToClient(ProtocolCommands.PLAYER_UPDATE.getCommand(), player);
         }
     }
 
@@ -203,8 +214,8 @@ public class Round {
      */
     private void doVaticanReport(){
         //Get round and period indexes
-        int round = controller.getPeriodIndex();
-        int period= controller.getCurrentPeriod().getRoundIndex();
+        int period = controller.getPeriodIndex();
+        int round = controller.getCurrentPeriod().getRoundIndex();
         int numPlayers = controller.getGame().getNumberOfPlayers();
 
         //Do Vatican Report only on the second round of each period
@@ -226,6 +237,7 @@ public class Round {
                     //TODO:show the punishment on the board
                     Defect defect = getDefectByPeriod();
                     player.addDefects(defect);
+                    player.sendCmdToClient(ProtocolCommands.PLAYER_UPDATE.getCommand(), player);
                     playersResponded++;
                 }
             }

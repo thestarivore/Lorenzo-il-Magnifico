@@ -104,7 +104,7 @@ public class Period {
 
                 //Control if round has finished
                 if(rounds[FIRST_ROUND].isFinished())
-                    roundIndex = SECOND_ROUND;
+                roundIndex = SECOND_ROUND;
             }break;
             //Second Round
             case SECOND_ROUND:{

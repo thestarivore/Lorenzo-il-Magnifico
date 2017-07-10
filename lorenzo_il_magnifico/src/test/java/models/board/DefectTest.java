@@ -1,5 +1,8 @@
 package models.board;
 
+import com.sun.org.apache.regexp.internal.RE;
+import models.Points;
+import models.Resources;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,8 +14,8 @@ public class DefectTest {
     @Test
     public void addFormOther() throws Exception {
         Defect  defect = new Defect();
-        defect.setDice(4);
         defect.addFormOther(defect);
+        assertEquals(defect.getPoints().getVictory(),0);
 
     }
 
