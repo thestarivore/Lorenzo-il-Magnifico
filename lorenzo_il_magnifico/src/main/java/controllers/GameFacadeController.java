@@ -192,9 +192,6 @@ public class GameFacadeController {
             if (game.getPlayer(i) == getPlayerInTurn())
         actionExecute = action.execute(game.getPlayer(i));
 
-        GameView gameView = new GameView();
-        gameView.printAllBoard(getPlayerInTurn(), getBoard());
-
         //Get Player's turn number
         Player playerInTurn = getPlayerInTurn();
         int playersTurnNum = game.getPlayerTurnNumber(playerInTurn);
