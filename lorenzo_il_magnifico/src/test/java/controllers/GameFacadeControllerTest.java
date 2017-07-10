@@ -2,6 +2,7 @@ package controllers;
 
 import game.TheGame;
 import models.GameFacadeModel;
+import models.board.TheMarket;
 import models.cards.DevelopmentCard;
 import models.cards.DevelopmentCardDeck;
 import org.junit.Test;
@@ -19,12 +20,21 @@ public class GameFacadeControllerTest {
     public void managePlayerAction() throws Exception {
     }
 
-    @Test
-    public void fillTheTower() throws Exception {
+/**
+      @Test
+      public void fillTheTower() throws Exception {
+          TheGame game = new TheGame();
+          GameFacadeModel gameFacadeModel = new GameFacadeModel(1);
+          GameFacadeController gameFacadeController = new GameFacadeController(gameFacadeModel,game);
+
     }
 
     @Test
     public void throwDice() throws Exception {
+        TheGame game = new TheGame();
+        GameFacadeModel gameFacadeModel = new GameFacadeModel(1);
+        GameFacadeController gameFacadeController = new GameFacadeController(gameFacadeModel,game);
+
     }
 
     @Test
@@ -34,5 +44,5 @@ public class GameFacadeControllerTest {
     @Test
     public void performHarvestAction() throws Exception {
     }
-
+*/
 }
