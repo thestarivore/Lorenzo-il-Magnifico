@@ -122,6 +122,9 @@ public class Action implements Serializable {
 
         //Tower choice
         if(actionChoice == 0 && checkCardRequest(player, board.getTower(tower).getSpace(space).getCard())) {
+
+            if(tower == 0 && !checkPersonalBoardRequest(player))
+                   return check;
             //Perform tower action choice
             check = towerAction(player, tower, space, familyMember, servants);
             //If there is Bonus Card Immediate Effect, ask player for info
@@ -566,6 +569,38 @@ public class Action implements Serializable {
         return valid;
     }
 
+    public boolean checkPersonalBoardRequest(Player player) {
+        boolean valid = false;
+
+        int size = player.getPersonalBoard().getTerritories().size();
+
+        if (size > 1) {
+            switch (size) {
+                case 2: {
+                    if (player.getPoints().getMilitary() >= 3)
+                        return true;
+                }
+                break;
+
+                case 3: {
+                    if (player.getPoints().getMilitary() >= 7)
+                        return true;
+                }
+                break;
+                case 4: {
+                    if (player.getPoints().getMilitary() >= 12)
+                        return true;
+                }
+                break;
+                case 5: {
+                    if (player.getPoints().getMilitary() >= 18)
+                        return true;
+                }
+            }
+        } else valid = true;
+
+        return valid;
+    }
 
 }
 
