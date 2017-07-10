@@ -1,10 +1,12 @@
 package game.network.protocol;
 
-import game.TheGame;
+import controllers.Player;
+import controllers.RemotePlayer;
+import controllers.game_course.Action;
+import models.board.Board;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 /**
  * Created by Eduard Chirica on 6/11/17.
@@ -32,4 +34,22 @@ public interface RMIProtocol  extends Remote {
      */
     void setPlayerColor(int id, String color) throws RemoteException;
 
+    /**
+     * Get updated board from server
+     * @param id
+     */
+    Board getBoardUpdates(int id) throws RemoteException;
+
+    /**
+     * Get Turn updates
+     * @param id
+     */
+    Player getPlayersTurn(int id) throws RemoteException;
+
+    /**
+     * Send Action done to the Server
+     * @param id
+     * @param action
+     */
+    RemotePlayer sendAction(int id, Action action) throws RemoteException;
 }

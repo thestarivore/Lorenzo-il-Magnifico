@@ -33,6 +33,8 @@ public class FileManagerImport implements Serializable{
         ArrayList<DevelopmentCard> developmentCards = new ArrayList<DevelopmentCard>();
         final Type dCardType = new TypeToken<ArrayList<DevelopmentCard>>(){}.getType();
         Gson gson = new Gson();
+        /** ClassLoader classLoader = getClass().getClassLoader();
+        File dCardFile = new File(classLoader.getResource("DevCard.json").getFile());*/
         String dCardFile = "lorenzo_il_magnifico/src/main/resources/DevCard.json";
         try (Reader reader = new FileReader(dCardFile)) {
             developmentCards = gson.fromJson(reader, dCardType);
@@ -57,6 +59,8 @@ public class FileManagerImport implements Serializable{
         final Type lCardType = new TypeToken<ArrayList<LeaderCard>>(){}.getType();
         Gson gson = new Gson();
         String lCardFile = "lorenzo_il_magnifico/src/main/resources/LeaderCard.json";
+        /**ClassLoader classLoader = getClass().getClassLoader();
+        File lCardFile = new File(classLoader.getResource("LeaderCard.json").getFile());*/
         try (Reader reader = new FileReader(lCardFile)) {
             leaderCards = gson.fromJson(reader, lCardType);
             for(int i = 0; i < leaderCards.size(); i++) {
@@ -76,6 +80,8 @@ public class FileManagerImport implements Serializable{
         final Type tilesType = new TypeToken<ArrayList<ExcommunicationTile>>(){}.getType();
         Gson gson = new Gson();
         String tilesFiles = "lorenzo_il_magnifico/src/main/resources/ExcommunicationsTiles.json";
+        /**ClassLoader classLoader = getClass().getClassLoader();
+        File tilesFiles = new File(classLoader.getResource("ExcommunicationsTiles.json").getFile());*/
         try (Reader reader = new FileReader(tilesFiles)) {
             excommunicationTiles = gson.fromJson(reader, tilesType);
             for(int i = 0; i < excommunicationTiles.size(); i++) {
@@ -93,6 +99,8 @@ public class FileManagerImport implements Serializable{
     public Config acquireConfigurations(){
         Gson gson = new Gson();
         Config configFile = new Config();
+        /**ClassLoader classLoader = getClass().getClassLoader();
+        File configFiles = new File(classLoader.getResource("Config.json").getFile());*/
         String configFiles = "lorenzo_il_magnifico/src/main/resources/Config.json";
         try (Reader reader = new FileReader(configFiles)) {
             configFile = gson.fromJson(reader, Config.class);
@@ -112,6 +120,8 @@ public class FileManagerImport implements Serializable{
         final Type boardType = new TypeToken<ArrayList<PersonalBoard>>() {
         }.getType();
         Gson gson = new Gson();
+        /**ClassLoader classLoader = getClass().getClassLoader();
+        File boardFiles = new File(classLoader.getResource("PlayerBoard.json").getFile());*/
         String boardFiles = "lorenzo_il_magnifico/src/main/resources/PlayerBoard.json";
         try (Reader reader = new FileReader(boardFiles)) {
             personalBoards = gson.fromJson(reader, boardType);

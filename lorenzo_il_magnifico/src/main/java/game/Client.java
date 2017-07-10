@@ -128,7 +128,7 @@ public class Client {
     /**
      * Final State Machine - Current Client State
      */
-    private static boolean DEBUGGING  = true;
+    private static boolean DEBUGGING  = false;
 
     /**
      * The current action slot being updated from the server
