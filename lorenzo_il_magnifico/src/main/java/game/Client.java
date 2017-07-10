@@ -262,32 +262,34 @@ public class Client {
                                 case 0: {
                                     Action action = client.getAction(actionType);
                                     client.sendAction(action);
-                                    //myTurn = false;
+                                    myTurn = false;
                                 }
                                 break;
                                 case 1: {
                                     Action action = client.getCouncilAction(actionType);
                                     client.sendAction(action);
-                                    //myTurn = false;
+                                    myTurn = false;
                                 }
                                 break;
                                 case 2: {
                                     Action action = client.getHarvestAction(actionType);
                                     client.sendAction(action);
-                                    //myTurn = false;
+                                    myTurn = false;
                                 }
                                 break;
                                 case 3: {
                                     Action action = client.getProductionAction(actionType);
                                     client.sendAction(action);
+                                    myTurn = false;
                                 }
                                 break;
                                 case 4: {
                                     Action action = client.getMarketAction(actionType);
                                     client.sendAction(action);
+                                    myTurn = false;
                                 }break;
                             }
-                            ignoreAction = 3;
+                            ignoreAction = 7;
                         }
                         fsmState = FSMClient.SOMETHNG_TO_DO;
 
@@ -302,8 +304,8 @@ public class Client {
                     case EXTENDED_ACTION: {
                         Action action = client.getImmediateTakeCard();
                         client.sendExtendedAction(action);
-                        fsmState = FSMClient.BOARD_UPDATES;
-                        ignoreAction = 3;
+                        fsmState = FSMClient.TURN_UPDATE;
+                        ignoreAction = 7;
                     }break;
                 }
             }

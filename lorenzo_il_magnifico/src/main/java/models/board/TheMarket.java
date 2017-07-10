@@ -51,6 +51,15 @@ public class TheMarket implements Serializable {
         this.space[i] = space;
     }
 
+    public void setAvailableSpace(int numberOfPlayer) {
+        switch (numberOfPlayer) {
+            case 2: {
+                this.space[2] = null;
+                this.space[3] = null;
+            }
+        }
+    }
+
     /**
      * Indicates whether some other object is "equal to" this one.
      * <p>

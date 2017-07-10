@@ -191,9 +191,6 @@ public class GameFacadeController {
         for (int i = 0; i < game.getPlayersAllowed(); i++)
             if (game.getPlayer(i) == getPlayerInTurn())
         actionExecute = action.execute(game.getPlayer(i));
-        System.err.println("manageplayeraction");
-        System.err.println(actionExecute);
-
 
         GameView gameView = new GameView();
         gameView.printAllBoard(getPlayerInTurn(), getBoard());

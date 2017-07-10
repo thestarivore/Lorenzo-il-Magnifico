@@ -3,6 +3,7 @@ package controllers.game_course;
 import controllers.Player;
 import controllers.RemotePlayer;
 import models.board.ActionSpace;
+import models.board.Dice;
 import models.board.FamilyMember;
 
 /**
@@ -64,22 +65,46 @@ public class ProductionAction extends Action {
             return free;
         }
 
-        //If multipleSpace is available, place family member
-        if (board.getNumberOfPlayer() > 2) {
-            board.getProductionArea().addMultipleSpace();
-            int i = board.getProductionArea().getMultipleSpace().size();
-            board.getProductionArea().getMultipleSingleSpace(i - 1).setFamilyMember(famMember);
-            board.getProductionArea().getMultipleSingleSpace(i - 1).setOccupied();
+        free = checkNoSameColorFamilyMember(famMember);
+        if(free) {
+            //If multipleSpace is available, place family member
+            if (board.getNumberOfPlayer() > 2) {
+                board.getProductionArea().addMultipleSpace();
+                int i = board.getProductionArea().getMultipleSpace().size();
+                board.getProductionArea().getMultipleSingleSpace(i - 1).setFamilyMember(famMember);
+                board.getProductionArea().getMultipleSingleSpace(i - 1).setOccupied();
 
-            //Family member value on multipleSingle space decrease
-            int value = famMember.getValue();
-            famMember.setValue(value - 3);
+                //Family member value on multipleSingle space decrease
+                int value = famMember.getValue();
+                famMember.setValue(value - 3);
+            }
         }
         return free;
     }
 
     public boolean checkFreeActionSpace() {
         return (!(board.getProductionArea().getSingleSpace().isOccupied()));
+    }
+
+    /**
+     * Check if there are other family member with the same color
+     * @param familyMember
+     * @return
+     */
+    public boolean checkNoSameColorFamilyMember(FamilyMember familyMember) {
+        boolean valid = true;
+
+        if (familyMember.getDiceColor() == Dice.COLORS.NEUTER)
+            return valid;
+
+        if (board.getProductionArea().getSingleSpace().getFamilyMember().getPlayerColor() != familyMember.getPlayerColor()) {
+            for (int i = 0; i < board.getProductionArea().getMultipleSpace().size(); i++) {
+                if (board.getProductionArea().getMultipleSingleSpace(i).getFamilyMember().getPlayerColor() == familyMember.getPlayerColor())
+                    valid = false;
+            }
+        } else valid = false;
+
+        return valid;
     }
 
 

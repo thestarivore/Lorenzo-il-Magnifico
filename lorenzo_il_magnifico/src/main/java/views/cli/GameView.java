@@ -9,6 +9,7 @@ import models.Points;
 import models.Resources;
 import models.board.*;
 import models.cards.DevelopmentCard;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -502,9 +503,14 @@ public class GameView {
                 "3 - 2 Different Council Privilege(4 Players)");
         ArrayList<String> list = new ArrayList<String>(){
             {
-                for (int i = 0; i < board.getMarket().getArraySpace().length; i++)
-                    if (!board.getMarket().getSpace(i).isOccupied())
+                if (board.getNumberOfPlayer() == 4) {
+                    for (int i = 0; i < board.getMarket().getArraySpace().length; i++)
+                        if (!board.getMarket().getSpace(i).isOccupied())
+                            add(String.valueOf(i));
+                } else {
+                    for (int i = 0; i < board.getMarket().getArraySpace().length - 2; i++)
                         add(String.valueOf(i));
+                }
             }
         };
         return parseInt(getValidParameter(list));
