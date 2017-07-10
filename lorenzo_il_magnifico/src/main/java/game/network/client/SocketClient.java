@@ -58,6 +58,10 @@ public class SocketClient implements ClientInterface{
      */
     private static SocketClient instance = null;
 
+    /**
+     * Socket Instance of the client
+     */
+    private Socket socket;
 
     /**
      * Get Istance of the Client, creat a new one if none is present
@@ -89,7 +93,7 @@ public class SocketClient implements ClientInterface{
      * @throws IOException
      */
     private void startClient() throws IOException, ClassNotFoundException {
-        Socket socket = new Socket(ip, port);
+        socket = new Socket(ip, port);
         System.out.println("Connection established");
 
         //Input/Output Streams
@@ -302,7 +306,6 @@ public class SocketClient implements ClientInterface{
                 manageActionProcessed(line, obj);
             }
 
-
             // Church Sustain Question
             if(ProtocolCommands.ASK_CHURCH_SUSTAIN.isThisCmd(line)){
                 manageChurchSustainQuestion(line, obj);
@@ -312,16 +315,17 @@ public class SocketClient implements ClientInterface{
             if(ProtocolCommands.PLAYER_UPDATE.isThisCmd(line))
                 managePlayerUpdate(line, obj);
 
+            // Alert of a contender player Suspended
+            if(ProtocolCommands.PLAYER_SUSPENDED.isThisCmd(line)){
+                managePlayerSuspended(line, obj);
+            }
+
 
             if(ProtocolCommands.NONE.isThisCmd(line)){
                 manageNone(line, obj);
             }
-
-
         }
     }
-
-
 
 
     /**
@@ -465,6 +469,33 @@ public class SocketClient implements ClientInterface{
         }
         else if(choice.equals("n")) {
             sustainChurch(false);
+        }
+    }
+
+    /**
+     * Manage Player Suspended Command.
+     * @param command String of the command received
+     * @param obj Object instance of the object received
+     */
+    private void managePlayerSuspended(String command, Object obj) {
+        //Get the data from the object
+        Player suspendedPlayer = (Player) obj;
+
+        //If any changes, update the map
+        if(suspendedPlayer != null) {
+            if(suspendedPlayer.isSameAs(player)){
+                gameView.printYouBeenSuspended();
+                Client.suspend(true);
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Client.manageReconnection();
+            }
+            else {
+                gameView.printPlayerSuspended(suspendedPlayer.getName());
+            }
         }
     }
 

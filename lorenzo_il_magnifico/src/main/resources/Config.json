@@ -1,6 +1,6 @@
 {
   "timeOutGame": 5000,
-  "timeOutMove": 15000,
+  "timeOutMove": 20000,
   "rewardFaithTrack":[0,1,2,3,4,5,7,9,11,13,15,17,19,22,25,30],
   "tower": [{
     "numberOfTower": 1,
